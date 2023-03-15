@@ -11,7 +11,15 @@
 	</settings>
 	
 	<typeAliases>
-		<typeAlias type="co.start.vo.MemberVO" alias="MemberVO" />
+		<typeAlias type="co.start.vo.UserVO" alias="UserVO" />
+		<typeAlias type="co.start.vo.BoardVO" alias="BoardVO" />
+		<typeAlias type="co.start.vo.CommentsVO" alias="CommentsVO" />
+		<typeAlias type="co.start.vo.CouponVO" alias="CouponVO" />
+		<typeAlias type="co.start.vo.MessageVO" alias="MessageVO" />
+		<typeAlias type="co.start.vo.PaytotalVO" alias="PaytotalVO" />
+		<typeAlias type="co.start.vo.PaydetailVO" alias="PaydetailVO" />
+		<typeAlias type="co.start.vo.ProductVO" alias="ProductVO" />
+		<typeAlias type="co.start.vo.StartpayVO" alias="StartpayVO" />
 	</typeAliases>
 	
   <environments default="development">
@@ -27,6 +35,8 @@
   </environments>
   <mappers>
     <mapper resource="co/start/mapper/ProductMapper.xml"/>
-    <mapper resource="co/start/mapper/MemberMapper.xml"/>
+    <mapper resource="co/start/mapper/UserMapper.xml"/>
+    <mapper resource="co/start/mapper/BoardMapper.xml"/>
+    <mapper resource="co/start/mapper/PaymentMapper.xml"/>
   </mappers>
 </configuration>

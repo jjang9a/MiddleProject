@@ -23,6 +23,14 @@ public class FrontController extends HttpServlet {
 	@Override
 	public void init(ServletConfig config) throws ServletException {
 		map.put("/main.do", new MainControl());
+		// 가애
+		
+		// 순덕
+		
+		// 용억
+		
+		// 대준
+		
 	}
 
 	@Override
