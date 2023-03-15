@@ -36,24 +36,23 @@
                                 <div class="nav-item dropdown">
                                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">상품 메뉴</a>
                                     <div class="dropdown-menu rounded-0 m-0">
-                                        <a href="booking.html" class="dropdown-item">Booking</a>
-                                        <a href="team.html" class="dropdown-item">Our Team</a>
-                                        <a href="testimonial.html" class="dropdown-item">Testimonial</a>
+                                        <a href="booking.html" class="dropdown-item">숙소 상품</a>
+                                        <a href="testimonial.html" class="dropdown-item">지역 명물</a>
                                     </div>
                                 </div>
 
                                 <div class="nav-item dropdown">
                                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">커뮤니티</a>
                                     <div class="dropdown-menu rounded-0 m-0">
-                                        <a href="booking.html" class="dropdown-item">Booking</a>
-                                        <a href="team.html" class="dropdown-item">Our Team</a>
-                                        <a href="testimonial.html" class="dropdown-item">Testimonial</a>
+                                        <a href="booking.html" class="dropdown-item">동행 구해요</a>
+                                        <a href="team.html" class="dropdown-item">동행 후기</a>
+                                        <a href="testimonial.html" class="dropdown-item">여행 수기</a>
                                     </div>
                                 </div>
 
                                 <a href="contact.html" class="nav-item nav-link">마이페이지</a>
                                 <a href="contact.html" class="nav-item nav-link">고객센터</a>
-
+                                <a href="contact.html" class="nav-item nav-link">관리모드</a>
                             </div>
                             <a href="#" class="btn btn-primary rounded-0 py-4 px-md-5 d-none d-lg-block" style="width: 200px; padding: 0;"> <img src="/img/cart.png" alt="장바구니" style="width: 25%; height: 25%;">&nbsp 장바구니</a>
                         </div>

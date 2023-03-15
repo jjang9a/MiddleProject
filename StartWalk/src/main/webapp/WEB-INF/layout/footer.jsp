@@ -6,9 +6,9 @@
                     
                     <div class="col-md-6 col-lg-3" style="width: 300px;">
                         <h6 class="section-title text-start text-primary text-uppercase mb-4">회사 정보</h6>
-                        <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>대구 중구 중앙대로 </p>
-                        <p class="mb-2"></p><i class="fa fa-phone-alt me-3"></i>+010-1111-2222 </p>
-                        <p class="mb-2"></p><i class="fa fa-envelope me-3"> </i>yedam@yedam.com</p>
+                        <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>대구 중구 중앙대로 403 5층</p>
+                        <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>053-421-2460 </p>
+                        <p class="mb-2"><i class="fa fa-envelope me-3"> </i>yedam@yedam.com</p>
 
                         <p class="mb-2"></p>
                         <div class="d-flex pt-2">
