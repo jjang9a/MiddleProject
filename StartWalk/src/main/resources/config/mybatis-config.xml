@@ -34,14 +34,14 @@
     </environment>
   </environments>
   <mappers>
-<<<<<<< HEAD
+
     <mapper resource="co/start/mapper/UserMapper.xml"/>
     <mapper resource="co/start/mapper/ProductMapper.xml"/>
     <mapper resource="co/start/mapper/BoardMapper.xml"/>
     <mapper resource="co/start/mapper/PaymentMapper.xml"/>
-=======
+
     <mapper resource="co/start/mapper/ProductMapper.xml"/>
     
->>>>>>> refs/heads/Yong
+
   </mappers>
 </configuration>
