@@ -52,7 +52,7 @@ body {
   box-shadow: 0 0.9rem 1.7rem rgba(0, 0, 0, 0.25),
     0 0.7rem 0.7rem rgba(0, 0, 0, 0.22);
   height: var(--max-height);
-  height:60%;
+  height:70%;
   max-width: var(--max-width);
   overflow: hidden;
   position: relative;

@@ -5,9 +5,18 @@
   
   <mapper namespace="co.start.mapper.UserMapper">
   
-  <select id="login" parameterType="co.start.vo.UserVO" 
-                     resultType="co.start.vo.UserVO">
+   
+  
+  <select id="login" parameterType="UserVO" 
+                     resultType="UserVO">
     select * from users where id = #{id} and passwd = #{passwd}
   </select>
   
+  <insert id="insertUser" parameterType="UserVO">
+		insert into users  
+		values (#{userId}, #{userPasswd}, #{userName}, sysdate, #{userGender}, #{userPhone}, #{userAddr}, #{userMail} 'normal')
+  </insert>
+  
+
   </mapper>
+  
