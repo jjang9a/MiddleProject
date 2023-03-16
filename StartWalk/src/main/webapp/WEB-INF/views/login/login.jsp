@@ -54,7 +54,7 @@ body {
   box-shadow: 0 0.9rem 1.7rem rgba(0, 0, 0, 0.25),
     0 0.7rem 0.7rem rgba(0, 0, 0, 0.22);
   height: var(--max-height);
-  height:60%;
+  height:80%;
   max-width: var(--max-width);
   overflow: hidden;
   position: relative;
@@ -223,7 +223,7 @@ body {
 <div class="container right-panel-active">
   <!-- Sign Up -->
   <div class="container__form container--signup">
-    <form action="#" class="form" id="form1">
+    <form action="addUser.do" class="form" id="form1">
       <h2 class="form__title">Sign Up</h2>
       <input type="text" placeholder="UserID" class="input" name="id"/>
       <input type="password" placeholder="Password" class="input" name="pw"/>
@@ -241,10 +241,10 @@ body {
 
   <!-- Sign In -->
   <div class="container__form container--signin">
-    <form action="#" class="form" id="form2">
+    <form action="login.do" class="form" id="form2">
       <h2 class="form__title">Sign In</h2>
-      <input type="email" placeholder="Email" class="input" />
-      <input type="password" placeholder="Password" class="input" />
+      <input type="text" placeholder="Id" class="input" required="required" />
+      <input type="password" placeholder="Password" class="input" required="required" />
       
       <a href="#" class="link">Forgot your password?</a>
       <button class="btn">Sign In</button>
@@ -280,6 +280,6 @@ signUpBtn.addEventListener("click", () => {
   container.classList.add("right-panel-active");
 });
 
-fistForm.addEventListener("submit", (e) => e.preventDefault());
-secondForm.addEventListener("submit", (e) => e.preventDefault());
+//fistForm.addEventListener("submit", (e) => e.preventDefault());
+//secondForm.addEventListener("submit", (e) => e.preventDefault());
 </script>

@@ -13,17 +13,19 @@ public class UserServiceMybatis implements UserService{
 	SqlSession sqlSession = DataSource.getInstance().openSession(true);
 	UserMapper mapper = sqlSession.getMapper(UserMapper.class);
 	
-//	@Override
-//	public List<UserVO> userList(int page) { // 목록.
-//		// return mapper.noticeList();
-//		return mapper.noticeListWithPaging(page);
-//		
-//	}
+
 	
 	@Override
 	public UserVO login(UserVO vo) {
-		// TODO Auto-generated method stub
 		return mapper.login(vo);
+	}
+
+
+
+	@Override
+	public boolean addUser(UserVO vo) {
+		int r = mapper.insertUser(vo);
+		return r == 1;
 	}
 	
 	

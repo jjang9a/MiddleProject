@@ -14,6 +14,10 @@ import javax.servlet.http.HttpServletResponse;
 import co.start.common.Control;
 import co.start.controller.CartControl;
 import co.start.controller.HotelListControl;
+import co.start.controller.AddUserControl;
+import co.start.controller.AddUserFormControl;
+import co.start.controller.LoginControl;
+import co.start.controller.LoginFormControl;
 import co.start.controller.MainControl;
 import co.start.controller.OrderControl;
 import co.start.controller.OrderFormControl;
@@ -47,7 +51,14 @@ public class FrontController extends HttpServlet {
 		
 		// 대준
 		// 로그인
-				map.put("/login.do", new Login());
+		map.put("/loginForm.do", new LoginFormControl()); // 로그인 회원가입 창.
+		map.put("/login.do", new LoginControl()); // 로그인 처리 페이지.
+		// 회원가입
+		map.put("/addUserForm.do", new AddUserFormControl()); // 회원가입 처리 페이지.
+		map.put("/addUser.do", new AddUserControl()); // 회원가입 처리 페이지.
+		
+		
+		
 	}
 
 	@Override
@@ -66,6 +77,9 @@ public class FrontController extends HttpServlet {
 		} else if(viewPage.endsWith(".ajax")) {
 			resp.setContentType("text/json;charset=utf-8");
 			resp.getWriter().append(viewPage.substring(0, viewPage.length()-5));
+			return;
+		} else if(viewPage.endsWith(".do")) {
+			resp.sendRedirect(viewPage);
 			return;
 		}
 		
