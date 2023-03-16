@@ -4,7 +4,11 @@
         <div class="container-fluid bg-dark px-0" >
             <div class="row gx-0">
                 <div class="col-lg-3 bg-dark d-none d-lg-block" style="padding: 0;">
+<<<<<<< HEAD
                     <a href="index.html" class="navbar-brand w-100 h-100 m-0 p-0 d-flex align-items-center justify-content-center" style="padding: 0;">
+=======
+                    <a href="#" class="navbar-brand w-100 h-100 m-0 p-0 d-flex align-items-center justify-content-center" style="padding: 0;">
+>>>>>>> branch 'master' of https://github.com/jjang9a/StartWalk.git
                         <img src="img/logo.png" alt="로고" style="width: 70%; height: 70%; margin: 0;">
                     </a>
                 </div>
@@ -15,14 +19,13 @@
                             </div>
 
                         </div>
-                        <div class="col-lg-5 px-5 text-end" style="padding: 0;" >
+                        <div class="col-lg-5 px-5 text-end" style="padding: 0; margin-bottom: 10px" >
                             <div class="h-100 d-inline-flex align-items-center py-2 me-4">
-                                <img src="img/login.png" alt="로그인" style="width: 30px; height: 30px;">
-                                <p class="mb-0">&nbsp 로그인</p>
+                                
                             </div>
                             <div class="h-100 d-inline-flex align-items-center py-2">
-                                <img src="img/membership.png" alt="회원가입" style="width: 30px; height: 30px;">
-                                <p class="mb-0">&nbsp 회원가입</p>
+                                <img src="img/login.png" alt="로그인" style="width: 25px; height: 25px;">
+                                <a href="#"><p class="mb-0">&nbsp 로그인 | &nbsp 회원가입</p></a>
                             </div>
                         </div>
                     </div>
@@ -59,8 +62,15 @@
                                 <a href="contact.html" class="nav-item nav-link">고객센터</a>
                                 <a href="contact.html" class="nav-item nav-link">관리모드</a>
                             </div>
+
+                            <a href="#" class="btn btn-primary rounded-0 py-4 px-md-5 d-none d-lg-block" style="width: 200px; padding: 0;"> <img src="img/cart.png" alt="장바구니" style="width: 25%; height: 25%;">&nbsp 장바구니</a>
+
                             <a href="cart.do" class="btn btn-primary rounded-0 py-4 px-md-5 d-none d-lg-block" style="width: 200px; padding: 0;"> <img src="/img/cart.png" alt="장바구니" style="width: 25%; height: 25%;">&nbsp 장바구니</a>
+<<<<<<< HEAD
                             <a href="#" class="btn btn-primary rounded-0 py-4 px-md-5 d-none d-lg-block" style="width: 200px; padding: 0;"> <img src="./img/cart.png" alt="장바구니" style="width: 25%; height: 25%;">&nbsp 장바구니</a>
+=======
+
+>>>>>>> branch 'master' of https://github.com/jjang9a/StartWalk.git
                         </div>
                     </nav>
                 </div>
