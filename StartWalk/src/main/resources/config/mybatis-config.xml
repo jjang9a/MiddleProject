@@ -16,7 +16,7 @@
 		<typeAlias type="co.start.vo.CommentsVO" alias="CommentsVO" />
 		<typeAlias type="co.start.vo.CouponVO" alias="CouponVO" />
 		<typeAlias type="co.start.vo.MessageVO" alias="MessageVO" />
-		<typeAlias type="co.start.vo.PaytotalVO" alias="PaytotalVO" />
+		<typeAlias type="co.start.vo.OrderVO" alias="OrderVO" />
 		<typeAlias type="co.start.vo.PaydetailVO" alias="PaydetailVO" />
 		<typeAlias type="co.start.vo.ProductVO" alias="ProductVO" />
 		<typeAlias type="co.start.vo.StartpayVO" alias="StartpayVO" />

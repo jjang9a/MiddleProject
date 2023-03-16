@@ -14,6 +14,6 @@ public class UserVO {
 	private int userPhone; 
 	private String userAddr;
 	private String userMail;
-	private String userGrade; // normal, bronze, silver, gold, vip - 디폴트로 normal 지정되어있으므로 입력안해도 상관없음
+	private String userGrade; // normal, bronze, silver, gold, vip, admin - 디폴트로 normal 지정되어있으므로 입력안해도 상관없음
 	
 }

@@ -8,16 +8,21 @@
                         <img src="/img/logo.png" alt="로고" style="width: 70%; height: 70%; margin: 0;">
                     </a>
                 </div>
-                <div class="col-lg-9">
-                    <div class="row gx-0 bg-white d-none d-lg-flex" style="padding-left: 500px; padding-right: 0;">
-                        <div class="col-lg-7 px-5 text-start" style="padding: 0;">
+				<div class="col-lg-9" style="float: right;">
+                    <div class="row gx-0 bg-white d-none d-lg-flex" style="padding: 0;">
+                        <div class="col-lg-7 px-5 text-start">
+                            <div class="d-inline-flex align-items-center py-2"> 
+                            </div>
+
+                        </div>
+                        <div class="col-lg-5 px-5 text-end" style="padding: 0;" >
                             <div class="h-100 d-inline-flex align-items-center py-2 me-4">
-                                <i class="fa fa-envelope text-primary me-2"></i>
-                                <p class="mb-0">로그인</p>
+                                <img src="img/login.png" alt="로그인" style="width: 30px; height: 30px;">
+                                <p class="mb-0">&nbsp 로그인</p>
                             </div>
                             <div class="h-100 d-inline-flex align-items-center py-2">
-                                <i class="fa fa-phone-alt text-primary me-2"></i>
-                                <p class="mb-0">회원가입</p>
+                                <img src="img/membership.png" alt="회원가입" style="width: 30px; height: 30px;">
+                                <p class="mb-0">&nbsp 회원가입</p>
                             </div>
                         </div>
                     </div>
