@@ -4,7 +4,7 @@ import java.sql.Date;
 
 import lombok.Data;
 @Data
-public class PaytotalVO {
+public class OrderVO {
 
 	// 결제 정보 페이지
 	
