@@ -25,7 +25,7 @@
                             </div>
                             <div class="h-100 d-inline-flex align-items-center py-2">
                                 <img src="img/login.png" alt="로그인" style="width: 25px; height: 25px;">
-                                <a href="#"><p class="mb-0">&nbsp 로그인 | &nbsp 회원가입</p></a>
+                                <a href="login.do"><p class="mb-0">&nbsp 로그인 | &nbsp 회원가입</p></a>
                             </div>
                         </div>
                     </div>
@@ -38,14 +38,14 @@
                         </button>
                         <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                             <div class="navbar-nav mr-auto py-0">
-                                <a href="index.html" class="nav-item nav-link active">Home</a>
-                                <a href="about.html" class="nav-item nav-link">여행 패키지</a>
+                                <a href="main.do" class="nav-item nav-link active">Home</a>
+                                <a href="packageList.do" class="nav-item nav-link">여행 패키지</a>
 
                                 <div class="nav-item dropdown">
                                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">상품 메뉴</a>
                                     <div class="dropdown-menu rounded-0 m-0">
-                                        <a href="booking.html" class="dropdown-item">숙소 상품</a>
-                                        <a href="testimonial.html" class="dropdown-item">지역 명물</a>
+                                        <a href="hotelList.do" class="dropdown-item">숙소 상품</a>
+                                        <a href="productList.do" class="dropdown-item">지역 명물</a>
                                     </div>
                                 </div>
 
@@ -54,12 +54,12 @@
                                     <div class="dropdown-menu rounded-0 m-0">
                                         <a href="booking.html" class="dropdown-item">동행 구해요</a>
                                         <a href="team.html" class="dropdown-item">동행 후기</a>
-                                        <a href="testimonial.html" class="dropdown-item">여행 수기</a>
+                                        <a href="hotelList.do" class="dropdown-item">여행 수기</a>
                                     </div>
                                 </div>
 
-                                <a href="contact.html" class="nav-item nav-link">마이페이지</a>
-                                <a href="contact.html" class="nav-item nav-link">고객센터</a>
+                                <a href="testimonial.html" class="nav-item nav-link">마이페이지</a>
+                                <a href="booking.html" class="nav-item nav-link">고객센터</a>
                                 <a href="contact.html" class="nav-item nav-link">관리모드</a>
                             </div>
 

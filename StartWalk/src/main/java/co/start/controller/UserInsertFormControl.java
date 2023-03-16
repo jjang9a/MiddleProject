@@ -1,4 +1,4 @@
-package co.start.service;
+package co.start.controller;
 
 import javax.servlet.RequestDispatcher;
 

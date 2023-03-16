@@ -34,14 +34,10 @@
     </environment>
   </environments>
   <mappers>
-
     <mapper resource="co/start/mapper/UserMapper.xml"/>
     <mapper resource="co/start/mapper/ProductMapper.xml"/>
     <mapper resource="co/start/mapper/BoardMapper.xml"/>
     <mapper resource="co/start/mapper/PaymentMapper.xml"/>
-
-    <mapper resource="co/start/mapper/ProductMapper.xml"/>
-    
 
   </mappers>
 </configuration>
