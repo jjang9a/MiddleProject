@@ -13,6 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import co.start.common.Control;
 import co.start.controller.MainControl;
+import co.start.controller.OrderControl;
+import co.start.controller.OrderFormControl;
 
 public class FrontController extends HttpServlet {
 	private Map<String, Control> map;
@@ -24,7 +26,8 @@ public class FrontController extends HttpServlet {
 	public void init(ServletConfig config) throws ServletException {
 		map.put("/main.do", new MainControl());
 		// 가애
-		
+		map.put("/orderForm.do", new OrderFormControl()); // 결제요청 페이지
+		map.put("order.do", new OrderControl()); // 결제 처리 페이지
 		// 순덕
 		
 		// 용억
