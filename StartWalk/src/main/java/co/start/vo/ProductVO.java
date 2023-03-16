@@ -19,4 +19,6 @@ public class ProductVO {
 	private Date pdEnd; // 패키지 상품 도착일
 	private String pdLocation; // 여행 지역 구분
 	
+	private double star; // 테이블에는 없지만 제품 평균 평점을 위한 항목
+	
 }
