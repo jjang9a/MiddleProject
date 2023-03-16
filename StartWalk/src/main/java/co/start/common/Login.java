@@ -8,7 +8,7 @@ public class Login implements Control {
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
-		return "main/login.jsp";
+		return "login/login.jsp";
 	}
 
 }
