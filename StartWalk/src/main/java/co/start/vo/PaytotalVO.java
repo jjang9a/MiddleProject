@@ -19,4 +19,5 @@ public class PaytotalVO {
 		private int totalMoney; // 총 결제액
 		private String ptStatus; // 현재 주문 상태 (결제대기중, 결제완료, 배송준비중, 배송중, 배송완료)
 		
+		
 }

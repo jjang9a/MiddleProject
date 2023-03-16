@@ -30,7 +30,8 @@ public class FrontController extends HttpServlet {
 		// 용억
 		
 		// 대준
-		
+		// 로그인
+				map.put("/login.do", new Login());
 	}
 
 	@Override
