@@ -6,4 +6,11 @@
 
 
 
+  <select id="productList" resultType="co.start.vo.ProductVO">
+    select * from product
+  </select>
+  <select id="productInfo" resultType="co.start.vo.ProductVO">
+  	select * from product where pd_id =#{pdId}
+  </select>
+
 </mapper>

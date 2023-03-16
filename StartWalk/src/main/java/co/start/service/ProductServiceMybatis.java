@@ -18,6 +18,15 @@ public class ProductServiceMybatis implements ProductService{
 		return mapper.PackageList();
 	}
 	
-	
+	//용억
+	public List<ProductVO> products(){
+		return mapper.productList();
+	}
+
+	@Override
+	public ProductVO getProduct(int pdId) {
+		
+		return mapper.selectProduct(pdId);
+	}
 	
 }
