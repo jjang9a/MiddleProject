@@ -8,7 +8,7 @@ import lombok.Data;
 public class UserVO {
 	private String userId;
 	private String userPasswd;
-	private String name;
+	private String userName;
 	private Date userJoin; // 위치 맞춰서 sysdate적거나 디폴트 처리 돼어있으니 빼고 입력해도 됨.
 	private String userGender; // char - F/M
 	private int userPhone; 
