@@ -40,11 +40,7 @@ public class FrontController extends HttpServlet {
 		map.put("/main.do", new MainControl());
 		// 가애
 		map.put("/orderForm.do", new OrderFormControl()); // 결제요청 페이지
-
-		map.put("order.do", new OrderControl()); // 결제 처리 페이지
-
 		map.put("/order.do", new OrderControl()); // 결제 처리 페이지
-
 		map.put("/cart.do", new CartControl()); // 장바구니
 		
 		map.put("/hotelList.do", new HotelListControl()); // 숙소 상품 목록

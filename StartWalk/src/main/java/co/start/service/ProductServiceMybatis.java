@@ -12,21 +12,31 @@ public class ProductServiceMybatis implements ProductService{
 
 	SqlSession sqlSession = DataSource.getInstance().openSession(true);
 	ProductMapper mapper = sqlSession.getMapper(ProductMapper.class);
+	
+	// 가애
+	
+	
+	// 순덕
 	@Override
 	public List<ProductVO> packageList() {
 		// TODO Auto-generated method stub
 		return mapper.PackageList();
 	}
 	
-	//용억
+	
+	// 용억
 	public List<ProductVO> products(){
 		return mapper.productList();
 	}
-
+	
 	@Override
 	public ProductVO getProduct(int pdId) {
-		
 		return mapper.selectProduct(pdId);
 	}
+	
+	
+	// 대준
+
+	
 	
 }
