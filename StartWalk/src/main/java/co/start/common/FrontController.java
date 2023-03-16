@@ -15,6 +15,7 @@ import co.start.common.Control;
 import co.start.controller.MainControl;
 import co.start.controller.OrderControl;
 import co.start.controller.OrderFormControl;
+import co.start.controller.PackageListControl;
 
 public class FrontController extends HttpServlet {
 	private Map<String, Control> map;
@@ -28,9 +29,15 @@ public class FrontController extends HttpServlet {
 		// 가애
 		map.put("/orderForm.do", new OrderFormControl()); // 결제요청 페이지
 		map.put("order.do", new OrderControl()); // 결제 처리 페이지
+		
 		// 순덕
+		// 지역별 여행 패키지 목록
+		map.put("/packageList.do", new PackageListControl());
+		// 여행 패키지 상세
+		
 		
 		// 용억
+		
 		
 		// 대준
 		// 로그인

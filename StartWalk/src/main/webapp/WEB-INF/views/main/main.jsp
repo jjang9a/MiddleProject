@@ -47,52 +47,6 @@
         <!-- Carousel End -->
 
 
-        <!-- Booking Start -->
-        <div class="container-fluid booking pb-5 wow fadeIn" data-wow-delay="0.1s">
-            <div class="container">
-                <!-- <div class="bg-white shadow" style="padding: 35px;">
-                    <div class="row g-2">
-                        <div class="col-md-10">
-                            <div class="row g-2">
-                                <div class="col-md-3">
-                                    <div class="date" id="date1" data-target-input="nearest">
-                                        <input type="text" class="form-control datetimepicker-input"
-                                            placeholder="Check in" data-target="#date1" data-toggle="datetimepicker" />
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="date" id="date2" data-target-input="nearest">
-                                        <input type="text" class="form-control datetimepicker-input" placeholder="Check out" data-target="#date2" data-toggle="datetimepicker"/>
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <select class="form-select">
-                                        <option selected>Adult</option>
-                                        <option value="1">Adult 1</option>
-                                        <option value="2">Adult 2</option>
-                                        <option value="3">Adult 3</option>
-                                    </select>
-                                </div>
-                                <div class="col-md-3">
-                                    <select class="form-select">
-                                        <option selected>Child</option>
-                                        <option value="1">Child 1</option>
-                                        <option value="2">Child 2</option>
-                                        <option value="3">Child 3</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-2">
-                            <button class="btn btn-primary w-100">Submit</button>
-                        </div> -->
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Booking End -->
-
-
         <!-- About Start -->
         <div class="container-xxl py-5">
             <div class="container">
@@ -107,7 +61,7 @@
                             <div class="col-sm-4 wow fadeIn" data-wow-delay="0.1s">
                                 <div class="border rounded p-1">
                                     <div class="border rounded text-center p-4">
-                                        <img src="/img/luggage2.png" alt="여행상품" style="width: 40%; height: 40%;">
+                                        <img src="img/luggage2.png" alt="여행상품" style="width: 40%; height: 40%;">
                                         <h2 class="mb-1" data-toggle="counter-up">1234</h2>
                                         <p class="mb-0">여행상품</p>
                                     </div>
@@ -116,7 +70,7 @@
                             <div class="col-sm-4 wow fadeIn" data-wow-delay="0.3s">
                                 <div class="border rounded p-1">
                                     <div class="border rounded text-center p-4">
-                                        <img src="/img/shopping-basket.png" alt="판매상품" style="width: 40%; height: 40%;">
+                                        <img src="img/shopping-basket.png" alt="판매상품" style="width: 40%; height: 40%;">
                                         <h2 class="mb-1" data-toggle="counter-up">1234</h2>
                                         <p class="mb-0">판매상품</p>
                                     </div>
@@ -125,7 +79,7 @@
                             <div class="col-sm-4 wow fadeIn" data-wow-delay="0.5s">
                                 <div class="border rounded p-1">
                                     <div class="border rounded text-center p-4">
-                                        <img src="/img/client.png" alt="회원" style="width: 40%; height: 40%;">
+                                        <img src="img/client.png" alt="회원" style="width: 40%; height: 40%;">
                                         <h2 class="mb-1" data-toggle="counter-up">1234</h2>
                                         <p class="mb-0">회원</p>
                                     </div>
@@ -167,7 +121,7 @@
                     <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s" >
                         <div class="room-item shadow rounded overflow-hidden">
                             <div class="position-relative">
-                                <img class="img-fluid" src="/img/경포대.jpg" alt="경포대" style="width: 360px; height: 240px;">
+                                <img class="img-fluid" src="img/경포대.jpg" alt="경포대" style="width: 360px; height: 240px;">
                                 <small class="position-absolute start-0 top-100 translate-middle-y bg-primary text-white rounded py-1 px-3 ms-4">패키지 가격</small>
                             </div>
                             <div class="p-4 mt-2" >
@@ -185,7 +139,7 @@
                     <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
                         <div class="room-item shadow rounded overflow-hidden">
                             <div class="position-relative">
-                                <img class="img-fluid" src="/img/동해바다 (당일).jpg" alt="경포대 " style="width: 360px; height: 240px;">
+                                <img class="img-fluid" src="img/동해바다 (당일).jpg" alt="경포대 " style="width: 360px; height: 240px;">
                                 <small class="position-absolute start-0 top-100 translate-middle-y bg-primary text-white rounded py-1 px-3 ms-4">패키지 가격</small>
                             </div>
                             <div class="p-4 mt-2">
@@ -203,7 +157,7 @@
                     <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.6s">
                         <div class="room-item shadow rounded overflow-hidden">
                             <div class="position-relative">
-                                <img class="img-fluid" src="/img/구례.jpg" alt="경포대" style="width: 360px; height: 240px;">
+                                <img class="img-fluid" src="img/구례.jpg" alt="경포대" style="width: 360px; height: 240px;">
                                 <small class="position-absolute start-0 top-100 translate-middle-y bg-primary text-white rounded py-1 px-3 ms-4">패키지 가격</small>
                             </div>
                             <div class="p-4 mt-2">

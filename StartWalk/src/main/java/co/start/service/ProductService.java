@@ -1,5 +1,9 @@
 package co.start.service;
 
-public interface ProductService {
+import java.util.List;
 
+import co.start.vo.ProductVO;
+
+public interface ProductService {
+	public List<ProductVO> packageList();
 }
