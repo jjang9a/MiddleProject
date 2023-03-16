@@ -5,7 +5,7 @@
             <div class="row gx-0">
                 <div class="col-lg-3 bg-dark d-none d-lg-block" style="padding: 0;">
                     <a href="index.html" class="navbar-brand w-100 h-100 m-0 p-0 d-flex align-items-center justify-content-center" style="padding: 0;">
-                        <img src="/img/logo.png" alt="로고" style="width: 70%; height: 70%; margin: 0;">
+                        <img src="img/logo.png" alt="로고" style="width: 70%; height: 70%; margin: 0;">
                     </a>
                 </div>
 				<div class="col-lg-9" style="float: right;">
@@ -60,6 +60,7 @@
                                 <a href="contact.html" class="nav-item nav-link">관리모드</a>
                             </div>
                             <a href="cart.do" class="btn btn-primary rounded-0 py-4 px-md-5 d-none d-lg-block" style="width: 200px; padding: 0;"> <img src="/img/cart.png" alt="장바구니" style="width: 25%; height: 25%;">&nbsp 장바구니</a>
+                            <a href="#" class="btn btn-primary rounded-0 py-4 px-md-5 d-none d-lg-block" style="width: 200px; padding: 0;"> <img src="./img/cart.png" alt="장바구니" style="width: 25%; height: 25%;">&nbsp 장바구니</a>
                         </div>
                     </nav>
                 </div>
