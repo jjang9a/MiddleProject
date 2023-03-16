@@ -59,7 +59,7 @@
                                 <a href="contact.html" class="nav-item nav-link">고객센터</a>
                                 <a href="contact.html" class="nav-item nav-link">관리모드</a>
                             </div>
-                            <a href="#" class="btn btn-primary rounded-0 py-4 px-md-5 d-none d-lg-block" style="width: 200px; padding: 0;"> <img src="/img/cart.png" alt="장바구니" style="width: 25%; height: 25%;">&nbsp 장바구니</a>
+                            <a href="cart.do" class="btn btn-primary rounded-0 py-4 px-md-5 d-none d-lg-block" style="width: 200px; padding: 0;"> <img src="/img/cart.png" alt="장바구니" style="width: 25%; height: 25%;">&nbsp 장바구니</a>
                         </div>
                     </nav>
                 </div>
