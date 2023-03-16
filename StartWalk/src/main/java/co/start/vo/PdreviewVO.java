@@ -11,6 +11,6 @@ public class PdreviewVO {
 	private String userId; // 작성자id
 	private int pdId; // 제품번호
 	private String prBody; // 리뷰 내용
-	private int prPoint; // 평점
+	private double prStar; // 평점, 소수 첫째자리까지 입력 가능
 	private Date prDate; // 리뷰 작성일
 }
