@@ -2,13 +2,19 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="co.start.mapper.UserMapper">
+<!-- 가애 -->
+
+
+<!-- 순덕 -->
+
+
+<!-- 용억 -->
+
+
+<!-- 대준 -->
   
-  <mapper namespace="co.start.mapper.UserMapper">
-  
-   
-  
-  <select id="login" parameterType="UserVO" 
-                     resultType="UserVO">
+  <select id="login" parameterType="UserVO" resultType="UserVO">
     select * from users where id = #{id} and passwd = #{passwd}
   </select>
   
@@ -18,5 +24,5 @@
   </insert>
   
 
-  </mapper>
-  
+
+</mapper>

@@ -3,7 +3,16 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="co.start.mapper.PaymentMapper">
+<!-- 가애 -->
 
+
+<!-- 순덕 -->
+
+
+<!-- 용억 -->
+
+
+<!-- 대준 -->
 
 
 </mapper>
