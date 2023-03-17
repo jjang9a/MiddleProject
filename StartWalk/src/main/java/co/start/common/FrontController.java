@@ -19,6 +19,7 @@ import co.start.controller.LoginFormControl;
 import co.start.controller.MainControl;
 import co.start.controller.OrderControl;
 import co.start.controller.OrderFormControl;
+import co.start.controller.PackageInfoControl;
 import co.start.controller.PackageListControl;
 import co.start.controller.TravelBoardControl;
 import co.start.controller.TravelBoardListControl;
@@ -58,7 +59,7 @@ public class FrontController extends HttpServlet {
 		// 지역별 여행 패키지 목록
 		map.put("/packageList.do", new PackageListControl());
 		// 여행 패키지 상세
-		
+		map.put("/packageInfo.do", new PackageInfoControl());
 		
 		// 용억
 

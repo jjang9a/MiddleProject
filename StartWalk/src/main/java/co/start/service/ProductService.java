@@ -13,10 +13,18 @@ public interface ProductService {
 	       public List<ProductVO> hotels();
 	    //상품상세
 	       public ProductVO getProduct(int pdId);
+
 	   // 전체 건수
 	     public int getTotalCount();
 	       
 
-	public List<ProductVO> packageList();
 
+	
+	// 순덕
+	// 패키지 목록
+
+	public List<ProductVO> packageList();
+	// 패키지 상세
+	public List<ProductVO> packageInfo();
+	
 }

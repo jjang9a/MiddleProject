@@ -7,6 +7,16 @@
 
 
 <!-- 순덕 -->
+<select id="packageList" resultType="co.start.vo.ProductVO">
+	select * from product
+	where pd_type = 'PK' and pd_location='서울 경기'
+	order by pd_start
+</select>
+
+<select id="packageInfo" resultType="co.start.vo.ProductVO">
+	select * from product
+	where pd_id=10001 and  pd_type='PK';
+</select>
 
 
 <!-- 용억 -->

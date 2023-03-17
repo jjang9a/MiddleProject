@@ -19,8 +19,11 @@ public class ProductServiceMybatis implements ProductService{
 	// 순덕
 	@Override
 	public List<ProductVO> packageList() {
-		// TODO Auto-generated method stub
-		return mapper.PackageList();
+		return mapper.packageList();
+	}
+	@Override
+	public List<ProductVO> packageInfo() {
+		return mapper.packageInfo();
 	}
 	
 	
@@ -42,7 +45,7 @@ public class ProductServiceMybatis implements ProductService{
 		return mapper.selectProduct(pdId);
 	}
 
-	
+
 	
 
 
