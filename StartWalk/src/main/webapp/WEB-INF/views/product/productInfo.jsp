@@ -4,14 +4,8 @@
 <div class="container-fluid page-header mb-5 p-0" style="background-image: url(img/carousel-1.jpg);">
             <div class="container-fluid page-header-inner py-5">
                 <div class="container text-center pb-5">
-                    <h1 class="display-3 text-white mb-3 animated slideInDown">상세 상품</h1>
-                    <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb justify-content-center text-uppercase">
-                            <li class="breadcrumb-item"><a href="#">숙소</a></li>
-                            <li class="breadcrumb-item"><a href="#">지역명물</a></li>
-                            
-                        </ol>
-                    </nav>
+                    <h1 class="display-3 text-white mb-3 animated slideInDown">지역 명물</h1>
+                   
                 </div>
             </div>
         </div>
@@ -54,25 +48,25 @@
                                     <div class="col-md-6">
                                         <div class="form-floating">
                                             <input type="text" class="form-control" id="name" placeholder="Your Name">
-                                            <label for="name">${product.pdId}</label>
+                                            <label for="name">${info.pdId}</label>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-floating">
                                             <input type="email" class="form-control" id="email" placeholder="Your Email">
-                                            <label for="email">${product.pdName }</label>
+                                            <label for="email">${info.pdName }</label>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-floating date" id="date3" data-target-input="nearest">
                                             <input type="text" class="form-control datetimepicker-input" id="checkin" placeholder="Check In" data-target="#date3" data-toggle="datetimepicker" />
-                                            <label for="checkin">${product.pdPrice}</label>
+                                            <label for="checkin">${info.pdPrice}</label>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-floating date" id="date4" data-target-input="nearest">
                                             
-                                           ${pdType}
+                                           ${info.pdType}
                                         </div>
                                     </div>
                                    
@@ -80,11 +74,12 @@
                                     <div class="col-12">
                                         <div class="form-floating">
                                             <textarea class="form-control" placeholder="Special Request" id="message" style="height: 100px"></textarea>
-                                            <label for="message">${product.pdInfo }</label>
+                                            <label for="message">${info.pdInfo }</label>
                                         </div>
                                     </div>
                                     <div class="col-12">
                                         <button class="btn btn-primary w-100 py-3" type="submit">구매하기</button>
+                                        
                                         <button class="btn btn-primary w-100 py-3" type="submit">장바구니</button>
                                     </div>
                                 </div>

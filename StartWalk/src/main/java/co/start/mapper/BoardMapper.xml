@@ -10,7 +10,27 @@
 
 
 <!-- 용억 -->
+<select id="mateList" resultType="co.start.vo.BoardVO">
+ select * from board;
 
+</select>
+
+<select id ="mateListWithPaging" resultType="co.start.vo.BoardVO" parameterType="int">
+<![CDATA[
+	select b_id, user_id, b_title, b_writedate
+	from ( select rownum rn, select b_id, user_id, b_title, b_writedate
+	   from ( select select b_id, user_id, b_title, b_writedate
+	   		from board
+	   		order by user_id desc) a
+	   	where rownum <= (#{page} * 10) ) b
+	where b.rn > (#{page} - 1) * 10
+	   	]]>
+
+</select>
+
+<select id="getTotalCount" resultType="int">
+	select count(*) from board
+</select>
 
 <!-- 대준 -->
 

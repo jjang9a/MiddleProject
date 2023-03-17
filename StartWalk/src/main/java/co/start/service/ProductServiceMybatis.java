@@ -25,15 +25,37 @@ public class ProductServiceMybatis implements ProductService{
 	
 	
 	// 용억
-	public List<ProductVO> products(){
-		return mapper.productList();
+	@Override
+	public List<ProductVO> products(int page){    //명물
+		return mapper.productList(page);
+	}
+	
+	@Override
+	public List<ProductVO> hotels() {    //호텔
+		
+		return mapper.hotelList();
 	}
 	
 	@Override
 	public ProductVO getProduct(int pdId) {
+		mapper.updateCount(pdId);
 		return mapper.selectProduct(pdId);
 	}
+
 	
+	
+
+
+	@Override
+	public int getTotalCount() {
+		// TODO Auto-generated method stub
+		return mapper.getTotalCount();
+	}
+
+
+
+
+
 	
 	// 대준
 

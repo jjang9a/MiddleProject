@@ -25,6 +25,7 @@ import co.start.controller.PackageListControl;
 import co.start.controller.TravelBoardControl;
 import co.start.controller.TravelBoardListControl;
 import co.start.controller.TravelBoardWriteControl;
+import co.start.controller.mateListControl;
 import co.start.controller.ProductInfoControl;
 import co.start.controller.ProductListControl;
 
@@ -47,7 +48,7 @@ public class FrontController extends HttpServlet {
 		map.put("/order.do", new OrderControl()); // 결제 처리 페이지
 		map.put("/cart.do", new CartControl()); // 장바구니
 		
-		map.put("/hotelList.do", new HotelListControl()); // 숙소 상품 목록
+		
 		
 		map.put("/travelBoardList.do", new TravelBoardListControl()); // 여행 후기 게시판 목록
 		map.put("/travelBoard.do", new TravelBoardControl()); // 여행 후기 게시판 글읽기
@@ -64,9 +65,11 @@ public class FrontController extends HttpServlet {
 
 		  // 상품리스트
 				map.put("/productList.do", new ProductListControl());
+				map.put("/hotelList.do", new HotelListControl()); 
 		  // 상품 상세
 				map.put("/productInfo.do", new ProductInfoControl());
-
+	      // 매칭 게시판 목록
+				map.put("/mate.do", new mateListControl());
 		
 		
 
@@ -106,5 +109,6 @@ public class FrontController extends HttpServlet {
 		
 		RequestDispatcher rd = req.getRequestDispatcher(viewPage);
 		rd.forward(req, resp);
+	
 	}
 }
