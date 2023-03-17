@@ -12,7 +12,10 @@ public interface ProductService {
 	    //상품상세
 	       public ProductVO getProduct(int pdId);
 	
-
+	// 순덕
+	// 패키지 목록
 	public List<ProductVO> packageList();
-
+	// 패키지 상세
+	public List<ProductVO> packageInfo();
+	
 }

@@ -13,7 +13,9 @@ public interface ProductMapper {
 	//상품상세 (용억)
 	public ProductVO selectProduct(int pdId);
 
-	// 패키지 상품 리스트
-	public List<ProductVO> PackageList();
+	// 패키지 상품 리스트 (순덕)
+	public List<ProductVO> packageList();
+	// 패키지 상품 상세 (순덕)
+	public List<ProductVO> packageInfo();
 
 }
