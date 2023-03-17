@@ -21,13 +21,39 @@
 
 <!-- 용억 -->
   <select id="productList" resultType="co.start.vo.ProductVO">
-    select * from product
+    select * from product where pd_Type='PR'
   </select>
-  <select id="productInfo" resultType="co.start.vo.ProductVO">
-  	select * from product where pd_id =#{pdId}
+  
+  <select id="hotelList" resultType="co.start.vo.ProductVO">
+  	select * from product where pd_Type='HO'
+  </select>
+    
+  <select id="selectProduct" resultType="co.start.vo.ProductVO" parameterType="co.start.vo.ProductVO">
+  	select * from product where pd_id=#{pdId}
   </select>
 
-
+	<select id="productListWithPaging" resultType="co.start.vo.ProductVO" parameterType="int">
+	<![CDATA[
+	  select pd_id, pd_name, pd_price, pd_type
+	  from (select  rownum rn, pd_id, pd_name, pd_price, pd_type
+	      from (select pd_id, pd_name, pd_price, pd_type
+	            from product
+	            order by pd_id) a
+	      where rownum <= (#{page} * 10) ) b
+	  where b.rn > (#{page} - 1) * 10
+	]]>
+	
+	
+	</select>
+	
+	<update id="updateCount" parameterType="int">
+	update board set b_count = hit_count +1
+	where 
+	</update>
+	
+	<select id="getTotalCount" resultType="int">
+		select count(*) from product
+	</select>
 <!-- 대준 -->
 
 </mapper>
