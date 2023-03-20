@@ -15,7 +15,7 @@
  </select>
 
 <select id="selectMate" resultType="co.start.vo.BoardVO" parameterType="co.start.vo.BoardVO">
-	select * from board where user_id = #{userId}
+	select * from board where b_title = #{bTitle}
 </select>
 
 

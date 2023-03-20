@@ -24,9 +24,9 @@ public class BoardServiceMybatis implements BoardService{
 		return mapper.getTotalCount();
 	}
 	@Override
-	public BoardVO getMateInfo(int userId) {
+	public BoardVO getMateInfo(String bTitle) {
 		
-		return mapper.selectMate(userId);
+		return mapper.selectMate(bTitle);
 	}
 	
 	// 가애

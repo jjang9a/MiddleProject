@@ -10,7 +10,7 @@ public interface BoardService {
 	public List<BoardVO> mateList();
 	
 	// 메이트 상세
-	public BoardVO getMateInfo(int userId);
+	public BoardVO getMateInfo(String bTitle);
 	// 전체 건수
 	public int getTotalCount();
 	

@@ -14,6 +14,8 @@ import javax.servlet.http.HttpServletResponse;
 import co.start.controller.AddUserControl;
 import co.start.controller.AddUserFormControl;
 import co.start.controller.CartControl;
+import co.start.controller.CommentsAddAjax;
+import co.start.controller.CommentsListAjax;
 import co.start.controller.HotelInfoControl;
 import co.start.controller.HotelListControl;
 import co.start.controller.LoginControl;
@@ -86,6 +88,12 @@ public class FrontController extends HttpServlet {
 				map.put("/mateList.do", new MateListControl());
 		  // 매칭 게시판 상세
 				map.put("/mateInfo.do", new MateInfoControl());
+		  // 매칭 댓글 목록
+				map.put("/CommentListAjax.do", new CommentsListAjax());
+		  // 댓글 등록
+				map.put("/commentsAdd.do", new CommentsAddAjax());
+				
+				
 				// 매칭 후기 게시판 목록
 				
 		

@@ -8,7 +8,7 @@ public interface BoardMapper {
 	//목록
 	public List<BoardVO> mateList(); // 매칭 목록
 	//매칭 게시판
-	public BoardVO selectMate(int userId);
+	public BoardVO selectMate(String bTitle);
 	
 	//페이징
 	public List<BoardVO> mateListWithPaging(int page);
