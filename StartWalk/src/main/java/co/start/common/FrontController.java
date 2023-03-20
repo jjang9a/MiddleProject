@@ -44,24 +44,26 @@ public class FrontController extends HttpServlet {
 		// 가애
 		map.put("/orderForm.do", new OrderFormControl()); // 결제요청 페이지
 
-
-
-
 		map.put("/order.do", new OrderControl()); // 결제 처리 페이지
 		map.put("/cart.do", new CartControl()); // 장바구니
-		
-		
-		
+
 		map.put("/travelBoardList.do", new TravelBoardListControl()); // 여행 후기 게시판 목록
 		map.put("/travelBoard.do", new TravelBoardControl()); // 여행 후기 게시판 글읽기
 		map.put("/travelBoardWrite", new TravelBoardWriteControl()); // 여행 후기 게시판 글쓰기
 
 		
 		// 순덕
-		// 지역별 여행 패키지 목록
+		// 지역별 여행 패키지 목록(서울 경기)
 		map.put("/packageList.do", new PackageListControl());
+		
 		// 여행 패키지 상세
 		map.put("/packageInfo.do", new PackageInfoControl());
+		// 여행 패키지 글쓰기
+		// 여행 패키지 글 수정
+		// 여행 패키지 글 삭제
+		
+		
+		
 		
 		// 용억
 

@@ -17,4 +17,10 @@ public interface BoardMapper {
 	
 	// 조회수 증가
 	public int udpateCount(int pdId);
+	
+	public List<BoardVO> travelListWithPaging(int page);
+	public BoardVO tavelBoradInfo(int key);
+	public int travelBoardInsert(BoardVO vo);
+	public int travelBoardDelete(int key);
+	public int travelBoardUpdate(BoardVO vo);
 }

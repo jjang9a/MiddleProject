@@ -30,6 +30,26 @@ public class BoardServiceMybatis implements BoardService{
 	}
 	
 	// 가애
+	@Override
+	public List<BoardVO> travelBoardList(int page) {
+		return mapper.travelListWithPaging(page);
+	}
+	@Override
+	public BoardVO travelBoardRead(int key) {
+		return mapper.tavelBoradInfo(key);
+	}
+	@Override
+	public boolean travelBoardWrite(BoardVO vo) {
+		return mapper.travelBoardInsert(vo) == 1; 
+	}
+	@Override
+	public boolean travelBoardDel(int key) {
+		return mapper.travelBoardDelete(key) == 1;
+	}
+	@Override
+	public boolean trabelBoardModify(BoardVO vo) {
+		return mapper.travelBoardUpdate(vo) == 1;
+	}
 	
 	// 순덕
 	
