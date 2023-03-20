@@ -13,9 +13,10 @@
 	order by pd_start
 </select>
 
-<select id="packageInfo" resultType="co.start.vo.ProductVO">
+
+<select id="packageInfo" resultType="co.start.vo.ProductVO" parameterType="co.start.vo.ProductVO">
 	select * from product
-	where pd_id=10001 and  pd_type='PK';
+	where pd_id=#{pdId}
 </select>
 
 

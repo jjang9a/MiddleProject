@@ -17,13 +17,15 @@ public class ProductServiceMybatis implements ProductService{
 	
 	
 	// 순덕
+	//패키지 목록(서울 경기)
 	@Override
-	public List<ProductVO> packageList() {
+	public List<ProductVO> packageList() { 
 		return mapper.packageList();
 	}
+
 	@Override
-	public List<ProductVO> packageInfo() {
-		return mapper.packageInfo();
+	public ProductVO packageInfo(int pdId) {
+		return mapper.packageInfo(pdId);
 	}
 	
 	
@@ -54,6 +56,7 @@ public class ProductServiceMybatis implements ProductService{
 		// TODO Auto-generated method stub
 		return mapper.getTotalCount();
 	}
+
 
 
 

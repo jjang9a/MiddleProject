@@ -5,7 +5,7 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 		
 		<!-- 지역별 여행패키지 목록 start -->
-        <div style="margin: 100px auto 100px auto; width: 1000px; ">
+		<div style="margin: 100px auto 100px auto; width: 1000px; ">
             <h3>서울 경기</h3>
             <hr>
             <h5>상품 <span style="color: blue;">${fn:length(list) }</span>개</h5>
@@ -35,7 +35,9 @@
 							<img alt="img" src="img/${o.prImg }" style="width: 200px; height: 150px;">
 						</td>
 						<td style="width: 550px; height: 150px; padding: 10px;">
-							<p>&#91 ${o.pdType } ${o.pdId }&#93  ${o.pdName }</p>
+							<a href="packageInfo.do?pdId=${o.pdId}" style="color: black;">
+								<p>&#91 ${o.pdType } ${o.pdId }&#93  ${o.pdName }</p>
+							</a>
                             
                             <c:choose>
                             	<c:when test="${o.pdSale == 0 }">
@@ -54,16 +56,15 @@
 						</td>
 					</tr>                
                 </c:forEach>
-                
-                    
+
                 </table>
             </div>
-        
+                    
+                    
+
             <div style="clear: both;">
-               <p style="text-align: center; margin-top: 20px;">페이징</p> 
+            	<p style="text-align: center; margin-top: 20px;">페이징</p>
             </div>
 
-        </div>
+		</div>
         <!-- 지역별 여행패키지 목록 end -->
-        
-        

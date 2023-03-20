@@ -25,7 +25,7 @@
                             </div>
                             <div class="h-100 d-inline-flex align-items-center py-2">
                                 <img src="img/login.png" alt="로그인" style="width: 25px; height: 25px;">
-                                <a href="login.do"><p class="mb-0">&nbsp 로그인 | &nbsp 회원가입</p></a>
+                                <a href="loginForm.do"><p class="mb-0">&nbsp 로그인 | &nbsp 회원가입</p></a>
                             </div>
                         </div>
                     </div>

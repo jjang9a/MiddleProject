@@ -23,9 +23,12 @@ public interface ProductMapper {
 	//조회 수 증가
 	public int updateCount(int PdId);
 
+	
 	// 패키지 상품 리스트 (순덕)
 	public List<ProductVO> packageList();
+	public List<ProductVO> packageListFive();
+	
 	// 패키지 상품 상세 (순덕)
-	public List<ProductVO> packageInfo();
+	public ProductVO packageInfo(int pdId);
 
 }

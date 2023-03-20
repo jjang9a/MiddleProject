@@ -51,10 +51,17 @@ public class FrontController extends HttpServlet {
 
 		
 		// 순덕
-		// 지역별 여행 패키지 목록
+		// 지역별 여행 패키지 목록(서울 경기)
 		map.put("/packageList.do", new PackageListControl());
+		
 		// 여행 패키지 상세
 		map.put("/packageInfo.do", new PackageInfoControl());
+		// 여행 패키지 글쓰기
+		// 여행 패키지 글 수정
+		// 여행 패키지 글 삭제
+		
+		
+		
 		
 		// 용억
 
