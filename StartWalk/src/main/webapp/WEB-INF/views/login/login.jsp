@@ -240,7 +240,7 @@ body {
 
   <!-- Sign In -->
   <div class="container__form container--signin">
-    <form action="login.do" class="form" id="form2">
+    <form action="login.do" class="form" id="form2" method="post">
       <h2 class="form__title">Sign In</h2>
       <input type="text" placeholder="Id" class="input" required="required" name="userid" />
       <input type="password" placeholder="Password" class="input" required="required" name="userpasswd"/>

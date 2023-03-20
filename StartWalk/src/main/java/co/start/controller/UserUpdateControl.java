@@ -14,7 +14,7 @@ public class UserUpdateControl implements Control {
 	@Override
 	public String exec(HttpServletRequest req, HttpServletResponse resp) {
 		HttpSession session = req.getSession();
-		String id = (String)session.getAttribute("id");
+		String id = (String)session.getAttribute("loginId");
 		
 		UserService service = new UserServiceMybatis();
 		UserVO user = service.getUserInfo(id);

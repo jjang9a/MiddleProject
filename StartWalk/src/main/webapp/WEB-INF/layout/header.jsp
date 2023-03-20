@@ -29,7 +29,7 @@
                                 <img src="img/login.png" alt="로그인" style="width: 25px; height: 25px;">
                                 <c:choose>
                                 	<c:when test="${loginId != null }">
-                                		<a href="loginForm.do"><p class="mb-0">${loginId }님 환영합니다 | &nbsp 로그아웃</p></a>
+                                		<a href="logout.do"><p class="mb-0">${loginId }님 환영합니다 | &nbsp 로그아웃</p></a>
                                 	</c:when>
                                 	<c:otherwise>
                                 		<a href="loginForm.do"><p class="mb-0">&nbsp 로그인 | &nbsp 회원가입</p></a>

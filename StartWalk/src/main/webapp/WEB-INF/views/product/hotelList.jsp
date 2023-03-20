@@ -27,6 +27,7 @@
                 </div>
                     
                         <c:forEach var="hotel" items="${hotel}">
+                        <tr>
                     <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s" >
                         <div class="room-item shadow rounded overflow-hidden" >
                             <div class="position-relative">
@@ -45,6 +46,7 @@
                             </div>
                         	</div>
                             </div>
+                            </tr>
                           </c:forEach>
                         </div>
                         </div>

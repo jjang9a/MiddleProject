@@ -23,8 +23,8 @@
 <script>
 	document.querySelector('form').addEventListener('click', function(e){
 		e.preventDefault();
-		let check = document.querySelector('input[name="pwcheck"]').value; //name이 title인 input태그의 값을 가져오겠다
-		let pw = ${user.passwd}
+		let check = document.querySelector('input[name="pwcheck"]').value;
+		let pw = ${oldInfo.userPasswd}
 		
 		if(check == pw){
 			location.href="updeteUserForm.do"
