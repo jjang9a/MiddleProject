@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import co.start.controller.AddUserControl;
 import co.start.controller.AddUserFormControl;
 import co.start.controller.CartControl;
+import co.start.controller.FAQControl;
 import co.start.controller.HotelInfoControl;
 import co.start.controller.HotelListControl;
 import co.start.controller.LoginControl;
@@ -62,7 +63,8 @@ public class FrontController extends HttpServlet {
 		
 		map.put("/hotelInfo.do", new HotelInfoControl()); // 숙소정보 상세조회
 		
-		map.put("/logout.do", new LogoutControl());
+		map.put("/logout.do", new LogoutControl()); // 로그아웃 처리
+		map.put("/faq.do", new FAQControl()); // 자주묻는 질문 페이지
 		
 		// 순덕
 		// 지역별 여행 패키지 목록(서울 경기)

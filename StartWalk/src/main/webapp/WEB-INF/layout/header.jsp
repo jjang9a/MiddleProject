@@ -26,12 +26,12 @@
                                 
                             </div>
                             <div class="h-100 d-inline-flex align-items-center py-2">
-                                <img src="img/login.png" alt="로그인" style="width: 25px; height: 25px;">
                                 <c:choose>
-                                	<c:when test="${loginId != null }">
-                                		<a href="logout.do"><p class="mb-0">${loginId }님 환영합니다 | &nbsp 로그아웃</p></a>
+                                	<c:when test="${loginUser != null }">
+                                		<a href="logout.do"><p class="mb-0"> ${loginUser.userId }님 환영합니다 | &nbsp 로그아웃</p></a>
                                 	</c:when>
                                 	<c:otherwise>
+                                		<img src="img/login.png" alt="로그인" style="width: 25px; height: 25px;">
                                 		<a href="loginForm.do"><p class="mb-0">&nbsp 로그인 | &nbsp 회원가입</p></a>
                                 	</c:otherwise>
                                 </c:choose>
@@ -67,7 +67,7 @@
                                     </div>
                                 </div>
 
-                                <a href="testimonial.html" class="nav-item nav-link">마이페이지</a>
+                                <a href="userUpdateCheck.do" class="nav-item nav-link">마이페이지</a>
                                 <a href="booking.html" class="nav-item nav-link">고객센터</a>
                                 <a href="contact.html" class="nav-item nav-link">관리모드</a>
                             </div>

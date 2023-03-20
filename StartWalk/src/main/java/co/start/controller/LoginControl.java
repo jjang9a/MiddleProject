@@ -32,7 +32,7 @@ public class LoginControl implements Control {
 		
 		HttpSession session = req.getSession(); // 요청정보에 있는 세션정보를 있으면 호출. 없으면 세션 객체생성.
 		if(user!=null) {
-			session.setAttribute("loginId", user.getUserId());
+			session.setAttribute("loginUser", user);
 			req.setAttribute("message", user.getUserId()+"님의 로그인을 환영합니다.");
 		}else {
 			req.setAttribute("message", "존재하지 않는 아이디입니다.");
