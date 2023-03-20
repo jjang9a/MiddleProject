@@ -9,7 +9,7 @@ public interface UserMapper {
 	
 	
 	// 로그인 용도.
-	public UserVO login(String id);
+	public UserVO login(UserVO vo);
 	
 	// 회원 등록 (회원가입)
 	public int addUser(UserVO vo);

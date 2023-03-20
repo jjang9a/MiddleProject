@@ -35,8 +35,8 @@ public class UserServiceMybatis implements UserService{
 	// 로그인
 	// 로그인
 		@Override
-		public UserVO login(String id) {
-			return mapper.login(id);
+		public UserVO login(UserVO vo) {
+			return mapper.login(vo);
 		}
 		// 회원가입
 		@Override

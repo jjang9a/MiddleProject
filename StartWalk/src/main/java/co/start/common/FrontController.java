@@ -36,6 +36,7 @@ import co.start.controller.TravelBoardWriteControl;
 import co.start.controller.UserUpdateCheckControl;
 import co.start.controller.UserUpdateControl;
 import co.start.controller.UserUpdateFormControl;
+import co.start.controller.LogoutControl;
 
 
 public class FrontController extends HttpServlet {
@@ -63,6 +64,7 @@ public class FrontController extends HttpServlet {
 		
 		map.put("/hotelInfo.do", new HotelInfoControl()); // 숙소정보 상세조회
 		
+		map.put("/logout.do", new LogoutControl());
 		
 		// 순덕
 		// 지역별 여행 패키지 목록(서울 경기)
