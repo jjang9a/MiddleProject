@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
  <!-- Header Start -->
         <div class="container-fluid bg-dark px-0" >
             <div class="row gx-0">
@@ -25,7 +27,14 @@
                             </div>
                             <div class="h-100 d-inline-flex align-items-center py-2">
                                 <img src="img/login.png" alt="로그인" style="width: 25px; height: 25px;">
-                                <a href="loginForm.do"><p class="mb-0">&nbsp 로그인 | &nbsp 회원가입</p></a>
+                                <c:choose>
+                                	<c:when test="${loginId != null }">
+                                		<a href="logout.do"><p class="mb-0">${loginId }님 환영합니다 | &nbsp 로그아웃</p></a>
+                                	</c:when>
+                                	<c:otherwise>
+                                		<a href="loginForm.do"><p class="mb-0">&nbsp 로그인 | &nbsp 회원가입</p></a>
+                                	</c:otherwise>
+                                </c:choose>
                             </div>
                         </div>
                     </div>
@@ -52,8 +61,8 @@
                                 <div class="nav-item dropdown">
                                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">커뮤니티</a>
                                     <div class="dropdown-menu rounded-0 m-0">
-                                        <a href="booking.html" class="dropdown-item">동행 구해요</a>
-                                        <a href="team.html" class="dropdown-item">동행 후기</a>
+                                        <a href="mateList.do" class="dropdown-item">동행 구해요</a>
+                                        <a href="mateInfo.do" class="dropdown-item">동행 후기</a>
                                         <a href="hotelList.do" class="dropdown-item">여행 수기</a>
                                     </div>
                                 </div>

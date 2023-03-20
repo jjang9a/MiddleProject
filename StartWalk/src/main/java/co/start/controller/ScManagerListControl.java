@@ -18,9 +18,9 @@ public class ScManagerListControl implements Control {
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
 		ScManagerService service = new ScManagerServiceMybatis();
-		List<BoardVO> list = service.BoardList();
-		
-		request.setAttribute("boardlist", list);
+//		List<BoardVO> list = service.scManagerList();
+//		
+//		request.setAttribute("boardlist", list);
 		
 	
 		

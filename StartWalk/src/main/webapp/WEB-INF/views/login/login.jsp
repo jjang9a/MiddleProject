@@ -228,7 +228,6 @@ body {
       <input type="text" placeholder="UserID" class="input" name="userId"/>
       <input type="password" placeholder="Password" class="input" name="userPasswd"/>
       <input type="text" placeholder="Name" class="input" name="name"/>
-      <input type="text" placeholder="birth date" class="input" name="birth date"/>
       <input type="text" placeholder="gender" class="input" name="gender"/>
       <input type="tell" placeholder="Phone" class="input" name="Phone"/>
       <input type="text" placeholder="Adreess" class="input" name="adreess"/>
@@ -241,7 +240,7 @@ body {
 
   <!-- Sign In -->
   <div class="container__form container--signin">
-    <form action="login.do" class="form" id="form2">
+    <form action="login.do" class="form" id="form2" method="post">
       <h2 class="form__title">Sign In</h2>
       <input type="text" placeholder="Id" class="input" required="required" name="userid" />
       <input type="password" placeholder="Password" class="input" required="required" name="userpasswd"/>

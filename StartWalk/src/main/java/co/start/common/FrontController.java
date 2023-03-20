@@ -3,31 +3,38 @@ package co.start.common;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import co.start.common.Control;
-import co.start.controller.CartControl;
-import co.start.controller.HotelListControl;
+
 import co.start.controller.AddUserControl;
 import co.start.controller.AddUserFormControl;
+import co.start.controller.CartControl;
+import co.start.controller.HotelInfoControl;
+import co.start.controller.HotelListControl;
 import co.start.controller.LoginControl;
 import co.start.controller.LoginFormControl;
 import co.start.controller.MainControl;
+import co.start.controller.MateInfoControl;
+import co.start.controller.MateListControl;
 import co.start.controller.OrderControl;
 import co.start.controller.OrderFormControl;
 import co.start.controller.PackageInfoControl;
 import co.start.controller.PackageListControl;
-import co.start.controller.TravelBoardControl;
-import co.start.controller.TravelBoardListControl;
-import co.start.controller.TravelBoardWriteControl;
-import co.start.controller.mateListControl;
 import co.start.controller.ProductInfoControl;
 import co.start.controller.ProductListControl;
 import co.start.controller.ScManagerListControl;
+import co.start.controller.TravelBoardControl;
+import co.start.controller.TravelBoardListControl;
+import co.start.controller.TravelBoardWriteControl;
+import co.start.controller.UserUpdateCheckControl;
+import co.start.controller.UserUpdateControl;
+import co.start.controller.UserUpdateFormControl;
+import co.start.controller.LogoutControl;
 
 
 public class FrontController extends HttpServlet {
@@ -47,8 +54,15 @@ public class FrontController extends HttpServlet {
 
 		map.put("/travelBoardList.do", new TravelBoardListControl()); // 여행 후기 게시판 목록
 		map.put("/travelBoard.do", new TravelBoardControl()); // 여행 후기 게시판 글읽기
-		map.put("/travelBoardWrite", new TravelBoardWriteControl()); // 여행 후기 게시판 글쓰기
+		map.put("/travelBoardWrite.do", new TravelBoardWriteControl()); // 여행 후기 게시판 글쓰기
 
+		map.put("/userUpdateCheck.do", new UserUpdateCheckControl()); // 회원정보 수정 진입 비밀번호
+		map.put("/userUpdateForm.do", new UserUpdateFormControl()); // 회원 정보 수정
+		map.put("/userUpdate.do", new UserUpdateControl()); // 회원정보 수정 처리
+		
+		map.put("/hotelInfo.do", new HotelInfoControl()); // 숙소정보 상세조회
+		
+		map.put("/logout.do", new LogoutControl());
 		
 		// 순덕
 		// 지역별 여행 패키지 목록(서울 경기)
@@ -71,7 +85,11 @@ public class FrontController extends HttpServlet {
 		  // 상품 상세
 				map.put("/productInfo.do", new ProductInfoControl());
 	      // 매칭 게시판 목록
-				map.put("/mate.do", new mateListControl());
+				map.put("/mateList.do", new MateListControl());
+		  // 매칭 게시판 상세
+				map.put("/mateInfo.do", new MateInfoControl());
+				// 매칭 후기 게시판 목록
+				
 		
 		// 대준
 		// 로그인
@@ -83,10 +101,10 @@ public class FrontController extends HttpServlet {
 		
 		// 관리자 sc(1:1문의)
 		map.put("/scManagerList", new ScManagerListControl()); // 목록 관리자용(전체리스트).
-		//map.put("/scSearch", new ScSearchControl()); // 글 읽기(단건조회).
-		//map.put("/scWrite", new ScWriteControl()); // 1:1문의 글쓰기(등록).
-		//map.put("/scModify.do", new ScModifyControl()); // 글수정.
-		//map.put("/scRemove.do", new ScRemoveControl()); // 글삭제.
+//		map.put("/scSearch", new ScSearchControl()); // 글 읽기(단건조회).
+//		map.put("/scWrite", new ScWriteControl()); // 1:1문의 글쓰기(등록).
+//		map.put("/scModify.do", new ScModifyControl()); // 글수정.
+//		map.put("/scRemove.do", new ScRemoveControl()); // 글삭제.
 		
 		// 회원 sc(1:1문의)
 		//map.put("/scUser", new ScUserListControl()); // 목록 회원용(전체리스트-아이디 조건).
