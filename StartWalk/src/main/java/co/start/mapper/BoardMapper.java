@@ -18,6 +18,7 @@ public interface BoardMapper {
 	// 조회수 증가
 	public int udpateCount(int pdId);
 	
+	// 가애 - 여행후기 게시판
 	public List<BoardVO> travelListWithPaging(int page);
 	public BoardVO tavelBoradInfo(int key);
 	public int travelBoardInsert(BoardVO vo);

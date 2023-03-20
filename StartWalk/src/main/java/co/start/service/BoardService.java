@@ -16,7 +16,7 @@ public interface BoardService {
 	// 전체 건수
 	public int getTotalCount();
 	
-	// 여행 수기
+	// 가애 - 여행 수기
 	public List<BoardVO> travelBoardList(int page);
 	public BoardVO travelBoardRead(int key);
 	public boolean travelBoardWrite(BoardVO vo);

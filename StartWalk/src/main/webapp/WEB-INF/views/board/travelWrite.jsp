@@ -1,18 +1,27 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+
 <form action='travelBoardWrite.do' method='post' enctype="multipart/form-data">
 	<table class='table'>
 		<tr>
 			<td>제목</td><td><input type="text" name="title"></td>
 		</tr>
 		<tr>
-			<td>작성자</td><td><input type="text" name="writer" readonly value="${id }"></td>
+			<td>작성자</td><td><input type="text" name="writer" readonly value="${loginUser.getUserId }"></td>
 		</tr>
 		<tr>
 			<td>내용</td><td><textarea cols="50" rows="10" name="boay"></textarea></td>
 		</tr>
 		<tr>
-			<td>파일</td><td><input type="file" name="attach"></td>
+			<td>사진 첨부</td><td><input type="file" name="img1"></td>
+		</tr>
+		<tr>
+			<td>사진 첨부</td><td><input type="file" name="img2"></td>
+		</tr>
+		<tr>
+			<td>사진 첨부</td><td><input type="file" name="img3"></td>
 		</tr>
 		<tr>
 			<td colspan="2" align="center"><input type="submit" value="저장"></td>
