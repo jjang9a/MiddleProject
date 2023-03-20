@@ -19,5 +19,6 @@ public class BoardVO {
 	private String bFile; // 첨부파일
 	private int bGood; // 추천수
 	private int bCount; // 조회수
+
 	
 }

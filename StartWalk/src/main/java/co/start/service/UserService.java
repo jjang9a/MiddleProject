@@ -9,7 +9,7 @@ import co.start.vo.UserVO;
 public interface UserService {
 	
 	// id/pw 로그인 처리.
-	public UserVO login(String id);
+	public UserVO login(UserVO vo);
 	
 	// 회원가입 (등록)
 	public boolean addUser(UserVO vo);
