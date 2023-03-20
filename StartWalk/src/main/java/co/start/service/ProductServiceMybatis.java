@@ -8,6 +8,7 @@ import co.start.common.DataSource;
 import co.start.mapper.ProductMapper;
 import co.start.vo.BoardVO;
 import co.start.vo.ProductVO;
+import co.start.vo.SearchVO;
 
 public class ProductServiceMybatis implements ProductService{
 
@@ -20,13 +21,18 @@ public class ProductServiceMybatis implements ProductService{
 	// 순덕
 	//패키지 목록(서울 경기)
 	@Override
-	public List<ProductVO> packageList() { 
-		return mapper.packageList();
+	public List<ProductVO> packageList(SearchVO search) { 
+		return mapper.packageListWithPaging(search);
 	}
 
 	@Override
 	public ProductVO packageInfo(int pdId) {
 		return mapper.packageInfo(pdId);
+	}
+	@Override
+	public int getTotalCountTwo(SearchVO search) {
+		// TODO Auto-generated method stub
+		return mapper.getTotalCountTwo(search);
 	}
 	
 	
@@ -61,6 +67,8 @@ public class ProductServiceMybatis implements ProductService{
 		// TODO Auto-generated method stub
 		return mapper.getTotalCount();
 	}
+
+	
 
 
 

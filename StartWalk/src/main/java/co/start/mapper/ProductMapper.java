@@ -3,6 +3,7 @@ package co.start.mapper;
 import java.util.List;
 
 import co.start.vo.ProductVO;
+import co.start.vo.SearchVO;
 
 public interface ProductMapper {
 
@@ -25,8 +26,11 @@ public interface ProductMapper {
 
 	
 	// 패키지 상품 리스트 (순덕)
-	public List<ProductVO> packageList();
-	public List<ProductVO> packageListFive();
+	public List<ProductVO> packageList(SearchVO search);
+	
+	public List<ProductVO> packageListWithPaging(SearchVO search);
+	//패키지 상품 지역별 전체 글 수
+	public int getTotalCountTwo(SearchVO search);
 	
 	// 패키지 상품 상세 (순덕)
 	public ProductVO packageInfo(int pdId);
