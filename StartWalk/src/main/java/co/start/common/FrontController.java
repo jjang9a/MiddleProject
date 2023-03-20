@@ -15,13 +15,16 @@ import co.start.controller.AddUserControl;
 import co.start.controller.AddUserFormControl;
 import co.start.controller.CartControl;
 import co.start.controller.FAQControl;
+import co.start.controller.CommentsAddAjax;
+import co.start.controller.CommentsListAjax;
 import co.start.controller.HotelInfoControl;
 import co.start.controller.HotelListControl;
 import co.start.controller.LoginControl;
 import co.start.controller.LoginFormControl;
 import co.start.controller.MainControl;
+import co.start.controller.MateAddControl;
 import co.start.controller.MateInfoControl;
-import co.start.controller.MateListControl;
+
 import co.start.controller.OrderControl;
 import co.start.controller.OrderFormControl;
 import co.start.controller.PackageInfoControl;
@@ -29,12 +32,16 @@ import co.start.controller.PackageListControl;
 import co.start.controller.ProductInfoControl;
 import co.start.controller.ProductListControl;
 import co.start.controller.ScManagerListControl;
+import co.start.controller.ScModifyControl;
+import co.start.controller.ScSearchControl;
+import co.start.controller.ScWriteControl;
 import co.start.controller.TravelBoardControl;
 import co.start.controller.TravelBoardListControl;
 import co.start.controller.TravelBoardWriteControl;
 import co.start.controller.UserUpdateCheckControl;
 import co.start.controller.UserUpdateControl;
 import co.start.controller.UserUpdateFormControl;
+import co.start.controller.NoticeListControl;
 import co.start.controller.LogoutControl;
 
 
@@ -67,7 +74,7 @@ public class FrontController extends HttpServlet {
 		map.put("/faq.do", new FAQControl()); // 자주묻는 질문 페이지
 		
 		// 순덕
-		// 지역별 여행 패키지 목록(서울 경기)
+		// 지역별 여행 패키지 목록
 		map.put("/packageList.do", new PackageListControl());
 		
 		// 여행 패키지 상세
@@ -75,6 +82,13 @@ public class FrontController extends HttpServlet {
 		// 여행 패키지 글쓰기
 		// 여행 패키지 글 수정
 		// 여행 패키지 글 삭제
+		
+		// 공지사항 목록
+		map.put("/noticeList.do", new NoticeListControl());
+		// 공지사항 상세
+		// 공지사항 글쓰기
+		// 공지사항 글 수정
+		// 공지사항 글 삭제
 		
 		
 		
@@ -87,9 +101,17 @@ public class FrontController extends HttpServlet {
 		  // 상품 상세
 				map.put("/productInfo.do", new ProductInfoControl());
 	      // 매칭 게시판 목록
-				map.put("/mateList.do", new MateListControl());
+//				map.put("/mateList.do", new MateListControl());
 		  // 매칭 게시판 상세
 				map.put("/mateInfo.do", new MateInfoControl());
+		  // 매칭 게시판 등록
+				map.put("/mateAdd.do", new MateAddControl());
+		  // 매칭 댓글 목록
+				map.put("/CommentListAjax.do", new CommentsListAjax());
+		  // 댓글 등록
+				map.put("/commentsAdd.do", new CommentsAddAjax());
+				
+				
 				// 매칭 후기 게시판 목록
 				
 		
@@ -102,29 +124,29 @@ public class FrontController extends HttpServlet {
 		map.put("/addUser.do", new AddUserControl()); // 회원가입 처리.
 		
 		// 관리자 sc(1:1문의)
-		map.put("/scManagerList", new ScManagerListControl()); // 목록 관리자용(전체리스트).
-//		map.put("/scSearch", new ScSearchControl()); // 글 읽기(단건조회).
-//		map.put("/scWrite", new ScWriteControl()); // 1:1문의 글쓰기(등록).
-//		map.put("/scModify.do", new ScModifyControl()); // 글수정.
-//		map.put("/scRemove.do", new ScRemoveControl()); // 글삭제.
+		map.put("/scManagerList.do", new ScManagerListControl()); // 목록 관리자용(전체리스트).
+		//map.put("/scSearch.do", new ScSearchControl()); // 글 읽기(단건조회).
+		//map.put("/scWrite.do", new ScWriteControl()); // 1:1문의 글쓰기(등록).
+		//map.put("/scModify.do", new ScModifyControl()); // 글수정.
+		//map.put("/scRemove.do", new ScRemoveControl()); // 글삭제.
 		
 		// 회원 sc(1:1문의)
-		//map.put("/scUser", new ScUserListControl()); // 목록 회원용(전체리스트-아이디 조건).
+		//map.put("/scUser.do", new ScUserListControl()); // 목록 회원용(전체리스트-아이디 조건).
 		
 		
 		// 쪽지 dm (sender)
-		//map.put("/senderList", new SenderListControl()); // 목록 관리자용(전체리스트).
-		//map.put("/senderSearch", new SenderSearchControl()); // 쪽지 읽기(단건조회).
-		//map.put("/senderWrite", new SenderWriteControl()); // 관리자 쪽지 보내기(등록).
+		//map.put("/senderList.do", new SenderListControl()); // 목록 관리자용(전체리스트).
+		//map.put("/senderSearch.do", new SenderSearchControl()); // 쪽지 읽기(단건조회).
+		//map.put("/senderWrite.do", new SenderWriteControl()); // 관리자 쪽지 보내기(등록).
 		//map.put("/senderModify.do", new SenderModifyControl()); // 수정.
 		//map.put("/senderRemove.do", new SenderRemoveControl()); // 삭제.
 		
 		// 쪽지 dm (receiver)
-		//map.put("/receiverList", new ReceiverListControl()); // 목록 회원용(전체리스트).
-		//map.put("/receiverWrite", new ReceiverWriteControl()); // 회원 쪽지 보내기(등록).
+		//map.put("/receiverList.do", new ReceiverListControl()); // 목록 회원용(전체리스트).
+		//map.put("/receiverWrite.do", new ReceiverWriteControl()); // 회원 쪽지 보내기(등록).
 		
 		// 상품등록 (관리자)
-		//map.put("/productAdd", new productAddControl()); // 상품등록(등록).
+		//map.put("/productAdd.do", new productAddControl()); // 상품등록(등록).
 		
 		
 	}

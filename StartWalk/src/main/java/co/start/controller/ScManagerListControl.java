@@ -8,23 +8,33 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import co.start.common.Control;
-import co.start.service.ScManagerService;
-import co.start.service.ScManagerServiceMybatis;
+import co.start.service.BoardService;
+import co.start.service.BoardServiceMybatis;
 import co.start.vo.BoardVO;
+import co.start.vo.PageDTO;
 
 
 public class ScManagerListControl implements Control {
 
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
-		ScManagerService service = new ScManagerServiceMybatis();
-//		List<BoardVO> list = service.scManagerList();
-//		
-//		request.setAttribute("boardlist", list);
+		String page = request.getParameter("page");
+		String id = request.getParameter("userId");
 		
-	
 		
-		return "serviceList/ManagerList.tiles";
+		 if(page ==null) {
+		    	page = "1";
+		    }
+		BoardService service = new BoardServiceMybatis();
+		List<BoardVO> list = service.scManagerList(Integer.parseInt(page));
+		int total = service.getTotalCount();
+		
+		request.setAttribute("list", list);
+		request.setAttribute("page", new PageDTO(Integer.parseInt(page), total));
+
+		
+		// 폴더명 /파일명
+		return "managerService/serviceList.tiles";
 			
 			
 

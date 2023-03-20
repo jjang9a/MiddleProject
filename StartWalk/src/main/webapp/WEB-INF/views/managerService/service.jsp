@@ -10,7 +10,11 @@
 		<tr>
 			<td>글번호</td>
 			<td><input type="text" name="id" readonly value="${board.bId }"></td>
-			<td>조회수  <b>${board.bCount }</b> </td>
+			<!--  <td>조회수  <b>${board.bCount }</b> </td>-->
+		</tr>
+		<tr>
+			<td>작성자</td>
+			<td><input type="text" name="id" readonly value="${board.userId }"></td>
 		</tr>
 		<tr>
 			<td>제목</td>
@@ -24,20 +28,17 @@
 			<td>작성일</td>
 			<td colspan=2><input type="date" name="Date" value="${board.bWriteDate }"></td>
 		</tr>
-		<tr>
+		<!--<tr>
 			<td>게시판 분류</td>
 			<td colspan=2><input type="text" name="Category" value="${board.bCategory }"></td>
 		</tr>
-		<tr>
+	        <tr>
 			<td>추천수</td>
 			<td colspan=2><input type="text" name="Good" value="${board.bGood }"></td>
-		</tr>
-		<tr>
-			<td>매칭</td>
-			<td colspan=2><input type="text" name="Matching" value="${board.bMatching }"></td>
-		</tr>
+		</tr> -->
 		
-		<tr>
+		
+		<!--<tr>
 			<td>첨부파일</td>
 			<td colspan=2>
 			<c:choose>
@@ -49,7 +50,7 @@
 				</c:otherwise>
 			</c:choose>
 			</td>
-		</tr>
+		</tr> -->
 		<tr>
 			<td colspan="3" align="center">
 			 <button id="modBtn">수정</button>
@@ -57,29 +58,29 @@
 		
 	</table>
 
-	<form id="myFrm" action="noticeModify.do">
+	<form id="myFrm" action="scModify.do">
 	</form>
 
 	<script>
 		document.querySelector('#modBtn').addEventListener('click', function(){
 			let myFrm = document.querySelector('#myFrm');
-			let nid = document.querySelector('input[name="nid"]').value;
+			let id = document.querySelector('input[name="id"]').value;
 			let title = document.querySelector('input[name="title"]').value;
-			let subject = document.querySelector('textarea[name="subject"]').textContent;
+			let Contents = document.querySelector('textarea[name="Contents"]').textContent;
 			
-			myFrm.append(document.querySelector('input[name="nid"]'));
+			myFrm.append(document.querySelector('input[name="id"]'));
 			myFrm.append(document.querySelector('input[name="title"]'));
-			myFrm.append(document.querySelector('textarea[name="subject"]'));
+			myFrm.append(document.querySelector('textarea[name="Contents"]'));
 			console.log(myFrm);
 			myFrm.submit();
 		});
 
 		//삭제
 		document.querySelector('#delBtn').addEventListener('click', function () {
-
+			myFrm.action = 'scRemove.do'; 
 			let myFrm = document.querySelector('#myFrm');
-			myFrm.action = 'noticeRemove.do'; 
-			myFrm.append(document.querySelector('input[name="nid"]'));
+			
+			myFrm.append(document.querySelector('input[name="id"]'));
 
 			myFrm.submit();
 		})
