@@ -6,6 +6,7 @@ import org.apache.ibatis.session.SqlSession;
 
 import co.start.common.DataSource;
 import co.start.mapper.ProductMapper;
+import co.start.vo.BoardVO;
 import co.start.vo.ProductVO;
 import co.start.vo.SearchVO;
 
@@ -40,6 +41,10 @@ public class ProductServiceMybatis implements ProductService{
 	public List<ProductVO> products(int page){    //명물
 		return mapper.productList(page);
 	}
+//	public boolean addMate(BoardVO vo) {
+//		int r = mapper.insertMate(vo);
+//		return r==1;
+//	}
 	
 	@Override
 	public List<ProductVO> hotels() {    //호텔

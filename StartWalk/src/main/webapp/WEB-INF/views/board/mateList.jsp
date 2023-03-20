@@ -47,12 +47,12 @@
 						      <td class="d-flex align-items-center">
 						      	<div class="img" style="background-image: url(images/person_1.jpg);"></div>
 						      	<div class="pl-3 email">
-						      		<span> <a href='mateInfo.do?userId=${mate.userId}'>${mate.userId}</a></span>
+						      		<span> ${mate.userId}</span>
 						      		<span></span>
 						      	</div>
 						      </td>
-						      <td></td>
-						      <td class="status"><span class="active">Active</span></td>
+						      <td><a href='mateInfo.do?bTitle=${mate.getBTitle()}'>${mate.getBTitle() }</a></td>
+						      <td class="status"><span class="active">${mate.getBMatching() }</span></td>
 						       </c:forEach>
 						      
 						   
