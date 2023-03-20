@@ -14,9 +14,9 @@ import co.start.vo.BoardVO;
 public class MateAddControl implements Control {
 
 	@Override
-	public String exec(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+	public String exec(HttpServletRequest request, HttpServletResponse response){
 		
-		try {
+
 		int bid = Integer.parseInt(request.getParameter("bid"));
 		String userId = request.getParameter("id");
 		String title = request.getParameter("btitle") ;
@@ -30,20 +30,17 @@ public class MateAddControl implements Control {
 		vo.setBCategory(category);
 		
 		BoardService service = new BoardServiceMybatis();
-		if(service.addMate(vo)) {
-			response.sendRedirect("board/mateList.tiles");
-		} else {
-			try {
-				request.getRequestDispatcher("WEB-INF/board/mateAddForm.jsp").forward(request, response);
-			
-	} catch(ServletException e) {
-		e.printStackTrace();
-	}
-
-}
-		
-} catch(IOException e) {
-	e.printStackTrace();
-}
+//		if(service.addMate(vo)) {
+//			return "board/mateList.tiles";
+//		} else {
+//			try {
+//				request.getRequestDispatcher("WEB-INF/board/mateAddForm.jsp").forward(request, response);
+//			
+//	} catch(ServletException e) {
+//		e.printStackTrace();
+//	}
+//
+//}
+		return null;
 	}
 }

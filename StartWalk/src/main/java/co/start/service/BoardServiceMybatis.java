@@ -54,6 +54,11 @@ public class BoardServiceMybatis implements BoardService{
 	// 순덕
 	
 	// 용억
+	@Override
+	public boolean addMate(BoardVO vo) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 	
 	// 대준
 	@Override
@@ -81,6 +86,7 @@ public class BoardServiceMybatis implements BoardService{
 	public int scRemove(int bId) {
 		return 0;
 	}
+
 
 	// 일반 회원용 조회 메소드 하나 더 만들기. // where user_id = #{id} <<mapper.xml 에 넣고 로 조회하기 session.id Control에서 service 조회할때 변수로 사용 
 	//@Override

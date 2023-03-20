@@ -35,10 +35,10 @@ public class ProductServiceMybatis implements ProductService{
 	public List<ProductVO> products(int page){    //명물
 		return mapper.productList(page);
 	}
-	public boolean addMate(BoardVO vo) {
-		int r = mapper.insertMate(vo);
-		return r==1;
-	}
+//	public boolean addMate(BoardVO vo) {
+//		int r = mapper.insertMate(vo);
+//		return r==1;
+//	}
 	
 	@Override
 	public List<ProductVO> hotels() {    //호텔
