@@ -21,4 +21,5 @@ public interface ScManagerService {
 	// 삭제
 	public int scRemove(int bId);
 
+
 }
