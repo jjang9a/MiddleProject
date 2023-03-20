@@ -20,7 +20,7 @@ import co.start.controller.LoginControl;
 import co.start.controller.LoginFormControl;
 import co.start.controller.MainControl;
 import co.start.controller.MateInfoControl;
-import co.start.controller.MateListControl;
+
 import co.start.controller.OrderControl;
 import co.start.controller.OrderFormControl;
 import co.start.controller.PackageInfoControl;
@@ -34,6 +34,7 @@ import co.start.controller.TravelBoardWriteControl;
 import co.start.controller.UserUpdateCheckControl;
 import co.start.controller.UserUpdateControl;
 import co.start.controller.UserUpdateFormControl;
+import co.start.controller.NoticeListControl;
 import co.start.controller.LogoutControl;
 
 
@@ -65,7 +66,7 @@ public class FrontController extends HttpServlet {
 		map.put("/logout.do", new LogoutControl());
 		
 		// 순덕
-		// 지역별 여행 패키지 목록(서울 경기)
+		// 지역별 여행 패키지 목록
 		map.put("/packageList.do", new PackageListControl());
 		
 		// 여행 패키지 상세
@@ -73,6 +74,13 @@ public class FrontController extends HttpServlet {
 		// 여행 패키지 글쓰기
 		// 여행 패키지 글 수정
 		// 여행 패키지 글 삭제
+		
+		// 공지사항 목록
+		map.put("/noticeList.do", new NoticeListControl());
+		// 공지사항 상세
+		// 공지사항 글쓰기
+		// 공지사항 글 수정
+		// 공지사항 글 삭제
 		
 		
 		
@@ -85,7 +93,7 @@ public class FrontController extends HttpServlet {
 		  // 상품 상세
 				map.put("/productInfo.do", new ProductInfoControl());
 	      // 매칭 게시판 목록
-				map.put("/mateList.do", new MateListControl());
+//				map.put("/mateList.do", new MateListControl());
 		  // 매칭 게시판 상세
 				map.put("/mateInfo.do", new MateInfoControl());
 				// 매칭 후기 게시판 목록

@@ -45,4 +45,11 @@ public interface BoardMapper {
 	// 1:1문의 목록 (회원용)
 	public List<BoardVO> scUserList(); 
 	
+	
+	// 순덕
+	// 공지사항 목록
+	public List<BoardVO> noitceList();
+	// 공지사항 상세
+	
+	
 }

@@ -7,8 +7,6 @@
 
 
 <!-- 순덕 -->
-
-
 <select id="packageList" resultType="co.start.vo.ProductVO" parameterType="co.start.vo.SearchVO">
 	select * from product
 	<where>
@@ -23,11 +21,39 @@
 	</where>
 </select>
 
+<select id="packageListWithPaging" resultType="co.start.vo.ProductVO" parameterType="co.start.vo.SearchVO">
+	<![CDATA[
+	  select pd_id, pd_name, pd_price, pd_type,  nvl(pd_sale, pd_price) pd_sale, pd_start, pd_end, pd_location, pr_img
+	  from (select  rownum rn, pd_id, pd_name, pd_price, pd_type, pd_sale, pd_start , pd_end, pd_location, pr_img
+	      from (select pd_id, pd_name, pd_price, pd_type, pd_sale, pd_start, pd_end, pd_location, pr_img
+	            from product where 1=1 and
+	]]>
+		            pd_type='PK'and pd_location= #{region}	
+		            <if test="order == 'start'">
+						order by pd_start
+					</if>
+					<if test="order == 'price'">
+						order by pd_sale
+					</if>
+
+					<![CDATA[
+				) a
+	      where rownum <= (#{page} * 10) ) b
+	  where b.rn > (#{page} - 1) * 10
+	]]>
+</select>
+	
+<select id="getTotalCountTwo" parameterType="co.start.vo.SearchVO">
+		select count(*) from product where pd_type='PK' and pd_location= #{region}
+</select>
+
 
 <select id="packageInfo" resultType="co.start.vo.ProductVO" parameterType="co.start.vo.ProductVO">
 	select * from product
 	where pd_id=#{pdId}
 </select>
+
+
 
 
 <!-- 용억 -->
@@ -53,8 +79,6 @@
 	      where rownum <= (#{page} * 10) ) b
 	  where b.rn > (#{page} - 1) * 10
 	]]>
-	
-	
 	</select>
 	
 	<update id="updateCount" parameterType="int">

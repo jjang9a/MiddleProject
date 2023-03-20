@@ -33,4 +33,13 @@ public interface BoardService {
 	public int scModify(BoardVO vo);
 	// 삭제
 	public int scRemove(int bId);	
+	
+	
+	// 순덕
+	// 공지사항 목록
+	public List<BoardVO> noitceList();
+	// 공지사항 상세
+	
+	
+	
 }

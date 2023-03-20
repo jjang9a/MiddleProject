@@ -24,6 +24,8 @@ public interface ProductService {
 	// 순덕
 	// 패키지 목록
 	public List<ProductVO> packageList(SearchVO search);
+	// 전체 건수(패키지 전체 건수)
+    public int getTotalCountTwo(SearchVO search);
 	
 	// 패키지 상세
 	public ProductVO packageInfo(int pdId);
