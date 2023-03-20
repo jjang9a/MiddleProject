@@ -16,8 +16,8 @@ public class LoginControl implements Control {
 	@Override
 	public String exec(HttpServletRequest req, HttpServletResponse resp) {
 		// TODO Auto-generated method stub
-		String id = req.getParameter("userId");
-		String pw = req.getParameter("userPasswd");
+		String id = req.getParameter("userid");
+		String pw = req.getParameter("userpasswd");
 
 		UserVO vo = new UserVO();
 		
@@ -31,7 +31,7 @@ public class LoginControl implements Control {
 		
 		HttpSession session = req.getSession(); // 요청정보에 있는 세션정보를 있으면 호출. 없으면 세션 객체생성.
 		if(vo!=null) {
-			session.setAttribute("userId", id);
+			session.setAttribute("loginId", id);
 			//session.setAttribute("userId", vo);
 			req.setAttribute("message", id+"님의 로그인을 환영합니다.");
 		}else {

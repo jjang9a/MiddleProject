@@ -228,7 +228,6 @@ body {
       <input type="text" placeholder="UserID" class="input" name="userId"/>
       <input type="password" placeholder="Password" class="input" name="userPasswd"/>
       <input type="text" placeholder="Name" class="input" name="name"/>
-      <input type="text" placeholder="birth date" class="input" name="birth date"/>
       <input type="text" placeholder="gender" class="input" name="gender"/>
       <input type="tell" placeholder="Phone" class="input" name="Phone"/>
       <input type="text" placeholder="Adreess" class="input" name="adreess"/>
