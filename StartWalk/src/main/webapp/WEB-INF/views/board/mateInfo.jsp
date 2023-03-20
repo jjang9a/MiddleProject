@@ -59,13 +59,13 @@
 	<table class="table">
 		<form>
 			<tr>
-				<td>coid : <input type="text" id="coid"></td>
+				<td>댓글 번호 : <input type="text" id="coid"></td>
 				
-				<td>bid : <input type="text" id="bid"></td>
+				<td>게시판 번호 : <input type="text" id="bid"></td>
 				
-				<td>id : <input type="text" id="id"></td>
+				<td>ID : <input type="text" id="id"></td>
 				
-				<td>contents : <input type="text" size="30" id="text"></td>
+				<td>내용 : <input type="text" size="30" id="text"></td>
 				
 				<td><button id="addBtn">등록</button></td>
 				<td><button id="udBtn">수정</button></td>

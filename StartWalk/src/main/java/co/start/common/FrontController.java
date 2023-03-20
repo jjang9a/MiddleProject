@@ -21,6 +21,7 @@ import co.start.controller.HotelListControl;
 import co.start.controller.LoginControl;
 import co.start.controller.LoginFormControl;
 import co.start.controller.MainControl;
+import co.start.controller.MateAddControl;
 import co.start.controller.MateInfoControl;
 import co.start.controller.MateListControl;
 import co.start.controller.OrderControl;
@@ -90,6 +91,8 @@ public class FrontController extends HttpServlet {
 				map.put("/mateList.do", new MateListControl());
 		  // 매칭 게시판 상세
 				map.put("/mateInfo.do", new MateInfoControl());
+		  // 매칭 게시판 등록
+				map.put("/mateAdd.do", new MateAddControl());
 		  // 매칭 댓글 목록
 				map.put("/CommentListAjax.do", new CommentsListAjax());
 		  // 댓글 등록

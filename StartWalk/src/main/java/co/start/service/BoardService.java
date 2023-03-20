@@ -9,6 +9,8 @@ public interface BoardService {
 	// 메이트 목록
 	public List<BoardVO> mateList();
 	
+	// 메이트 등록
+	public boolean addMate(BoardVO vo);
 	// 메이트 상세
 	public BoardVO getMateInfo(String bTitle);
 	// 전체 건수
