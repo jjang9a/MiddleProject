@@ -14,14 +14,19 @@ public class BoardServiceMybatis implements BoardService{
 	SqlSession sqlSession = DataSource.getInstance().openSession(true);
 	BoardMapper mapper = sqlSession.getMapper(BoardMapper.class);
 	@Override
-	public List<BoardVO> mateList(int page) {
+	public List<BoardVO> mateList() {
 		// TODO Auto-generated method stub
-		return mapper.mateListWithPaging(page);
+		return mapper.mateList();
 	}
 	@Override
 	public int getTotalCount() {
 		
 		return mapper.getTotalCount();
+	}
+	@Override
+	public BoardVO getMateInfo(int userId) {
+		
+		return mapper.selectMate(userId);
 	}
 	
 	// 가애

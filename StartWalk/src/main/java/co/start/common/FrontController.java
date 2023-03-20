@@ -17,6 +17,8 @@ import co.start.controller.AddUserFormControl;
 import co.start.controller.LoginControl;
 import co.start.controller.LoginFormControl;
 import co.start.controller.MainControl;
+import co.start.controller.MateInfoControl;
+import co.start.controller.MateListControl;
 import co.start.controller.OrderControl;
 import co.start.controller.OrderFormControl;
 import co.start.controller.PackageInfoControl;
@@ -24,7 +26,7 @@ import co.start.controller.PackageListControl;
 import co.start.controller.TravelBoardControl;
 import co.start.controller.TravelBoardListControl;
 import co.start.controller.TravelBoardWriteControl;
-import co.start.controller.mateListControl;
+import co.start.controller.MateListControl;
 import co.start.controller.ProductInfoControl;
 import co.start.controller.ProductListControl;
 import co.start.controller.ScManagerListControl;
@@ -69,7 +71,11 @@ public class FrontController extends HttpServlet {
 		  // 상품 상세
 				map.put("/productInfo.do", new ProductInfoControl());
 	      // 매칭 게시판 목록
-				map.put("/mate.do", new mateListControl());
+				map.put("/mateList.do", new MateListControl());
+		  // 매칭 게시판 상세
+				map.put("/mateInfo.do", new MateInfoControl());
+				// 매칭 후기 게시판 목록
+				
 		
 		// 대준
 		// 로그인

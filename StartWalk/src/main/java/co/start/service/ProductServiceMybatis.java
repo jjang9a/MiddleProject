@@ -41,7 +41,7 @@ public class ProductServiceMybatis implements ProductService{
 	
 	@Override
 	public ProductVO getProduct(int pdId) {
-		mapper.updateCount(pdId);
+		
 		return mapper.selectProduct(pdId);
 	}
 
