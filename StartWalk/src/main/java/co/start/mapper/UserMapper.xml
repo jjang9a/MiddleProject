@@ -4,7 +4,13 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="co.start.mapper.UserMapper">
 <!-- 가애 -->
-
+<select id="userInfo" parameterType="String" resultType="userVO">
+	select * from users where user_id = #{id}
+</select>
+<update id="updateUser" parameterType="UserVO">
+	update users set user_mail=#{userMail}, user_passwd=#{userPasswd}, user_addr=#{userAddr}, user_phone=#{userPhone}
+	where user_id = #{userId}
+</update>
 
 <!-- 순덕 -->
 
@@ -15,12 +21,12 @@
 <!-- 대준 -->
   
   <select id="login" parameterType="co.start.vo.UserVO" resultType="co.start.vo.UserVO">
-    select * from users where user_id = #{userId}
+    select * from users where user_id = #{userId} and user_passwd = #{userPasswd}
   </select>
   
   <insert id="insertUser" parameterType="UserVO">
 		insert into users  
-		values (#{userId}, #{userPasswd}, #{userName}, sysdate, #{userGender}, #{userPhone}, #{userAddr}, #{userMail} 'normal')
+		values (#{userId}, #{userPasswd}, #{userName}, sysdate, #{userGender}, #{userPhone}, #{userAddr}, #{userMail}, 'normal')
   </insert>
   
 
