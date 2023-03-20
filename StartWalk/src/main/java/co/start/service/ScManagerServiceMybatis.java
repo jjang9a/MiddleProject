@@ -16,7 +16,7 @@ public class ScManagerServiceMybatis implements ScManagerService {
 	// 1:1문의 목록 관리자용(전체리스트).
 	@Override
 	public List<BoardVO> scManagerList(int page) { 
-	//	return mapper.scManagerList();
+	   // return mapper.scManagerList();
 		return mapper.scManagerLisWithPaging(page);
 	}
 
@@ -26,13 +26,6 @@ public class ScManagerServiceMybatis implements ScManagerService {
 		mapper.scSearch(bId);
 		return mapper.scSearch(bId);
 	}
-	
-	//	@Override
-//	public BoardVO scSearch(String bTitle) { // 게시글 제목으로 조회.
-//		mapper.scSearch(String bTitle);
-//		return mapper.scSearch(bTitle);
-//	}
-	
 	
 	// 문의작성 1:1문의 글쓰기(등록).
 	@Override
