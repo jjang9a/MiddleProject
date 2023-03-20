@@ -7,10 +7,20 @@
 
 
 <!-- 순덕 -->
-<select id="packageList" resultType="co.start.vo.ProductVO">
+
+
+<select id="packageList" resultType="co.start.vo.ProductVO" parameterType="co.start.vo.SearchVO">
 	select * from product
-	where pd_type = 'PK' and pd_location='서울 경기'
-	order by pd_start
+	<where>
+		pd_type='PK'
+		and pd_location= #{region}			
+		<if test="order == 'start'">
+			order by pd_start
+		</if>
+		<if test="order == 'price'">
+			order by pd_price
+		</if>
+	</where>
 </select>
 
 

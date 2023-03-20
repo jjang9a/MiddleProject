@@ -11,19 +11,19 @@
             <h5>상품 <span style="color: blue;">${fn:length(list) }</span>개</h5>
             <hr>
             <div>
-               <p style="text-align: right;">|&nbsp <a href="#" style="color:black;">출발일 순</a> &nbsp | &nbsp <a href="#" style="color:black;">가격순</a> &nbsp |</p>
+               <p style="text-align: right;">|&nbsp <a href="packageList.do?order=start" style="color:black;">출발일 순</a> &nbsp | &nbsp <a href="packageList.do?order=price" style="color:black;">낮은 가격순</a> &nbsp |</p>
             </div>
             <hr>
             <div style="width: 200px; float: left;">
-                <a href="" style="color:black;">서울 경기</a>
+                <a href="packageList.do?region=서울 경기" style="color:black;">서울 경기</a>
                 <hr>
-                 <a href="" style="color:black;">충청 강원도</a>
+                 <a href="packageList.do?region=충청 강원도" style="color:black;">충청 강원도</a>
                 <hr>
-                 <a href="" style="color:black;">경상도</a>
+                 <a href="packageList.do?region=경상도" style="color:black;">경상도</a>
                 <hr>
-                 <a href="" style="color:black;">전라도</a>
+                 <a href="packageList.do?region=전라도" style="color:black;">전라도</a>
                 <hr>
-                 <a href="" style="color:black;">제주도</a>
+                 <a href="packageList.do?region=제주도" style="color:black;">제주도</a>
                 <hr>
             </div>
             <div style="float: left; margin-bottom: 50px;">

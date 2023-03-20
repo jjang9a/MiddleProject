@@ -3,6 +3,7 @@ package co.start.service;
 import java.util.List;
 
 import co.start.vo.ProductVO;
+import co.start.vo.SearchVO;
 
 public interface ProductService {
 
@@ -22,7 +23,7 @@ public interface ProductService {
 	
 	// 순덕
 	// 패키지 목록
-	public List<ProductVO> packageList();
+	public List<ProductVO> packageList(SearchVO search);
 	
 	// 패키지 상세
 	public ProductVO packageInfo(int pdId);
