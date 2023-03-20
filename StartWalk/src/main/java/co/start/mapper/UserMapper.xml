@@ -15,7 +15,7 @@
 <!-- 대준 -->
   
   <select id="login" parameterType="co.start.vo.UserVO" resultType="co.start.vo.UserVO">
-    select * from users where user_id = #{id}
+    select * from users where user_id = #{userId}
   </select>
   
   <insert id="insertUser" parameterType="UserVO">
