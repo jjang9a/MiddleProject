@@ -65,6 +65,14 @@ public interface BoardMapper {
 	// 공지사항 목록
 	public List<BoardVO> noitceList();
 	// 공지사항 상세
+	public BoardVO noticeInfo(String bTitle);
+	// 공지사항 글쓰기
+	
+	// 공지사항 수정
+	
+	// 공지사항 삭제
+	
+	
 	
 	
 }

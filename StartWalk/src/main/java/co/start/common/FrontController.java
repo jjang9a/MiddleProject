@@ -27,6 +27,8 @@ import co.start.controller.MainControl;
 import co.start.controller.MateAddControl;
 import co.start.controller.MateAddForm;
 import co.start.controller.MateInfoControl;
+import co.start.controller.NoticeInfoControl;
+
 
 
 
@@ -36,11 +38,16 @@ import co.start.controller.MateModifyFormControl;
 
 import co.start.controller.OrderControl;
 import co.start.controller.OrderFormControl;
+import co.start.controller.PackageAddControl;
+import co.start.controller.PackageAddFormControl;
+import co.start.controller.PackageDeleteControl;
 import co.start.controller.PackageInfoControl;
 import co.start.controller.PackageListControl;
+import co.start.controller.PackageModifyControl;
 import co.start.controller.ProductInfoControl;
 import co.start.controller.ProductListControl;
 import co.start.controller.ScManagerListControl;
+import co.start.controller.ScSearchControl;
 import co.start.controller.TravelBoardControl;
 import co.start.controller.TravelBoardListControl;
 import co.start.controller.TravelBoardWriteControl;
@@ -90,15 +97,23 @@ public class FrontController extends HttpServlet {
 		
 		// 여행 패키지 상세
 		map.put("/packageInfo.do", new PackageInfoControl());
-		// 여행 패키지 글쓰기
+		// 여행 패키지 글쓰기 폼
+		map.put("/packageAddForm.do", new PackageAddFormControl());
+		// 여행 패키지 글쓰기 처리 
+		map.put("/packageAdd.do", new PackageAddControl());
 		// 여행 패키지 글 수정
+		map.put("/packageModifyForm.do", new PackageModifyControl());
 		// 여행 패키지 글 삭제
+		map.put("/packageDelete.do", new PackageDeleteControl());
 		
 		// 공지사항 목록
 		map.put("/noticeList.do", new NoticeListControl());
 		// 공지사항 상세
+		map.put("/noticeInfo.do", new NoticeInfoControl());
 		// 공지사항 글쓰기
+		
 		// 공지사항 글 수정
+		
 		// 공지사항 글 삭제
 		
 		

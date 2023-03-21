@@ -41,6 +41,11 @@ public class BoardServiceMybatis implements BoardService{
 	public List<BoardVO> noitceList() {
 		return mapper.noitceList();
 	}
+	@Override
+	public BoardVO noticeInfo(String bTitle) {
+		// 
+		return mapper.noticeInfo(bTitle);
+	}
 	
 	// 용억
 	@Override
@@ -106,7 +111,6 @@ public class BoardServiceMybatis implements BoardService{
 		return mapper.scRemove(bId);
 	}
 	
-
 
 
 	// 일반 회원용 조회 메소드 하나 더 만들기. // where user_id = #{id} <<mapper.xml 에 넣고 로 조회하기 session.id Control에서 service 조회할때 변수로 사용 

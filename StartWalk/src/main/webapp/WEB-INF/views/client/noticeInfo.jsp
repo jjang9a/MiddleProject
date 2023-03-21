@@ -9,7 +9,8 @@
             <hr style="margin-top: 120px; margin-bottom: 0;">
             
             <c:if test="${loginUser.userGrade.equals('admin') }">
-				<a href="" class="btn btn-sm btn-dark rounded py-2 px-4" style="float: right; margin:10px 0;">글쓰기	</a>
+				<a href="packageDelete.do" class="btn btn-sm btn-dark rounded py-2 px-4" style="float: right; margin: 0 10px">삭제</a>
+				<a href="packageModifyForm.do" class="btn btn-sm btn-dark rounded py-2 px-4" style="float: right;">수정</a>
 			</c:if>
             
             
@@ -26,41 +27,23 @@
                     
                  </div>
             </div>
-            <div style="float: left; margin-bottom: 50px; padding: 5px 40px;">
+            <div style="float: left; margin-bottom: 0 auto 50px atuo; padding: 5px 40px; width:800px;">
                 <h5 style="font-size: 23px;">공지사항</h5>
-                <div style="margin-top: 20px;">
-                	<table style="border-top: 3px solid black; border-bottom: 1px solid black; padding: 5px; width: 720px;">
-                		<thead style="text-align: center; background-color: rgb(194, 188, 188); color: black;">
-                		<tr>
-                			<th>제목</th>
-                			<th>작성자</th>
-                			<th style="width: 180px;">작성일</th>
-                		</tr>              		
-                		</thead>
-                		<tbody>
-                			
-                			<c:forEach var="n" items="${list}">
-                				<tr>
-                					<td style="padding: 8px 0 8px 15px;"><a href="noticeInfo.do?bTitle=${n.getBTitle()}" style="color:black; font-weight: 700">${n.getBTitle()}</a></td>
-                					<td style="text-align: center;">관리자</td>
-                					<td style="text-align: center;"><fmt:formatDate value="${n.getBWriteDate()}" type="both" pattern="yyyy-MM-dd HH:mm" /> </td>
-                				</tr>
-                			</c:forEach>
-                			
-                		</tbody>
-                		<tfoot style="border-bottom: 5px solid black;">
-                		</tfoot>
-                	</table>
-                </div>
+                <div style="margin-top:50px;">
+                	<h5> &#91; ${info.getBTitle()} &#93;</h5>
+                	<p>${info.getBWriteDate()}</p>
+                	<hr>
+                	<p>${info.getBContents() }</p>			
+            	</div>
+            
             </div>
-            
-            
 
-            <div style="clear: both;">
+            <div style="clear: both; ">
             	<div>
             		<p style="padding: 20px 30px; margin-left: 220px; margin-top: 20px; background-color: beige;">시스템 담당자: 권순덕(053-123-4567)</p>
             	</div> 
             </div>
 
-		</div>
+		
+	</div>
         <!--공지사항 목록 end -->

@@ -9,9 +9,11 @@
 	<h3>서울 경기</h3>
 	<hr>
 	<div style="float: left;">
-		<h5>상품 <span style="color: blue;">${fn:length(list) }</span>개</h5>
+		<h5>상품 <span style="color: blue;">${fn:length(list) }   </span>개</h5>
 	</div>
-	<a class="btn btn-sm btn-primary rounded py-2 px-4" href="" style="float: right; margin-bottom: 18px;">글쓰기</a>
+	<c:if test="${loginUser.userGrade.equals('admin') }">
+		<a class="btn btn-sm btn-primary rounded py-2 px-4" href="packageAddForm.do" style="float: right; margin-bottom: 18px;">글쓰기</a>
+	</c:if>
 	<hr style="clear: both;">
 	<div>
 		<p style="text-align: right;">|&nbsp; <a href="packageList.do?order=start" style="color:black;">출발일 순</a> &nbsp;
@@ -57,7 +59,7 @@
 										<p>
 											<strong style="color: red;">
 												<fmt:setLocale value="ko_kr" />
-												<fmt:formatNumber value="${o.pdPrice }" /></strong>
+												<fmt:formatNumber value="${o.pdSale }" type="currency"  /></strong>
 										</p>
 									</c:when>
 									<c:otherwise>
@@ -96,14 +98,13 @@
 			<c:forEach begin="${page.startPage }" end="${page.endPage }" var="i">
 				<c:choose>
 					<c:when test="${i == page.page }">
-						<a class="active" href="packageList.do?page=${i }"
-							style="color: black; background-color: blanchedalmond; padding: 2px; border-radius: 20%; text-align: center; margin:5px;">&nbsp;
-							${i } &nbsp;</a>
+						<a class="active" href="packageList.do?page=${i }"style="color: black; background-color: blanchedalmond; padding: 2px; border-radius: 20%; text-align: center; margin:5px;">
+						&nbsp; ${i } &nbsp;</a>
 					</c:when>
 					<c:otherwise>
 						<a href="packageList.do?page=${i }"
-							style="color: black; background-color: blanchedalmond; padding: 2px; border-radius: 20%; text-align: center; margin:5px;">&nbsp;${i
-							}&nbsp; </a>
+							style="color: black; background-color: blanchedalmond; padding: 2px; border-radius: 20%; text-align: center; margin:5px;">
+							&nbsp; ${i } &nbsp;</a>
 					</c:otherwise>
 				</c:choose>
 			</c:forEach>
