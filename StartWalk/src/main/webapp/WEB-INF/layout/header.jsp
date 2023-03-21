@@ -26,12 +26,12 @@
                                 
                             </div>
                             <div class="h-100 d-inline-flex align-items-center py-2">
-                                <img src="img/login.png" alt="로그인" style="width: 25px; height: 25px;">
                                 <c:choose>
-                                	<c:when test="${loginId != null }">
-                                		<a href="logout.do"><p class="mb-0">${loginId }님 환영합니다 | &nbsp 로그아웃</p></a>
+                                	<c:when test="${loginUser != null }">
+                                		<a href="logout.do"><p class="mb-0"> ${loginUser.userId }님 환영합니다 | &nbsp 로그아웃</p></a>
                                 	</c:when>
                                 	<c:otherwise>
+                                		<img src="img/login.png" alt="로그인" style="width: 25px; height: 25px;">
                                 		<a href="loginForm.do"><p class="mb-0">&nbsp 로그인 | &nbsp 회원가입</p></a>
                                 	</c:otherwise>
                                 </c:choose>
@@ -63,22 +63,16 @@
                                     <div class="dropdown-menu rounded-0 m-0">
                                         <a href="mateList.do" class="dropdown-item">동행 구해요</a>
                                         <a href="mateInfo.do" class="dropdown-item">동행 후기</a>
-                                        <a href="hotelList.do" class="dropdown-item">여행 수기</a>
+                                        <a href="travelBoardList.do" class="dropdown-item">여행 수기</a>
                                     </div>
                                 </div>
 
-                                <a href="testimonial.html" class="nav-item nav-link">마이페이지</a>
+                                <a href="userUpdateCheck.do" class="nav-item nav-link">마이페이지</a>
                                 <a href="booking.html" class="nav-item nav-link">고객센터</a>
-                                <a href="contact.html" class="nav-item nav-link">관리모드</a>
+                                <a href="scManagerList.do" class="nav-item nav-link">관리모드</a>
                             </div>
 
-
-                          
-
-
-                            <a href="cart.do" class="btn btn-primary rounded-0 py-4 px-md-5 d-none d-lg-block" style="width: 200px; padding: 0;"> <img src="img/cart.png" alt="장바구니" style="width: 25%; height: 25%;">&nbsp 장바구니</a>
-
-
+                            <a href="cart.do?${loginUser.userId }" class="btn btn-primary rounded-0 py-4 px-md-5 d-none d-lg-block" style="width: 200px; padding: 0;"> <img src="img/cart.png" alt="장바구니" style="width: 25%; height: 25%;">&nbsp 장바구니</a>
 
                         </div>
                     </nav>

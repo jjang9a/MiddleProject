@@ -34,7 +34,10 @@
 						<table class="table table-responsive-xl">
 						  <thead>
 						    <tr>
-						    	
+						    	<td align="right" colspan="2"><a href ="mateAddForm.do"><input class="btn btn-primary"
+				                      type="submit" value="글쓰기"></a>
+						    <tr>
+						    	<th>글번호</th>
 						    	<th>userId</th>
 						      <th>title</th>
 						      <th>Status</th>
@@ -44,15 +47,19 @@
 						  <tbody>
 						  
 						      <c:forEach var="mate" items="${mate}">
+						      <tr>
+						      <td>						      	<span>${mate.getBId() }</span>
+						      </td>
 						      <td class="d-flex align-items-center">
 						      	<div class="img" style="background-image: url(images/person_1.jpg);"></div>
 						      	<div class="pl-3 email">
-						      		<span> <a href='mateInfo.do?userId=${mate.userId}'>${mate.userId}</a></span>
-						      		<span></span>
+						      		<span> ${mate.userId}</span>
+						      		
 						      	</div>
 						      </td>
-						      <td></td>
-						      <td class="status"><span class="active">Active</span></td>
+						      <td><a href='mateInfo.do?bTitle=${mate.getBTitle()}'>${mate.getBTitle() }</a></td>
+						      <td class="status"><span class="active">${mate.getBMatching() }</span></td>
+						      </tr>
 						       </c:forEach>
 						      
 						   

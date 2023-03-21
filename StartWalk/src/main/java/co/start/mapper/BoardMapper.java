@@ -5,10 +5,17 @@ import java.util.List;
 import co.start.vo.BoardVO;
 
 public interface BoardMapper {
+	
+	//용억
+	
 	//목록
 	public List<BoardVO> mateList(); // 매칭 목록
 	//매칭 게시판
-	public BoardVO selectMate(int userId);
+	public BoardVO selectMate(String bTitle);
+	//등록
+	public int insertMate(BoardVO vo);
+	//수정
+	public int updateMate(BoardVO vo);
 	
 	//페이징
 	public List<BoardVO> mateListWithPaging(int page);
@@ -18,6 +25,16 @@ public interface BoardMapper {
 	// 조회수 증가
 	public int udpateCount(int pdId);
 	
+
+	// 가애 - 여행후기 게시판
+
+	
+	
+	
+	
+	
+	
+
 	public List<BoardVO> travelListWithPaging(int page);
 	public BoardVO tavelBoradInfo(int key);
 	public int travelBoardInsert(BoardVO vo);
@@ -42,5 +59,12 @@ public interface BoardMapper {
 		
 	// 1:1문의 목록 (회원용)
 	public List<BoardVO> scUserList(); 
+	
+	
+	// 순덕
+	// 공지사항 목록
+	public List<BoardVO> noitceList();
+	// 공지사항 상세
+	
 	
 }

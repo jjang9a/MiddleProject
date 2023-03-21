@@ -22,6 +22,10 @@ public class ProductVO {
 	
 	private double star; // 테이블에는 없지만 제품 평균 평점을 위한 항목
 	
+	// 카트VO 항목
+	private String userId;
+	private int pdCount;
+	
 	
 	
 }

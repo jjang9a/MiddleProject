@@ -13,21 +13,6 @@ public class BoardServiceMybatis implements BoardService{
 
 	SqlSession sqlSession = DataSource.getInstance().openSession(true);
 	BoardMapper mapper = sqlSession.getMapper(BoardMapper.class);
-	@Override
-	public List<BoardVO> mateList() {
-		// TODO Auto-generated method stub
-		return mapper.mateList();
-	}
-	@Override
-	public int getTotalCount() {
-		
-		return mapper.getTotalCount();
-	}
-	@Override
-	public BoardVO getMateInfo(int userId) {
-		
-		return mapper.selectMate(userId);
-	}
 	
 	// 가애
 	@Override
@@ -52,8 +37,41 @@ public class BoardServiceMybatis implements BoardService{
 	}
 	
 	// 순덕
+	@Override
+	public List<BoardVO> noitceList() {
+		return mapper.noitceList();
+	}
 	
 	// 용억
+	@Override
+	public boolean addMate(BoardVO vo) {
+		int r = mapper.insertMate(vo);
+		return r ==1;
+		
+	}
+	@Override
+	public boolean ModifyMate(BoardVO vo) {
+		// TODO Auto-generated method stub
+		return mapper.updateMate(vo)==1;
+	}
+	
+	@Override
+	public List<BoardVO> mateList() {
+		// TODO Auto-generated method stub
+		return mapper.mateList();
+	}
+	@Override
+	public int getTotalCount() {
+		
+		return mapper.getTotalCount();
+	}
+	@Override
+	public BoardVO getMateInfo(String bTitle) {
+		
+		return mapper.selectMate(bTitle);
+	}
+	
+	
 	
 	// 대준
 	// 1:1문의 목록 관리자용(전체리스트).
@@ -87,6 +105,9 @@ public class BoardServiceMybatis implements BoardService{
 	public int scRemove(int bId) {
 		return mapper.scRemove(bId);
 	}
+	
+
+
 
 	// 일반 회원용 조회 메소드 하나 더 만들기. // where user_id = #{id} <<mapper.xml 에 넣고 로 조회하기 session.id Control에서 service 조회할때 변수로 사용 
 	//@Override

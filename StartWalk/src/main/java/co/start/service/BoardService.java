@@ -6,15 +6,25 @@ import co.start.vo.BoardVO;
 
 public interface BoardService {
 	
+	//용억
 	// 메이트 목록
 	public List<BoardVO> mateList();
 	
+	// 메이트 등록
+	public boolean addMate(BoardVO vo);
+	// 메이트 수정
+	public boolean ModifyMate(BoardVO vo);	
 	// 메이트 상세
-	public BoardVO getMateInfo(int userId);
+	public BoardVO getMateInfo(String bTitle);
 	// 전체 건수
 	public int getTotalCount();
 	
+
+	// 가애 - 여행 수기
+
+	
 	// 여행 수기
+
 	public List<BoardVO> travelBoardList(int page);
 	public BoardVO travelBoardRead(int key);
 	public boolean travelBoardWrite(BoardVO vo);
@@ -33,4 +43,13 @@ public interface BoardService {
 	public int scModify(BoardVO vo);
 	// 삭제
 	public int scRemove(int bId);	
+	
+	
+	// 순덕
+	// 공지사항 목록
+	public List<BoardVO> noitceList();
+	// 공지사항 상세
+	
+	
+	
 }
