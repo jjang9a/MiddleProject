@@ -25,7 +25,7 @@ public class UserUpdateControl implements Control {
 			user.setUserPasswd(req.getParameter("pw"));
 		}
 		user.setUserAddr(req.getParameter("addr"));
-		user.setUserPhone(Integer.parseInt(req.getParameter("phone")));
+		user.setUserPhone((req.getParameter("phone")));
 		
 		if(service.modifyUser(user)) {
 			req.setAttribute("message", "정상 처리 완료");
