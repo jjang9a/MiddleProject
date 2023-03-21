@@ -39,6 +39,15 @@
 	select * from board where b_title = #{bTitle}
 </select>
 
+<insert id="insertMate" parameterType="co.start.vo.BoardVO">
+	insert into board (b_id, b_title,user_id,b_contents,b_category,b_writedate ) 
+	values(board_seq.nextval,#{bTitle},#{userId},#{bContents}, 'WI',sysdate)
+</insert>
+
+<update id="updateMate" parameterType="co.start.vo.BoardVO" >
+	update board set b_title = #{bTitle}, b_contents= #{bContents} where b_id = #{bId}
+</update>
+
 
 <!-- 대준 -->
 
@@ -82,6 +91,11 @@
 
 <select id="scUserList" resultType="BoardVO">
 	select * from board where user_id = #{user_id}
+<<<<<<< HEAD
 </select>
  -->
+
+
+
+
 </mapper>
