@@ -1,0 +1,12 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+	<%
+		Object obj = request.getAttribute("message"); //object타입
+		String result = (String) obj;
+		String id = (String) request.getAttribute("id");//String
+	%>
+	<p>처리결과 : <%=result %></p>
+	<p><%= id %>님의 가입을 환영합니다</p>
+	
+	<p>회원목록으로 이동</p>
+	<a href="memberlist.do">회원목록이동</a>

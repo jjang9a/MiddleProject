@@ -63,22 +63,21 @@
                                     <div class="dropdown-menu rounded-0 m-0">
                                         <a href="mateList.do" class="dropdown-item">동행 구해요</a>
                                         <a href="mateInfo.do" class="dropdown-item">동행 후기</a>
-                                        <a href="hotelList.do" class="dropdown-item">여행 수기</a>
+                                        <a href="travelBoardList.do" class="dropdown-item">여행 수기</a>
                                     </div>
                                 </div>
 
                                 <a href="userUpdateCheck.do" class="nav-item nav-link">마이페이지</a>
+<<<<<<< HEAD
                                 <a href="noticeList.do" class="nav-item nav-link">고객센터</a>
                                 <a href="contact.html" class="nav-item nav-link">관리모드</a>
+=======
+                                <a href="booking.html" class="nav-item nav-link">고객센터</a>
+                                <a href="scManagerList.do" class="nav-item nav-link">관리모드</a>
+>>>>>>> branch 'master' of https://github.com/jjang9a/StartWalk.git
                             </div>
 
-
-                          
-
-
-                            <a href="cart.do" class="btn btn-primary rounded-0 py-4 px-md-5 d-none d-lg-block" style="width: 200px; padding: 0;"> <img src="img/cart.png" alt="장바구니" style="width: 25%; height: 25%;">&nbsp 장바구니</a>
-
-
+                            <a href="cart.do?${loginUser.userId }" class="btn btn-primary rounded-0 py-4 px-md-5 d-none d-lg-block" style="width: 200px; padding: 0;"> <img src="img/cart.png" alt="장바구니" style="width: 25%; height: 25%;">&nbsp 장바구니</a>
 
                         </div>
                     </nav>

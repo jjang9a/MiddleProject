@@ -5,11 +5,11 @@ import javax.servlet.http.HttpServletResponse;
 
 import co.start.common.Control;
 
-public class AddUserFormControl implements Control {
+public class scSearchFormControl implements Control{
 
 	@Override
 	public String exec(HttpServletRequest req, HttpServletResponse resp) {
-		return "login/login.jsp";
+		return null;
 	}
 
 }

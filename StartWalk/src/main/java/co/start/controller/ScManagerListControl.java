@@ -18,20 +18,15 @@ public class ScManagerListControl implements Control {
 
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
-		String page = request.getParameter("page");
-		String id = request.getParameter("userId");
 		
-		
-		 if(page ==null) {
-		    	page = "1";
-		    }
 		BoardService service = new BoardServiceMybatis();
-		List<BoardVO> list = service.scManagerList(Integer.parseInt(page));
-		int total = service.getTotalCount();
+		List<BoardVO> list = service.scManagerList();
+
+//		String id = request.getParameter("userId");
 		
 		request.setAttribute("list", list);
-		request.setAttribute("page", new PageDTO(Integer.parseInt(page), total));
-
+		
+		
 		
 		// 폴더명 /파일명
 		return "managerService/serviceList.tiles";

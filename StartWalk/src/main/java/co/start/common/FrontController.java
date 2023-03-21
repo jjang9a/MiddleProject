@@ -17,14 +17,25 @@ import co.start.controller.CartControl;
 import co.start.controller.FAQControl;
 import co.start.controller.CommentsAddAjax;
 import co.start.controller.CommentsListAjax;
+import co.start.controller.CommentsRemoveAjax;
 import co.start.controller.HotelInfoControl;
 import co.start.controller.HotelListControl;
 import co.start.controller.LoginControl;
 import co.start.controller.LoginFormControl;
+import co.start.controller.LogoutControl;
 import co.start.controller.MainControl;
 import co.start.controller.MateAddControl;
+import co.start.controller.MateAddForm;
 import co.start.controller.MateInfoControl;
 import co.start.controller.NoticeInfoControl;
+
+
+
+
+
+import co.start.controller.MateModifyConrol;
+import co.start.controller.MateModifyFormControl;
+
 import co.start.controller.OrderControl;
 import co.start.controller.OrderFormControl;
 import co.start.controller.PackageAddControl;
@@ -36,20 +47,22 @@ import co.start.controller.PackageModifyControl;
 import co.start.controller.ProductInfoControl;
 import co.start.controller.ProductListControl;
 import co.start.controller.ScManagerListControl;
-import co.start.controller.ScModifyControl;
 import co.start.controller.ScSearchControl;
-import co.start.controller.ScWriteControl;
 import co.start.controller.TravelBoardControl;
 import co.start.controller.TravelBoardListControl;
 import co.start.controller.TravelBoardWriteControl;
 import co.start.controller.UserUpdateCheckControl;
 import co.start.controller.UserUpdateControl;
 import co.start.controller.UserUpdateFormControl;
+
 import co.start.controller.NoticeListControl;
 import co.start.controller.LogoutControl;
 
 
+
+
 public class FrontController extends HttpServlet {
+	public static String enc=null;
 	private Map<String, Control> map;
 	public FrontController() {
 		map = new HashMap<>();
@@ -57,6 +70,7 @@ public class FrontController extends HttpServlet {
 
 	@Override
 	public void init(ServletConfig config) throws ServletException {
+		enc = config.getInitParameter("encoding");
 		map.put("/main.do", new MainControl());
 		// 가애
 		map.put("/orderForm.do", new OrderFormControl()); // 결제요청 페이지
@@ -118,10 +132,18 @@ public class FrontController extends HttpServlet {
 				map.put("/mateInfo.do", new MateInfoControl());
 		  // 매칭 게시판 등록
 				map.put("/mateAdd.do", new MateAddControl());
+		  // 매칭 게시판 수정 화면
+				map.put("/mateModifyForm.do", new MateModifyFormControl());
+		  // 매칭 게시판 수정
+				map.put("/mateModify.do", new MateModifyConrol());
+		  // 매칭 게시판 등록 화면
+				map.put("/mateAddForm.do", new MateAddForm());
 		  // 매칭 댓글 목록
 				map.put("/CommentListAjax.do", new CommentsListAjax());
 		  // 댓글 등록
 				map.put("/commentsAdd.do", new CommentsAddAjax());
+		  // 댓글 삭제
+				map.put("/commentsRemoveAjax.do", new CommentsRemoveAjax());  // 아직 기능 미완
 				
 				
 				// 매칭 후기 게시판 목록
@@ -137,7 +159,7 @@ public class FrontController extends HttpServlet {
 		
 		// 관리자 sc(1:1문의)
 		map.put("/scManagerList.do", new ScManagerListControl()); // 목록 관리자용(전체리스트).
-		//map.put("/scSearch.do", new ScSearchControl()); // 글 읽기(단건조회).
+		map.put("/scSearch.do", new ScSearchControl()); // 글 읽기(단건조회).
 		//map.put("/scWrite.do", new ScWriteControl()); // 1:1문의 글쓰기(등록).
 		//map.put("/scModify.do", new ScModifyControl()); // 글수정.
 		//map.put("/scRemove.do", new ScRemoveControl()); // 글삭제.
@@ -184,7 +206,7 @@ public class FrontController extends HttpServlet {
 			resp.sendRedirect(viewPage);
 			return;
 		}
-		
+		req.setCharacterEncoding(enc);
 		RequestDispatcher rd = req.getRequestDispatcher(viewPage);
 		rd.forward(req, resp);
 	

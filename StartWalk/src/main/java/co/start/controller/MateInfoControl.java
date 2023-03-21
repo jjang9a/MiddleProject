@@ -2,6 +2,7 @@ package co.start.controller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import co.start.common.Control;
 import co.start.service.BoardService;
@@ -20,6 +21,10 @@ public class MateInfoControl implements Control {
 						System.out.println(vo);
 		request.setAttribute("info", vo);
 		
+           request.getSession().setAttribute("mo", vo);
+		
+				
+				
 		System.out.println(vo);
 		return "board/mateInfo.tiles";
 	}

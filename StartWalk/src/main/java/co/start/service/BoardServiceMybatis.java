@@ -13,21 +13,6 @@ public class BoardServiceMybatis implements BoardService{
 
 	SqlSession sqlSession = DataSource.getInstance().openSession(true);
 	BoardMapper mapper = sqlSession.getMapper(BoardMapper.class);
-	@Override
-	public List<BoardVO> mateList() {
-		// TODO Auto-generated method stub
-		return mapper.mateList();
-	}
-	@Override
-	public int getTotalCount() {
-		
-		return mapper.getTotalCount();
-	}
-	@Override
-	public BoardVO getMateInfo(String bTitle) {
-		
-		return mapper.selectMate(bTitle);
-	}
 	
 	// 가애
 	@Override
@@ -65,37 +50,66 @@ public class BoardServiceMybatis implements BoardService{
 	// 용억
 	@Override
 	public boolean addMate(BoardVO vo) {
-		// TODO Auto-generated method stub
-		return false;
+		int r = mapper.insertMate(vo);
+		return r ==1;
+		
 	}
+	@Override
+	public boolean ModifyMate(BoardVO vo) {
+		// TODO Auto-generated method stub
+		return mapper.updateMate(vo)==1;
+	}
+	
+	@Override
+	public List<BoardVO> mateList() {
+		// TODO Auto-generated method stub
+		return mapper.mateList();
+	}
+	@Override
+	public int getTotalCount() {
+		
+		return mapper.getTotalCount();
+	}
+	@Override
+	public BoardVO getMateInfo(String bTitle) {
+		
+		return mapper.selectMate(bTitle);
+	}
+	
+	
 	
 	// 대준
+	// 1:1문의 목록 관리자용(전체리스트).
 	@Override
-	public List<BoardVO> scManagerList(int page) {
-//		return mapper.scManagerList();
-		return mapper.scManagerLisWithPaging(page);
+	public List<BoardVO> scManagerList() {
+		return mapper.scManagerList();
 	}
 	
+	// 글읽기 (상세조회)
 	@Override
 	public BoardVO scSearch(int bId) {
+		mapper.scSearch(bId);
 		return mapper.scSearch(bId);
 	}
 	
+	// 문의작성 1:1문의 글쓰기(등록).
 	@Override
 	public boolean scWrite(BoardVO vo) {
 		return mapper.scWrite(vo)==1;
 	}
 	
+	// 수정
 	@Override
 	public int scModify(BoardVO vo) {
-		return 0;
+		return mapper.scModify(vo);
+		
 	}
 	
+	// 삭제
 	@Override
 	public int scRemove(int bId) {
-		return 0;
+		return mapper.scRemove(bId);
 	}
-	
 	
 
 

@@ -20,11 +20,11 @@
 
 <!-- 대준 -->
   
-  <select id="login" parameterType="co.start.vo.UserVO" resultType="co.start.vo.UserVO">
+  <select id="login" parameterType="co.start.vo.UserVO" resultType="UserVO">
     select * from users where user_id = #{userId} and user_passwd = #{userPasswd}
   </select>
   
-  <insert id="insertUser" parameterType="UserVO">
+  <insert id="addUser" parameterType="UserVO">
 		insert into users  
 		values (#{userId}, #{userPasswd}, #{userName}, sysdate, #{userGender}, #{userPhone}, #{userAddr}, #{userMail}, 'normal')
   </insert>
