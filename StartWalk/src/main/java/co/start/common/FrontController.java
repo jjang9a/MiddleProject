@@ -144,7 +144,7 @@ public class FrontController extends HttpServlet {
 		
 		// 관리자 sc(1:1문의)
 		map.put("/scManagerList.do", new ScManagerListControl()); // 목록 관리자용(전체리스트).
-		//map.put("/scSearch.do", new ScSearchControl()); // 글 읽기(단건조회).
+		map.put("/scSearch.do", new ScSearchControl()); // 글 읽기(단건조회).
 		//map.put("/scWrite.do", new ScWriteControl()); // 1:1문의 글쓰기(등록).
 		//map.put("/scModify.do", new ScModifyControl()); // 글수정.
 		//map.put("/scRemove.do", new ScRemoveControl()); // 글삭제.

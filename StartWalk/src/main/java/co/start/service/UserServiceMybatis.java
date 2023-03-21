@@ -33,7 +33,6 @@ public class UserServiceMybatis implements UserService{
 	
 	// 대준
 	// 로그인
-	// 로그인
 		@Override
 		public UserVO login(UserVO vo) {
 			return mapper.login(vo);

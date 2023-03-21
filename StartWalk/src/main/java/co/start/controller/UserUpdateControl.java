@@ -32,7 +32,7 @@ public class UserUpdateControl implements Control {
 			user.setUserPasswd(req.getParameter("pw1"));
 		}
 		user.setUserAddr(req.getParameter("addr"));
-		user.setUserPhone(Integer.parseInt(req.getParameter("phone")));
+		user.setUserPhone((req.getParameter("phone")));
 		
 		UserService service = new UserServiceMybatis();
 		

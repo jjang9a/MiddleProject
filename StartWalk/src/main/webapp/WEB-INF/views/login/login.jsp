@@ -227,11 +227,11 @@ body {
       <h2 class="form__title">Sign Up</h2>
       <input type="text" placeholder="UserID" class="input" name="userId"/>
       <input type="password" placeholder="Password" class="input" name="userPasswd"/>
-      <input type="text" placeholder="Name" class="input" name="name"/>
-      <input type="text" placeholder="gender" class="input" name="gender"/>
-      <input type="tell" placeholder="Phone" class="input" name="Phone"/>
-      <input type="text" placeholder="Adreess" class="input" name="adreess"/>
-      <input type="email" placeholder="Email" class="input" name="email"/>
+      <input type="text" placeholder="Name" class="input" name="userName"/>
+      <input type="text" placeholder="gender" class="input" name="userGender"/>
+      <input type="text" placeholder="Phone" class="input" name="userPhone"/>
+      <input type="text" placeholder="Adreess" class="input" name="userAddr"/>
+      <input type="email" placeholder="Email" class="input" name="userMail"/>
       
        
       <button class="btn">Sign Up</button>

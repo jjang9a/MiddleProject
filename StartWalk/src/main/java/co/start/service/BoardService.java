@@ -33,7 +33,7 @@ public interface BoardService {
 	
 	// 대준
 	// 문의 게시판 전체조회
-	public List<BoardVO> scManagerList(int page);
+	public List<BoardVO> scManagerList();
 		
 	// 글읽기 (상세조회)
 	public BoardVO scSearch(int bId);

@@ -45,8 +45,6 @@ public interface BoardMapper {
 	// 1:1문의 목록 (관리자용)
 	public List<BoardVO> scManagerList(); 
 		
-	public List<BoardVO> scManagerLisWithPaging(int page);
-		
 	// 문의 작성 (등록)
 	public int scWrite(BoardVO vo); 
 		

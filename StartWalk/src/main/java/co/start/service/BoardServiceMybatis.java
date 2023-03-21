@@ -74,30 +74,36 @@ public class BoardServiceMybatis implements BoardService{
 	
 	
 	// 대준
+	// 1:1문의 목록 관리자용(전체리스트).
 	@Override
-	public List<BoardVO> scManagerList(int page) {
-//		return mapper.scManagerList();
-		return mapper.scManagerLisWithPaging(page);
+	public List<BoardVO> scManagerList() {
+		return mapper.scManagerList();
 	}
 	
+	// 글읽기 (상세조회)
 	@Override
 	public BoardVO scSearch(int bId) {
+		mapper.scSearch(bId);
 		return mapper.scSearch(bId);
 	}
 	
+	// 문의작성 1:1문의 글쓰기(등록).
 	@Override
 	public boolean scWrite(BoardVO vo) {
 		return mapper.scWrite(vo)==1;
 	}
 	
+	// 수정
 	@Override
 	public int scModify(BoardVO vo) {
-		return 0;
+		return mapper.scModify(vo);
+		
 	}
 	
+	// 삭제
 	@Override
 	public int scRemove(int bId) {
-		return 0;
+		return mapper.scRemove(bId);
 	}
 	
 
