@@ -19,7 +19,7 @@ public class ProductServiceMybatis implements ProductService{
 	
 	
 	// 순덕
-	//패키지 목록(서울 경기)
+	//패키지 목록
 	@Override
 	public List<ProductVO> packageList(SearchVO search) { 
 		return mapper.packageListWithPaging(search);
@@ -34,6 +34,23 @@ public class ProductServiceMybatis implements ProductService{
 		// TODO Auto-generated method stub
 		return mapper.getTotalCountTwo(search);
 	}
+	@Override
+	public boolean packageRemove(int pdId) {	
+		return mapper.deletePackage(pdId);
+	}
+	@Override
+	public boolean addPackage(ProductVO vo) {
+		int r = mapper.insertPackage(vo);
+		return r == 1;
+	}
+
+	@Override
+	public boolean packageModify(ProductVO vo) {
+		int r = mapper.updatePackage(vo);
+		return r == 1;
+	}
+
+	
 	
 	
 	// 용억
@@ -68,6 +85,9 @@ public class ProductServiceMybatis implements ProductService{
 		return mapper.getTotalCount();
 	}
 
+	
+
+	
 	
 
 

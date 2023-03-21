@@ -29,10 +29,17 @@ public interface ProductMapper {
 	public List<ProductVO> packageList(SearchVO search);
 	
 	public List<ProductVO> packageListWithPaging(SearchVO search);
-	//패키지 상품 지역별 전체 글 수
+	//패키지 상품 지역별 전체 글 수 (순덕)
 	public int getTotalCountTwo(SearchVO search);
 	
 	// 패키지 상품 상세 (순덕)
 	public ProductVO packageInfo(int pdId);
+	
+	// 패키지 게시글 등록
+	public int insertPackage(ProductVO vo);
+	// 패키지 게시글 수정
+	public int updatePackage(ProductVO vo);
+	// 패키지 게시글 삭제
+	public boolean deletePackage(int pdId);
 
 }

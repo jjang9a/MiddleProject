@@ -26,8 +26,13 @@ public interface ProductService {
 	public List<ProductVO> packageList(SearchVO search);
 	// 전체 건수(패키지 전체 건수)
     public int getTotalCountTwo(SearchVO search);
-	
 	// 패키지 상세
 	public ProductVO packageInfo(int pdId);
+	// 여행 패키지 글쓰기 
+	public boolean addPackage(ProductVO vo);
+	// 여행 패키지 글 수정
+	public boolean packageModify(ProductVO vo);
+	// 여행 패키지 글 삭제
+	public boolean packageRemove(int pdId);
 	
 }

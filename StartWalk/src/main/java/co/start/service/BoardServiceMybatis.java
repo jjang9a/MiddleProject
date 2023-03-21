@@ -56,6 +56,11 @@ public class BoardServiceMybatis implements BoardService{
 	public List<BoardVO> noitceList() {
 		return mapper.noitceList();
 	}
+	@Override
+	public BoardVO noticeInfo(String bTitle) {
+		// 
+		return mapper.noticeInfo(bTitle);
+	}
 	
 	// 용억
 	@Override
@@ -90,6 +95,7 @@ public class BoardServiceMybatis implements BoardService{
 	public int scRemove(int bId) {
 		return 0;
 	}
+	
 	
 
 

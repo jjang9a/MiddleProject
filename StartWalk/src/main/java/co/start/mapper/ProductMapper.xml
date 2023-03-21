@@ -53,7 +53,15 @@
 	where pd_id=#{pdId}
 </select>
 
-
+<delete id="deletePackage" parameterType="co.start.vo.ProductVO">
+	delete from product where pd_id=#{pdId}
+</delete>
+	
+<update id="updatePackage" parameterType="co.start.vo.ProductVO">
+	update product
+	set pd_name=#{pdName}, pd_price=#{pdPrice}, pd_sale=#{pdSale}, pd_start=#{pdStart} , pd_end=#{pdEnd}, pd_location=#{pdLocation}, pr_img=#{pdImg}
+	where pd_id=#{pdId}
+</update>
 
 
 <!-- 용억 -->

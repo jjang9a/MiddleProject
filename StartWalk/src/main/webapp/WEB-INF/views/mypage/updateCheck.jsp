@@ -4,6 +4,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@ include file="../mypage/sidebar.jsp" %>
 
+		
 
 <div style="float: left; margin-bottom: 50px;">
 	<form action='userUpdateForm.do' method='post' >
@@ -53,3 +54,7 @@
 		}
 	}) */
 </script>
+
+
+
+</div>

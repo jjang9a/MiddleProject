@@ -68,7 +68,7 @@
                                 </div>
 
                                 <a href="userUpdateCheck.do" class="nav-item nav-link">마이페이지</a>
-                                <a href="booking.html" class="nav-item nav-link">고객센터</a>
+                                <a href="noticeList.do" class="nav-item nav-link">고객센터</a>
                                 <a href="contact.html" class="nav-item nav-link">관리모드</a>
                             </div>
 

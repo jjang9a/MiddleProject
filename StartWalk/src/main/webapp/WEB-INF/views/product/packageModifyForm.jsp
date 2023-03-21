@@ -5,46 +5,15 @@
 
 <div style="margin: 100px auto 100px auto; width: 1000px; ">
 	<c:if test="${loginUser.userGrade.equals('admin') }">
-		<a href="packageDelete.do" class="btn btn-sm btn-dark rounded py-2 px-4" style="float: right; margin: 0 10px">삭제</a>
-		<a href="packageModifyForm.do" class="btn btn-sm btn-dark rounded py-2 px-4" style="float: right;">수정</a>
+		<a href="" class="btn btn-sm btn-dark rounded py-2 px-4" style="float: right;">수정완료</a>
 	</c:if>
 	
-	<h3>&#91; ${info.pdType}${info.pdId}&#93; ${info.pdName}</h3>
+	<h3>제목</h3>
 	<hr>
-	<p>| &nbsp; 출발:<fmt:formatDate value="${info.pdStart }" type="both" pattern="yyyy-MM-dd E요일" /> &nbsp; | &nbsp; 도착:<fmt:formatDate value="${info.pdEnd }" type="both" pattern="yyyy-MM-dd E요일" />&nbsp; |</p>
-	
-	<c:choose>
-			<c:when test="${info.pdSale == 0 }">
-				<p>
-					<fmt:setLocale value="ko_kr" />
-					<fmt:formatNumber value="${info.pdPrice }" type="currency" />
-				</p>
-			</c:when>
-			<c:otherwise>
-			<c:choose>
-			<c:when test="${info.pdSale == info.pdPrice }">
-				<p>
-					<strong style="color: red;">
-					<fmt:setLocale value="ko_kr" />
-					<fmt:formatNumber value="${info.pdSale }" type="currency"  /></strong>
-				</p>
-			</c:when>
-			<c:otherwise>
-				<p>
-					<fmt:setLocale value="ko_kr" /><del>
-					<fmt:formatNumber value="${info.pdPrice }" type="currency" /></del>
-					<strong style="color: red;">
-					<fmt:setLocale value="ko_kr" />
-					<fmt:formatNumber value="${info.pdSale }" /></strong>
-				</p>
-			</c:otherwise>
-			</c:choose>
-		</c:otherwise>
-	</c:choose>	
-	
+	<p>| &nbsp 출발: &nbsp | &nbsp 도착:&nbsp |</p>
 	<br>
 	<div>
-		<img alt="여행 패키지 상품 이미지" src="img/${info.prImg}" style="width: 300px; height:200px;">
+		<img alt="여행 패키지 상품 이미지" src="img/" style="width: 300px; height:200px;">
 	</div>
 	
 	<h5 style="margin: 20px;">여행일정</h5>
@@ -54,7 +23,7 @@
 	</div>
 	
 	<div style="padding: 20px; margin: 20px;">
-		<p>${info.pdInfo }</p>
+		<p>설명</p>
 	</div>
 	
 	<div style="padding: 10px;">
