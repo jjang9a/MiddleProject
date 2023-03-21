@@ -20,7 +20,7 @@ public class CommentsListAjax implements Control{
 		CommentsService service = new CommentsServiceMybatis();
 		List<CommentsVO> list = service.CommentsList();
 
-Gson gson = new GsonBuilder().create();
+		Gson gson = new GsonBuilder().create();
 		String json = gson.toJson(list);
 		return json + ".ajax";
 	}

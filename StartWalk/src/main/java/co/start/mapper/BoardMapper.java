@@ -3,6 +3,7 @@ package co.start.mapper;
 import java.util.List;
 
 import co.start.vo.BoardVO;
+import co.start.vo.ImagesVO;
 
 public interface BoardMapper {
 	//목록
@@ -24,6 +25,10 @@ public interface BoardMapper {
 	public int travelBoardInsert(BoardVO vo);
 	public int travelBoardDelete(int key);
 	public int travelBoardUpdate(BoardVO vo);
+	public int searchBId();
+	public int imgAttach(ImagesVO vo);
+	public List<ImagesVO> images(int bid);
+	public int updateBHit (int bid);
 	
 	// 대준
 	// 1:1문의 목록 (관리자용)

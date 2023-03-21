@@ -9,24 +9,19 @@ import co.start.common.Control;
 import co.start.service.BoardService;
 import co.start.service.BoardServiceMybatis;
 import co.start.vo.BoardVO;
-import co.start.vo.ImagesVO;
 
-public class TravelBoardControl implements Control {
+public class MateListControl implements Control {
 
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
-		int bid = Integer.parseInt(request.getParameter("bid"));
-		
 		BoardService service = new BoardServiceMybatis();
-		BoardVO vo = service.travelBoardRead(bid);
-		List<ImagesVO> list = service.getImgs(bid);
+		List<BoardVO> list = service.mateList();
 		
-		service.countUp(bid);
+		request.setAttribute("mate", list);
 		
-		request.setAttribute("info", vo);
-		request.setAttribute("list", list);
+		System.out.println(list);
+		return "board/mateList.tiles";
 		
-		return "board/travelRead.tiles";
 	}
 
 }

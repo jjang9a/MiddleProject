@@ -3,6 +3,7 @@ package co.start.service;
 import java.util.List;
 
 import co.start.vo.BoardVO;
+import co.start.vo.ImagesVO;
 
 public interface BoardService {
 	
@@ -22,6 +23,10 @@ public interface BoardService {
 	public boolean travelBoardWrite(BoardVO vo);
 	public boolean travelBoardDel(int key);
 	public boolean trabelBoardModify(BoardVO vo);
+	public int searchBId();
+	public boolean imgAttach(ImagesVO vo);
+	public List<ImagesVO> getImgs(int bid);
+	public boolean countUp(int bid);
 	
 	// 대준
 	// 문의 게시판 전체조회

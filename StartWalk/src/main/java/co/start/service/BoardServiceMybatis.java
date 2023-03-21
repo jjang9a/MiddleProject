@@ -7,6 +7,7 @@ import org.apache.ibatis.session.SqlSession;
 import co.start.common.DataSource;
 import co.start.mapper.BoardMapper;
 import co.start.vo.BoardVO;
+import co.start.vo.ImagesVO;
 
 
 public class BoardServiceMybatis implements BoardService{
@@ -50,6 +51,22 @@ public class BoardServiceMybatis implements BoardService{
 	public boolean trabelBoardModify(BoardVO vo) {
 		return mapper.travelBoardUpdate(vo) == 1;
 	}
+	@Override
+	public int searchBId() {
+		return mapper.searchBId();
+	}
+	@Override
+	public boolean imgAttach(ImagesVO vo) {
+		return mapper.imgAttach(vo) == 1;
+	}
+	@Override
+	public List<ImagesVO> getImgs(int bid) {
+		return mapper.images(bid);
+	}
+	@Override
+	public boolean countUp(int bid) {
+		return mapper.updateBHit(bid) == 1;
+	}
 	
 	// 순덕
 	@Override
@@ -90,6 +107,7 @@ public class BoardServiceMybatis implements BoardService{
 	public int scRemove(int bId) {
 		return 0;
 	}
+
 	
 
 

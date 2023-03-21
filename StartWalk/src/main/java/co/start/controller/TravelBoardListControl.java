@@ -24,6 +24,7 @@ public static PageDTO pageInfo = null;
 		BoardService service = new BoardServiceMybatis();
 		List<BoardVO> list = service.travelBoardList(Integer.parseInt(page));
 		int total = service.getTotalCount();
+		
 		req.setAttribute("list", list);
 		pageInfo = new PageDTO(Integer.parseInt(page), total);
 		req.setAttribute("page", pageInfo);

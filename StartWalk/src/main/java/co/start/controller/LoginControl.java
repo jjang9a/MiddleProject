@@ -23,8 +23,6 @@ public class LoginControl implements Control {
 		vo.setUserId(id);
 		vo.setUserPasswd(pw);
 		
-		System.out.println(vo);
-		
 		UserService service = new UserServiceMybatis();
 		UserVO user = service.login(vo);
 		

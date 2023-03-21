@@ -20,6 +20,7 @@
 		<typeAlias type="co.start.vo.PaydetailVO" alias="PaydetailVO" />
 		<typeAlias type="co.start.vo.ProductVO" alias="ProductVO" />
 		<typeAlias type="co.start.vo.StartpayVO" alias="StartpayVO" />
+		<typeAlias type="co.start.vo.ImagesVO" alias="ImagesVO" />
 	</typeAliases>
 	
   <environments default="development">

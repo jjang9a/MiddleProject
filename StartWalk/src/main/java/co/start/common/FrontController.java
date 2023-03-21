@@ -14,17 +14,19 @@ import javax.servlet.http.HttpServletResponse;
 import co.start.controller.AddUserControl;
 import co.start.controller.AddUserFormControl;
 import co.start.controller.CartControl;
-import co.start.controller.FAQControl;
 import co.start.controller.CommentsAddAjax;
 import co.start.controller.CommentsListAjax;
+import co.start.controller.FAQControl;
 import co.start.controller.HotelInfoControl;
 import co.start.controller.HotelListControl;
 import co.start.controller.LoginControl;
 import co.start.controller.LoginFormControl;
+import co.start.controller.LogoutControl;
 import co.start.controller.MainControl;
 import co.start.controller.MateAddControl;
 import co.start.controller.MateInfoControl;
-
+import co.start.controller.MateListControl;
+import co.start.controller.NoticeListControl;
 import co.start.controller.OrderControl;
 import co.start.controller.OrderFormControl;
 import co.start.controller.PackageInfoControl;
@@ -32,20 +34,17 @@ import co.start.controller.PackageListControl;
 import co.start.controller.ProductInfoControl;
 import co.start.controller.ProductListControl;
 import co.start.controller.ScManagerListControl;
-import co.start.controller.ScModifyControl;
-import co.start.controller.ScSearchControl;
-import co.start.controller.ScWriteControl;
 import co.start.controller.TravelBoardControl;
 import co.start.controller.TravelBoardListControl;
 import co.start.controller.TravelBoardWriteControl;
+import co.start.controller.TravelBoardWriteFormControl;
 import co.start.controller.UserUpdateCheckControl;
 import co.start.controller.UserUpdateControl;
 import co.start.controller.UserUpdateFormControl;
-import co.start.controller.NoticeListControl;
-import co.start.controller.LogoutControl;
-
 
 public class FrontController extends HttpServlet {
+	
+	public static String enc = null;
 	private Map<String, Control> map;
 	public FrontController() {
 		map = new HashMap<>();
@@ -53,6 +52,7 @@ public class FrontController extends HttpServlet {
 
 	@Override
 	public void init(ServletConfig config) throws ServletException {
+		enc = config.getInitParameter("encoding");
 		map.put("/main.do", new MainControl());
 		// 가애
 		map.put("/orderForm.do", new OrderFormControl()); // 결제요청 페이지
@@ -62,7 +62,8 @@ public class FrontController extends HttpServlet {
 
 		map.put("/travelBoardList.do", new TravelBoardListControl()); // 여행 후기 게시판 목록
 		map.put("/travelBoard.do", new TravelBoardControl()); // 여행 후기 게시판 글읽기
-		map.put("/travelBoardWrite.do", new TravelBoardWriteControl()); // 여행 후기 게시판 글쓰기
+		map.put("/travelBoardWriteForm.do", new TravelBoardWriteFormControl()); // 여행 후기 게시판 글쓰기
+		map.put("/travelBoardWrite.do", new TravelBoardWriteControl()); // 여행 후기 게시판 글쓰기 처리
 
 		map.put("/userUpdateCheck.do", new UserUpdateCheckControl()); // 회원정보 수정 진입 비밀번호
 		map.put("/userUpdateForm.do", new UserUpdateFormControl()); // 회원 정보 수정
@@ -101,7 +102,7 @@ public class FrontController extends HttpServlet {
 		  // 상품 상세
 				map.put("/productInfo.do", new ProductInfoControl());
 	      // 매칭 게시판 목록
-//				map.put("/mateList.do", new MateListControl());
+				map.put("/mateList.do", new MateListControl());
 		  // 매칭 게시판 상세
 				map.put("/mateInfo.do", new MateInfoControl());
 		  // 매칭 게시판 등록
@@ -172,7 +173,7 @@ public class FrontController extends HttpServlet {
 			resp.sendRedirect(viewPage);
 			return;
 		}
-		
+		req.setCharacterEncoding(enc);
 		RequestDispatcher rd = req.getRequestDispatcher(viewPage);
 		rd.forward(req, resp);
 	

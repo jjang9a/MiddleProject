@@ -3,47 +3,46 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
-<form action='travelBoardWrite.do' method='post' enctype="multipart/form-data">
-	<table class='table'>
+<table class='table'>
+	<form action='travelBoardWrite.do' method='post' enctype="multipart/form-data">
 		<tr>
 			<td>제목</td><td><input type="text" name="title"></td>
 		</tr>
 		<tr>
-			<td>작성자</td><td><input type="text" name="writer" readonly value="${loginUser.getUserId }"></td>
+			<td><label for="head">말머리</label></td><td><select id="head" name="head">
+				<option value="pk">패키지여행</option>
+				<option value="free">자유여행</option>
+			</select>
 		</tr>
 		<tr>
-			<td>내용</td><td><textarea cols="50" rows="10" name="boay"></textarea></td>
+			<td>내용</td><td><textarea cols="50" rows="10" name="body"></textarea></td>
 		</tr>
 		<tr>
-			<td>사진 첨부</td><td><input type="file" name="img1"></td>
+			<td>사진 첨부</td><td><input type="file" name="img1" id="img1"></td>
 		</tr>
 		<tr>
-			<td>사진 첨부</td><td><input type="file" name="img2"></td>
+			<td>사진 첨부</td><td><input type="file" name="img2" id="img2"></td>
 		</tr>
 		<tr>
-			<td>사진 첨부</td><td><input type="file" name="img3"></td>
+			<td>사진 첨부</td><td><input type="file" name="img3" id="img3"></td>
 		</tr>
 		<tr>
 			<td colspan="2" align="center"><input type="submit" value="저장"></td>
 		</tr>
-	</table>
-</form>
+	</form>
+</table>
 
 <script>
 	document.querySelector('form').addEventListener('submit', function(e){
 		e.preventDefault(); // submit이벤트가 발생하지 않도록 기본 기능을 차단
 		let title = document.querySelector('input[name="title"]').value; //name이 title인 input태그의 값을 가져오겠다
-		let writer = document.querySelector('input[name="writer"]').value;
-		let subject = document.querySelector('textarea[name="subject"]').value;
+		let body = document.querySelector('textarea[name="body"]').value;
 
 		let isOK = true;
 		if(title == '' || title == 'null'){
 			isOK = false;
 		}
-		if(writer == '' || writer == 'null'){
-			isOK = false;
-		}
-		if(subject == '' || subject == 'null'){
+		if(body == '' || body == 'null'){
 			isOK = false;
 		}
 
