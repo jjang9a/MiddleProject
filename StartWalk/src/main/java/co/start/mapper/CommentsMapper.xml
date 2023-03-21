@@ -13,5 +13,8 @@
 </insert>
 
 
+<delete id="deleteComments" parameterType="int">
+	delete from comments where co_id =#{coId}
+</delete>
 
 </mapper>
