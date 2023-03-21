@@ -17,6 +17,7 @@ import co.start.controller.CartControl;
 import co.start.controller.CommentsAddAjax;
 import co.start.controller.CommentsListAjax;
 import co.start.controller.FAQControl;
+import co.start.controller.CommentsRemoveAjax;
 import co.start.controller.HotelInfoControl;
 import co.start.controller.HotelListControl;
 import co.start.controller.LoginControl;
@@ -24,16 +25,25 @@ import co.start.controller.LoginFormControl;
 import co.start.controller.LogoutControl;
 import co.start.controller.MainControl;
 import co.start.controller.MateAddControl;
+import co.start.controller.MateAddForm;
 import co.start.controller.MateInfoControl;
 import co.start.controller.MateListControl;
 import co.start.controller.NoticeListControl;
+import co.start.controller.NoticeInfoControl;
+import co.start.controller.MateModifyConrol;
+import co.start.controller.MateModifyFormControl;
 import co.start.controller.OrderControl;
 import co.start.controller.OrderFormControl;
+import co.start.controller.PackageAddControl;
+import co.start.controller.PackageAddFormControl;
+import co.start.controller.PackageDeleteControl;
 import co.start.controller.PackageInfoControl;
 import co.start.controller.PackageListControl;
+import co.start.controller.PackageModifyControl;
 import co.start.controller.ProductInfoControl;
 import co.start.controller.ProductListControl;
 import co.start.controller.ScManagerListControl;
+import co.start.controller.ScSearchControl;
 import co.start.controller.TravelBoardControl;
 import co.start.controller.TravelBoardListControl;
 import co.start.controller.TravelBoardWriteControl;
@@ -41,6 +51,12 @@ import co.start.controller.TravelBoardWriteFormControl;
 import co.start.controller.UserUpdateCheckControl;
 import co.start.controller.UserUpdateControl;
 import co.start.controller.UserUpdateFormControl;
+
+import co.start.controller.NoticeListControl;
+import co.start.controller.LogoutControl;
+
+
+
 
 public class FrontController extends HttpServlet {
 	
@@ -80,15 +96,23 @@ public class FrontController extends HttpServlet {
 		
 		// 여행 패키지 상세
 		map.put("/packageInfo.do", new PackageInfoControl());
-		// 여행 패키지 글쓰기
+		// 여행 패키지 글쓰기 폼
+		map.put("/packageAddForm.do", new PackageAddFormControl());
+		// 여행 패키지 글쓰기 처리 
+		map.put("/packageAdd.do", new PackageAddControl());
 		// 여행 패키지 글 수정
+		map.put("/packageModifyForm.do", new PackageModifyControl());
 		// 여행 패키지 글 삭제
+		map.put("/packageDelete.do", new PackageDeleteControl());
 		
 		// 공지사항 목록
 		map.put("/noticeList.do", new NoticeListControl());
 		// 공지사항 상세
+		map.put("/noticeInfo.do", new NoticeInfoControl());
 		// 공지사항 글쓰기
+		
 		// 공지사항 글 수정
+		
 		// 공지사항 글 삭제
 		
 		
@@ -107,10 +131,18 @@ public class FrontController extends HttpServlet {
 				map.put("/mateInfo.do", new MateInfoControl());
 		  // 매칭 게시판 등록
 				map.put("/mateAdd.do", new MateAddControl());
+		  // 매칭 게시판 수정 화면
+				map.put("/mateModifyForm.do", new MateModifyFormControl());
+		  // 매칭 게시판 수정
+				map.put("/mateModify.do", new MateModifyConrol());
+		  // 매칭 게시판 등록 화면
+				map.put("/mateAddForm.do", new MateAddForm());
 		  // 매칭 댓글 목록
 				map.put("/CommentListAjax.do", new CommentsListAjax());
 		  // 댓글 등록
 				map.put("/commentsAdd.do", new CommentsAddAjax());
+		  // 댓글 삭제
+				map.put("/commentsRemoveAjax.do", new CommentsRemoveAjax());  // 아직 기능 미완
 				
 				
 				// 매칭 후기 게시판 목록
@@ -126,7 +158,7 @@ public class FrontController extends HttpServlet {
 		
 		// 관리자 sc(1:1문의)
 		map.put("/scManagerList.do", new ScManagerListControl()); // 목록 관리자용(전체리스트).
-		//map.put("/scSearch.do", new ScSearchControl()); // 글 읽기(단건조회).
+		map.put("/scSearch.do", new ScSearchControl()); // 글 읽기(단건조회).
 		//map.put("/scWrite.do", new ScWriteControl()); // 1:1문의 글쓰기(등록).
 		//map.put("/scModify.do", new ScModifyControl()); // 글수정.
 		//map.put("/scRemove.do", new ScRemoveControl()); // 글삭제.

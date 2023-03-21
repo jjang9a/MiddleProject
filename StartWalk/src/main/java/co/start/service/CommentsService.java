@@ -11,4 +11,6 @@ public interface CommentsService {
 			public List<CommentsVO> CommentsList();
 		//매칭 댓글 등록
 			public boolean addComments(CommentsVO vo);
+		//댓글 삭제
+			public boolean removeComments(int coId);
 }

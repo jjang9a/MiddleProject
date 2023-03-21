@@ -3,6 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
+<div style="margin: 100px auto 100px auto; width: 1000px; ">
 <form action='userUpdate.do' method='post'>
 	<table class="table">
 			<tr><td>아이디 : </td><td><input type="text" name="id" value="${oldInfo.userId }" readonly></td></tr>
@@ -31,3 +32,5 @@ function comparePw(){
     }
 }
 </script>
+
+</div>

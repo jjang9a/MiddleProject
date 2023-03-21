@@ -25,6 +25,7 @@ public class LoginControl implements Control {
 		
 		UserService service = new UserServiceMybatis();
 		UserVO user = service.login(vo);
+		System.out.println(user);
 		
 		// 조회 비교
 		

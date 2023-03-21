@@ -29,7 +29,7 @@
 		e.preventDefault(); //기본 기능 차단
 		let title = document.querySelector('input[name="title"]').value;
 		let writer = document.querySelector('input[name="writer"]').value;
-		let subject = document.querySelector('textarea[name="contents"]').value;
+		let contents = document.querySelector('textarea[name="contents"]').value;
 
 		let isOK = true;
 		if(title == '' || title == 'null'){

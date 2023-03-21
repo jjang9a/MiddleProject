@@ -21,7 +21,9 @@ public class PackageInfoControl implements Control {
 		
 		System.out.println(vo);
 		
-		request.setAttribute("info",vo);
+		request.getSession().setAttribute("info", vo);
+		
+//		request.setAttribute("info",vo);
 		
 		return "product/packageInfo.tiles";
 	}

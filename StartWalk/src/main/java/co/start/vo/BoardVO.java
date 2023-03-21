@@ -20,6 +20,5 @@ public class BoardVO {
 	private int bGood; // 추천수
 	private int bCount; // 조회수
 	private String bHead; // 말머리.
-
 	
 }

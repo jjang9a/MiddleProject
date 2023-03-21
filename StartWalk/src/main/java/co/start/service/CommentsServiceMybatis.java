@@ -23,4 +23,10 @@ public class CommentsServiceMybatis implements CommentsService{
 		int r = mapper.insertComments(vo);
 		return r ==1;
 	}
+
+	@Override
+	public boolean removeComments(int coId) {
+		
+		return mapper.deleteComments(coId)==1;
+	}
 }
