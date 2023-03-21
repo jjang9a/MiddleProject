@@ -9,7 +9,7 @@
 </select>
 
 <insert id = "insertComments"  parameterType="co.start.vo.CommentsVO">
-	insert into comments (co_id,b_id,user_id,co_body) values (#{coId},#{bId},#{userId},#{coBody})
+	insert into comments (co_id,b_id,user_id,co_body) values (comm_seq.nextval, #{bId}, #{userId}, #{coBody})
 </insert>
 
 

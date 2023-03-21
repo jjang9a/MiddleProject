@@ -13,7 +13,10 @@ import javax.servlet.http.HttpServletResponse;
 
 import co.start.controller.AddUserControl;
 import co.start.controller.AddUserFormControl;
+import co.start.controller.CartAddAjax;
 import co.start.controller.CartControl;
+import co.start.controller.CartDeleteAjax;
+import co.start.controller.CartUpdateAjax;
 import co.start.controller.CommentsAddAjax;
 import co.start.controller.CommentsListAjax;
 import co.start.controller.FAQControl;
@@ -75,6 +78,9 @@ public class FrontController extends HttpServlet {
 
 		map.put("/order.do", new OrderControl()); // 결제 처리 페이지
 		map.put("/cart.do", new CartControl()); // 장바구니
+		map.put("/cartUpdate.do", new CartUpdateAjax()); // 장바구니 물건 수량 변경
+		map.put("/cartDelete.do", new CartDeleteAjax()); // 장바구니 물건 삭제
+		map.put("/cartAdd.do", new CartAddAjax()); // 장바구니에 물건 추가
 
 		map.put("/travelBoardList.do", new TravelBoardListControl()); // 여행 후기 게시판 목록
 		map.put("/travelBoard.do", new TravelBoardControl()); // 여행 후기 게시판 글읽기

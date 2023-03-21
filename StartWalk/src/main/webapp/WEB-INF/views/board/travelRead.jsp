@@ -13,13 +13,9 @@
 	<a href="" class="btn btn-sm btn-dark rounded py-2 px-4" style="float: right; margin: 0 10px">삭제</a>
 	<a href="" class="btn btn-sm btn-dark rounded py-2 px-4" style="float: right;">수정</a>
 	
-	<h3>&#91 ${info.getBTitle() } &#93</h3>
+	<h3>${info.getBHead() } ${info.getBTitle() }</h3>
 	<hr>
-	
-	<br>
-	
-	
-	<h5 style="margin: 20px;">${info.getUserId() }</h5>
+	<h6 style="margin: 20px; padding-right:20px;" align="right">작성자 : ${info.getUserId() }</h6>
 	
 	
 	<div style="padding: 20px; margin: 20px;">

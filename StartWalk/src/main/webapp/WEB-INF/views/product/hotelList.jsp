@@ -40,7 +40,7 @@
                                     
                                 </div>
                                 <div class="d-flex justify-content-between">
-                                    <a class="btn btn-sm btn-primary rounded py-2 px-4" href="productInfo.do?pdId=${hotel.pdId }">상세 설명</a>
+                                    <a class="btn btn-sm btn-primary rounded py-2 px-4" href="hotelInfo.do?key=${hotel.pdId }">상세 설명</a>
                                     <a class="btn btn-sm btn-dark rounded py-2 px-4" href="">장바구니 및 결제</a>
                                 </div>
                             </div>

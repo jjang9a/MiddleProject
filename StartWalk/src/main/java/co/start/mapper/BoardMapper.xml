@@ -6,9 +6,9 @@
 <!-- 가애 -->
 <select id="travelListWithPaging" resultType="BoardVO" parameterType="int">
   <![CDATA[
-	 select b_id, user_id, b_title, b_contents, b_writedate, b_count
-	 from (select rownum rn, b_id, user_id, b_title, b_contents, b_writedate, b_count
-	      from (select b_id, user_id, b_title, b_contents, b_writedate, b_count
+	 select b_id, user_id, b_title, b_contents, b_writedate, b_count, b_good, b_head
+	 from (select rownum rn, b_id, user_id, b_title, b_contents, b_writedate, b_count, b_good, b_head
+	      from (select b_id, user_id, b_title, b_contents, b_writedate, b_count, b_good, b_head
 	            from board
 	            where b_category = 'TR'
 	            order by b_id desc) a

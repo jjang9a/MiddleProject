@@ -35,6 +35,10 @@ public class PaymentServiceMybatis implements PaymentService{
 	public boolean addCart(CartVO vo) {
 		return mapper.cartInsert(vo) == 1;
 	}
+	@Override
+	public CartVO getCartInfo(CartVO vo) {
+		return mapper.searchCart(vo);
+	}
 	
 	// 순덕
 	

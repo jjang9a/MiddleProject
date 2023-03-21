@@ -12,19 +12,21 @@
 	<h3>여행 후기 게시판</h3>
 	<hr>
 	<c:if test="${loginUser != null }">
-		<a href="travelBoardWriteForm.do">글쓰기</a>
+		<div align="right"><a href ="travelBoardWriteForm.do"><input class="btn btn-primary"
+				                      type="submit" value="글쓰기"></a></div>
 	</c:if>
- 	<table class="table">
+ 	<table class="table" style="text-align:center">
 		<thead>
-			<tr><th>글번호</th><th>작성자</th><th>제목</th><th>조회수</th><th>작성일자</th></tr>
+			<tr><th>글번호</th><th>제목</th><th>작성자</th><th>조회수</th><th>추천수</th><th>작성일</th></tr>
 		</thead>
  		<tbody>
 			<c:forEach begin="0" end="${list.size() -1 }" var="i">
 				<tr><td>${i+1 }</td>
+ 				<td style="text-align:left"><a href='travelBoard.do?bid=${list.get(i).getBId() }'>${list.get(i).getBHead() } ${list.get(i).getBTitle() }</a></td>
 				<td>${list.get(i).getUserId() }</td>
- 				<td><a href='travelBoard.do?bid=${list.get(i).getBId() }'>${list.get(i).getBTitle() }</a></td>
 				<td>${list.get(i).getBCount() }</td>  
-			 	<td><fmt:formatDate pattern="yyyy-MM-dd- hh:mm:ss" value="${list.get(i).getBWriteDate() }"/> </td>
+				<td>${list.get(i).getBGood() }</td>  
+			 	<td><fmt:formatDate pattern="yyyy-MM-dd hh:mm" value="${list.get(i).getBWriteDate() }"/> </td>
 			</c:forEach>
 		</tbody>
 	</table>

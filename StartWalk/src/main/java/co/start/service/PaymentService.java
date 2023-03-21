@@ -12,7 +12,8 @@ public interface PaymentService {
 	public boolean countUpdate(CartVO vo); // 카트 수량 변경
 	public boolean delFromCart(CartVO vo); // 카트 단건 삭제
 	public boolean delCartAll(String id); // 카트 전체 삭제
-	public boolean addCart(CartVO vo);
+	public boolean addCart(CartVO vo); // 카트에 상품 추가
+	public CartVO getCartInfo(CartVO vo); // 카트 상품 정보 조회
 	
 	// 순덕
 	
