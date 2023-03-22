@@ -2,6 +2,7 @@ package co.start.service;
 
 import java.util.List;
 
+import co.start.vo.ImagesVO;
 import co.start.vo.ProductVO;
 import co.start.vo.SearchVO;
 
@@ -30,6 +31,8 @@ public interface ProductService {
 	public ProductVO packageInfo(int pdId);
 	// 여행 패키지 글쓰기 
 	public boolean addPackage(ProductVO vo);
+	public int searchPdId();
+	public boolean imgAttach(ImagesVO vo);
 	// 여행 패키지 글 수정
 	public boolean packageModify(ProductVO vo);
 	// 여행 패키지 글 삭제

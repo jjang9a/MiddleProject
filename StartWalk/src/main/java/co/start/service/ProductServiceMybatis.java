@@ -7,6 +7,7 @@ import org.apache.ibatis.session.SqlSession;
 import co.start.common.DataSource;
 import co.start.mapper.ProductMapper;
 import co.start.vo.BoardVO;
+import co.start.vo.ImagesVO;
 import co.start.vo.ProductVO;
 import co.start.vo.SearchVO;
 
@@ -35,17 +36,25 @@ public class ProductServiceMybatis implements ProductService{
 		return mapper.getTotalCountTwo(search);
 	}
 	@Override
-	public boolean packageRemove(int pdId) {	
+	public boolean packageRemove(int pdId) {		// 패키지 삭제.
 		return mapper.deletePackage(pdId);
 	}
 	@Override
-	public boolean addPackage(ProductVO vo) {
+	public boolean addPackage(ProductVO vo) {	// 패키지 글쓰기.
 		int r = mapper.insertPackage(vo);
 		return r == 1;
 	}
+	@Override
+	public int searchPdId() {
+		return mapper.searchPdId();
+	}
 
 	@Override
-	public boolean packageModify(ProductVO vo) {
+	public boolean imgAttach(ImagesVO vo) {
+		return mapper.imgAttach(vo)==1;
+	}
+	@Override
+	public boolean packageModify(ProductVO vo) {	// 패키지 수정.
 		int r = mapper.updatePackage(vo);
 		return r == 1;
 	}
@@ -86,10 +95,6 @@ public class ProductServiceMybatis implements ProductService{
 	}
 
 	
-
-	
-	
-
 
 
 
