@@ -35,13 +35,17 @@ public class CartAddAjax implements Control {
 		PaymentService service = new PaymentServiceMybatis();
 		
 		CartVO check = service.getCartInfo(vo);
+		
+		boolean result = false;
 		if(check == null) {
 			vo.setPdCount(1);
+			result = service.addCart(vo);
 		}else {
 			vo.setPdCount(check.getPdCount()+1);
+			result = service.countUpdate(vo);
 		}
 		
-		boolean result = service.addCart(vo);
+		
 		Map<String, Object> map = new HashMap<>();
 		
 		Gson gson = new GsonBuilder().create();

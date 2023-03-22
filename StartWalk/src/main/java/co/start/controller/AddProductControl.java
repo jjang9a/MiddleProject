@@ -13,9 +13,9 @@ import co.start.service.BoardService;
 import co.start.service.BoardServiceMybatis;
 import co.start.vo.BoardVO;
 import co.start.vo.ImagesVO;
-import co.start.vo.UserVO;
+import co.start.vo.ProductVO;
 
-public class TravelBoardWriteControl implements Control {
+public class AddProductControl implements Control {
 
 	@Override
 	public String exec(HttpServletRequest req, HttpServletResponse resp) {
@@ -27,30 +27,23 @@ public class TravelBoardWriteControl implements Control {
 		try {
 			MultipartRequest multi = new MultipartRequest(req, dir, maxSize, enc, new DefaultFileRenamePolicy());
 			
-			UserVO user = (UserVO)req.getSession().getAttribute("loginUser");
-
-			BoardVO vo = new BoardVO();
-			vo.setBTitle(multi.getParameter("title"));
-			vo.setUserId(user.getUserId());
-			vo.setBContents(multi.getParameter("body"));
-			if(multi.getParameter("head").equals("pk")) {
-				vo.setBHead("[패키지여행]");
-			}else if(multi.getParameter("head").equals("free")) {
-				vo.setBHead("[자유여행]");			
-			}
+			ProductVO prod = new ProductVO();
+			prod.setPdType(multi.getParameter("type"));
+			prod.setPdName(multi.getParameter("name"));
+			prod.setPdInfo(multi.getParameter("body"));
+			int price = Integer.parseInt(multi.getParameter("price"));
+			prod.setPdPrice(price);
 			
-			System.out.println(vo);
+			System.out.println(prod);
 			
 			BoardService service = new BoardServiceMybatis();
-			service.travelBoardWrite(vo);
+//			service.travelBoardWrite(vo);
 			
 			ImagesVO img = new ImagesVO();
 			int bid = service.searchBId();
 			img.setBId(bid);
 //			for(int i=1; i<4; i++) {
 				String image = multi.getFilesystemName("img1");
-				System.out.println("========================================");
-				System.out.println(image);
 				if(image != null) {
 					img.setImgFile(image);
 					System.out.println(img);
@@ -68,6 +61,12 @@ public class TravelBoardWriteControl implements Control {
 					System.out.println(img);
 					service.imgAttach(img);
 				}
+				image = multi.getFilesystemName("img4");
+				if(image != null) {
+					img.setImgFile(image);
+					System.out.println(img);
+					service.imgAttach(img);
+				}
 				
 //			}
 			
@@ -75,19 +74,7 @@ public class TravelBoardWriteControl implements Control {
 			e.printStackTrace();
 		}
 
-//		if (service.travelBoardWrite(vo)) {
-//			
-//			Enumeration<?> enumer = multi.getFileNames();
-//			while(enumer.hasMoreElements()) {
-//				String fineName = (String) enumer.nextElement();
-//			}
-//			// 정상 처리된 경우 - 목록이동
-//			return "travelBoardList.do";
-//		}else {
-//			return "board/travelWrite.tiles";
-//		}	
-		
-		return "travelBoardList.do";
+		return null;
 	}
 
 }

@@ -25,10 +25,11 @@
 				<tbody class="align-middle">
 					<c:forEach var="i" items="${cart }">
 						<tr>
-							<td class="align-middle"><input id="check" name="check" value="${i.pdId }" type="checkbox"></td>
+							<td class="align-middle"><input id="check" name="check${i }" value="${i.pdId }" type="checkbox"></td>
 							<td class="align-middle"><img src="img/${i.prImg }" alt="" style="width: 120px;"></td>
 							<td class="align-middle">${i.pdName }</td>
-							<td class="align-middle" id="tPrice" name="tPrice"><fmt:formatNumber pattern="#,###,###" value="${i.pdPrice }" />원</td>
+							<td class="align-middle"><fmt:formatNumber pattern="#,###,###" value="${i.pdPrice }" />원
+							<input type="hidden" id="tPrice" name="tPrice" value="${i.pdPrice }"> </td>
 							<td class="align-middle">
 								<div class="input-group quantity mx-auto" style="width: 100px;">
 									<div class="input-group-btn">
@@ -55,7 +56,6 @@
 			</table>
 		</div>
 
-
 		<div class="col-lg-8 table-responsive mb-5" style="margin: auto;">
 			<h5>배송 상품</h5>
 
@@ -66,33 +66,35 @@
 </div>
 <!-- Cart End -->
 <script>
+let price = document.getElementById('tPrice').value;
+let num = document.getElementById('tCount').value;
+console.log(document.getElementById('tCount').value);
+console.log(document.getElementById('tPrice').value);
+num *= 1;
+price *= 1;
 // 수량 변경
 	document.getElementById('cartMinus').addEventListener('click', function(e) {
 		let num = document.querySelector('#tCount').value
 		let price = document.querySelector('#tPrice').value
 		if ((num - 1) >= 0) {
 			document.querySelector('#tCount').value--;
-			num = document.querySelector('#tCount').value
-
+			num--;
 			console.log(num);
 		} else {
 			document.querySelector('#tCount').value = 0
 			num = 0;
 		}
-		document.querySelector('tAmount').value = (price * num)
+		document.querySelector('#tAmount').value = (price * num)
 	})
-
 	document.getElementById('cartPlus').addEventListener('click', function(e) {
 		let num = document.querySelector('#tCount').value
 		document.querySelector('#tCount').value++;
-		num = document.querySelector('#tCount').value
-
+		num++;
 		console.log(num);
 		console.log(price * num);
-		document.querySelector('tAmount').value = (price * num)
+		document.querySelector('#tAmount').value = (price * num)
 	})
 	
-
 // Ajax
 // 삭제
 /* document.getElementById('delBtn').addEventListener('click', function(){
@@ -116,5 +118,4 @@
 		})
 		.catch(reject => console.log(reject));
 }); */
-
 </script>

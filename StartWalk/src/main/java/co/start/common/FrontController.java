@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import co.start.controller.AddProductControl;
+import co.start.controller.AddProductFormControl;
 import co.start.controller.AddUserControl;
 import co.start.controller.AddUserFormControl;
 import co.start.controller.CartAddAjax;
@@ -95,6 +97,8 @@ public class FrontController extends HttpServlet {
 		
 		map.put("/logout.do", new LogoutControl()); // 로그아웃 처리
 		map.put("/faq.do", new FAQControl()); // 자주묻는 질문 페이지
+		map.put("/addProductForm.do", new AddProductFormControl()); // 판매상품 추가 페이지
+		map.put("/addProduct.do", new AddProductControl()); // 판매상품 추가 처리
 		
 		// 순덕
 		// 지역별 여행 패키지 목록
