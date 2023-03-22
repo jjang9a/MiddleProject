@@ -9,7 +9,7 @@ public interface CommentsMapper {
 	
 	//용억 
 	//댓글 목록
-	public List<CommentsVO> commentsList();
+	public List<CommentsVO> commentsList(int bId);
 	//댓글 등록
 	public int insertComments(CommentsVO VO);
 	//댓글 삭제

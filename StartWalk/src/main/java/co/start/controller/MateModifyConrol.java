@@ -21,13 +21,12 @@ public class MateModifyConrol implements Control {
 		board.setBTitle(title);
 		board.setBContents(text); 
 		
-		System.out.println("--------------------------------");
-		System.out.println(board);
+		
 		BoardService service = new BoardServiceMybatis();
 		if(service.ModifyMate(board)) {
-			System.out.println("성공");
+			System.out.println("수정 성공");
 		} else {
-			System.out.println("asdsad");
+			System.out.println("수정 실패");
 		}
 		return "mateList.do";
 	}
