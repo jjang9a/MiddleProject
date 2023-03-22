@@ -8,6 +8,10 @@ import co.start.vo.SearchVO;
 
 public interface ProductService {
 
+	// 가애
+	public boolean addProd(ProductVO vo);
+	public List<ImagesVO> getImgs(int id);
+	
 	//용억
 		//상품목록(명물)
 	       public List<ProductVO> products(int page);
@@ -37,10 +41,8 @@ public interface ProductService {
 	public boolean packageModify(ProductVO vo);
 	// 여행 패키지 글 삭제
 	public boolean packageRemove(int pdId);
-	
-	
-	// 가애
-	public boolean addProd(ProductVO vo);
-	public List<ImagesVO> getImgs(int id);
+	// 구매 목록
+	public List<ProductVO> orderList(int page);
+	// 리뷰 작성
 	
 }

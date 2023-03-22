@@ -105,7 +105,7 @@ public class BoardServiceMybatis implements BoardService{
 	// 글읽기 (상세조회)
 	@Override
 	public BoardVO scSearch(int bId) {
-		mapper.scSearch(bId);
+	//	mapper.scSearch(bTitle);
 		return mapper.scSearch(bId);
 	}
 	
@@ -115,23 +115,16 @@ public class BoardServiceMybatis implements BoardService{
 		return mapper.scWrite(vo)==1;
 	}
 	
-	// 수정
-	@Override
-	public int scModify(BoardVO vo) {
-		return mapper.scModify(vo);
-		
-	}
-	
 	// 삭제
 	@Override
-	public int scRemove(int bId) {
+	public boolean scRemove(int bId) {
 		return mapper.scRemove(bId);
 	}
 
 	// 일반 회원용 조회 메소드 하나 더 만들기. // where user_id = #{id} <<mapper.xml 에 넣고 로 조회하기 session.id Control에서 service 조회할때 변수로 사용 
-	//@Override
-	//public BoardVO scUserList(BoardVO vo) {
-	//	return mapper.scUserList(vo);
+	@Override
+	public List<BoardVO> scUserList() {
+	return mapper.scUserList();
 	
-	
+	}
 }

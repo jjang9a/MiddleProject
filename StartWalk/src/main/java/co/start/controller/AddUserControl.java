@@ -55,11 +55,7 @@ public class AddUserControl implements Control {
 			
 			return "login/login.jsp";
 		
-//			if(result) {
-//				return "login.do";
-//			} else {
-//				return "loginForm.do";
-//			}
+
 			
 		}
 

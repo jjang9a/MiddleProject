@@ -47,5 +47,10 @@ public interface ProductMapper {
 	public int updatePackage(ProductVO vo);
 	// 패키지 게시글 삭제
 	public boolean deletePackage(int pdId);
+	// 주문 목록 
+	public List<ProductVO> orderList(int page);
+	// 리뷰 작성 폼
+	// 리뷰 등록 처리
+	
 
 }

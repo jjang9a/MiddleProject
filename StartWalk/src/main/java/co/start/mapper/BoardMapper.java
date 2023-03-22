@@ -41,22 +41,18 @@ public interface BoardMapper {
 	// 대준
 	// 1:1문의 목록 (관리자용)
 	public List<BoardVO> scManagerList(); 
-		
+			
 	// 문의 작성 (등록)
 	public int scWrite(BoardVO vo); 
-		
-	// 조회 (게시글 고유번호로 상세조회)
+			
+	// 조회 (게시글 제목으로 상세조회)
 	public BoardVO scSearch(int bId); 
-		
-	// 수정
-	public int scModify(BoardVO vo);
-		
+			
 	// 삭제
-	public int scRemove(int bId);
-		
+	public boolean scRemove(int bId);
+			
 	// 1:1문의 목록 (회원용)
 	public List<BoardVO> scUserList(); 
-	
 	
 	// 순덕
 	// 공지사항 목록

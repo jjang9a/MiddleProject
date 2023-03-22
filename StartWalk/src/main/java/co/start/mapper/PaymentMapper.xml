@@ -33,8 +33,17 @@
 
 
 <!-- 용억 -->
+<select id="payList" resultType="co.start.vo.StartpayVO">
+	select * from startpay
+</select>
 
+<update id="updatePay" parameterType="co.start.vo.StartpayVO">
+	update startpay set pay_start= (select pay_start from startpay where user_id =#{userId})+#{payStart}, pay_date = sysdate, pay_why = #{payWhy} where user_id = #{userId}
+</update>
 
+<select id="couponList" resultType="co.start.vo.CouponVO">
+	select * from coupon
+</select>
 <!-- 대준 -->
 
 
