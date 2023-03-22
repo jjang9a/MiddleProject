@@ -9,9 +9,8 @@ import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 import co.start.common.Control;
-import co.start.service.BoardService;
-import co.start.service.BoardServiceMybatis;
-import co.start.vo.BoardVO;
+import co.start.service.ProductService;
+import co.start.service.ProductServiceMybatis;
 import co.start.vo.ImagesVO;
 import co.start.vo.ProductVO;
 
@@ -33,40 +32,38 @@ public class AddProductControl implements Control {
 			prod.setPdInfo(multi.getParameter("body"));
 			int price = Integer.parseInt(multi.getParameter("price"));
 			prod.setPdPrice(price);
-			
+			String image = multi.getFilesystemName("img1");
+			if(image != null) {
+				prod.setPrImg(image);
+			}
 			System.out.println(prod);
 			
-			BoardService service = new BoardServiceMybatis();
-//			service.travelBoardWrite(vo);
+			ProductService service = new ProductServiceMybatis();
+			
+			service.addProd(prod);
 			
 			ImagesVO img = new ImagesVO();
-			int bid = service.searchBId();
-			img.setBId(bid);
+			int pdid = service.searchPdId();
+			img.setPdId(pdid);
 //			for(int i=1; i<4; i++) {
-				String image = multi.getFilesystemName("img1");
-				if(image != null) {
-					img.setImgFile(image);
-					System.out.println(img);
-					service.imgAttach(img);
-				}
-				image = multi.getFilesystemName("img2");
-				if(image != null) {
-					img.setImgFile(image);
-					System.out.println(img);
-					service.imgAttach(img);
-				}
-				image = multi.getFilesystemName("img3");
-				if(image != null) {
-					img.setImgFile(image);
-					System.out.println(img);
-					service.imgAttach(img);
-				}
-				image = multi.getFilesystemName("img4");
-				if(image != null) {
-					img.setImgFile(image);
-					System.out.println(img);
-					service.imgAttach(img);
-				}
+			image = multi.getFilesystemName("img2");
+			if(image != null) {
+				img.setImgFile(image);
+				System.out.println(img);
+				service.imgAttach(img);
+			}
+			image = multi.getFilesystemName("img3");
+			if(image != null) {
+				img.setImgFile(image);
+				System.out.println(img);
+				service.imgAttach(img);
+			}
+			image = multi.getFilesystemName("img4");
+			if(image != null) {
+				img.setImgFile(image);
+				System.out.println(img);
+				service.imgAttach(img);
+			}
 				
 //			}
 			
@@ -74,7 +71,7 @@ public class AddProductControl implements Control {
 			e.printStackTrace();
 		}
 
-		return null;
+		return "main.do";
 	}
 
 }

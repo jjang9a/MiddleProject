@@ -8,6 +8,9 @@ import co.start.vo.SearchVO;
 
 public interface ProductMapper {
 
+	// 가애
+	public int insertProduct(ProductVO vo); // 판매상품 추가
+	public List<ImagesVO> images(int id); // 첨부 이미지 가져오기
 	
 	//상품목록 (용억)
 	public List<ProductVO> productList(int page);    //명물

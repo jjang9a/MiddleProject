@@ -28,14 +28,6 @@ public interface BoardMapper {
 	
 
 	// 가애 - 여행후기 게시판
-
-	
-	
-	
-	
-	
-	
-
 	public List<BoardVO> travelListWithPaging(int page);
 	public BoardVO tavelBoradInfo(int key);
 	public int travelBoardInsert(BoardVO vo);

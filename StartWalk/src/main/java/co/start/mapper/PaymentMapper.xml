@@ -22,7 +22,7 @@
 </delete> -->
 
 <insert id="cartInsert" parameterType="CartVO">
-	insert into cart values(#{pdId}, #{userId}, #{pdCount})
+	insert into cart values(cart_seq.nextval, #{pdId}, #{userId}, #{pdCount})
 </insert>
 
 <select id="searchCart" parameterType="CartVO" resultType="CartVO">

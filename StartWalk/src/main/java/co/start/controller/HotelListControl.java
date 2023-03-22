@@ -17,6 +17,7 @@ public class HotelListControl implements Control {
 		ProductService service = new ProductServiceMybatis();
 		List<ProductVO> list = service.hotels();
 		
+		
 		request.setAttribute("hotel", list);
 		
 		

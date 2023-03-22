@@ -38,4 +38,9 @@ public interface ProductService {
 	// 여행 패키지 글 삭제
 	public boolean packageRemove(int pdId);
 	
+	
+	// 가애
+	public boolean addProd(ProductVO vo);
+	public List<ImagesVO> getImgs(int id);
+	
 }

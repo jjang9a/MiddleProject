@@ -17,7 +17,15 @@ public class ProductServiceMybatis implements ProductService{
 	ProductMapper mapper = sqlSession.getMapper(ProductMapper.class);
 	
 	// 가애
-	
+	@Override
+	public boolean addProd(ProductVO vo) {
+		System.out.println("vo====> " + vo);
+		return mapper.insertProduct(vo) == 1;
+	}
+	@Override
+	public List<ImagesVO> getImgs(int id) {
+		return mapper.images(id);
+	}
 	
 	// 순덕
 	//패키지 목록
@@ -93,6 +101,10 @@ public class ProductServiceMybatis implements ProductService{
 		// TODO Auto-generated method stub
 		return mapper.getTotalCount();
 	}
+
+
+
+
 
 	
 

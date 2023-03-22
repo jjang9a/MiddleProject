@@ -4,7 +4,13 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="co.start.mapper.ProductMapper">
 <!-- 가애 -->
-
+<insert id="insertProduct" parameterType="ProductVO">
+	insert into product (pd_id, pd_name, pd_price, pd_type, pd_info, pr_img)
+	values (prod_seq.nextval, #{pdName}, #{pdPrice}, #{pdType}, #{pdInfo}, #{prImg})
+</insert>
+<select id="images" parameterType="int" resultType="ImagesVO">
+	select * from images where pd_id = #{id}
+</select>
 
 <!-- 순덕 -->
 <select id="packageList" resultType="co.start.vo.ProductVO" parameterType="co.start.vo.SearchVO">

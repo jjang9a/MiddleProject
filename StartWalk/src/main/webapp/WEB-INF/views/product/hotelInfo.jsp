@@ -26,20 +26,20 @@
 				<div class="row g-3">
 					<div class="col-6 text-end">
 						<img class="img-fluid rounded w-75 wow zoomIn"
-							data-wow-delay="0.1s" src="img/about-1.jpg"
+							data-wow-delay="0.1s" src="./upload/${hotel.prImg }"
 							style="margin-top: 25%;">
 					</div>
 					<div class="col-6 text-start">
 						<img class="img-fluid rounded w-100 wow zoomIn"
-							data-wow-delay="0.3s" src="img/about-2.jpg">
+							data-wow-delay="0.3s" src="./upload/${img.get(0).imgFile }">
 					</div>
 					<div class="col-6 text-end">
 						<img class="img-fluid rounded w-50 wow zoomIn"
-							data-wow-delay="0.5s" src="img/about-3.jpg">
+							data-wow-delay="0.5s" src="./upload/${img.get(1).imgFile }">
 					</div>
 					<div class="col-6 text-start">
 						<img class="img-fluid rounded w-75 wow zoomIn"
-							data-wow-delay="0.7s" src="img/about-4.jpg">
+							data-wow-delay="0.7s" src="./upload/${img.get(2).imgFile }">
 					</div>
 				</div>
 			</div>

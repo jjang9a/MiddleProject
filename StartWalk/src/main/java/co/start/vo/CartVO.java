@@ -12,6 +12,7 @@ public class CartVO {
 	private int pdId;
 	private String userId;
 	private int pdCount;
+	private int cartId;
 	
 	// 조인 전용
 	private String pdName;
