@@ -65,7 +65,7 @@
 </update>
 
 <insert id="insertPackage" parameterType="co.start.vo.ProductVO">
-	insert into product ((pd_id, pd_name, pd_price, pd_type, pd_sale, pd_info, pd_start, pd_end, pd_location)
+	insert into product (pd_id, pd_name, pd_price, pd_type, pd_sale, pd_info, pd_start, pd_end, pd_location)
 	values(prod_seq.nextval,#{pdName},#{pdPrice},'PK',#{pdSale},#{pdInfo},#{pdStart},#{pdEnd}, #{pdLocation} )
 </insert>
 
@@ -77,6 +77,14 @@
 <insert id="imgAttach" parameterType="ImagesVO">
 	insert into images (pd_id, img_file) values (#{pdId}, #{imgFile})
 </insert>
+
+<select id="orderList" resultType="co.start.vo.ProductVO">
+	select p.pd_id, p.pd_name, p.pd_price, p.pd_sale, p.pr_img, o.order_id, o.user_id, o.order_date, d.pd_count, o.order_status
+	from product p, orders o, paydetail d
+	where p.pd_id = d.pd_id 
+		  and o.order_id = d.order_id 
+		  and o.user_id = #{userId}
+</select>
 
 
 <!-- 용억 -->

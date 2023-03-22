@@ -37,5 +37,8 @@ public interface ProductService {
 	public boolean packageModify(ProductVO vo);
 	// 여행 패키지 글 삭제
 	public boolean packageRemove(int pdId);
+	// 구매 목록
+	public List<ProductVO> orderList(int page);
+	// 리뷰 작성
 	
 }

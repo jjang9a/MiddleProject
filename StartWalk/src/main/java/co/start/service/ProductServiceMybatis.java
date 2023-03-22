@@ -54,11 +54,14 @@ public class ProductServiceMybatis implements ProductService{
 		return mapper.imgAttach(vo)==1;
 	}
 	@Override
-	public boolean packageModify(ProductVO vo) {	// 패키지 수정.
+	public boolean packageModify(ProductVO vo) {	 // 패키지 수정.
 		int r = mapper.updatePackage(vo);
 		return r == 1;
 	}
-
+	@Override
+	public List<ProductVO> orderList(int page) {		// 구매 목록
+		return mapper.orderList(page);
+	}
 	
 	
 	
@@ -93,6 +96,8 @@ public class ProductServiceMybatis implements ProductService{
 		// TODO Auto-generated method stub
 		return mapper.getTotalCount();
 	}
+
+
 
 	
 

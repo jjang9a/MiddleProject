@@ -69,9 +69,15 @@ import co.start.controller.UserUpdateCheckControl;
 import co.start.controller.UserUpdateControl;
 import co.start.controller.UserUpdateFormControl;
 
+
+import co.start.controller.orderListControl;
+import co.start.controller.NoticeListControl;
+import co.start.controller.LogoutControl;
+
 import co.start.controller.StartpayListControl;
 import co.start.controller.NoticeListControl;
 import co.start.controller.LogoutControl;
+
 
 
 
@@ -140,6 +146,10 @@ public class FrontController extends HttpServlet {
 		// 공지사항 글 삭제
 		
 		// 구매목록
+		map.put("/orderList.do", new orderListControl());
+		
+		// 리뷰 작성
+		
 		
 		
 		// 용억
