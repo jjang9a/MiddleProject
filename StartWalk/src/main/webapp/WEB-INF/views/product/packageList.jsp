@@ -39,7 +39,7 @@
 			<c:forEach var="o" items="${list }">
 				<tr id="packDetail" style="padding: 5px; margin: 10px;">
 					<td style="width: 200px; height: 150px;">
-						<img alt="img" src="img/${o.prImg }" style="width: 200px; height: 150px;">
+						<img alt="img" src="./upload/${o.prImg }" style="width: 200px; height: 150px;">
 					</td>
 					<td style="width: 550px; height: 150px; padding: 10px;">
 						<a href="packageInfo.do?pdId=${o.pdId}" style="color: black;">

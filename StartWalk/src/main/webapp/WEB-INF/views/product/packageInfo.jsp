@@ -63,7 +63,7 @@
 	
 	<div style="padding: 10px;">
 		<p><strong style="background-color: blanchedalmond; padding: 0 10px; color: black;">Review</strong></p>
-		<p style="color: rgb(57, 57, 57); font-size: 14px;">&#; 10003 리뷰 쓰기</p>
+		<p style="color: rgb(57, 57, 57); font-size: 14px;"> &#10003; 10003 리뷰 쓰기</p>
 		<input type="submit" value="등록" style="height: 80px; width: 60px; float: right;">
 		<textarea rows="3" cols="110" ></textarea>
 		
