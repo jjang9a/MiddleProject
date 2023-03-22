@@ -4,9 +4,11 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
 <div style="margin: 100px auto 100px auto; width: 1000px;">
-		
-	 
-    <button style="float: right; font-size: 12px; margin: 0 5px;" ><a href="mateModifyForm.do">수정하러가기</a></button>
+
+
+	<button style="float: right; font-size: 12px; margin: 0 5px;">
+		<a href="mateModifyForm.do">수정하러가기</a>
+	</button>
 	<h3>&#91 ${info.getBTitle() } &#92</h3>
 	<hr>
 
@@ -33,8 +35,8 @@
 		<div style="clear: both; margin: 10px 0; padding: 20px;">
 			<div>
 				<hr>
-				
-				
+
+
 				<p>
 					<strong></strong> &nbsp &nbsp &nbsp &nbsp <small
 						style="font-size: 7px;">댓글 작성 날짜 및 시간</small>
@@ -75,7 +77,7 @@
 				<td>내용 : <input type="text" size="30" id="text"></td>
 
 				<td><button id="addBtn">등록</button></td>
-				<td><button id="delBtn">삭제</button></td>
+
 			</tr>
 		</form>
 	</table>
@@ -89,6 +91,7 @@
 				<th>게시판 번호</th>
 				<th>아이디</th>
 				<th>내용</th>
+				<th>삭제</th>
 		<tbody id="list">
 		</tbody>
 	</table>
@@ -153,7 +156,7 @@
 
 		})
 		.catch(reject=>console.error(reject));
-	})
+	});
  	
 	//tr 생성
  	function makeTr(member={}) {
@@ -163,10 +166,13 @@
 			td.innerText = member[prop];
 			tr.append(td);
 		}
-		document.getElementById('list').append(tr);
-	}
- 	/* delBtn.addEventListener('click', function(){
-		let delId = this.parentElement.parentElement.child[0].innerText;
+		
+	
+	 let delBtn = document.createElement('button');
+	 delBtn.innerText ='삭제';
+	 
+ 	 delBtn.addEventListener('click', function(){
+		let delId = this.parentElement.parentElement.children[0].innerText;
 		fetch('commentsRemoveAjax.do',{
 			method : 'post',
 			headers : {'Content-Type' : 'applicaton/x-www-form-urlencoded'},
@@ -187,9 +193,9 @@
 	});
  		let td = document.createElement('td');
  		td.append(delBtn);
- 		tr.append(td); */
- 		
- 		
+ 		tr.append(td); 
+	document.getElementById('list').append(tr);
+}	
  		
 function initField(){
 	document.getElementById('coid').value='';
