@@ -21,6 +21,7 @@
 		<typeAlias type="co.start.vo.ProductVO" alias="ProductVO" />
 		<typeAlias type="co.start.vo.StartpayVO" alias="StartpayVO" />
 		<typeAlias type="co.start.vo.ImagesVO" alias="ImagesVO" />
+		<typeAlias type="co.start.vo.CartVO" alias="CartVO" />
 	</typeAliases>
 	
   <environments default="development">

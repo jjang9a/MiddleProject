@@ -46,18 +46,20 @@ public class AddUserControl implements Control {
 			System.out.println(result);
 			if(result) {
 				System.out.println("성공");
-				req.setAttribute("message", "성공");
+				req.setAttribute("message", "가입을 환영합니다! 로그인 해 주세요.");
 				req.setAttribute("id", vo.getUserId());
 			}else {
 				System.out.println("예외");
-				req.setAttribute("message", "예외");
+				req.setAttribute("message", "회원가입 실패. 다시 시도해주세요");
 			}
+			
+			return "login/login.jsp";
 		
-			if(result) {
-				return "login.do";
-			} else {
-				return "loginForm.do";
-			}
+//			if(result) {
+//				return "login.do";
+//			} else {
+//				return "loginForm.do";
+//			}
 			
 		}
 

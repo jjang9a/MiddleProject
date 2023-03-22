@@ -12,7 +12,7 @@ public interface PaymentMapper {
 	public int cartUpdate(CartVO vo); // 장바구니 상품 수량 변경
 	public int cartDelete(CartVO vo); // 장바구니 상품 한건 삭제
 	public int cartDeleteAll(String id); // 장바구니 전체 삭제
-	
-	public int cartInsert(CartVO vo); // 매퍼쪽에 구현 안 돼 있음 해야함.
+	public int cartInsert(CartVO vo); // 장바구니 추가
+	public CartVO searchCart(CartVO vo); // 장바구니 상품 조회
 	
 }

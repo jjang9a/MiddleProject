@@ -10,20 +10,24 @@
 	where user_id = #{id}
 </select>
 
-<!-- <update id="cartUpdate" parameterType="CartVO">
-	update cart set pd_count=#{pdCound} where pd_id=#{pdId} and user_id=#{userId}
+<update id="cartUpdate" parameterType="CartVO">
+	update cart set pd_count=#{pdCount} where pd_id=#{pdId} and user_id=#{userId}
 </update>
 
 <delete id="cartDelete" parameterType="CartVO">
 	delete from cart where pd_id=#{pdId} and user_id=#{userId}
 </delete>
-<delete id="cartDelete" parameterType="CartVO">
+<!-- <delete id="cartDeleteAll" parameterType="CartVO">
 	delete from cart where user_id=#{userId}
-</delete>
+</delete> -->
 
 <insert id="cartInsert" parameterType="CartVO">
-	insert into cart values(#{pdId}, #{userId}, 1)
-</insert> -->
+	insert into cart values(#{pdId}, #{userId}, #{pdCount})
+</insert>
+
+<select id="searchCart" parameterType="CartVO" resultType="CartVO">
+	select * from cart where pd_id=#{pdId} and user_id=#{userId}
+</select>
 
 <!-- 순덕 -->
 

@@ -66,10 +66,10 @@
                                         <a href="travelBoardList.do" class="dropdown-item">여행 수기</a>
                                     </div>
                                 </div>
-
                                 <a href="userUpdateCheck.do" class="nav-item nav-link">마이페이지</a>
 
                                 <a href="noticeList.do" class="nav-item nav-link">고객센터</a>	
+                                <a href="noticeList.do" class="nav-item nav-link">고객센터</a>
                                 <a href="scManagerList.do" class="nav-item nav-link">관리모드</a>
 
                             </div>

@@ -25,6 +25,8 @@ public static PageDTO pageInfo = null;
 		List<BoardVO> list = service.travelBoardList(Integer.parseInt(page));
 		int total = service.getTotalCount();
 		
+		System.out.println(list);
+		
 		req.setAttribute("list", list);
 		pageInfo = new PageDTO(Integer.parseInt(page), total);
 		req.setAttribute("page", pageInfo);
