@@ -2,6 +2,7 @@ package co.start.mapper;
 
 import java.util.List;
 
+import co.start.vo.ImagesVO;
 import co.start.vo.ProductVO;
 import co.start.vo.SearchVO;
 
@@ -37,6 +38,8 @@ public interface ProductMapper {
 	
 	// 패키지 게시글 등록
 	public int insertPackage(ProductVO vo);
+	public int searchPdId();
+	public int imgAttach(ImagesVO vo);
 	// 패키지 게시글 수정
 	public int updatePackage(ProductVO vo);
 	// 패키지 게시글 삭제
