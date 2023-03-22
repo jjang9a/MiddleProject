@@ -19,8 +19,8 @@ import co.start.controller.CartDeleteAjax;
 import co.start.controller.CartUpdateAjax;
 import co.start.controller.CommentsAddAjax;
 import co.start.controller.CommentsListAjax;
-import co.start.controller.FAQControl;
 import co.start.controller.CommentsRemoveAjax;
+import co.start.controller.FAQControl;
 import co.start.controller.HotelInfoControl;
 import co.start.controller.HotelListControl;
 import co.start.controller.LoginControl;
@@ -31,10 +31,10 @@ import co.start.controller.MateAddControl;
 import co.start.controller.MateAddForm;
 import co.start.controller.MateInfoControl;
 import co.start.controller.MateListControl;
-import co.start.controller.NoticeListControl;
-import co.start.controller.NoticeInfoControl;
 import co.start.controller.MateModifyConrol;
 import co.start.controller.MateModifyFormControl;
+import co.start.controller.NoticeInfoControl;
+import co.start.controller.NoticeListControl;
 import co.start.controller.OrderControl;
 import co.start.controller.OrderFormControl;
 import co.start.controller.PackageAddControl;
@@ -47,7 +47,11 @@ import co.start.controller.PackageModifyFormControl;
 import co.start.controller.ProductInfoControl;
 import co.start.controller.ProductListControl;
 import co.start.controller.ScManagerListControl;
+import co.start.controller.ScRemoveControl;
 import co.start.controller.ScSearchControl;
+import co.start.controller.ScUserListControl;
+import co.start.controller.ScWriteControl;
+import co.start.controller.ScWriteFormControl;
 import co.start.controller.TravelBoardControl;
 import co.start.controller.TravelBoardListControl;
 import co.start.controller.TravelBoardWriteControl;
@@ -55,9 +59,11 @@ import co.start.controller.TravelBoardWriteFormControl;
 import co.start.controller.UserUpdateCheckControl;
 import co.start.controller.UserUpdateControl;
 import co.start.controller.UserUpdateFormControl;
+
 import co.start.controller.orderListControl;
 import co.start.controller.NoticeListControl;
 import co.start.controller.LogoutControl;
+
 
 
 public class FrontController extends HttpServlet {
@@ -161,36 +167,38 @@ public class FrontController extends HttpServlet {
 		
 		// 대준
 		// 로그인
-		map.put("/loginForm.do", new LoginFormControl()); // 로그인 회원가입 창.
-		map.put("/login.do", new LoginControl()); // 로그인 처리 페이지.
-		// 회원가입
-		map.put("/addUserForm.do", new AddUserFormControl()); // 회원가입 처리 페이지.
-		map.put("/addUser.do", new AddUserControl()); // 회원가입 처리.
+				map.put("/loginForm.do", new LoginFormControl()); // 로그인 회원가입 창.
+				map.put("/login.do", new LoginControl()); // 로그인 처리 페이지.
+				// 회원가입
+				map.put("/addUserForm.do", new AddUserFormControl()); // 회원가입 처리 페이지.
+				map.put("/addUser.do", new AddUserControl()); // 회원가입 처리.
+				
+				// 관리자 sc(1:1문의)
+				map.put("/scManagerList.do", new ScManagerListControl()); // 목록 관리자용(전체리스트). 
+				map.put("/scSearch.do", new ScSearchControl()); // 글 읽기(단건조회).			
+				map.put("/scWrite.do", new ScWriteControl()); // 1:1문의 글쓰기(등록).
+				map.put("/scWriteForm.do", new ScWriteFormControl());
+				// ============완료============= //
+				map.put("/scRemove.do", new ScRemoveControl()); // 글삭제.
+				
+				// 회원 sc(1:1문의)
+				map.put("/scUser.do", new ScUserListControl()); // 목록 회원용(전체리스트-아이디 조건). 
+				
 		
-		// 관리자 sc(1:1문의)
-		map.put("/scManagerList.do", new ScManagerListControl()); // 목록 관리자용(전체리스트).
-		map.put("/scSearch.do", new ScSearchControl()); // 글 읽기(단건조회).
-		//map.put("/scWrite.do", new ScWriteControl()); // 1:1문의 글쓰기(등록).
-		//map.put("/scModify.do", new ScModifyControl()); // 글수정.
-		//map.put("/scRemove.do", new ScRemoveControl()); // 글삭제.
 		
-		// 회원 sc(1:1문의)
-		//map.put("/scUser.do", new ScUserListControl()); // 목록 회원용(전체리스트-아이디 조건).
+				// 쪽지 dm (sender)
+				//map.put("/senderList.do", new SenderListControl()); // 목록 보내는사람(전체리스트).
+				//map.put("/senderSearch.do", new SenderSearchControl()); // 쪽지 목록(). 
+				//map.put("/senderWrite.do", new SenderWriteControl()); // 관리자 쪽지 보내기(등록).
+				
+				//map.put("/senderRemove.do", new SenderRemoveControl()); // 삭제.
 		
+				// 쪽지 dm (receiver)
+				//map.put("/receiverList.do", new ReceiverListControl()); // 목록 받는사람(전체리스트).
+				//map.put("/receiverWrite.do", new ReceiverWriteControl()); // 회원 쪽지 보내기(등록).
 		
-		// 쪽지 dm (sender)
-		//map.put("/senderList.do", new SenderListControl()); // 목록 관리자용(전체리스트).
-		//map.put("/senderSearch.do", new SenderSearchControl()); // 쪽지 읽기(단건조회).
-		//map.put("/senderWrite.do", new SenderWriteControl()); // 관리자 쪽지 보내기(등록).
-		//map.put("/senderModify.do", new SenderModifyControl()); // 수정.
-		//map.put("/senderRemove.do", new SenderRemoveControl()); // 삭제.
-		
-		// 쪽지 dm (receiver)
-		//map.put("/receiverList.do", new ReceiverListControl()); // 목록 회원용(전체리스트).
-		//map.put("/receiverWrite.do", new ReceiverWriteControl()); // 회원 쪽지 보내기(등록).
-		
-		// 상품등록 (관리자)
-		//map.put("/productAdd.do", new productAddControl()); // 상품등록(등록).
+				// 상품등록 (관리자)
+				//map.put("/productAdd.do", new productAddControl()); // 상품등록(등록).
 		
 		
 	}

@@ -36,20 +36,24 @@ public interface BoardService {
 	public List<ImagesVO> getImgs(int bid);
 	public boolean countUp(int bid);
 	
+	
 	// 대준
 	// 문의 게시판 전체조회
 	public List<BoardVO> scManagerList();
 		
 	// 글읽기 (상세조회)
 	public BoardVO scSearch(int bId);
+	
 	// 문의 작성 (등록)
 	public boolean scWrite(BoardVO vo);
-	// 수정
-	public int scModify(BoardVO vo);
+	
 	// 삭제
-	public int scRemove(int bId);	
+	public boolean scRemove(int bId);	
 	
+	// 회원 전체리스트 조회.
+	public List<BoardVO> scUserList();
 	
+		
 	// 순덕
 	// 공지사항 목록
 	public List<BoardVO> noitceList();	
