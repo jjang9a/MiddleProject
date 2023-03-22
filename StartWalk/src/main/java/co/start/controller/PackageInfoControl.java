@@ -22,6 +22,7 @@ public class PackageInfoControl implements Control {
 		System.out.println(vo);
 		
 		request.getSession().setAttribute("info", vo);
+		request.getSession().setAttribute("modify",vo);
 		
 //		request.setAttribute("info",vo);
 		

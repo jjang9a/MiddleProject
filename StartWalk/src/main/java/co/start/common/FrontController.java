@@ -40,6 +40,7 @@ import co.start.controller.PackageDeleteControl;
 import co.start.controller.PackageInfoControl;
 import co.start.controller.PackageListControl;
 import co.start.controller.PackageModifyControl;
+import co.start.controller.PackageModifyFormControl;
 import co.start.controller.ProductInfoControl;
 import co.start.controller.ProductListControl;
 import co.start.controller.ScManagerListControl;
@@ -54,8 +55,6 @@ import co.start.controller.UserUpdateFormControl;
 
 import co.start.controller.NoticeListControl;
 import co.start.controller.LogoutControl;
-
-
 
 
 public class FrontController extends HttpServlet {
@@ -100,8 +99,10 @@ public class FrontController extends HttpServlet {
 		map.put("/packageAddForm.do", new PackageAddFormControl());
 		// 여행 패키지 글쓰기 처리 
 		map.put("/packageAdd.do", new PackageAddControl());
-		// 여행 패키지 글 수정
-		map.put("/packageModifyForm.do", new PackageModifyControl());
+		// 여행 패키지 글 수정 화면
+		map.put("/packageModifyForm.do", new PackageModifyFormControl());
+		// 야행패키지 글 수정 처리
+		map.put("/packageModify.do", new PackageModifyControl());
 		// 여행 패키지 글 삭제
 		map.put("/packageDelete.do", new PackageDeleteControl());
 		
@@ -115,7 +116,7 @@ public class FrontController extends HttpServlet {
 		
 		// 공지사항 글 삭제
 		
-		
+		// 구매목록
 		
 		
 		// 용억
@@ -186,6 +187,8 @@ public class FrontController extends HttpServlet {
 
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		req.setCharacterEncoding(enc);
+		
 		String uri = req.getRequestURI();
 		String context = req.getContextPath();
 		String page = uri.substring(context.length());
@@ -193,6 +196,7 @@ public class FrontController extends HttpServlet {
 		
 		Control command = map.get(page);
 		String viewPage = command.exec(req, resp); // product/productlist.tiles가 넘어옴
+
 		
 		if(viewPage.endsWith(".jsp")) {
 			viewPage = "/WEB-INF/views/" + viewPage;
@@ -205,7 +209,6 @@ public class FrontController extends HttpServlet {
 			resp.sendRedirect(viewPage);
 			return;
 		}
-		req.setCharacterEncoding(enc);
 		RequestDispatcher rd = req.getRequestDispatcher(viewPage);
 		rd.forward(req, resp);
 	

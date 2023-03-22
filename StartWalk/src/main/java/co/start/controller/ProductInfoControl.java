@@ -26,7 +26,6 @@ public class ProductInfoControl implements Control {
 		System.out.println(vo);
 		request.setAttribute("info", vo);
 		
-		
 				
 		return "product/productInfo.tiles";
 		
