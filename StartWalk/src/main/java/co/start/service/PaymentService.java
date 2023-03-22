@@ -3,7 +3,9 @@ package co.start.service;
 import java.util.List;
 
 import co.start.vo.CartVO;
+import co.start.vo.CouponVO;
 import co.start.vo.ProductVO;
+import co.start.vo.StartpayVO;
 
 public interface PaymentService {
 
@@ -18,6 +20,8 @@ public interface PaymentService {
 	// 순덕
 	
 	// 용억
-	
+	public List<StartpayVO> payList();
+	public boolean AddPay(StartpayVO vo);
+	public List<CouponVO> couponList();
 	// 대준
 }

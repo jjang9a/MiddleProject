@@ -20,7 +20,11 @@ import co.start.controller.CartUpdateAjax;
 import co.start.controller.CommentsAddAjax;
 import co.start.controller.CommentsListAjax;
 import co.start.controller.CommentsRemoveAjax;
+
+import co.start.controller.CouponListControl;
+
 import co.start.controller.FAQControl;
+
 import co.start.controller.HotelInfoControl;
 import co.start.controller.HotelListControl;
 import co.start.controller.LoginControl;
@@ -49,9 +53,14 @@ import co.start.controller.ProductListControl;
 import co.start.controller.ScManagerListControl;
 import co.start.controller.ScRemoveControl;
 import co.start.controller.ScSearchControl;
+
+import co.start.controller.StartpayAddControl;
+import co.start.controller.StartpayAddFormControl;
+
 import co.start.controller.ScUserListControl;
 import co.start.controller.ScWriteControl;
 import co.start.controller.ScWriteFormControl;
+
 import co.start.controller.TravelBoardControl;
 import co.start.controller.TravelBoardListControl;
 import co.start.controller.TravelBoardWriteControl;
@@ -60,9 +69,17 @@ import co.start.controller.UserUpdateCheckControl;
 import co.start.controller.UserUpdateControl;
 import co.start.controller.UserUpdateFormControl;
 
+
 import co.start.controller.orderListControl;
 import co.start.controller.NoticeListControl;
 import co.start.controller.LogoutControl;
+
+import co.start.controller.StartpayListControl;
+import co.start.controller.NoticeListControl;
+import co.start.controller.LogoutControl;
+
+
+
 
 
 
@@ -160,8 +177,14 @@ public class FrontController extends HttpServlet {
 				map.put("/commentsAdd.do", new CommentsAddAjax());
 		  // 댓글 삭제
 				map.put("/commentsRemoveAjax.do", new CommentsRemoveAjax());  // 아직 기능 미완
-				
-				
+		  // 출발페이 목록
+				map.put("/payList.do", new StartpayListControl());
+		  // 출발페이 충천
+				map.put("/payAdd.do", new StartpayAddControl());
+	      // 출발페이 충전화면
+				map.put("/payAddForm.do", new StartpayAddFormControl());
+		  // 쿠폰
+				map.put("/couponList.do", new CouponListControl());
 				// 매칭 후기 게시판 목록
 				
 		
@@ -206,7 +229,10 @@ public class FrontController extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		req.setCharacterEncoding(enc);
+<<<<<<< HEAD
+=======
 		
+>>>>>>> branch 'master' of https://github.com/jjang9a/StartWalk.git
 		String uri = req.getRequestURI();
 		String context = req.getContextPath();
 		String page = uri.substring(context.length());
