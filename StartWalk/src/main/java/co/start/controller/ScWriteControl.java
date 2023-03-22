@@ -12,12 +12,22 @@ public class ScWriteControl implements Control {
 
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
-		String bid = request.getParameter("bid");
+		
+		String userId = request.getParameter("id");
+		String title = request.getParameter("title") ;
+		String contents = request.getParameter("text");
+		
+		BoardVO vo = new BoardVO();
+		vo.setUserId(userId);
+		vo.setBTitle(title);
+		vo.setBContents(contents);
+		
+		System.out.println(vo);
 		
 		BoardService service = new BoardServiceMybatis();
-		BoardVO vo = service.scSearch(Integer.parseInt(bid));
+		service.scWrite(vo);
 
-		return "managerService/serviceList.tiles";
+		return "scManagerList.do";
 		
 	}
 

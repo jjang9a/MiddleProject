@@ -1,5 +1,7 @@
 package co.start.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -8,16 +10,18 @@ import co.start.service.BoardService;
 import co.start.service.BoardServiceMybatis;
 import co.start.vo.BoardVO;
 
-public class ScModifyControl implements Control {
+public class ScUserListControl implements Control {
 
 	@Override
-	public String exec(HttpServletRequest req, HttpServletResponse resp) {
-		String bid = req.getParameter("bid");
+	public String exec(HttpServletRequest request, HttpServletResponse response) {
 		
 		BoardService service = new BoardServiceMybatis();
-		BoardVO vo = service.scSearch(Integer.parseInt(bid));
-
-		return "managerService/serviceList.tiles";
+		List<BoardVO> list = service.scUserList();
+		
+//		String id = request.getParameter("userId");
+		request.setAttribute("list", list);
+		
+		return "managerService/ScUserList.tiles";
 	}
 
 }
