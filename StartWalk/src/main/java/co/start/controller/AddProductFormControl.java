@@ -5,11 +5,11 @@ import javax.servlet.http.HttpServletResponse;
 
 import co.start.common.Control;
 
-public class OrderFormControl implements Control {
+public class AddProductFormControl implements Control {
 
 	@Override
-	public String exec(HttpServletRequest req, HttpServletResponse resp) {
-		return "pay/orderForm.tiles";
+	public String exec(HttpServletRequest request, HttpServletResponse response) {
+		return "product/hotelAddForm.tiles";
 	}
 
 }

@@ -78,9 +78,9 @@ public class BoardServiceMybatis implements BoardService{
 	}
 	
 	@Override
-	public List<BoardVO> mateList() {
+	public List<BoardVO> mateList(int page) {
 		// TODO Auto-generated method stub
-		return mapper.mateList();
+		return mapper.mateListWithPaging(page);
 	}
 	@Override
 	public int getTotalCount() {
@@ -93,8 +93,12 @@ public class BoardServiceMybatis implements BoardService{
 		return mapper.selectMate(bTitle);
 	}
 	
-	
-	
+		
+	@Override
+	public int getTotalCounts() {
+		
+		return mapper.getTotalCounts();
+	}
 	// 대준
 	// 1:1문의 목록 관리자용(전체리스트).
 	@Override

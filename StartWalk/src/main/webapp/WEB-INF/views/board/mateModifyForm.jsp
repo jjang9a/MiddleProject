@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
- 
+ <form id="myFrm" action="mateModify.do" method="post">
  <table class="table">
 	<tbody>
 		<tr>
@@ -28,7 +28,7 @@
 	</tbody>
 
   </table>
-  <form id="myFrm" action="mateModify.do" method="post">
+  
 
 	
   </form>

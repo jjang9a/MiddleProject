@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import co.start.controller.AddProductControl;
+import co.start.controller.AddProductFormControl;
 import co.start.controller.AddUserControl;
 import co.start.controller.AddUserFormControl;
 import co.start.controller.CartAddAjax;
@@ -20,7 +22,11 @@ import co.start.controller.CartUpdateAjax;
 import co.start.controller.CommentsAddAjax;
 import co.start.controller.CommentsListAjax;
 import co.start.controller.CommentsRemoveAjax;
+
+import co.start.controller.CouponListControl;
+
 import co.start.controller.FAQControl;
+
 import co.start.controller.HotelInfoControl;
 import co.start.controller.HotelListControl;
 import co.start.controller.LoginControl;
@@ -43,11 +49,16 @@ import co.start.controller.PackageDeleteControl;
 import co.start.controller.PackageInfoControl;
 import co.start.controller.PackageListControl;
 import co.start.controller.PackageModifyControl;
+import co.start.controller.PackageModifyFormControl;
 import co.start.controller.ProductInfoControl;
 import co.start.controller.ProductListControl;
 import co.start.controller.ScManagerListControl;
 import co.start.controller.ScRemoveControl;
 import co.start.controller.ScSearchControl;
+
+import co.start.controller.StartpayAddControl;
+import co.start.controller.StartpayAddFormControl;
+import co.start.controller.StartpayInsertControl;
 import co.start.controller.ScUserListControl;
 import co.start.controller.ScUserWriteControl;
 import co.start.controller.ScUserWriteFormControl;
@@ -62,6 +73,17 @@ import co.start.controller.TravelBoardWriteFormControl;
 import co.start.controller.UserUpdateCheckControl;
 import co.start.controller.UserUpdateControl;
 import co.start.controller.UserUpdateFormControl;
+
+
+import co.start.controller.orderListControl;
+import co.start.controller.NoticeListControl;
+import co.start.controller.LogoutControl;
+
+import co.start.controller.StartpayListControl;
+import co.start.controller.NoticeListControl;
+import co.start.controller.LogoutControl;
+
+
 
 
 
@@ -100,6 +122,8 @@ public class FrontController extends HttpServlet {
 		
 		map.put("/logout.do", new LogoutControl()); // 로그아웃 처리
 		map.put("/faq.do", new FAQControl()); // 자주묻는 질문 페이지
+		map.put("/addProductForm.do", new AddProductFormControl()); // 판매상품 추가 페이지
+		map.put("/addProduct.do", new AddProductControl()); // 판매상품 추가 처리
 		
 		// 순덕
 		// 지역별 여행 패키지 목록
@@ -111,8 +135,10 @@ public class FrontController extends HttpServlet {
 		map.put("/packageAddForm.do", new PackageAddFormControl());
 		// 여행 패키지 글쓰기 처리 
 		map.put("/packageAdd.do", new PackageAddControl());
-		// 여행 패키지 글 수정
-		map.put("/packageModifyForm.do", new PackageModifyControl());
+		// 여행 패키지 글 수정 화면
+		map.put("/packageModifyForm.do", new PackageModifyFormControl());
+		// 야행패키지 글 수정 처리
+		map.put("/packageModify.do", new PackageModifyControl());
 		// 여행 패키지 글 삭제
 		map.put("/packageDelete.do", new PackageDeleteControl());
 		
@@ -126,6 +152,10 @@ public class FrontController extends HttpServlet {
 		
 		// 공지사항 글 삭제
 		
+		// 구매목록
+		map.put("/orderList.do", new orderListControl());
+		
+		// 리뷰 작성
 		
 		
 		
@@ -154,8 +184,17 @@ public class FrontController extends HttpServlet {
 				map.put("/commentsAdd.do", new CommentsAddAjax());
 		  // 댓글 삭제
 				map.put("/commentsRemoveAjax.do", new CommentsRemoveAjax());  // 아직 기능 미완
+		  // 출발페이 목록
+				map.put("/payList.do", new StartpayListControl());
+		  // 출발페이 생성
+				map.put("/payinsert.do", new StartpayInsertControl());
 				
-				
+		  // 출발페이 충천
+				map.put("/payAdd.do", new StartpayAddControl());
+	      // 출발페이 충전화면
+				map.put("/payAddForm.do", new StartpayAddFormControl());
+		  // 쿠폰
+				map.put("/couponList.do", new CouponListControl());
 				// 매칭 후기 게시판 목록
 				
 		
@@ -197,6 +236,7 @@ public class FrontController extends HttpServlet {
 
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		req.setCharacterEncoding(enc);
 		String uri = req.getRequestURI();
 		String context = req.getContextPath();
 		String page = uri.substring(context.length());
@@ -204,6 +244,7 @@ public class FrontController extends HttpServlet {
 		
 		Control command = map.get(page);
 		String viewPage = command.exec(req, resp); // product/productlist.tiles가 넘어옴
+
 		
 		if(viewPage.endsWith(".jsp")) {
 			viewPage = "/WEB-INF/views/" + viewPage;
@@ -216,7 +257,6 @@ public class FrontController extends HttpServlet {
 			resp.sendRedirect(viewPage);
 			return;
 		}
-		req.setCharacterEncoding(enc);
 		RequestDispatcher rd = req.getRequestDispatcher(viewPage);
 		rd.forward(req, resp);
 	

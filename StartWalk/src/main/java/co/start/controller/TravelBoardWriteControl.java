@@ -28,15 +28,16 @@ public class TravelBoardWriteControl implements Control {
 			MultipartRequest multi = new MultipartRequest(req, dir, maxSize, enc, new DefaultFileRenamePolicy());
 			
 			UserVO user = (UserVO)req.getSession().getAttribute("loginUser");
-			
-			//사용자 입력값 처리
-//			String img1 = multi.getFilesystemName("img1"); // 업로드 할 때의 파일이름이 아니라 업로드 하면서 리네임된 파일명을 담아둬야함
 
 			BoardVO vo = new BoardVO();
 			vo.setBTitle(multi.getParameter("title"));
 			vo.setUserId(user.getUserId());
 			vo.setBContents(multi.getParameter("body"));
-			vo.setBHead(multi.getParameter("head"));
+			if(multi.getParameter("head").equals("pk")) {
+				vo.setBHead("[패키지여행]");
+			}else if(multi.getParameter("head").equals("free")) {
+				vo.setBHead("[자유여행]");			
+			}
 			
 			System.out.println(vo);
 			

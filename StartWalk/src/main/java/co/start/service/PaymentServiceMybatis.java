@@ -7,7 +7,9 @@ import org.apache.ibatis.session.SqlSession;
 import co.start.common.DataSource;
 import co.start.mapper.PaymentMapper;
 import co.start.vo.CartVO;
+import co.start.vo.CouponVO;
 import co.start.vo.ProductVO;
+import co.start.vo.StartpayVO;
 
 public class PaymentServiceMybatis implements PaymentService{
 
@@ -40,11 +42,37 @@ public class PaymentServiceMybatis implements PaymentService{
 		return mapper.searchCart(vo);
 	}
 	
+	
 	// 순덕
 	
 	// 용억
+@Override
+public List<StartpayVO> payList() {
 	
+	return mapper.payList();
+}
+
+@Override
+public boolean AddPay(StartpayVO vo) {
+	
+	return mapper.updatePay(vo)==1;
+}
+@Override
+public List<CouponVO> couponList() {
+	
+	return mapper.couponList();
+}
+@Override
+public boolean insertPay(StartpayVO vo) {
+	int r = mapper.insertPay(vo);
+	return r==1;
+}
+
 	// 대준
 	
-	
+
+
+
+
 }
+

@@ -8,7 +8,7 @@ public interface CommentsService {
 	
 	//용억
 		//매칭 댓글 목록
-			public List<CommentsVO> CommentsList();
+			public List<CommentsVO> CommentsList(int bId);
 		//매칭 댓글 등록
 			public boolean addComments(CommentsVO vo);
 		//댓글 삭제

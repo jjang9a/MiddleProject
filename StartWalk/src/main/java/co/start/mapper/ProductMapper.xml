@@ -4,7 +4,13 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="co.start.mapper.ProductMapper">
 <!-- 가애 -->
-
+<insert id="insertProduct" parameterType="ProductVO">
+	insert into product (pd_id, pd_name, pd_price, pd_type, pd_info, pr_img)
+	values (prod_seq.nextval, #{pdName}, #{pdPrice}, #{pdType}, #{pdInfo}, #{prImg})
+</insert>
+<select id="images" parameterType="int" resultType="ImagesVO">
+	select * from images where pd_id = #{id}
+</select>
 
 <!-- 순덕 -->
 <select id="packageList" resultType="co.start.vo.ProductVO" parameterType="co.start.vo.SearchVO">
@@ -53,15 +59,38 @@
 	where pd_id=#{pdId}
 </select>
 
+
 <delete id="deletePackage" parameterType="co.start.vo.ProductVO">
 	delete from product where pd_id=#{pdId}
 </delete>
 	
 <update id="updatePackage" parameterType="co.start.vo.ProductVO">
 	update product
-	set pd_name=#{pdName}, pd_price=#{pdPrice}, pd_sale=#{pdSale}, pd_start=#{pdStart} , pd_end=#{pdEnd}, pd_location=#{pdLocation}, pr_img=#{pdImg}
+	set pd_name=#{pdName}, pd_price=#{pdPrice}, pd_sale=#{pdSale}, pd_start= #{pdStart}, pd_end= #{pdEnd} 
 	where pd_id=#{pdId}
 </update>
+
+<insert id="insertPackage" parameterType="co.start.vo.ProductVO">
+	insert into product (pd_id, pd_name, pd_price, pd_type, pd_sale, pd_info, pd_start, pd_end, pd_location)
+	values(prod_seq.nextval,#{pdName},#{pdPrice},'PK',#{pdSale},#{pdInfo},#{pdStart},#{pdEnd}, #{pdLocation} )
+</insert>
+
+<select id="searchPdId" resultType="int">
+	select p.pd_id from product p
+	where pd_id = ( select max(pd_id) from product)
+</select>
+
+<insert id="imgAttach" parameterType="ImagesVO">
+	insert into images (pd_id, img_file) values (#{pdId}, #{imgFile})
+</insert>
+
+<select id="orderList" resultType="co.start.vo.ProductVO">
+	select p.pd_id, p.pd_name, p.pd_price, p.pd_sale, p.pr_img, o.order_id, o.user_id, o.order_date, d.pd_count, o.order_status
+	from product p, orders o, paydetail d
+	where p.pd_id = d.pd_id 
+		  and o.order_id = d.order_id 
+		  and o.user_id = #{userId}
+</select>
 
 
 <!-- 용억 -->
@@ -79,9 +108,9 @@
 
 	<select id="productListWithPaging" resultType="co.start.vo.ProductVO" parameterType="int">
 	<![CDATA[
-	  select pd_id, pd_name, pd_price, pd_type
-	  from (select  rownum rn, pd_id, pd_name, pd_price, pd_type
-	      from (select pd_id, pd_name, pd_price, pd_type
+	  select pd_id, pd_name, pd_price, pd_type ,pr_img
+	  from (select  rownum rn, pd_id, pd_name, pd_price, pd_type,pr_img
+	      from (select pd_id, pd_name, pd_price, pd_type,pr_img
 	            from product
 	            order by pd_id) a
 	      where rownum <= (#{page} * 10) ) b
@@ -95,7 +124,7 @@
 	</update>
 	
 	<select id="getTotalCount" resultType="int">
-		select count(*) from product
+		select count(*) from product where pd_type='PR'
 	</select>
 <!-- 대준 -->
 

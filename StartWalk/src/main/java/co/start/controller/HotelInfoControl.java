@@ -1,11 +1,14 @@
 package co.start.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import co.start.common.Control;
 import co.start.service.ProductService;
 import co.start.service.ProductServiceMybatis;
+import co.start.vo.ImagesVO;
 import co.start.vo.ProductVO;
 
 public class HotelInfoControl implements Control {
@@ -18,6 +21,9 @@ public class HotelInfoControl implements Control {
 		ProductVO vo = service.getProduct(key);
 		
 		req.setAttribute("hotel", vo);
+		
+		List<ImagesVO> img = service.getImgs(key);
+		req.setAttribute("img", img);
 		
 		return "product/hotelInfo.tiles";
 	}

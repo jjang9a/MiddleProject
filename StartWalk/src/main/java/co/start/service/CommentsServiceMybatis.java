@@ -14,8 +14,8 @@ public class CommentsServiceMybatis implements CommentsService{
 	CommentsMapper mapper = sqlSession.getMapper(CommentsMapper.class);
 	
 	//용억
-	public List<CommentsVO> CommentsList(){
-		return mapper.commentsList();
+	public List<CommentsVO> CommentsList(int bId){
+		return mapper.commentsList(bId);
 	}
 
 	@Override

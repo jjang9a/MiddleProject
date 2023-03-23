@@ -2,11 +2,16 @@ package co.start.service;
 
 import java.util.List;
 
+import co.start.vo.ImagesVO;
 import co.start.vo.ProductVO;
 import co.start.vo.SearchVO;
 
 public interface ProductService {
 
+	// 가애
+	public boolean addProd(ProductVO vo);
+	public List<ImagesVO> getImgs(int id);
+	
 	//용억
 		//상품목록(명물)
 	       public List<ProductVO> products(int page);
@@ -30,9 +35,14 @@ public interface ProductService {
 	public ProductVO packageInfo(int pdId);
 	// 여행 패키지 글쓰기 
 	public boolean addPackage(ProductVO vo);
+	public int searchPdId();
+	public boolean imgAttach(ImagesVO vo);
 	// 여행 패키지 글 수정
 	public boolean packageModify(ProductVO vo);
 	// 여행 패키지 글 삭제
 	public boolean packageRemove(int pdId);
+	// 구매 목록
+	public List<ProductVO> orderList(int page);
+	// 리뷰 작성
 	
 }

@@ -8,14 +8,11 @@
 		<a href="packageDelete.do" class="btn btn-sm btn-dark rounded py-2 px-4" style="float: right; margin: 0 10px">삭제</a>
 		<a href="packageModifyForm.do" class="btn btn-sm btn-dark rounded py-2 px-4" style="float: right;">수정</a>
 	</c:if>
-	
-	<h3>&#91; ${info.pdType}${info.pdId}&#93; ${info.pdName}</h3>
-	<hr>
-	<p>| &nbsp; 출발:<fmt:formatDate value="${info.pdStart }" type="both" pattern="yyyy-MM-dd E요일" /> &nbsp; | &nbsp; 도착:<fmt:formatDate value="${info.pdEnd }" type="both" pattern="yyyy-MM-dd E요일" />&nbsp; |</p>
-	
+	<div style="clear: both; margin-bottom: 5px;"></div>
+	<div style="float: right; margin: 0 10px; padding:0;">
 	<c:choose>
 			<c:when test="${info.pdSale == 0 }">
-				<p>
+				<p style="font-size: 25px; margin:0; padding:0;">
 					<fmt:setLocale value="ko_kr" />
 					<fmt:formatNumber value="${info.pdPrice }" type="currency" />
 				</p>
@@ -23,14 +20,14 @@
 			<c:otherwise>
 			<c:choose>
 			<c:when test="${info.pdSale == info.pdPrice }">
-				<p>
+				<p style="font-size: 25px; margin:0; padding:0;">
 					<strong style="color: red;">
 					<fmt:setLocale value="ko_kr" />
 					<fmt:formatNumber value="${info.pdSale }" type="currency"  /></strong>
 				</p>
 			</c:when>
 			<c:otherwise>
-				<p>
+				<p style="font-size: 25px; margin:0; padding:0;">
 					<fmt:setLocale value="ko_kr" /><del>
 					<fmt:formatNumber value="${info.pdPrice }" type="currency" /></del>
 					<strong style="color: red;">
@@ -41,6 +38,13 @@
 			</c:choose>
 		</c:otherwise>
 	</c:choose>	
+	</div>
+	
+	<h3>&#91; ${info.pdType}${info.pdId}&#93; ${info.pdName}</h3>
+	<hr>
+	<p>| &nbsp; 출발:<fmt:formatDate value="${info.pdStart }" type="both" pattern="yyyy-MM-dd E요일" /> &nbsp; | &nbsp; 도착:<fmt:formatDate value="${info.pdEnd }" type="both" pattern="yyyy-MM-dd E요일" />&nbsp; |</p>
+	
+	
 	
 	<br>
 	<div>
@@ -59,7 +63,7 @@
 	
 	<div style="padding: 10px;">
 		<p><strong style="background-color: blanchedalmond; padding: 0 10px; color: black;">Review</strong></p>
-		<p style="color: rgb(57, 57, 57); font-size: 14px;">&#10003 리뷰 쓰기</p>
+		<p style="color: rgb(57, 57, 57); font-size: 14px;"> &#10003; 10003 리뷰 쓰기</p>
 		<input type="submit" value="등록" style="height: 80px; width: 60px; float: right;">
 		<textarea rows="3" cols="110" ></textarea>
 		
@@ -67,7 +71,7 @@
 			<div >
 				<hr>
 				<button style="float: right; font-size: 12px; margin: 0 5px;">삭제</button><button style="float: right; font-size: 12px; margin: 0 5px;">수정</button>
-				<p style="margin:0;"><strong>회원 ID</strong> &nbsp &nbsp &nbsp &nbsp </p>
+				<p style="margin:0;"><strong>회원 ID</strong> &nbsp; &nbsp; &nbsp; &nbsp; </p>
 				<div style="overflow:hidden;">
 					<div class="bi-star-fill" style="float: left;"></div>
 					<div class="bi-star-fill" style="float: left;"></div>
@@ -80,13 +84,13 @@
 			<div >
 				<hr>
 				<button style="float: right; font-size: 12px; margin: 0 5px;">삭제</button><button style="float: right; font-size: 12px; margin: 0 5px;">수정</button>
-				<p ><strong>회원 ID</strong> &nbsp &nbsp &nbsp &nbsp <small style="font-size: 7px;">댓글 작성 날짜 및 시간</small></p>
+				<p ><strong>회원 ID</strong> &nbsp; &nbsp; &nbsp; &nbsp; <small style="font-size: 7px;">댓글 작성 날짜 및 시간</small></p>
 				<p style="clear: both;">리뷰 내용</p>
 			</div>
 			<div >
 				<hr>
 				<button style="float: right; font-size: 12px; margin: 0 5px;">삭제</button><button style="float: right; font-size: 12px; margin: 0 5px;">수정</button>
-				<p ><strong>회원 ID</strong> &nbsp &nbsp &nbsp &nbsp <small style="font-size: 7px;">댓글 작성 날짜 및 시간</small></p>
+				<p ><strong>회원 ID</strong> &nbsp; &nbsp; &nbsp; &nbsp; <small style="font-size: 7px;">댓글 작성 날짜 및 시간</small></p>
 				<p style="clear: both;">리뷰 내용</p>
 			</div>
 		</div>

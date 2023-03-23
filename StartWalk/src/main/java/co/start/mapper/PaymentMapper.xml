@@ -22,7 +22,7 @@
 </delete> -->
 
 <insert id="cartInsert" parameterType="CartVO">
-	insert into cart values(#{pdId}, #{userId}, #{pdCount})
+	insert into cart values(cart_seq.nextval, #{pdId}, #{userId}, #{pdCount})
 </insert>
 
 <select id="searchCart" parameterType="CartVO" resultType="CartVO">
@@ -33,8 +33,22 @@
 
 
 <!-- 용억 -->
+<select id="payList" resultType="co.start.vo.StartpayVO">
+	select * from startpay
+</select>
 
+<insert id="insertPay" parameterType="StartpayVO">
+	insert into startpay (user_id,pay_start,pay_point,pay_why,pay_date)
+	values (#{userId},#{payStart},#{payPoint},#{payWhy},sysdate)
+</insert>
 
+<update id="updatePay" parameterType="co.start.vo.StartpayVO">
+	update startpay set pay_start= (select pay_start from startpay where user_id =#{userId})+#{payStart}, pay_date = sysdate, pay_why = #{payWhy} where user_id = #{userId}
+</update>
+
+<select id="couponList" resultType="co.start.vo.CouponVO">
+	select * from coupon
+</select>
 <!-- 대준 -->
 
 

@@ -26,20 +26,20 @@
 				<div class="row g-3">
 					<div class="col-6 text-end">
 						<img class="img-fluid rounded w-75 wow zoomIn"
-							data-wow-delay="0.1s" src="img/about-1.jpg"
+							data-wow-delay="0.1s" src="./upload/${hotel.prImg }"
 							style="margin-top: 25%;">
 					</div>
 					<div class="col-6 text-start">
 						<img class="img-fluid rounded w-100 wow zoomIn"
-							data-wow-delay="0.3s" src="img/about-2.jpg">
+							data-wow-delay="0.3s" src="./upload/${img.get(0).imgFile }">
 					</div>
 					<div class="col-6 text-end">
 						<img class="img-fluid rounded w-50 wow zoomIn"
-							data-wow-delay="0.5s" src="img/about-3.jpg">
+							data-wow-delay="0.5s" src="./upload/${img.get(1).imgFile }">
 					</div>
 					<div class="col-6 text-start">
 						<img class="img-fluid rounded w-75 wow zoomIn"
-							data-wow-delay="0.7s" src="img/about-4.jpg">
+							data-wow-delay="0.7s" src="./upload/${img.get(2).imgFile }">
 					</div>
 				</div>
 			</div>
@@ -49,7 +49,7 @@
 					<form>
 						<div class="row g-3">
 							<div class="col-12" style="text-align:right; padding-top:10px">
-								<input type="hidden" name="pdid" value="${hotel.pdId }"/>
+								<input type="hidden" name="pdid" id="pdid" value="${hotel.pdId }"/>
 									출발만의 특가 : <fmt:formatNumber pattern="#,###,###" value="${hotel.pdPrice }" />원
 								<div class="form-floating" >
 								</div>
@@ -82,7 +82,7 @@
 							</div>							
 							<div class="col-12">
 								<button style="background-color:#0f172b; border:none;" class="btn btn-primary w-100 py-3" type="submit">구매하기</button>
-								<button class="btn btn-primary w-100 py-3" type="submit">장바구니</button>
+								<button class="btn btn-primary w-100 py-3" type="button" id="submitBtn">장바구니</button>
 							</div>
 						</div>
 					</form>
@@ -92,3 +92,26 @@
 	</div>
 </div>
 <!-- Booking End -->
+
+<script>
+let pdid = document.querySelector('#pdid').value;
+document.querySelector('#submitBtn').addEventListener('click', function(){
+fetch('cartAdd.do', {
+	method : 'post',
+	headers : {'Content-Type' : 'application/x-www-form-urlencoded'},
+	body: 'pdid='+pdid
+
+})
+.then(resolve => resolve.json()) // {"id":"user1", "name":"hong" ...}
+.then(result => {
+	console.log(result);
+	if(result.retCode == 'Success'){
+		alert('성공!');
+		
+	} else if(result.retCode == 'Fail'){
+		alert('실패!');
+	}
+})
+.catch(reject => console.error(reject));
+});
+</script>

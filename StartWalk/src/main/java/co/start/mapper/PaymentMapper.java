@@ -3,7 +3,9 @@ package co.start.mapper;
 import java.util.List;
 
 import co.start.vo.CartVO;
+import co.start.vo.CouponVO;
 import co.start.vo.ProductVO;
+import co.start.vo.StartpayVO;
 
 public interface PaymentMapper {
 
@@ -14,5 +16,15 @@ public interface PaymentMapper {
 	public int cartDeleteAll(String id); // 장바구니 전체 삭제
 	public int cartInsert(CartVO vo); // 장바구니 추가
 	public CartVO searchCart(CartVO vo); // 장바구니 상품 조회
+	
+	//용억
+		//출발페이 목록
+			public List<StartpayVO> payList();
+		//출발페이 충전	
+			public int updatePay(StartpayVO vo);
+		//출발페이 생성
+			public int insertPay(StartpayVO vo);
+		//쿠폰
+			public List<CouponVO> couponList();
 	
 }

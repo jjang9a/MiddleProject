@@ -19,13 +19,18 @@ public class ProductVO {
 	private Date pdEnd; // 패키지 상품 도착일
 	private String pdLocation; // 여행 지역 구분
 	private String prImg; // 상품 대표 이미지
+	private int cartId;
 	
 	private double star; // 테이블에는 없지만 제품 평균 평점을 위한 항목
 	
+	// 조인을 위해 선언한 값
 	// 카트VO 항목
 	private String userId;
 	private int pdCount;
 	
-	
+	// OrderVO
+	private int orderId; // 주문번호 - mapper로 insert시 values (order_seq.NEXTVAL, ...)방식으로 입력하면 자동생성됨
+	private Date orderDate; // 주문일
+	private String orderStatus; // 현재 주문 상태 (결제대기중, 결제완료, 배송준비중, 배송중, 배송완료)
 	
 }

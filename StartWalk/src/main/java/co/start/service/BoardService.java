@@ -9,7 +9,7 @@ public interface BoardService {
 	
 	//용억
 	// 메이트 목록
-	public List<BoardVO> mateList();
+	public List<BoardVO> mateList(int page);
 	
 	// 메이트 등록
 	public boolean addMate(BoardVO vo);
@@ -19,6 +19,8 @@ public interface BoardService {
 	public BoardVO getMateInfo(String bTitle);
 	// 전체 건수
 	public int getTotalCount();
+	// 전체 건수 내꺼
+	public int getTotalCounts();
 	
 
 	// 가애 - 여행 수기
