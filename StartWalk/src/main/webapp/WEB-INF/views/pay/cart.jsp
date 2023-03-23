@@ -6,8 +6,8 @@
 	<div class="row px-xl-5">
 		<div class="col-lg-8 table-responsive mb-5" style="margin: auto;">
 			<h5>여행 상품</h5>
-			<a href="" class="btn btn-sm btn-dark rounded py-2 px-4" style="float: right; margin: 0 10px">선택 삭제</a> <a
-				href="" class="btn btn-sm btn-dark rounded py-2 px-4" style="float: right;">선택
+			<a href="" class="btn btn-sm btn-dark rounded py-2 px-4" style="float: right; margin: 0 10px">선택 삭제</a>
+			<a href="javascript:orderall();" class="btn btn-sm btn-dark rounded py-2 px-4" style="float: right;">선택
 				주문</a><br>
 			<br>
 			<table class="table table-bordered text-center mb-0">
@@ -26,7 +26,8 @@
 						<tr id="cart_${i.cartId }">
 							<td class="align-middle"><input id="check${i.cartId }" name="check" value="${i.pdId }"
 									type="checkbox"></td>
-							<td class="align-middle"><img src="./upload/${i.prImg }" alt="" style="width: 120px; height:80px;"></td>
+							<td class="align-middle"><img src="./upload/${i.prImg }" alt=""
+									style="width: 120px; height:80px;"></td>
 							<td class="align-middle">${i.pdName }</td>
 							<td class="align-middle">
 								<fmt:formatNumber pattern="#,###,###" value="${i.pdPrice }" />원
@@ -49,11 +50,12 @@
 										</button>
 									</div>
 								</div>
-								<button type="submit" name="update" style="font-size: 10px">적용</button>
+								<button type="submit" name="updateBtn" style="font-size: 10px; border:none; color:grey;" onclick="updateBtn(${i.cartId })">적용</button>
 							</td>
 							<td class="align-middle" id="tAmount" name="tAmount">
 								<fmt:formatNumber pattern="#,###,###" value="${(i.pdPrice*i.pdCount) }" />원</td>
-							<td class="align-middle"><button class="btn btn-sm btn-primary" id="delBtn">
+							<td class="align-middle"><button class="btn btn-sm btn-primary" id="delBtn"
+									onclick="delBtn(${i.cartId })">
 									<i class="fa fa-times"></i>
 								</button></td>
 						</tr>
@@ -62,14 +64,7 @@
 			</table>
 		</div>
 		<p id="totalAmt"></p>
-		java jstl html
-
-		<div class="col-lg-8 table-responsive mb-5" style="margin: auto;">
-			<h5>배송 상품</h5>
-
-
-
-		</div>
+		<form action="orderForm.do" method="post" style="display:none" id="selectOrder"></form>
 	</div>
 </div>
 <!-- Cart End -->
@@ -108,6 +103,77 @@
 		})
 		document.querySelector('#totalAmt').innerText = total;
 	}
+
+	function delBtn(cartId) {
+		fetch('cartDelete.do?cartId=' + cartId)
+			.then(resolve => resolve.json()) // {"retCode": "Success"} -> {retCode: "Success"}
+			.then(result => {
+				console.log(result)
+				if (result.retCode == 'Success') {
+					document.querySelector('#cart_' + cartId).remove();
+				} else if (result.retCode == 'Fail') {
+					alert('error....')
+				}
+			})
+			.catch(reject => console.error(reject))
+	}
+	
+	function updateBtn(cartId) {
+		let cartTr = document.querySelector('#cart_' + cartId);
+		let count = cartTr.querySelector('input#tCount').value;
+		fetch('cartUpdate.do', {
+			method : 'post',
+			headers : {'Content-Type' : 'application/x-www-form-urlencoded'},
+			body: 'cartId=' + cartId + '&tCount=' + count
+		})
+			.then(resolve => resolve.json()) // {"retCode": "Success"} -> {retCode: "Success"}
+			.then(result => {
+				console.log(result)
+				if (result.retCode == 'Success') {
+					alert('수량 변경 완료!')
+				} else if (result.retCode == 'Fail') {
+					alert('error....')
+				}
+			})
+			.catch(reject => console.error(reject))
+	}
+
+
+	// document.querySelectorAll('input[type="checkbox"]').forEach(function (chk) {
+	// 	if (chk.value) {
+
+	// 	}
+	// });
+
+/* 	function orderall() {
+		console.log('orderAll');
+
+		let str = 'orderForm.do?id=1001&id=1002&id=1003';
+		fetch(str)
+			.then(resolve => resolve.json())
+			.then(result => console.log(result))
+			.catch(reject => console.log(reject));
+	} */
+	
+	function orderall(){
+		let checkbox = document.querySelectorAll('input[name="check"]');
+		let String = "";
+		checkbox.forEach(element => {
+			if(element.checked==true){
+				let id = element.id;
+				String += id.substring(5)+",";
+			}
+		})
+		let str = String.substring(0,String.length-1);
+		let form = document.querySelector('#selectOrder');
+		let input = document.createElement('input');
+		input.type='text';
+		input.value=str;
+		input.name='selectOrder';
+		form.append(input);
+		form.submit();
+	}
+
 	// 수량 변경
 	// document.getElementById('cartMinus').addEventListener('click', function(e) {
 	// document.querySelectorAll('#cartMinus').forEach(btn => {
@@ -142,27 +208,4 @@
 	// 	document.querySelector('#tAmount').value = (price * num)
 	// })
 
-	// Ajax
-	// 삭제
-	/* document.getElementById('delBtn').addEventListener('click', function(){
-		let delId = this.parentElement.parentElement.children[0].value;
-		console.log(delId);
-		// ajax 호출
-		fetch('cartDelete.do', {
-			method : 'post',
-			headers : {'Content-Type' : 'application/x-www-form-urlencoded'}, // key=val&key=val 형식
-			body : 'check='+delId
-		})
-			.then(resolve => resolve.json()) // resolve라는 값이 json타입 {"retCode" : "Success"}으로 넘어옴
-			.then(result => {
-				console.log(result); //
-				if(result.retCode == 'Success'){
-					alert('성공!');
-					this.parentElement.parentElement.remove(); // 화면에서 지워주는 기능
-				} else if(result.retCode == 'Fail'){
-					alert('실패!');
-				}
-			})
-			.catch(reject => console.log(reject));
-	}); */
 </script>

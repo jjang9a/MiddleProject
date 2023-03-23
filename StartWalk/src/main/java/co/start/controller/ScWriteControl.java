@@ -13,7 +13,7 @@ public class ScWriteControl implements Control {
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
 		
-		String userId = request.getParameter("id");
+		String userId = "admin";
 		String title = request.getParameter("title") ;
 		String contents = request.getParameter("text");
 		

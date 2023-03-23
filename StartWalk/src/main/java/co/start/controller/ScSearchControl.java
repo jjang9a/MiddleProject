@@ -23,6 +23,7 @@ public class ScSearchControl implements Control {
 		UserVO us = (UserVO)session.getAttribute("loginUser");
 		System.out.println(vo);
 		
+		
 		req.setAttribute("sc", vo);
 		
 		return "managerService/scSearch.tiles";
