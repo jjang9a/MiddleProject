@@ -9,7 +9,7 @@ public class OrderFormControl implements Control {
 
 	@Override
 	public String exec(HttpServletRequest req, HttpServletResponse resp) {
-		return "mypage/orderForm.tiles";
+		return "pay/orderForm.tiles";
 	}
 
 }
