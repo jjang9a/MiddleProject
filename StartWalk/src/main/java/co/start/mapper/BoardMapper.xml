@@ -95,6 +95,12 @@
 <insert id="scWrite" parameterType = "BoardVO">
   	insert into board(b_id, user_id, b_title, b_contents, b_category, b_writeDate)
   	values(board_seq.nextval, #{userId}, #{bTitle}, #{bContents}, 'CU', sysdate )
- </insert>
+</insert>
+
+<delete id="scRemove" parameterType="co.start.vo.BoardVO">
+  	delete from board where b_id = #{bId}
+</delete>
+ 
+ 
 
 </mapper>

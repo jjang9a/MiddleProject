@@ -101,30 +101,29 @@ public class BoardServiceMybatis implements BoardService{
 	public List<BoardVO> scManagerList() {
 		return mapper.scManagerList();
 	}
-	
 	// 글읽기 (상세조회)
 	@Override
 	public BoardVO scSearch(int bId) {
-	//	mapper.scSearch(bTitle);
 		return mapper.scSearch(bId);
 	}
-	
 	// 문의작성 1:1문의 글쓰기(등록).
 	@Override
 	public boolean scWrite(BoardVO vo) {
 		return mapper.scWrite(vo)==1;
 	}
-	
 	// 삭제
 	@Override
 	public boolean scRemove(int bId) {
 		return mapper.scRemove(bId);
 	}
-
 	// 일반 회원용 조회 메소드 하나 더 만들기. // where user_id = #{id} <<mapper.xml 에 넣고 로 조회하기 session.id Control에서 service 조회할때 변수로 사용 
 	@Override
 	public List<BoardVO> scUserList() {
-	return mapper.scUserList();
-	
+		return mapper.scUserList();
+	}
+	// 회원 문의작성.
+	@Override
+	public boolean UserWrite(BoardVO vo) {
+		return mapper.UserWrite(vo)==1;
 	}
 }

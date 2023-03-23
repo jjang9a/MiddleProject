@@ -47,20 +47,12 @@ public interface BoardMapper {
 	public int updateBHit (int bid);
 	
 	// 대준
-	// 1:1문의 목록 (관리자용)
-	public List<BoardVO> scManagerList(); 
-			
-	// 문의 작성 (등록)
-	public int scWrite(BoardVO vo); 
-			
-	// 조회 (게시글 제목으로 상세조회)
-	public BoardVO scSearch(int bId); 
-			
-	// 삭제
-	public boolean scRemove(int bId);
-			
-	// 1:1문의 목록 (회원용)
-	public List<BoardVO> scUserList(); 
+	public List<BoardVO> scManagerList(); // 1:1문의 목록 (관리자용)
+	public int scWrite(BoardVO vo); // 문의 작성 (등록)
+	public BoardVO scSearch(int bId); // 조회 (게시글 제목으로 상세조회)
+	public boolean scRemove(int bId); // 삭제
+	public List<BoardVO> scUserList(); // 1:1문의 목록 (회원용)
+	public int UserWrite(BoardVO vo); // 문의작성 등록 (회원용)
 	
 	// 순덕
 	// 공지사항 목록
