@@ -9,7 +9,9 @@ import javax.servlet.http.HttpServletResponse;
 import co.start.common.Control;
 import co.start.service.PaymentService;
 import co.start.service.PaymentServiceMybatis;
+import co.start.vo.CouponVO;
 import co.start.vo.ProductVO;
+import co.start.vo.UserVO;
 
 public class OrderFormControl implements Control {
 
@@ -31,6 +33,12 @@ public class OrderFormControl implements Control {
 		
 		req.getSession().setAttribute("detail", list);
 		// cart정보 배열. -> 주문번호생성 -> 상세내역생성 -> 총내역생성 -> 상세내역&총내역
+		
+		UserVO user = (UserVO)req.getSession().getAttribute("loginUser");
+		String userId = user.getUserId();
+		
+		List<CouponVO> coupons = service.getMyCoupon(userId);
+		req.setAttribute("coupons", coupons);
 
 		return "pay/orderForm.tiles";
 	}

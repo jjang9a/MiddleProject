@@ -48,9 +48,11 @@ addr.input{
 		</div>
 		<hr>
 		<table class="table">
-			<tr><th>쿠폰</th><td><label for="type">카테고리</label></td><td><select id="type" name="type">
-				<option value="HO">숙소상품</option>
-				<option value="PR">지역명물</option>
+			<tr><th><label for="type">쿠폰</label></th><td colspan="2"><select id="type" name="type">
+				<option value="none">쿠폰 사용 안함</option>
+				<c:forEach var="i" items="${coupons }">
+					<option value="${i.cpId }">${i.cpName } (${i.cpDiscount }원 할인)</option>
+				</c:forEach>
 			</select></td></tr>
 			<tr><th colspan="2"></th></tr>
 			<tr><td>사용가능 금액 : </td><td><input type="text" name=""></td></tr>

@@ -35,6 +35,10 @@
 	where cart_id = #{cartId}
 </select>
 
+<select id="searchMyCoupon" parameterType="String" resultType="CouponVO">
+	select * from coupon where user_id = #{id}
+</select>
+
 <!-- 순덕 -->
 
 

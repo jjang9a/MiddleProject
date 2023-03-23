@@ -17,6 +17,7 @@ public interface PaymentMapper {
 	public int cartInsert(CartVO vo); // 장바구니 추가
 	public CartVO searchCart(CartVO vo); // 장바구니 상품 조회
 	public ProductVO searchById(int cartId); // cartId로 카트정보 조회
+	public List<CouponVO> searchMyCoupon(String id); // 내 쿠폰 리스트
 
 	
 	//용억
