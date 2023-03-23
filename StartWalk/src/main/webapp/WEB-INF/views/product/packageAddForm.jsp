@@ -42,7 +42,7 @@
 
 	<div style="margin: 15px auto;">
 		<p>여행 패키지 상품 상세 설명</p>  
-		<p><textarea cols="120" rows="40" name="pdInfo" id="pdInfo">내용 입력</textarea></p>
+		<p><textarea cols="120" rows="40" name="pdInfo" id="pdInfo"></textarea></p>
 	</div>
 	<div style="margin-left:10px;">
 		대표 사진 첨부<input type="file" name="prImg" id="prImg" style="margin-left:10px;">

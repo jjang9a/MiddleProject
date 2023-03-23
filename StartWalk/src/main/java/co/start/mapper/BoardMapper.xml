@@ -62,6 +62,11 @@
 	where b_title = #{bTitle} and b_category='NO'
 </select>
 
+<insert id="insertnotice" parameterType="co.start.vo.BoardVO">
+	insert into board (b_id, user_id, b_title, b_contents, b_writeDate, b_category)
+	values(board_seq.nextval, 'admin', #{bTitle},#{bContents} , sysdate, 'NO')
+</insert>
+
 
 <!-- 용억 -->
 <select id="mateListWithPaging" resultType="co.start.vo.BoardVO" parameterType="int">

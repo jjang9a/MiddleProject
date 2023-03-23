@@ -3,6 +3,7 @@ package co.start.service;
 import java.util.List;
 
 import co.start.vo.ImagesVO;
+import co.start.vo.PdreviewVO;
 import co.start.vo.ProductVO;
 import co.start.vo.SearchVO;
 
@@ -33,6 +34,8 @@ public interface ProductService {
     public int getTotalCountTwo(SearchVO search);
 	// 패키지 상세
 	public ProductVO packageInfo(int pdId);
+	public List<PdreviewVO> reviewList(int pdId);
+	
 	// 여행 패키지 글쓰기 
 	public boolean addPackage(ProductVO vo);
 	public int searchPdId();
@@ -43,6 +46,7 @@ public interface ProductService {
 	public boolean packageRemove(int pdId);
 	// 구매 목록
 	public List<ProductVO> orderList(int page);
+	public List<ProductVO> orderListdo();
 	// 리뷰 작성
-	
+	public boolean addPdreview(PdreviewVO vo);
 }

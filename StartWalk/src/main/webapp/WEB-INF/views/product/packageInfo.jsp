@@ -48,7 +48,7 @@
 	
 	<br>
 	<div>
-		<img alt="여행 패키지 상품 이미지" src="img/${info.prImg}" style="width: 300px; height:200px;">
+		<img alt="여행 패키지 상품 이미지" src="./upload/${info.prImg}" style="width: 300px; height:200px;">
 	</div>
 	
 	<h5 style="margin: 20px;">여행일정</h5>
@@ -62,41 +62,62 @@
 	</div>
 	
 	<div style="padding: 10px;">
-		<p><strong style="background-color: blanchedalmond; padding: 0 10px; color: black;">Review</strong></p>
-		<p style="color: rgb(57, 57, 57); font-size: 14px;"> &#10003; 10003 리뷰 쓰기</p>
-		<input type="submit" value="등록" style="height: 80px; width: 60px; float: right;">
-		<textarea rows="3" cols="110" ></textarea>
+		<p><strong style="background-color: blanchedalmond; padding: 0 10px; color: black;">&#10003; Review</strong></p>
 		
 		<div style="clear: both; margin: 10px 0; padding: 20px;">		
+			
+			
+			<c:forEach var="review" items="${list }">
 			<div >
 				<hr>
-				<button style="float: right; font-size: 12px; margin: 0 5px;">삭제</button><button style="float: right; font-size: 12px; margin: 0 5px;">수정</button>
-				<p style="margin:0;"><strong>회원 ID</strong> &nbsp; &nbsp; &nbsp; &nbsp; </p>
+				<p style="margin:0;"><strong>${review.userId }</strong> &nbsp; &nbsp; &nbsp; &nbsp; </p>
 				<div style="overflow:hidden;">
-					<div class="bi-star-fill" style="float: left;"></div>
-					<div class="bi-star-fill" style="float: left;"></div>
-					<div class="bi-star-half" style="float: left;"></div>
-					<div class="bi-star" style="float: left;"></div>
-					<div class="bi-star" style="float: left;"></div>
+					<c:if test="${review.prStar ==1}">
+						<div class="bi-star-fill" style="float: left;"></div>
+						<div class="bi-star" style="float: left;"></div>
+						<div class="bi-star" style="float: left;"></div>
+						<div class="bi-star" style="float: left;"></div>
+						<div class="bi-star" style="float: left;"></div>
+					</c:if>
+					<c:if test="${review.prStar ==2}">
+						<div class="bi-star-fill" style="float: left;"></div>
+						<div class="bi-star-fill" style="float: left;"></div>
+						<div class="bi-star" style="float: left;"></div>
+						<div class="bi-star" style="float: left;"></div>
+						<div class="bi-star" style="float: left;"></div>
+					</c:if>
+					<c:if test="${review.prStar ==3}">
+						<div class="bi-star-fill" style="float: left;"></div>
+						<div class="bi-star-fill" style="float: left;"></div>
+						<div class="bi-star-fill" style="float: left;"></div>
+						<div class="bi-star" style="float: left;"></div>
+						<div class="bi-star" style="float: left;"></div>
+					</c:if>
+					<c:if test="${review.prStar ==4}">
+						<div class="bi-star-fill" style="float: left;"></div>
+						<div class="bi-star-fill" style="float: left;"></div>
+						<div class="bi-star-fill" style="float: left;"></div>
+						<div class="bi-star-fill" style="float: left;"></div>
+						<div class="bi-star" style="float: left;"></div>
+					</c:if>
+					<c:if test="${review.prStar ==5}">
+						<div class="bi-star-fill" style="float: left;"></div>
+						<div class="bi-star-fill" style="float: left;"></div>
+						<div class="bi-star-fill" style="float: left;"></div>
+						<div class="bi-star-fill" style="float: left;"></div>
+						<div class="bi-star-fill" style="float: left;"></div>
+					</c:if>
+					
 				</div>
-				<p style="clear: both;">리뷰 내용</p>
+				<p style="clear: both;">${review.prBody }</p>
 			</div>
-			<div >
-				<hr>
-				<button style="float: right; font-size: 12px; margin: 0 5px;">삭제</button><button style="float: right; font-size: 12px; margin: 0 5px;">수정</button>
-				<p ><strong>회원 ID</strong> &nbsp; &nbsp; &nbsp; &nbsp; <small style="font-size: 7px;">댓글 작성 날짜 및 시간</small></p>
-				<p style="clear: both;">리뷰 내용</p>
-			</div>
-			<div >
-				<hr>
-				<button style="float: right; font-size: 12px; margin: 0 5px;">삭제</button><button style="float: right; font-size: 12px; margin: 0 5px;">수정</button>
-				<p ><strong>회원 ID</strong> &nbsp; &nbsp; &nbsp; &nbsp; <small style="font-size: 7px;">댓글 작성 날짜 및 시간</small></p>
-				<p style="clear: both;">리뷰 내용</p>
-			</div>
+			
+			</c:forEach>
+			
+			
+			
 		</div>
 	</div>
-	<div>
-	<p style="text-align: center;">페이징</p>
-	</div>
+	
 
 </div>

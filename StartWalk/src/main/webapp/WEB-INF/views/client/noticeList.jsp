@@ -9,7 +9,7 @@
             <hr style="margin-top: 120px; margin-bottom: 0;">
             
             <c:if test="${loginUser.userGrade.equals('admin') }">
-				<a href="" class="btn btn-sm btn-dark rounded py-2 px-4" style="float: right; margin:10px 0;">글쓰기	</a>
+				<a href="noticeAddForm.do" class="btn btn-sm btn-dark rounded py-2 px-4" style="float: right; margin:10px 0;">글쓰기	</a>
 			</c:if>
             
             
@@ -28,6 +28,7 @@
             </div>
             <div style="float: left; margin-bottom: 50px; padding: 5px 40px;">
                 <h5 style="font-size: 23px;">공지사항</h5>
+                
                 <div style="margin-top: 20px;">
                 	<table style="border-top: 3px solid black; border-bottom: 1px solid black; padding: 5px; width: 720px;">
                 		<thead style="text-align: center; background-color: rgb(194, 188, 188); color: black;">

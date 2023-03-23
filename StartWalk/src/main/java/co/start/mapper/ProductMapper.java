@@ -3,6 +3,7 @@ package co.start.mapper;
 import java.util.List;
 
 import co.start.vo.ImagesVO;
+import co.start.vo.PdreviewVO;
 import co.start.vo.ProductVO;
 import co.start.vo.SearchVO;
 
@@ -38,6 +39,7 @@ public interface ProductMapper {
 	
 	// 패키지 상품 상세 (순덕)
 	public ProductVO packageInfo(int pdId);
+	public List<PdreviewVO> reviewList(int pdId);
 	
 	// 패키지 게시글 등록
 	public int insertPackage(ProductVO vo);
@@ -49,8 +51,9 @@ public interface ProductMapper {
 	public boolean deletePackage(int pdId);
 	// 주문 목록 
 	public List<ProductVO> orderList(int page);
-	// 리뷰 작성 폼
-	// 리뷰 등록 처리
+	public List<ProductVO> orderListdo();
+	// 리뷰 등록
+	public int insertPdreview(PdreviewVO vo);
 	
 
 }

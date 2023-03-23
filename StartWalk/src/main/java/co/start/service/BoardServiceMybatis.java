@@ -55,14 +55,20 @@ public class BoardServiceMybatis implements BoardService{
 	
 	// 순덕
 	@Override
-	public List<BoardVO> noitceList() {
+	public List<BoardVO> noitceList() {		// 공지사항 목록
 		return mapper.noitceList();
 	}
 	@Override
-	public BoardVO noticeInfo(String bTitle) {
+	public BoardVO noticeInfo(String bTitle) {		// 공지사항 상세
 		// 
 		return mapper.noticeInfo(bTitle);
 	}
+	@Override
+	public boolean addnotice(BoardVO vo) {		// 공지사항 등록(글쓰기)
+		int r = mapper.insertnotice(vo);
+		return r == 1;
+	}
+	
 	
 	// 용억
 	@Override
@@ -130,4 +136,5 @@ public class BoardServiceMybatis implements BoardService{
 	public boolean UserWrite(BoardVO vo) {
 		return mapper.UserWrite(vo)==1;
 	}
+	
 }
