@@ -62,6 +62,11 @@ public List<CouponVO> couponList() {
 	
 	return mapper.couponList();
 }
+@Override
+public boolean insertPay(StartpayVO vo) {
+	int r = mapper.insertPay(vo);
+	return r==1;
+}
 
 	// 대준
 	

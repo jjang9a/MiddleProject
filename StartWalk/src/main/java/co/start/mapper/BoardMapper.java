@@ -22,7 +22,8 @@ public interface BoardMapper {
 	public List<BoardVO> mateListWithPaging(int page);
 	// 전체 건수
 	public int getTotalCount();
-	
+	// 전체 건수 매칭
+	public int getTotalCounts();
 	// 조회수 증가
 	public int udpateCount(int pdId);
 	

@@ -37,6 +37,11 @@
 	select * from startpay
 </select>
 
+<insert id="insertPay" parameterType="StartpayVO">
+	insert into startpay (user_id,pay_start,pay_point,pay_why,pay_date)
+	values (#{userId},#{payStart},#{payPoint},#{payWhy},sysdate)
+</insert>
+
 <update id="updatePay" parameterType="co.start.vo.StartpayVO">
 	update startpay set pay_start= (select pay_start from startpay where user_id =#{userId})+#{payStart}, pay_date = sysdate, pay_why = #{payWhy} where user_id = #{userId}
 </update>
