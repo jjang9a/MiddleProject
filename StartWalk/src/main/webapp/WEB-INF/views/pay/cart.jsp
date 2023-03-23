@@ -62,14 +62,7 @@
 			</table>
 		</div>
 		<p id="totalAmt"></p>
-		java jstl html
 
-		<div class="col-lg-8 table-responsive mb-5" style="margin: auto;">
-			<h5>배송 상품</h5>
-
-
-
-		</div>
 	</div>
 </div>
 <!-- Cart End -->
