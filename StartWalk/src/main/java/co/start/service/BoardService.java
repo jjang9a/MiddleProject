@@ -4,6 +4,7 @@ import java.util.List;
 
 import co.start.vo.BoardVO;
 import co.start.vo.ImagesVO;
+import co.start.vo.ProductVO;
 
 public interface BoardService {
 	
@@ -60,7 +61,7 @@ public interface BoardService {
 	// 공지사항 상세
 	public BoardVO noticeInfo(String bTitle);
 	// 공지사항 글쓰기
-	
+	public boolean addnotice(BoardVO vo);
 	// 공지사항 수정
 	
 	// 공지사항 삭제

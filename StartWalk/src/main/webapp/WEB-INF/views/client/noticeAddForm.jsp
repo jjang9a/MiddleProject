@@ -4,14 +4,10 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 		
-		<!-- 공지사항 상세 start -->
+		<!-- 공지사항 글쓰기 화면 start -->
 		<div style="margin: 100px auto 100px auto; width: 1000px; ">
             <hr style="margin-top: 120px; margin-bottom: 0;">
             
-            <c:if test="${loginUser.userGrade.equals('admin') }">
-				<a href="packageDelete.do" class="btn btn-sm btn-dark rounded py-2 px-4" style="float: right; margin: 0 10px">삭제</a>
-				<a href="packageModifyForm.do" class="btn btn-sm btn-dark rounded py-2 px-4" style="float: right;">수정</a>
-			</c:if>
             
             
             <div style="width: 200px; float: left;  ">
@@ -29,13 +25,18 @@
             </div>
             <div style="float: left; margin-bottom: 0 auto 50px atuo; padding: 5px 40px; width:800px;">
                 <h5 style="font-size: 23px;">공지사항</h5>
-                <div style="margin-top:50px;">
-                	<h5> &#91; ${info.getBTitle()} &#93;</h5>
-                	<p>${info.getBWriteDate()}</p>
-                	<hr>
-                	<p>${info.getBContents() }</p>			
+                <form action="noticeAdd.do" method="post">
+                <div style="margin-top:50px;">               	
+	                	<P style="color: black; font-weight: 600;">제목입력: <input type="text" name="title" size="70"> </P>
+	                	<hr>
+	                	<p style="margin-bottom:0; color: black; font-weight: 600;">공지사항 상세 내용</p>
+	                	<p><textarea cols="85" rows="20" name="contents"></textarea></p>
+                		
             	</div>
-            
+            <c:if test="${loginUser.userGrade.equals('admin') }">
+				<input type="submit" class="btn btn-sm btn-dark rounded py-2 px-4" style="float: right; margin: 10px 10px;" value="등록">
+			</c:if>
+			</form>	
             </div>
 
             <div style="clear: both; ">
@@ -46,4 +47,4 @@
 
 		
 	</div>
-        <!--공지사항 상세 end -->
+        <!--공지사항 글쓰기 화면 end -->

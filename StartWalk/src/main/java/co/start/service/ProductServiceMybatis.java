@@ -8,6 +8,7 @@ import co.start.common.DataSource;
 import co.start.mapper.ProductMapper;
 import co.start.vo.BoardVO;
 import co.start.vo.ImagesVO;
+import co.start.vo.PdreviewVO;
 import co.start.vo.ProductVO;
 import co.start.vo.SearchVO;
 
@@ -70,6 +71,19 @@ public class ProductServiceMybatis implements ProductService{
 	public List<ProductVO> orderList(int page) {		// 구매 목록
 		return mapper.orderList(page);
 	}
+	@Override
+	public List<ProductVO> orderListdo() {
+		return mapper.orderListdo();
+	}
+	@Override
+	public boolean addPdreview(PdreviewVO vo) {		// 리뷰 작성.
+		int r = mapper.insertPdreview(vo);
+		return r ==1;
+	}
+	@Override
+	public List<PdreviewVO> reviewList(int pdId) {		// 리뷰 리스트
+		return mapper.reviewList(pdId);
+	}
 	
 	
 	
@@ -98,6 +112,9 @@ public class ProductServiceMybatis implements ProductService{
 		// TODO Auto-generated method stub
 		return mapper.getTotalCount();
 	}
+	
+	
+
 
 	
 	// 대준

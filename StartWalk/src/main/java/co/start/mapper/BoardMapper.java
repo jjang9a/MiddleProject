@@ -60,7 +60,7 @@ public interface BoardMapper {
 	// 공지사항 상세
 	public BoardVO noticeInfo(String bTitle);
 	// 공지사항 글쓰기
-	
+	public int insertnotice(BoardVO vo);
 	// 공지사항 수정
 	
 	// 공지사항 삭제

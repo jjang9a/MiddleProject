@@ -13,6 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import co.start.controller.AddProductControl;
 import co.start.controller.AddProductFormControl;
+import co.start.controller.AddReviewControl;
+import co.start.controller.AddReviewFormControl;
 import co.start.controller.AddUserControl;
 import co.start.controller.AddUserFormControl;
 import co.start.controller.CartAddAjax;
@@ -39,10 +41,13 @@ import co.start.controller.MateInfoControl;
 import co.start.controller.MateListControl;
 import co.start.controller.MateModifyConrol;
 import co.start.controller.MateModifyFormControl;
+import co.start.controller.NoticeAddControl;
+import co.start.controller.NoticeAddFormControl;
 import co.start.controller.NoticeInfoControl;
 import co.start.controller.NoticeListControl;
 import co.start.controller.OrderControl;
 import co.start.controller.OrderFormControl;
+import co.start.controller.OrderListNoControl;
 import co.start.controller.PackageAddControl;
 import co.start.controller.PackageAddFormControl;
 import co.start.controller.PackageDeleteControl;
@@ -143,17 +148,22 @@ public class FrontController extends HttpServlet {
 		map.put("/noticeList.do", new NoticeListControl());
 		// 공지사항 상세
 		map.put("/noticeInfo.do", new NoticeInfoControl());
-		// 공지사항 글쓰기
-		
+		// 공지사항 글쓰기 폼
+		map.put("/noticeAddForm.do", new NoticeAddFormControl());
+		// 공지사항 글쓰기 등록
+		map.put("/noticeAdd.do", new NoticeAddControl() );
 		// 공지사항 글 수정
 		
 		// 공지사항 글 삭제
 		
 		// 구매목록
 		map.put("/orderList.do", new orderListControl());
+		map.put("/orderListNo.do", new OrderListNoControl());
 		
-		// 리뷰 작성
-		
+		// 리뷰 작성 화면
+		map.put("/addReviewForm.do", new AddReviewFormControl());
+		// 리뷰 작성 처리
+		map.put("/addReview.do", new AddReviewControl());
 		
 		
 		// 용억

@@ -4,35 +4,29 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import javax.websocket.Session;
 
 import co.start.common.Control;
 import co.start.service.ProductService;
 import co.start.service.ProductServiceMybatis;
-import co.start.vo.PageDTO;
 import co.start.vo.ProductVO;
+import co.start.vo.UserVO;
 
-public class orderListControl implements Control {
-public static PageDTO pageInfo = null;
-	
+public class OrderListNoControl implements Control {
+
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
-		// 페이징
-		String page = request.getParameter("page");
-		if(page==null) {
-			page = "1";
-		}
-		
-		// 주문목록
-		ProductService service = new ProductServiceMybatis();
-		List<ProductVO> list = service.orderList(Integer.parseInt(page));
-		int total = service.getTotalCount();
+		HttpSession session = request.getSession();
+	    UserVO uo = (UserVO)session.getAttribute("loginUser");
+	    
+	    
+	    ProductService service = new ProductServiceMybatis();
+		List<ProductVO> list = service.orderListdo();
 		
 		System.out.println(list);
 		
 		request.setAttribute("list", list);
-		
-		pageInfo = new PageDTO(Integer.parseInt(page), total);
-		request.setAttribute("page", pageInfo);
 		
 		return "mypage/orderList.tiles";
 	}
