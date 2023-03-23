@@ -71,7 +71,6 @@ import co.start.controller.UserUpdateCheckControl;
 import co.start.controller.UserUpdateControl;
 import co.start.controller.UserUpdateFormControl;
 
-
 import co.start.controller.orderListControl;
 import co.start.controller.NoticeListControl;
 import co.start.controller.LogoutControl;
@@ -80,15 +79,11 @@ import co.start.controller.StartpayListControl;
 import co.start.controller.NoticeListControl;
 import co.start.controller.LogoutControl;
 
-
-
-
-
-
 public class FrontController extends HttpServlet {
-	
+
 	public static String enc = null;
 	private Map<String, Control> map;
+
 	public FrontController() {
 		map = new HashMap<>();
 	}
@@ -114,23 +109,23 @@ public class FrontController extends HttpServlet {
 		map.put("/userUpdateCheck.do", new UserUpdateCheckControl()); // 회원정보 수정 진입 비밀번호
 		map.put("/userUpdateForm.do", new UserUpdateFormControl()); // 회원 정보 수정
 		map.put("/userUpdate.do", new UserUpdateControl()); // 회원정보 수정 처리
-		
+
 		map.put("/hotelInfo.do", new HotelInfoControl()); // 숙소정보 상세조회
-		
+
 		map.put("/logout.do", new LogoutControl()); // 로그아웃 처리
 		map.put("/faq.do", new FAQControl()); // 자주묻는 질문 페이지
 		map.put("/addProductForm.do", new AddProductFormControl()); // 판매상품 추가 페이지
 		map.put("/addProduct.do", new AddProductControl()); // 판매상품 추가 처리
-		
+
 		// 순덕
 		// 지역별 여행 패키지 목록
 		map.put("/packageList.do", new PackageListControl());
-		
+
 		// 여행 패키지 상세
 		map.put("/packageInfo.do", new PackageInfoControl());
 		// 여행 패키지 글쓰기 폼
 		map.put("/packageAddForm.do", new PackageAddFormControl());
-		// 여행 패키지 글쓰기 처리 
+		// 여행 패키지 글쓰기 처리
 		map.put("/packageAdd.do", new PackageAddControl());
 		// 여행 패키지 글 수정 화면
 		map.put("/packageModifyForm.do", new PackageModifyFormControl());
@@ -138,96 +133,90 @@ public class FrontController extends HttpServlet {
 		map.put("/packageModify.do", new PackageModifyControl());
 		// 여행 패키지 글 삭제
 		map.put("/packageDelete.do", new PackageDeleteControl());
-		
+
 		// 공지사항 목록
 		map.put("/noticeList.do", new NoticeListControl());
 		// 공지사항 상세
 		map.put("/noticeInfo.do", new NoticeInfoControl());
 		// 공지사항 글쓰기
-		
+
 		// 공지사항 글 수정
-		
+
 		// 공지사항 글 삭제
-		
+
 		// 구매목록
 		map.put("/orderList.do", new orderListControl());
-		
+
 		// 리뷰 작성
-		
-		
-		
+
 		// 용억
 
-		  // 상품리스트
-				map.put("/productList.do", new ProductListControl());
-				map.put("/hotelList.do", new HotelListControl()); 
-		  // 상품 상세
-				map.put("/productInfo.do", new ProductInfoControl());
-	      // 매칭 게시판 목록
-				map.put("/mateList.do", new MateListControl());
-		  // 매칭 게시판 상세
-				map.put("/mateInfo.do", new MateInfoControl());
-		  // 매칭 게시판 등록
-				map.put("/mateAdd.do", new MateAddControl());
-		  // 매칭 게시판 수정 화면
-				map.put("/mateModifyForm.do", new MateModifyFormControl());
-		  // 매칭 게시판 수정
-				map.put("/mateModify.do", new MateModifyConrol());
-		  // 매칭 게시판 등록 화면
-				map.put("/mateAddForm.do", new MateAddForm());
-		  // 매칭 댓글 목록
-				map.put("/CommentListAjax.do", new CommentsListAjax());
-		  // 댓글 등록
-				map.put("/commentsAdd.do", new CommentsAddAjax());
-		  // 댓글 삭제
-				map.put("/commentsRemoveAjax.do", new CommentsRemoveAjax());  // 아직 기능 미완
-		  // 출발페이 목록
-				map.put("/payList.do", new StartpayListControl());
-		  // 출발페이 충천
-				map.put("/payAdd.do", new StartpayAddControl());
-	      // 출발페이 충전화면
-				map.put("/payAddForm.do", new StartpayAddFormControl());
-		  // 쿠폰
-				map.put("/couponList.do", new CouponListControl());
-				// 매칭 후기 게시판 목록
-				
-		
+		// 상품리스트
+		map.put("/productList.do", new ProductListControl());
+		map.put("/hotelList.do", new HotelListControl());
+		// 상품 상세
+		map.put("/productInfo.do", new ProductInfoControl());
+		// 매칭 게시판 목록
+		map.put("/mateList.do", new MateListControl());
+		// 매칭 게시판 상세
+		map.put("/mateInfo.do", new MateInfoControl());
+		// 매칭 게시판 등록
+		map.put("/mateAdd.do", new MateAddControl());
+		// 매칭 게시판 수정 화면
+		map.put("/mateModifyForm.do", new MateModifyFormControl());
+		// 매칭 게시판 수정
+		map.put("/mateModify.do", new MateModifyConrol());
+		// 매칭 게시판 등록 화면
+		map.put("/mateAddForm.do", new MateAddForm());
+		// 매칭 댓글 목록
+		map.put("/CommentListAjax.do", new CommentsListAjax());
+		// 댓글 등록
+		map.put("/commentsAdd.do", new CommentsAddAjax());
+		// 댓글 삭제
+		map.put("/commentsRemoveAjax.do", new CommentsRemoveAjax()); // 아직 기능 미완
+		// 출발페이 목록
+		map.put("/payList.do", new StartpayListControl());
+		// 출발페이 충천
+		map.put("/payAdd.do", new StartpayAddControl());
+		// 출발페이 충전화면
+		map.put("/payAddForm.do", new StartpayAddFormControl());
+		// 쿠폰
+		map.put("/couponList.do", new CouponListControl());
+		// 매칭 후기 게시판 목록
+
 		// 대준
 		// 로그인
-				map.put("/loginForm.do", new LoginFormControl()); // 로그인 회원가입 창.
-				map.put("/login.do", new LoginControl()); // 로그인 처리 페이지.
-				// 회원가입
-				map.put("/addUserForm.do", new AddUserFormControl()); // 회원가입 처리 페이지.
-				map.put("/addUser.do", new AddUserControl()); // 회원가입 처리.
-				
-				// 관리자 sc(1:1문의)
-				map.put("/scManagerList.do", new ScManagerListControl()); // 목록 관리자용(전체리스트). 
-				map.put("/scSearch.do", new ScSearchControl()); // 글 읽기(단건조회).			
-				map.put("/scWrite.do", new ScWriteControl()); // 1:1문의 글쓰기(등록).
-				map.put("/scWriteForm.do", new ScWriteFormControl());
-				// ============완료============= //
-				map.put("/scRemove.do", new ScRemoveControl()); // 글삭제.
-				
-				// 회원 sc(1:1문의)
-				map.put("/scUser.do", new ScUserListControl()); // 목록 회원용(전체리스트-아이디 조건). 
-				
-		
-		
-				// 쪽지 dm (sender)
-				//map.put("/senderList.do", new SenderListControl()); // 목록 보내는사람(전체리스트).
-				//map.put("/senderSearch.do", new SenderSearchControl()); // 쪽지 목록(). 
-				//map.put("/senderWrite.do", new SenderWriteControl()); // 관리자 쪽지 보내기(등록).
-				
-				//map.put("/senderRemove.do", new SenderRemoveControl()); // 삭제.
-		
-				// 쪽지 dm (receiver)
-				//map.put("/receiverList.do", new ReceiverListControl()); // 목록 받는사람(전체리스트).
-				//map.put("/receiverWrite.do", new ReceiverWriteControl()); // 회원 쪽지 보내기(등록).
-		
-				// 상품등록 (관리자)
-				//map.put("/productAdd.do", new productAddControl()); // 상품등록(등록).
-		
-		
+		map.put("/loginForm.do", new LoginFormControl()); // 로그인 회원가입 창.
+		map.put("/login.do", new LoginControl()); // 로그인 처리 페이지.
+		// 회원가입
+		map.put("/addUserForm.do", new AddUserFormControl()); // 회원가입 처리 페이지.
+		map.put("/addUser.do", new AddUserControl()); // 회원가입 처리.
+
+		// 관리자 sc(1:1문의)
+		map.put("/scManagerList.do", new ScManagerListControl()); // 목록 관리자용(전체리스트).
+		map.put("/scSearch.do", new ScSearchControl()); // 글 읽기(단건조회).
+		map.put("/scWrite.do", new ScWriteControl()); // 1:1문의 글쓰기(등록).
+		map.put("/scWriteForm.do", new ScWriteFormControl());
+		// ============완료============= //
+		map.put("/scRemove.do", new ScRemoveControl()); // 글삭제.
+
+		// 회원 sc(1:1문의)
+		map.put("/scUser.do", new ScUserListControl()); // 목록 회원용(전체리스트-아이디 조건).
+
+		// 쪽지 dm (sender)
+		// map.put("/senderList.do", new SenderListControl()); // 목록 보내는사람(전체리스트).
+		// map.put("/senderSearch.do", new SenderSearchControl()); // 쪽지 목록().
+		// map.put("/senderWrite.do", new SenderWriteControl()); // 관리자 쪽지 보내기(등록).
+
+		// map.put("/senderRemove.do", new SenderRemoveControl()); // 삭제.
+
+		// 쪽지 dm (receiver)
+		// map.put("/receiverList.do", new ReceiverListControl()); // 목록 받는사람(전체리스트).
+		// map.put("/receiverWrite.do", new ReceiverWriteControl()); // 회원 쪽지 보내기(등록).
+
+		// 상품등록 (관리자)
+		// map.put("/productAdd.do", new productAddControl()); // 상품등록(등록).
+
 	}
 
 	@Override
@@ -236,25 +225,27 @@ public class FrontController extends HttpServlet {
 		String uri = req.getRequestURI();
 		String context = req.getContextPath();
 		String page = uri.substring(context.length());
-		System.out.println("do page : "+page);
-		
+		System.out.println("do page : " + page);
+
 		Control command = map.get(page);
 		String viewPage = command.exec(req, resp); // product/productlist.tiles가 넘어옴
 
-		
-		if(viewPage.endsWith(".jsp")) {
+		if (viewPage.endsWith(".jsp")) {
 			viewPage = "/WEB-INF/views/" + viewPage;
 //		}else if(viewPage.endsWith(".tiles")) {	
-		} else if(viewPage.endsWith(".ajax")) {
+
+		} else if (viewPage.endsWith(".ajax")) {
 			resp.setContentType("text/json;charset=utf-8");
-			resp.getWriter().append(viewPage.substring(0, viewPage.length()-5));
+			resp.getWriter().append(viewPage.substring(0, viewPage.length() - 5));
 			return;
-		} else if(viewPage.endsWith(".do")) {
+
+		} else if (viewPage.endsWith(".do")) {
 			resp.sendRedirect(viewPage);
 			return;
+
 		}
 		RequestDispatcher rd = req.getRequestDispatcher(viewPage);
 		rd.forward(req, resp);
-	
+
 	}
 }

@@ -106,7 +106,7 @@ fetch('cartAdd.do', {
 .then(result => {
 	console.log(result);
 	if(result.retCode == 'Success'){
-		alert('성공!');
+		alert('장바구니 추가 완료!');
 		
 	} else if(result.retCode == 'Fail'){
 		alert('실패!');

@@ -16,6 +16,8 @@ public interface PaymentMapper {
 	public int cartDeleteAll(String id); // 장바구니 전체 삭제
 	public int cartInsert(CartVO vo); // 장바구니 추가
 	public CartVO searchCart(CartVO vo); // 장바구니 상품 조회
+	public ProductVO searchById(int cartId); // cartId로 카트정보 조회
+
 	
 	//용억
 		//출발페이 목록

@@ -45,6 +45,7 @@ public class CartAddAjax implements Control {
 			result = service.countUpdate(vo);
 		}
 		
+		System.out.println(vo);
 		
 		Map<String, Object> map = new HashMap<>();
 		

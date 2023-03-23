@@ -16,6 +16,10 @@ public interface PaymentService {
 	public boolean delCartAll(String id); // 카트 전체 삭제
 	public boolean addCart(CartVO vo); // 카트에 상품 추가
 	public CartVO getCartInfo(CartVO vo); // 카트 상품 정보 조회
+	public ProductVO getCartById(int id); // 카트상품 디테일 조회
+	
+//	// 결재정보생성.
+//	public int createOrderInfo(String[] carts);
 	
 	// 순덕
 	

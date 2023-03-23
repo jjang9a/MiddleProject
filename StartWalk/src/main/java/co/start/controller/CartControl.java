@@ -21,7 +21,7 @@ public class CartControl implements Control {
 		
 		if(vo == null) {
 			// 카트를 눌렀을 때 비로그인 상태라면 로그인 페이지를 띄움
-			return "login.do";
+			return "loginForm.do";
 		}else{
 			PaymentService service = new PaymentServiceMybatis();
 			List<ProductVO> list = service.getCartList(vo.getUserId());

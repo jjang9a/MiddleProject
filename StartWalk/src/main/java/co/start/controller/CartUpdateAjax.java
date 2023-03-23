@@ -15,9 +15,7 @@ public class CartUpdateAjax implements Control {
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
 		PaymentService service = new PaymentServiceMybatis();
 		CartVO vo = new CartVO();
-		UserVO user = (UserVO)request.getSession().getAttribute("loginUser");
-		vo.setPdId(Integer.parseInt(request.getParameter("check")));
-		vo.setUserId(user.getUserId());
+		vo.setCartId(Integer.parseInt(request.getParameter("cartId")));
 		vo.setPdCount(Integer.parseInt(request.getParameter("tCount")));
 		
 		boolean result = service.countUpdate(vo);
