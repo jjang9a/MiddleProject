@@ -58,7 +58,7 @@ import co.start.controller.ScSearchControl;
 
 import co.start.controller.StartpayAddControl;
 import co.start.controller.StartpayAddFormControl;
-
+import co.start.controller.StartpayInsertControl;
 import co.start.controller.ScUserListControl;
 import co.start.controller.ScWriteControl;
 import co.start.controller.ScWriteFormControl;
@@ -183,6 +183,9 @@ public class FrontController extends HttpServlet {
 				map.put("/commentsRemoveAjax.do", new CommentsRemoveAjax());  // 아직 기능 미완
 		  // 출발페이 목록
 				map.put("/payList.do", new StartpayListControl());
+		  // 출발페이 생성
+				map.put("/payinsert.do", new StartpayInsertControl());
+				
 		  // 출발페이 충천
 				map.put("/payAdd.do", new StartpayAddControl());
 	      // 출발페이 충전화면

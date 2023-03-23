@@ -76,7 +76,7 @@ public class ProductServiceMybatis implements ProductService{
 	// 용억
 	@Override
 	public List<ProductVO> products(int page){    //명물
-		return mapper.productList(page);
+		return mapper.productListWithPaging(page);
 	}
 //	public boolean addMate(BoardVO vo) {
 //		int r = mapper.insertMate(vo);
