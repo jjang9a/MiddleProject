@@ -27,5 +27,6 @@ public interface PaymentService {
 	public List<StartpayVO> payList();
 	public boolean AddPay(StartpayVO vo);
 	public List<CouponVO> couponList();
+	public boolean insertPay(StartpayVO vo);
 	// 대준
 }

@@ -24,6 +24,8 @@ public interface PaymentMapper {
 			public List<StartpayVO> payList();
 		//출발페이 충전	
 			public int updatePay(StartpayVO vo);
+		//출발페이 생성
+			public int insertPay(StartpayVO vo);
 		//쿠폰
 			public List<CouponVO> couponList();
 	

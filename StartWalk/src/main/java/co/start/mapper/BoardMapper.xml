@@ -64,8 +64,30 @@
 
 
 <!-- 용억 -->
+<select id="mateListWithPaging" resultType="co.start.vo.BoardVO" parameterType="int">
+	<![CDATA[
+	select b_id, user_id, b_head,b_title,b_matching,b_writedate
+	from (select rownum rn, b_id, user_id, b_head,b_title,b_matching,b_writedate
+	 	from ( select b_id, user_id, b_head,b_title,b_matching,b_writedate
+	 		from board
+	 		order by b_writedate desc ) a
+		where rownum <= (#{page} * 10) ) b
+	where b.rn > (#{page}-1)*10		 		  
+	
+	
+	
+	]]>
+	
+	
+</select>
+<select id="getTotalCounts" resultType="int">
+	select count(*) from board
+	where b_category = 'WI' or b_category = 'WR' 
+	
+</select>
+
 <select id="mateList" resultType="co.start.vo.BoardVO">
- select * from board where b_category='WI'
+ select * from board where b_category='WI' or b_category='WR' order by b_writedate desc
  </select>
 
 <select id="selectMate" resultType="co.start.vo.BoardVO" parameterType="co.start.vo.BoardVO">
@@ -73,8 +95,8 @@
 </select>
 
 <insert id="insertMate" parameterType="co.start.vo.BoardVO">
-	insert into board (b_id, b_title,user_id,b_contents,b_category,b_writedate ) 
-	values(board_seq.nextval,#{bTitle},#{userId},#{bContents}, 'WI',sysdate)
+	insert into board (b_id, b_title,user_id,b_contents,b_category,b_head,b_writedate ) 
+	values(board_seq.nextval,#{bTitle},#{userId},#{bContents},#{bCategory},#{bHead},sysdate)
 </insert>
 
 <update id="updateMate" parameterType="co.start.vo.BoardVO" >
@@ -95,6 +117,12 @@
 <insert id="scWrite" parameterType = "BoardVO">
   	insert into board(b_id, user_id, b_title, b_contents, b_category, b_writeDate)
   	values(board_seq.nextval, #{userId}, #{bTitle}, #{bContents}, 'CU', sysdate )
- </insert>
+</insert>
+
+<delete id="scRemove" parameterType="co.start.vo.BoardVO">
+  	delete from board where b_id = #{bId}
+</delete>
+ 
+ 
 
 </mapper>

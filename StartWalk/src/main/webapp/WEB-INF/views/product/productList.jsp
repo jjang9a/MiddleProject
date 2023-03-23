@@ -14,6 +14,33 @@
 
 <style>
 #sideBanner {  top:50px; right:300px; width:100px; height:400px; background:#aaa; padding-top:50px; margin-top:50px;}
+
+.center {
+  text-align: center;
+}
+
+.pagination {
+  display: inline-block;
+}
+
+.pagination a {
+  color: black;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+  transition: background-color .3s;
+  border: 1px solid #ddd;
+  margin: 0 4px;
+}
+
+.pagination a.active {
+  background-color: #4CAF50;
+  color: white;
+  border: 1px solid #4CAF50;
+}
+
+.pagination a:hover:not(.active) {background-color: #ddd;}
+
 </style>
 </head>
 <body>
@@ -28,7 +55,7 @@
                     <h6 class="section-title text-center text-primary text-uppercase">Spring Season</h6>
                     <h1 class="mb-5"><span class="text-primary text-uppercase">BEST</span>상품</h1>
                 </div>
-                    
+                    <div class="row g-4">
                         <c:forEach var="product" items="${product}">
                     <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s" >
                         <div class="room-item shadow rounded overflow-hidden" >
@@ -49,6 +76,7 @@
                         	</div>
                             </div>
                           </c:forEach>
+                          </div>
                         </div>
                         </div>
         
@@ -73,31 +101,6 @@
 		</div>
 	</div>
         
-             <div class="sidebar one_quarter"> 
-      <!-- ################################################################################################ -->
-      <div id ="sideBanner">
-
-      
-      <h6>Lorem ipsum dolor</h6>
-      
-        <ul>
-          <li style="list-style:none;"><a href="#">Navigation - Level 1</a></li>
-              
-                
-           <li style="list-style:none;"><a href="#">Navigation - Level 1</a></li>
-           <li style="list-style:none;"><a href="#">Navigation - Level 1</a></li>
-           <li style="list-style:none;"><a href="#">Navigation - Level 1</a></li>
-           <li style="list-style:none;"><a href="#">Navigation - Level 1</a></li>
           
-          
-              
-            </ul>
-         
-            <div >
-                <p></p>
-            </div>
-     
-      </div>
-    </div>
     </body>
 </html>

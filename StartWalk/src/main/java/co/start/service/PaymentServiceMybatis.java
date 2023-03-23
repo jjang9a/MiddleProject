@@ -64,23 +64,24 @@ public class PaymentServiceMybatis implements PaymentService {
 	// 용억
 	@Override
 	public List<StartpayVO> payList() {
-
 		return mapper.payList();
 	}
 
 	@Override
 	public boolean AddPay(StartpayVO vo) {
-
 		return mapper.updatePay(vo) == 1;
 	}
 
 	@Override
 	public List<CouponVO> couponList() {
-
 		return mapper.couponList();
 	}
 
-
+	@Override
+	public boolean insertPay(StartpayVO vo) {
+		int r = mapper.insertPay(vo);
+		return r==1;
+	}
 
 	// 대준
 
