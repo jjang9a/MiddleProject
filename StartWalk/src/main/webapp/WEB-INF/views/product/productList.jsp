@@ -60,7 +60,7 @@
                     <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s" >
                         <div class="room-item shadow rounded overflow-hidden" >
                             <div class="position-relative">
-                                <img class="img-fluid" src="./img/${product.prImg}" alt="빵 " style="width: 360px; height: 240px;">
+                                <img class="img-fluid" src="./upload/${product.prImg}" alt="빵 " style="width: 360px; height: 240px;">
                                 <small class="position-absolute start-0 top-100 translate-middle-y bg-primary text-white rounded py-1 px-3 ms-4">${product.pdPrice }원</small>
                             </div>                    
                             <div class="p-4 mt-2" >
