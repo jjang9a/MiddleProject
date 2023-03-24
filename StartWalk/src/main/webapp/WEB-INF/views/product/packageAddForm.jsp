@@ -7,7 +7,7 @@
 <h4>여행 패키지 상품 글쓰기</h4>
 <br>
 <div>
-	<form action="packageAdd.do	" method="post" enctype="multipart/form-data">
+	<form action="packageAdd.do" method="post" enctype="multipart/form-data">
 	
 	<c:if test="${loginUser.userGrade.equals('admin') }">
 		<input type="submit" class="btn btn-sm btn-dark rounded py-2 px-4" style="float: right;" value="등록">

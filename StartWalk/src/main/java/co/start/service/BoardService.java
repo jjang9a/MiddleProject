@@ -55,13 +55,11 @@ public interface BoardService {
 	// 공지사항 상세
 	public BoardVO noticeInfo(String bTitle);
 	// 공지사항 글쓰기
-
 	public boolean addnotice(BoardVO vo);
-
 	// 공지사항 수정
-	
+	public boolean modifyNotice(BoardVO vo);
 	// 공지사항 삭제
-	
+	public boolean RemoveNotice(int bId);
 	
 	
 }

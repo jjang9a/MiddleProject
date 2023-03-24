@@ -67,6 +67,15 @@
 	values(board_seq.nextval, 'admin', #{bTitle},#{bContents} , sysdate, 'NO')
 </insert>
 
+<update id="updateNotice" parameterType="co.start.vo.BoardVO">
+	update board 
+	set b_title=#{bTitle}, b_contents=#{bContents}
+	where b_id= #{bId}
+</update>
+
+<delete id="deleteNotice" parameterType="co.start.vo.BoardVO">
+	delete board where b_id= #{bId}
+</delete>
 
 <!-- 용억 -->
 <select id="mateListWithPaging" resultType="co.start.vo.BoardVO" parameterType="int">
