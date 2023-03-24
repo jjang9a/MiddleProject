@@ -4,6 +4,8 @@ import java.util.List;
 
 import co.start.vo.CartVO;
 import co.start.vo.CouponVO;
+import co.start.vo.OrderVO;
+import co.start.vo.PaydetailVO;
 import co.start.vo.ProductVO;
 import co.start.vo.StartpayVO;
 
@@ -18,11 +20,15 @@ public interface PaymentService {
 	public CartVO getCartInfo(CartVO vo); // 카트 상품 정보 조회
 	public ProductVO getCartById(int id); // 카트상품 디테일 조회
 	
-	public List<CouponVO> getMyCoupon(String id); // 내 쿠폰 리스트
-	public StartpayVO myPointNow(String id); // 현재 소지한 출발페이, 적립금 현황
+	public List<CouponVO> getMyCoupon(String id, String status); // 내 쿠폰 리스트
+	public StartpayVO myPointNow(String id); // 현재 소지한 출발페이, 적립금 현황	 조회
+	public boolean order(OrderVO vo); // 주문정보 등록
+	public int getOrderNum(); // 주문번호 조회
+	public boolean addDetail(PaydetailVO vo); // 주문 상세 상품 등록
+	public boolean useCoupon(int id); // 쿠폰 상태 변경
+	public boolean addPoint(StartpayVO vo); // 적립금 부가
+	public boolean autoDelCart(CartVO vo); // 결제된 상품 카트에서 삭제
 	
-//	// 결재정보생성.
-//	public int createOrderInfo(String[] carts);
 	
 	// 순덕
 	

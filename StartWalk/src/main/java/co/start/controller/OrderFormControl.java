@@ -46,7 +46,7 @@ public class OrderFormControl implements Control {
 		UserVO user = (UserVO)req.getSession().getAttribute("loginUser");
 		String userId = user.getUserId();
 		
-		List<CouponVO> coupons = service.getMyCoupon(userId);
+		List<CouponVO> coupons = service.getMyCoupon(userId, "사용가능");
 		req.setAttribute("coupons", coupons);
 
 		StartpayVO point = service.myPointNow(userId);

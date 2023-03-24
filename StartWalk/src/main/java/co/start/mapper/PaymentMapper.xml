@@ -36,7 +36,7 @@
 </select>
 
 <select id="searchMyCoupon" parameterType="string" resultType="CouponVO">
-	select * from coupon where user_id = #{id}
+	select * from coupon where user_id = #{id} and cp_status = #{status}
 </select>
 
 <select id="pointSum" parameterType="String" resultType="StartpayVO">
@@ -44,6 +44,16 @@
 	from startpay
 	WHERE user_id=#{id}
 	group by user_id
+</select>
+
+<insert id="createOrder" parameterType="OrderVO">
+	insert into orders values
+	(order_seq.nextval, #{userId}, #{cpId}, sysdate, #{deliReceiver), #{deliPhone}, #{deliAddr}, #{orderMethod}, #{orderTotal}, #{orderStatus}, #{realTotal}, #{uesdPoint})
+</insert>
+
+<select id="searchOrderId" resultType="int">
+	select p.order_id from orders p
+	where order_id = ( select max(order_id) from orders)
 </select>
 
 <!-- 순덕 -->

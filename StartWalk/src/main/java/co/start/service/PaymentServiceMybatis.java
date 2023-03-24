@@ -8,6 +8,8 @@ import co.start.common.DataSource;
 import co.start.mapper.PaymentMapper;
 import co.start.vo.CartVO;
 import co.start.vo.CouponVO;
+import co.start.vo.OrderVO;
+import co.start.vo.PaydetailVO;
 import co.start.vo.ProductVO;
 import co.start.vo.StartpayVO;
 
@@ -53,8 +55,8 @@ public class PaymentServiceMybatis implements PaymentService {
 	}
 
 	@Override
-	public List<CouponVO> getMyCoupon(String id) {
-		return mapper.searchMyCoupon(id);
+	public List<CouponVO> getMyCoupon(String id, String status) {
+		return mapper.searchMyCoupon(id, status);
 	}
 	
 	@Override
@@ -62,6 +64,38 @@ public class PaymentServiceMybatis implements PaymentService {
 		return mapper.pointSum(id);
 	}
 	
+	@Override
+	public boolean order(OrderVO vo) {
+		return mapper.createOrder(vo) == 1;
+	}
+
+	@Override
+	public boolean addDetail(PaydetailVO vo) {
+		return mapper.insertOrderDetail(vo) == 1;
+	}
+
+	@Override
+	public boolean useCoupon(int id) {
+		return mapper.updateCoupon(id) == 1;
+	}
+
+	@Override
+	public boolean addPoint(StartpayVO vo) {
+		return mapper.insertPoint(vo) == 1;
+	}
+
+	@Override
+	public boolean autoDelCart(CartVO vo) {
+		return mapper.CartOrderDel(vo) == 1;
+	}
+	
+	@Override
+	public int getOrderNum() {
+		return mapper.searchOrderId();
+	}
+
+	
+
 //	@Override
 //	public int createOrderInfo(String[] carts) {
 //		// 주문번호 생성. (10000)

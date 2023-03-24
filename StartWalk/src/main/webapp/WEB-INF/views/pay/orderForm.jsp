@@ -57,7 +57,7 @@ h5.input{
 		</div>
 		<hr>
 		<table class="table">
-			<tr><th><label for="type">쿠폰</label></th><td colspan="2"><select id="type" name="type">
+			<tr><th><label for="type">쿠폰</label></th><td colspan="2"><select id="type" name="type" onchange="ChangeValue()">
 				<option value="none" data-amt="0">쿠폰 사용 안함</option>
 				<c:forEach var="i" items="${coupons }">
 					<option value="${i.cpId }" data-amt="${i.cpDiscount }">${i.cpName } (${i.cpDiscount }원 할인)</option>
@@ -68,7 +68,9 @@ h5.input{
 			<button id="useBtn" name="useBtn">사용</button></td></tr>
 		</table>
 			<hr>
-			<h5>최종 결제액 : <input type="text" id="total" name="total" value="<fmt:formatNumber pattern="###,###,###" value="${total }" />원" style="border:none;" readonly></h5>
+			<h5>최종 결제액 : <input type="text" id="total" name="total" value="<fmt:formatNumber pattern="###,###,###" value="${total }" />원" style="border:none;" readonly>
+			<input type="hidden" id="orderTotal" name="orderTotal" value="${total }">
+			<input type="hidden" id="realTotal" name="realTotal" value="${total }"></h5>
 			<hr>
 			<p>결제방법</p>
 			<input type="radio" name="paymethod" value="cash" style="width:20px;"><label>무통장 입금</label>
@@ -78,6 +80,8 @@ h5.input{
 			</div>
 	</form>
 </div>
+
+
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>
     function sample6_execDaumPostcode() {
@@ -128,25 +132,36 @@ h5.input{
         }).open();
     }
 
-// 선택된 쿠폰 불러오기
-document.getElementById('type').addEventListener('onchange', function(e){
+let total = ${total}
+
+// 쿠폰이 선택 될 때
+function ChangeValue(){
 	var value_str = document.getElementById('type');
 	let coupon = value_str.options[value_str.selectedIndex].getAttribute('data-amt');
-	console.log(coupon)
-})
-
+	total -= coupon;
+	console.log(total)
+	document.querySelector('#realTotal').value = total;
+	const cn1 = total.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
+	document.querySelector('#total').value = cn1+"원";
+}
 
 // 적립금 사용액 불러오기
 document.getElementById('useBtn').addEventListener('click', function(e){
 	let used = document.getElementById('usedPoint').value;
-	console.log(used)
-
-
+	if(used >= 0 && used <= ${point}){
+		total -= used;
+		console.log(total)	
+	}else{
+		alert('사용 가능한 포인트를 초과하였습니다')
+	}
+	document.querySelector('#realTotal').value = total;
+	const cn1 = total.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
+	document.querySelector('#total').value = cn1+"원";
 })
     
     
     
     
-let total = ${total}
+
     
 </script>
