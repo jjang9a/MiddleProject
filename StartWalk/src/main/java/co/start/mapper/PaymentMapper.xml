@@ -47,14 +47,28 @@
 </select>
 
 <insert id="createOrder" parameterType="OrderVO">
-	insert into orders values
-	(order_seq.nextval, #{userId}, #{cpId}, sysdate, #{deliReceiver), #{deliPhone}, #{deliAddr}, #{orderMethod}, #{orderTotal}, #{orderStatus}, #{realTotal}, #{uesdPoint})
+	insert into orders
+	values(order_seq.nextval, #{userId}, #{cpId}, sysdate, #{deliReceiver}, #{deliPhone}, #{deliAddr}, #{orderMethod}, #{orderTotal}, #{orderStatus}, #{realTotal}, #{uesdPoint})
 </insert>
 
 <select id="searchOrderId" resultType="int">
 	select p.order_id from orders p
 	where order_id = ( select max(order_id) from orders)
 </select>
+
+<insert id="insertOrderDetail" parameterType="PaydetailVO">
+	insert into paydetail values(detail_seq.nextval, #{pdCount}, #{pdId})
+</insert>
+
+<update id="updateCoupon" parameterType="int">
+	update coupon set cp_status = '사용완료' where cp_id = #{cpId}
+</update>
+
+<delete id="CartOrderDel" parameterType="CartVO">
+	delete from cart where user_id=#{userId} and pd_id=#{pdId}
+</delete>
+
+
 
 <!-- 순덕 -->
 
