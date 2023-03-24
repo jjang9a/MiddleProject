@@ -35,8 +35,15 @@
 	where cart_id = #{cartId}
 </select>
 
-<select id="searchMyCoupon" parameterType="String" resultType="CouponVO">
+<select id="searchMyCoupon" parameterType="string" resultType="CouponVO">
 	select * from coupon where user_id = #{id}
+</select>
+
+<select id="pointSum" parameterType="String" resultType="StartpayVO">
+	select sum(pay_start) pay_start, sum(pay_point) pay_point, user_id 
+	from startpay
+	WHERE user_id=#{id}
+	group by user_id
 </select>
 
 <!-- 순덕 -->
