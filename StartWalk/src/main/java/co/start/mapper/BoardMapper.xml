@@ -74,7 +74,7 @@
 	select b_id, user_id, b_head,b_title,b_matching,b_writedate
 	from (select rownum rn, b_id, user_id, b_head,b_title,b_matching,b_writedate
 	 	from ( select b_id, user_id, b_head,b_title,b_matching,b_writedate
-	 		from board
+	 		from board where b_category = 'WI' or b_category='WR'
 	 		order by b_writedate desc ) a
 		where rownum <= (#{page} * 10) ) b
 	where b.rn > (#{page}-1)*10		 		  

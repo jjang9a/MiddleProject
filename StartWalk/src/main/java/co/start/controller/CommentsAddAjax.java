@@ -20,9 +20,7 @@ public class CommentsAddAjax implements Control{
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
 		
 		CommentsVO vo = new CommentsVO();
-		int id = Integer.parseInt(request.getParameter("coid"));
 		int bid = Integer.parseInt(request.getParameter("bid"));
-		vo.setCoId(id);
 		vo.setBId(bid);
 		vo.setUserId(request.getParameter("id"));
 		vo.setCoBody(request.getParameter("text"));

@@ -51,7 +51,7 @@
 
 <!-- 용억 -->
 <select id="payList" resultType="co.start.vo.StartpayVO">
-	select * from startpay
+	select * from startpay order by pay_date desc
 </select>
 
 <insert id="insertPay" parameterType="StartpayVO">
@@ -59,9 +59,10 @@
 	values (#{userId},#{payStart},#{payPoint},#{payWhy},sysdate)
 </insert>
 
-<update id="updatePay" parameterType="co.start.vo.StartpayVO">
-	update startpay set pay_start= (select pay_start from startpay where user_id =#{userId})+#{payStart}, pay_date = sysdate, pay_why = #{payWhy} where user_id = #{userId}
-</update>
+<insert id="updatePay" parameterType="co.start.vo.StartpayVO">
+	insert into startpay (user_id,pay_start,pay_date,pay_why)
+	values (#{userId},#{payStart},sysdate,#{payWhy})
+</insert>
 
 <select id="couponList" resultType="co.start.vo.CouponVO">
 	select * from coupon
