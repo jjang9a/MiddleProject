@@ -3,9 +3,20 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
-<div style="margin: 100px auto 100px auto; width: 1000px; ">
+<%@ include file="../mypage/sidebar.jsp" %>
+
+<style>
+input{
+	border:none;
+}
+button{
+	border:none;
+}
+</style>
+
+<div style="margin: 20px auto 100px auto; width: 600px; ">
 <form action='userUpdate.do' method='post'>
-	<table class="table">
+	<table class="table" style="width:400px; margin:auto;">
 			<tr><td>아이디 : </td><td><input type="text" name="id" value="${oldInfo.userId }" readonly></td></tr>
 			<tr><td>비밀번호 : </td><td><input type="password" name="pw1" id="pw1" value=""></td></tr>
 			<tr><td>비밀번호 확인 : </td><td><input type="password" name="pw2" id="pw2" value=""></td></tr>
@@ -15,7 +26,7 @@
 			<tr><td>성 별 : </td><td><input type="text" name="gender" value="${oldInfo.userGender }" readonly></td></tr>
 			<tr><td>연락처 : </td><td><input type="text" name="phone" value="${oldInfo.userPhone }" required></td></tr>
 			<tr><td>주 소 : </td><td><input type="text" name="addr" value="${oldInfo.userAddr }"></td></tr>
-			<tr><td colspan="2" align="center"><button type="submit">수정</button><button type="reset">취소</button></td></tr>
+			<tr><td colspan="2" align="center"><button type="submit">수정</button>	<button type="reset">취소</button></td></tr>
 		</table>
 </form>
 

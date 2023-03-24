@@ -11,6 +11,7 @@ import co.start.service.PaymentService;
 import co.start.service.PaymentServiceMybatis;
 import co.start.vo.CouponVO;
 import co.start.vo.ProductVO;
+import co.start.vo.StartpayVO;
 import co.start.vo.UserVO;
 
 public class OrderFormControl implements Control {
@@ -31,6 +32,14 @@ public class OrderFormControl implements Control {
 			list.add(service.getCartById(Integer.parseInt(cartId)));
 		}
 		
+		int total=0;
+		for(int i=0; i<list.size(); i++) {
+			int price = list.get(0).getPdPrice();
+			int num = list.get(0).getPdCount();
+			total += price * num;
+		}
+
+		req.setAttribute("total", total);
 		req.getSession().setAttribute("detail", list);
 		// cart정보 배열. -> 주문번호생성 -> 상세내역생성 -> 총내역생성 -> 상세내역&총내역
 		
@@ -39,6 +48,10 @@ public class OrderFormControl implements Control {
 		
 		List<CouponVO> coupons = service.getMyCoupon(userId);
 		req.setAttribute("coupons", coupons);
+
+		StartpayVO point = service.myPointNow(userId);
+		int sum = point.getPayStart() + point.getPayPoint();
+		req.setAttribute("point", sum);
 
 		return "pay/orderForm.tiles";
 	}
