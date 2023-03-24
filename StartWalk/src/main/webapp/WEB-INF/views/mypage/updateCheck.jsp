@@ -4,11 +4,15 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@ include file="../mypage/sidebar.jsp" %>
 
-		
+<style>
+tr{
+	padding: 20px;
+}
+</style>		
 
-<div style="float: left; margin-bottom: 50px;">
+<div style="width:150px;">
 	<form action='userUpdateForm.do' method='post' >
-		<table class='table' style="margin-left:40px">
+		<table style="margin-left:40px; border:none;">
 			<tr>
 				<th>비밀번호 입력</th>
 			</tr>

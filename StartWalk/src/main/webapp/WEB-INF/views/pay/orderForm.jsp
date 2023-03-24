@@ -16,37 +16,66 @@ input{
 addr.input{
 	text-align : center;
 }
+button{
+	border:none;
+}
+h5{
+	padding-left:300px;
+}
+h5.input{
+	width : 100px;
+}
 </style>
 
-<div style="margin: 100px auto 100px auto; width: 800px; ">
+<div style="margin: 100px auto 100px auto; width: 700px; ">
 	<h3>결제</h3>
 	<h5>[주문 상품]</h5>
 	<hr>
-	여기는 상품 목록
+	<table class="table" style="width:600px; margin:auto; text-align:center; vertical-align:middle;">
+		<tr><th colspan="2">상품명</th><th>수량</th><th>금액</th>
+		<c:forEach var="i" items="${detail }">
+			<tr>
+				<td><img src="./upload/${i.prImg }" alt="상품" style="width: 100px; height:67px;"></td>
+				<td>${i.pdName }</td>
+				<td>${i.pdCount }</td>
+				<td><fmt:formatNumber pattern="#,###,###" value="${(i.pdPrice*i.pdCount) }" />원</td>
+		</c:forEach>
+	</table>
 	<hr>
 	<form action="order.do" type="post">
-		<label for="reciver">배송받는 분</label><input type="text" id="reciver" name="reciver" required>
+	<div style="width:600px; margin:auto">
+		<label for="reciver"><b>배송받는 분 </b></label><input type="text" id="reciver" name="reciver" required size="200" style="margin:5px;">
 		<p style="font-size:12px">(패키지 상품의 경우 예약자 이름)</p>
-		<label for="addr">배송지 주소 </label> <input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br>
-		<div id="addr">
-			<input type="text" id="sample6_postcode" placeholder="우편번호" style="width : 70px">
-			<input type="text" id="sample6_address" placeholder="주소"><br>
-			<input type="text" id="sample6_detailAddress" placeholder="상세주소">
-			<input type="text" id="sample6_extraAddress" placeholder="참고항목">
+		<label for="addr"><b>배송지 주소 </b></label> <input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기">
+		<div id="addr" style="margin-legt:50px">
+			<input type="text" id="sample6_postcode" placeholder="우편번호" style="width: 100px; margin:5px;"><br>
+			<input type="text" id="sample6_address" placeholder="주소" style="width: 500px; margin:5px;"><br>
+			<input type="text" id="sample6_detailAddress"  placeholder="상세주소" style="width: 400px; margin:5px;">
+			<input type="hidden" id="sample6_extraAddress" placeholder="참고항목">
 		</div>
-		<label for="orderphone">연락처 </label><input type="tell" name="orderphone">
+		<label for="orderphone"><b>연락처 </b></label><input type="tell" name="orderphone" style="margin:5px;">
+		</div>
 		<hr>
 		<table class="table">
-			<tr><th>쿠폰</th><td>인풋상자</td></tr>
-			<tr><th colspan="2">적립금 및 출발페이</th></tr>
-			<tr><td>사용가능 금액 : </td><td>인풋상자</td></tr>
+			<tr><th><label for="type">쿠폰</label></th><td colspan="2"><select id="type" name="type">
+				<option value="none" data-amt="0">쿠폰 사용 안함</option>
+				<c:forEach var="i" items="${coupons }">
+					<option value="${i.cpId }" data-amt="${i.cpDiscount }">${i.cpName } (${i.cpDiscount }원 할인)</option>
+				</c:forEach>
+			</select></td></tr>
+			<tr><th colspan="2">출발페이 및 적립금</th></tr>
+			<tr><td>사용가능한 포인트 :</td><td>${point }</td><td><input type="text" name="usedPoint" id="usedPoint" value="0">
+			<button id="useBtn" name="useBtn">사용</button></td></tr>
 		</table>
 			<hr>
-			<h5>최종 결제액</h5>
+			<h5>최종 결제액 : <input type="text" id="total" name="total" value="<fmt:formatNumber pattern="###,###,###" value="${total }" />원" style="border:none;" readonly></h5>
 			<hr>
 			<p>결제방법</p>
-			<input type="radio" name="paymethod">
-			<button>결제</button>
+			<input type="radio" name="paymethod" value="cash" style="width:20px;"><label>무통장 입금</label>
+			<input type="radio" name="paymethod" value="card" style="width:20px;"><label>신용카드</label>
+			<div>
+			<button style="margin:20px 0;">결제</button>
+			</div>
 	</form>
 </div>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
@@ -98,4 +127,26 @@ addr.input{
             }
         }).open();
     }
+
+// 선택된 쿠폰 불러오기
+document.getElementById('type').addEventListener('onchange', function(e){
+	var value_str = document.getElementById('type');
+	let coupon = value_str.options[value_str.selectedIndex].getAttribute('data-amt');
+	console.log(coupon)
+})
+
+
+// 적립금 사용액 불러오기
+document.getElementById('useBtn').addEventListener('click', function(e){
+	let used = document.getElementById('usedPoint').value;
+	console.log(used)
+
+
+})
+    
+    
+    
+    
+let total = ${total}
+    
 </script>

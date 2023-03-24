@@ -59,6 +59,11 @@
 	where pd_id=#{pdId}
 </select>
 
+<select id="reviewList" resultType="co.start.vo.PdreviewVO" parameterType="co.start.vo.PdreviewVO">
+	select * from pdreview
+	where pd_id=#{pdId}
+</select>
+
 
 <delete id="deletePackage" parameterType="co.start.vo.ProductVO">
 	delete from product where pd_id=#{pdId}
@@ -71,8 +76,8 @@
 </update>
 
 <insert id="insertPackage" parameterType="co.start.vo.ProductVO">
-	insert into product (pd_id, pd_name, pd_price, pd_type, pd_sale, pd_info, pd_start, pd_end, pd_location)
-	values(prod_seq.nextval,#{pdName},#{pdPrice},'PK',#{pdSale},#{pdInfo},#{pdStart},#{pdEnd}, #{pdLocation} )
+	insert into product (pd_id, pd_name, pd_price, pd_type, pd_sale, pd_info, pd_start, pd_end, pd_location, pr_img)
+	values(prod_seq.nextval,#{pdName},#{pdPrice},'PK',#{pdSale},#{pdInfo},#{pdStart},#{pdEnd}, #{pdLocation}, #{prImg} )
 </insert>
 
 <select id="searchPdId" resultType="int">
@@ -84,13 +89,28 @@
 	insert into images (pd_id, img_file) values (#{pdId}, #{imgFile})
 </insert>
 
-<select id="orderList" resultType="co.start.vo.ProductVO">
-	select p.pd_id, p.pd_name, p.pd_price, p.pd_sale, p.pr_img, o.order_id, o.user_id, o.order_date, d.pd_count, o.order_status
-	from product p, orders o, paydetail d
-	where p.pd_id = d.pd_id 
-		  and o.order_id = d.order_id 
-		  and o.user_id = #{userId}
+<select id="orderList" parameterType="int" resultType="co.start.vo.ProductVO">
+	<![CDATA[
+		select pd_id, pd_name,  pd_price, pd_sale, pr_img, order_id, user_id, order_date, pd_count, order_status
+		from (select  rownum rn,  pd_id, pd_name, pd_price, pd_sale, pr_img, order_id, user_id, order_date, pd_count,order_status
+		        from (select pd.pd_id, pd.pd_name, pd.pd_price, pd.pd_sale, pd.pr_img, o.order_id, o.user_id,o.order_date, pd_count,o.order_status
+		                from product pd join paydetail pa on(pd.pd_id= pa.pd_id) 
+		                                        join orders o on(pa.order_id = o.order_id)) a
+		        where rownum <= (#{page} * 10) ) b
+		where b.rn > (#{page} - 1) * 10
+	]]>
 </select>
+
+<select id="orderListdo" resultType="co.start.vo.ProductVO">
+		select pd.pd_id, pd.pd_name, pd.pd_price, pd.pd_sale, pd.pr_img, o.order_id, o.user_id,o.order_date,pa.pd_count,o.order_status
+		from product pd join paydetail pa on(pd.pd_id= pa.pd_id) join orders o on(pa.order_id = o.order_id)	
+</select>
+
+<insert id="insertPdreview" parameterType="co.start.vo.PdreviewVO">
+	insert into pdreview (user_id, pd_id, pr_body, pr_star, pr_date)
+	values(#{userId}, #{pdId}, #{prBody}, #{prStar}, sysdate)
+</insert>
+
 
 
 <!-- 용억 -->

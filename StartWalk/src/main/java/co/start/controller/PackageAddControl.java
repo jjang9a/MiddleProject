@@ -41,7 +41,11 @@ public class PackageAddControl implements Control {
 			vo.setPdSale(sale);
 			vo.setPdInfo(multi.getParameter("pdInfo"));
 			vo.setPdLocation(multi.getParameter("pdLocation"));
-			
+			String image = multi.getFilesystemName("prImg");
+			if(image != null) {
+				vo.setPrImg(image);
+			}
+			System.out.println(vo);
 			
 			try {
 				vo.setPdStart(format.parse(multi.getParameter("pdStart")));
@@ -64,19 +68,19 @@ public class PackageAddControl implements Control {
 			
 			
 			System.out.println("vo:  "+vo);
-			String image = multi.getFilesystemName("prImg");
 			System.out.println("========================================");
 			System.out.println(image);
+			
+			if(image != null) {
+				img.setImgFile(image);
+				service.imgAttach(img);
+			}
+			image = multi.getFilesystemName("img1");
 			if(image != null) {
 				img.setImgFile(image);
 				service.imgAttach(img);
 			}
 			image = multi.getFilesystemName("img2");
-			if(image != null) {
-				img.setImgFile(image);
-				service.imgAttach(img);
-			}
-			image = multi.getFilesystemName("img3");
 			if(image != null) {
 				img.setImgFile(image);
 				service.imgAttach(img);

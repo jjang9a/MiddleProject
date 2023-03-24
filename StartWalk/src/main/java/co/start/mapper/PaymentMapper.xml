@@ -11,11 +11,11 @@
 </select>
 
 <update id="cartUpdate" parameterType="CartVO">
-	update cart set pd_count=#{pdCount} where pd_id=#{pdId} and user_id=#{userId}
+	update cart set pd_count=#{pdCount} where cart_id=#{cartId}
 </update>
 
 <delete id="cartDelete" parameterType="CartVO">
-	delete from cart where pd_id=#{pdId} and user_id=#{userId}
+	delete from cart where cart_id = #{cartId}
 </delete>
 <!-- <delete id="cartDeleteAll" parameterType="CartVO">
 	delete from cart where user_id=#{userId}
@@ -27,6 +27,23 @@
 
 <select id="searchCart" parameterType="CartVO" resultType="CartVO">
 	select * from cart where pd_id=#{pdId} and user_id=#{userId}
+</select>
+
+<select id="searchById" parameterType="int" resultType="ProductVO">
+	select *
+	from cart NATURAL JOIN product
+	where cart_id = #{cartId}
+</select>
+
+<select id="searchMyCoupon" parameterType="string" resultType="CouponVO">
+	select * from coupon where user_id = #{id}
+</select>
+
+<select id="pointSum" parameterType="String" resultType="StartpayVO">
+	select sum(pay_start) pay_start, sum(pay_point) pay_point, user_id 
+	from startpay
+	WHERE user_id=#{id}
+	group by user_id
 </select>
 
 <!-- 순덕 -->

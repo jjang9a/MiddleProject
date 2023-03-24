@@ -24,7 +24,7 @@
 		</div>
 		<div class="row g-4">
 			<c:forEach var="hotel" items="${hotel}">
-				<tr>
+				<tr id="p_${hotel.pdId }">
 					<div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
 						<div class="room-item shadow rounded overflow-hidden">
 							<div class="position-relative">
@@ -40,9 +40,9 @@
 								</div>
 								<div class="d-flex justify-content-between">
 									<a class="btn btn-sm btn-primary rounded py-2 px-4"
-										href="hotelInfo.do?key=${hotel.pdId }">상세 설명</a> <a
-										class="btn btn-sm btn-dark rounded py-2 px-4" href="">장바구니
-										및 결제</a>
+										href="hotelInfo.do?key=${hotel.pdId }">상세 설명</a>
+									<button class="btn btn-sm btn-dark rounded py-2 px-4" id="submitBtn" onclick="cartBtn(${hotel.pdId })">장바구니 및 결제</button>
+<!-- 									<a class="btn btn-sm btn-dark rounded py-2 px-4" href="">장바구니 및 결제</a> -->
 								</div>
 							</div>
 						</div>
@@ -52,3 +52,19 @@
 		</div>
 	</div>
 </div>
+
+<script>
+function cartBtn(pdId) {
+	fetch('cartAdd.do?pdid=' + pdId)
+		.then(resolve => resolve.json()) // {"retCode": "Success"} -> {retCode: "Success"}
+		.then(result => {
+			console.log(result)
+			if (result.retCode == 'Success') {
+				alert('장바구니 추가 완료!')
+			} else if (result.retCode == 'Fail') {
+				alert('error....')
+			}
+		})
+		.catch(reject => console.error(reject))
+}
+</script>

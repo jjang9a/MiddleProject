@@ -13,17 +13,19 @@ public class CartDeleteAjax implements Control {
 
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
+		String cartId = request.getParameter("cartId");
+
 		PaymentService service = new PaymentServiceMybatis();
 		CartVO vo = new CartVO();
-		UserVO user = (UserVO)request.getSession().getAttribute("loginUser");
-		vo.setPdId(Integer.parseInt(request.getParameter("check")));
+		UserVO user = (UserVO) request.getSession().getAttribute("loginUser");
 		vo.setUserId(user.getUserId());
-		
+		vo.setCartId(Integer.parseInt(cartId));
+
 		boolean result = service.delFromCart(vo);
 		String json = "";
-		if(result) { // {"retCode" : "Success"}
+		if (result) { // {"retCode" : "Success"}
 			json = "{\"retCode\" : \"Success\"}";
-		}else { // {"retCode" : "Fail"}
+		} else { // {"retCode" : "Fail"}
 			json = "{\"retCode\" : \"Fail\"}";
 		}
 		return json + ".ajax";
