@@ -225,13 +225,13 @@ body {
   <div class="container__form container--signup">
     <form action="addUser.do" class="form" id="form1" method="post">
       <h2 class="form__title">Sign Up</h2>
-      <input type="text" placeholder="UserID" class="input" name="userId"/>
-      <input type="password" placeholder="Password" class="input" name="userPasswd"/>
-      <input type="text" placeholder="Name" class="input" name="userName"/>
-      <input type="text" placeholder="gender" class="input" name="userGender"/>
-      <input type="text" placeholder="Phone" class="input" name="userPhone"/>
-      <input type="text" placeholder="Adreess" class="input" name="userAddr"/>
-      <input type="email" placeholder="Email" class="input" name="userMail"/>
+      <input type="text" placeholder="UserID" class="input" name="userId" required="required"/>
+      <input type="password" placeholder="Password" class="input" name="userPasswd" required="required"/>
+      <input type="text" placeholder="Name" class="input" name="userName" required="required"/>
+      <input type="text" placeholder="gender" class="input" name="userGender" required="required"/>
+      <input type="text" placeholder="Phone" class="input" name="userPhone" required="required"/>
+      <input type="text" placeholder="Adreess" class="input" name="userAddr" required="required"/>
+      <input type="email" placeholder="Email" class="input" name="userMail" required="required"/>
       
        
       <button class="btn">Sign Up</button>

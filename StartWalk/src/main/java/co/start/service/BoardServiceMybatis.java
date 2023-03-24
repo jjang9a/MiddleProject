@@ -53,6 +53,7 @@ public class BoardServiceMybatis implements BoardService{
 		return mapper.updateBHit(bid) == 1;
 	}
 	
+	
 	// 순덕
 	@Override
 	public List<BoardVO> noitceList() {		// 공지사항 목록
@@ -68,6 +69,16 @@ public class BoardServiceMybatis implements BoardService{
 		int r = mapper.insertnotice(vo);
 		return r == 1;
 	}
+	@Override
+	public boolean modifyNotice(BoardVO vo) {		// 공지사항 수정
+		int r = mapper.updateNotice(vo);
+		return r == 1;
+	}
+	@Override
+	public boolean RemoveNotice(int bId) {		// 공지사항 삭제
+		return mapper.deleteNotice(bId);
+	}
+	
 	
 	
 	// 용억
@@ -136,5 +147,7 @@ public class BoardServiceMybatis implements BoardService{
 	public boolean UserWrite(BoardVO vo) {
 		return mapper.UserWrite(vo)==1;
 	}
+	
+	
 	
 }

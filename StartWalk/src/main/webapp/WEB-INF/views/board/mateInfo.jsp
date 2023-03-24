@@ -6,10 +6,10 @@
 <div style="margin: 100px auto 100px auto; width: 1000px;">
 
 
-	<button style="float: right; font-size: 12px; margin: 0 5px;">
+	<button style="float: right; font-size: 12px; margin: 10 20px;">
 		<a href="mateModifyForm.do">수정하러가기</a>
 	</button>
-	<h3>&#91 ${info.getBTitle() } &#92</h3>
+	<h3>${info.getBHead() } ${info.getBTitle() } </h3>
 	<hr>
 
 	<br>
@@ -28,9 +28,36 @@
 				style="background-color: blanchedalmond; padding: 0 10px; color: black;">동행</strong>
 		</p>
 		<p style="color: rgb(57, 57, 57); font-size: 14px;">&#10003 댓글 쓰기</p>
-		<input type="submit" value="등록"
-			style="height: 80px; width: 60px; float: right;">
-		<textarea rows="3" cols="110"></textarea>
+		
+		
+		
+		
+		
+		
+		
+		
+		<table class="table">
+		<form>
+			<tr>
+				
+
+				<td><input type="hidden" id="bid" value="${info.getBId() }"></td>
+
+				<td><input type="hidden" id="id" value="${loginUser.userId }"></td>
+			</tr>
+			<tr>
+				<td><textarea rows="3" cols="110" id="text"></textarea>
+				
+
+				<td><button id="addBtn" style="height: 80px; width: 50px; float: right;">등록</button></td>
+
+			</tr>
+		</form>
+	</table>
+		
+		
+		
+		
 
 		<div style="clear: both; margin: 10px 0; padding: 20px;">
 			<div>
@@ -42,60 +69,24 @@
 						style="font-size: 7px;">댓글 작성 날짜 및 시간</small>
 				</p>
 				<p style="clear: both;">리뷰 내용</p>
+				<table class="table">
+		<thead>
+			
+				
+		<tbody id="list">
+		</tbody>
+	</table>
 			</div>
 
 		</div>
 	</div>
-	<div>
-		<p style="text-align: center;">페이징</p>
-	</div>
+	
 
 </div>
 
 
 
-<table class="table">
 
-
-
-</table>
-
-<h3>댓글</h3>
-
-
-
-<div>
-	<table class="table">
-		<form>
-			<tr>
-				<td>댓글 번호 : <input type="text" id="coid"></td>
-
-				<td>게시판 번호 : <input type="text" id="bid"></td>
-
-				<td>ID : <input type="text" id="id"></td>
-
-				<td>내용 : <input type="text" size="30" id="text"></td>
-
-				<td><button id="addBtn">등록</button></td>
-
-			</tr>
-		</form>
-	</table>
-</div>
-
-<div>
-	<table class="table">
-		<thead>
-			<tr>
-				<th>댓글 번호</th>
-				<th>게시판 번호</th>
-				<th>아이디</th>
-				<th>내용</th>
-				<th>삭제</th>
-		<tbody id="list">
-		</tbody>
-	</table>
-</div>
 
 
 
@@ -126,7 +117,7 @@
  	document.getElementById('addBtn').addEventListener('click',function(e){
 		e.preventDefault();
 		
-		let coid = document.querySelector('#coid').value;
+		
 		let bid = document.querySelector('#bid').value;
 		let id = document.querySelector('#id').value;
 		let text = document.querySelector('#text').value;
@@ -140,7 +131,7 @@
 		fetch('commentsAdd.do',{
 			method: 'post',
 			headers:{'Content-type': 'application/x-www-form-urlencoded'},
-			body: 'coid='+coid+'&bid='+bid+'&id='+id+'&text='+text
+			body: 'bid='+bid+'&id='+id+'&text='+text
 
 		})
 		.then(resolve=>resolve.json())
@@ -198,9 +189,7 @@
 }	
  		
 function initField(){
-	document.getElementById('coid').value='';
-	document.getElementById('bid').value='';
-	document.getElementById('id').value='';
+	
 	document.getElementById('text').value='';
 }
 	

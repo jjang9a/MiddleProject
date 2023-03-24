@@ -9,15 +9,15 @@
             <hr style="margin-top: 120px; margin-bottom: 0;">
             
             <c:if test="${loginUser.userGrade.equals('admin') }">
-				<a href="packageDelete.do" class="btn btn-sm btn-dark rounded py-2 px-4" style="float: right; margin: 0 10px">삭제</a>
-				<a href="packageModifyForm.do" class="btn btn-sm btn-dark rounded py-2 px-4" style="float: right;">수정</a>
+				<a href="noticeDelete.do" class="btn btn-sm btn-dark rounded py-2 px-4" style="float: right; margin: 0 10px">삭제</a>
+				<a href="noticeModifyForm.do" class="btn btn-sm btn-dark rounded py-2 px-4" style="float: right;">수정</a>
 			</c:if>
             
             
             <div style="width: 200px; float: left;  ">
                 <p style="color:rgb(255, 255, 255); font-weight: 700; font-size: 25px;  background-color: #0f172b; text-align: center; padding: 20px; margin-bottom: 0; border-bottom: 5px solid #fea116;">고객센터</p>
                  <div style="border: 2px solid rgb(230, 226, 226);  padding: 45px 20px; margin-top: 0 auto;">
-                     <a href="" style="color:black;">공지사항</a>
+                     <a href="noticeList.do" style="color:black;">공지사항</a>
                     <hr>
                      <a href="" style="color:black;">자주 묻는 질문(FAQ)</a>
                     <hr>
@@ -31,16 +31,16 @@
                 <h5 style="font-size: 23px;">공지사항</h5>
                 <div style="margin-top:50px;">
                 	<h5> &#91; ${info.getBTitle()} &#93;</h5>
-                	<p>${info.getBWriteDate()}</p>
+                	<p><fmt:formatDate value="${info.getBWriteDate()}" type="both" pattern="yyyy-MM-dd HH:mm"/> </p>
                 	<hr>
                 	<p>${info.getBContents() }</p>			
             	</div>
             
             </div>
 
-            <div style="clear: both; ">
+            <div style="clear: both;">
             	<div>
-            		<p style="padding: 20px 30px; margin-left: 220px; margin-top: 20px; background-color: beige;">시스템 담당자: 권순덕(053-123-4567)</p>
+            		<p style="padding: 20px 30px; margin-left: 220px;  background-color: beige; margin-bottom: 0;">시스템 담당자: 권순덕(053-123-4567)</p>
             	</div> 
             </div>
 
