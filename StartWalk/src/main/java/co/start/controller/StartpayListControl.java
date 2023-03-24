@@ -17,6 +17,8 @@ public class StartpayListControl implements Control {
 		PaymentService service = new PaymentServiceMybatis();
 		List<StartpayVO> list = service.payList();
 		
+		
+		
 		System.out.println(list);
 		request.setAttribute("pay", list);
 		return "pay/payList.tiles";
