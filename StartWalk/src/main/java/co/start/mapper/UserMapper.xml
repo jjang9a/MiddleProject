@@ -28,7 +28,6 @@
 		insert into users  
 		values (#{userId}, #{userPasswd}, #{userName}, sysdate, #{userGender}, #{userPhone}, #{userAddr}, #{userMail}, 'normal')
   </insert>
-  
 
 
 </mapper>

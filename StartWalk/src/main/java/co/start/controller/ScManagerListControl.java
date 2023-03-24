@@ -22,7 +22,7 @@ public class ScManagerListControl implements Control {
 		BoardService service = new BoardServiceMybatis();
 		List<BoardVO> list = service.scManagerList();
 
-//		String id = request.getParameter("userId");
+	//	String id = request.getParameter("admin");
 		
 		request.setAttribute("list", list);
 		

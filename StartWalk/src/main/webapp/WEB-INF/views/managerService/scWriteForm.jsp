@@ -4,54 +4,6 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
-
-<!--  
-<form action="scWrite.do" method="post">
-	<table class="table">
-		<tbody>
-			<div style="width: 200px; float: left;">
-				<p
-					style="color: rgb(255, 255, 255); font-weight: 700; font-size: 25px; background-color: #0f172b; text-align: center; padding: 20px; margin-bottom: 0; border-bottom: 5px solid #fea116;">관리자
-					모드</p>
-				<div
-					style="border: 2px solid rgb(230, 226, 226); padding: 45px 20px; margin-top: 0 auto;">
-					<a href="" style="color: black;">공지사항</a>
-					<hr>
-					<a href="scWriteForm.do" style="color: black;">1:1
-						문의하기(Q&#38;A)</a>
-					<hr>
-				</div>
-			</div>
-
-			<div style="">
-
-				<tr>
-					<td align="center" colspan="2">
-					<td>아이디</td>
-					<td><input style="width: 500px" type="text" name="id"></td>
-				</tr>
-				<tr>
-					<td align="center" colspan="2">
-					<td>제목</td>
-					<td><input style="width: 500px" type="text" name="title"></td>
-				</tr>
-				<tr>
-					<td align="center" colspan="2">
-					<td>내용</td>
-					<td><textarea style="width: 500px" cols="30" rows="5"
-							name="text"></textarea></td>
-				</tr>
-				<tr>
-					<td align="center" colspan="2"><input class="btn btn-primary"
-						type="submit" value="글쓰기"></td>
-				</tr>
-			</div>
-		</tbody>
-	</table>
-</form>
-</div>
-</div> -->
-
 	 
 		<div style="margin: 100px auto 100px auto; width: 1000px; ">
             <hr style="margin-top: 120px; margin-bottom: 0;">
