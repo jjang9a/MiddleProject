@@ -61,8 +61,8 @@
                                 <div class="nav-item dropdown">
                                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">커뮤니티</a>
                                     <div class="dropdown-menu rounded-0 m-0">
-                                        <a href="mateList.do" class="dropdown-item">동행 구해요</a>
-                                        <a href="mateInfo.do" class="dropdown-item">동행 후기</a>
+                                        <a href="mateList.do" class="dropdown-item">동행 게시판</a>
+                                        
                                         <a href="travelBoardList.do" class="dropdown-item">여행 수기</a>
                                     </div>
                                 </div>

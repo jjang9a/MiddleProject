@@ -27,6 +27,15 @@ public class CartControl implements Control {
 			List<ProductVO> list = service.getCartList(vo.getUserId());
 			req.setAttribute("cart", list);
 			
+			int sum = 0;
+			for(ProductVO prod : list) {
+				int pay = prod.getPdCount() * prod.getPdPrice();
+				sum += pay;
+			}
+			
+			System.out.println(sum);
+			req.setAttribute("initSum", sum);
+			
 			return "pay/cart.tiles";
 		}
 	}

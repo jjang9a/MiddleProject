@@ -5,7 +5,7 @@
 <div style="margin: 200px 50px;">
 	<div class="row px-xl-5">
 		<div class="col-lg-8 table-responsive mb-5" style="margin: auto;">
-			<h5>여행 상품</h5>
+			<h4>장바구니</h4>
 			<a href="" class="btn btn-sm btn-dark rounded py-2 px-4" style="float: right; margin: 0 10px">선택 삭제</a>
 			<a href="javascript:orderall();" class="btn btn-sm btn-dark rounded py-2 px-4" style="float: right;">선택
 				주문</a><br>
@@ -63,7 +63,16 @@
 				</tbody>
 			</table>
 		</div>
-		<p id="totalAmt"></p>
+		<div style="margin-left:600px">
+			<table style="font-size : 20px">
+				<tr>
+				<th>전체 결제 예정액 </th>
+				<td id="totalAmt" style="width:180px; text-align:right;"><fmt:formatNumber pattern="#,###,###" value="${initSum }" />원</td>
+				</tr>
+			</table>
+<!-- 			<b style="font-size : 20px">총 결제 예정액 </b>
+			<p id="totalAmt" style="">0</p> -->
+		</div>
 		<form action="orderForm.do" method="post" style="display:none" id="selectOrder"></form>
 	</div>
 </div>
@@ -101,7 +110,8 @@
 			console.log(tamt.innerText)
 			total += parseInt(tamt.innerText);
 		})
-		document.querySelector('#totalAmt').innerText = total;
+		const cn1 = total.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
+		document.querySelector('#totalAmt').innerText = cn1+"원";
 	}
 
 	function delBtn(cartId) {

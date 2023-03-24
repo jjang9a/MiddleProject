@@ -2,12 +2,12 @@ package co.start.controller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import co.start.common.Control;
 import co.start.service.BoardService;
 import co.start.service.BoardServiceMybatis;
 import co.start.vo.BoardVO;
+import co.start.vo.UserVO;
 
 public class MateInfoControl implements Control {
 
@@ -23,7 +23,6 @@ public class MateInfoControl implements Control {
 		
            request.getSession().setAttribute("mo", vo);
 		
-				
 				
 		System.out.println(vo);
 		return "board/mateInfo.tiles";

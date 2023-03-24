@@ -18,6 +18,9 @@ public interface PaymentService {
 	public CartVO getCartInfo(CartVO vo); // 카트 상품 정보 조회
 	public ProductVO getCartById(int id); // 카트상품 디테일 조회
 	
+	public List<CouponVO> getMyCoupon(String id); // 내 쿠폰 리스트
+	public StartpayVO myPointNow(String id); // 현재 소지한 출발페이, 적립금 현황
+	
 //	// 결재정보생성.
 //	public int createOrderInfo(String[] carts);
 	

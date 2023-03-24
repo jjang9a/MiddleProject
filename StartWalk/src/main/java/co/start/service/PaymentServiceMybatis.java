@@ -52,6 +52,16 @@ public class PaymentServiceMybatis implements PaymentService {
 		return mapper.searchById(id);
 	}
 
+	@Override
+	public List<CouponVO> getMyCoupon(String id) {
+		return mapper.searchMyCoupon(id);
+	}
+	
+	@Override
+	public StartpayVO myPointNow(String id) {
+		return mapper.pointSum(id);
+	}
+	
 //	@Override
 //	public int createOrderInfo(String[] carts) {
 //		// 주문번호 생성. (10000)
@@ -82,6 +92,8 @@ public class PaymentServiceMybatis implements PaymentService {
 		int r = mapper.insertPay(vo);
 		return r==1;
 	}
+
+
 
 	// 대준
 

@@ -60,7 +60,7 @@
                     <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s" >
                         <div class="room-item shadow rounded overflow-hidden" >
                             <div class="position-relative">
-                                <img class="img-fluid" src="./img/${product.prImg}" alt="빵 " style="width: 360px; height: 240px;">
+                                <img class="img-fluid" src="./upload/${product.prImg}" alt="빵 " style="width: 360px; height: 240px;">
                                 <small class="position-absolute start-0 top-100 translate-middle-y bg-primary text-white rounded py-1 px-3 ms-4">${product.pdPrice }원</small>
                             </div>                    
                             <div class="p-4 mt-2" >
@@ -70,7 +70,7 @@
                                 </div>
                                 <div class="d-flex justify-content-between">
                                     <a class="btn btn-sm btn-primary rounded py-2 px-4" href="productInfo.do?pdId=${product.pdId }">상세 설명</a>
-                                    <a class="btn btn-sm btn-dark rounded py-2 px-4" href="">장바구니 및 결제</a>
+                                    <button class="btn btn-sm btn-dark rounded py-2 px-4" id="submitBtn" onclick="cartBtn(${product.pdId })">장바구니 및 결제</button>
                                 </div>
                             </div>
                         	</div>
@@ -100,6 +100,22 @@
 			</c:if>
 		</div>
 	</div>
+
+<script>
+function cartBtn(pdId) {
+	fetch('cartAdd.do?pdid=' + pdId)
+		.then(resolve => resolve.json()) // {"retCode": "Success"} -> {retCode: "Success"}
+		.then(result => {
+			console.log(result)
+			if (result.retCode == 'Success') {
+				alert('장바구니 추가 완료!')
+			} else if (result.retCode == 'Fail') {
+				alert('error....')
+			}
+		})
+		.catch(reject => console.error(reject))
+}
+</script>
         
           
     </body>

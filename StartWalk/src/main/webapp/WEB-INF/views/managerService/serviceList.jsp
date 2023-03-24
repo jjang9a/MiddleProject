@@ -31,11 +31,11 @@
 	<div style="float: left; margin-bottom: 50px; padding: 5px 40px;">
 		<h3>고객 문의 게시판</h3>
 		<hr>
-		<div align="right"><a href ="scUserWriteForm.do"><input class="btn btn-primary" type="submit" value="글쓰기"></a></div>      
+		<div align="right"><a href ="scWriteForm.do"><input class="btn btn-primary" type="submit" value="글쓰기"></a></div>      
 		<table class="table" style="width: 720px; margin:auto">
 			<thead>
 				<tr>
-					<th>글번호</th> 
+					<th>No.</th> 
 					<th>작성자</th>
 					<th>제목</th>
 					<th>내용</th>

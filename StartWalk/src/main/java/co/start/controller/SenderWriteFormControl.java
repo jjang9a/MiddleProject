@@ -5,12 +5,12 @@ import javax.servlet.http.HttpServletResponse;
 
 import co.start.common.Control;
 
-public class ScUserWriteFormControl implements Control {
+public class SenderWriteFormControl implements Control {
 
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
-
-		return "mypage/ScUserWriteForm.tiles";
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

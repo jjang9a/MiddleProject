@@ -16,6 +16,15 @@ input{
 addr.input{
 	text-align : center;
 }
+button{
+	border:none;
+}
+h5{
+	padding-left:300px;
+}
+h5.input{
+	width : 100px;
+}
 </style>
 
 <div style="margin: 100px auto 100px auto; width: 700px; ">
@@ -48,19 +57,22 @@ addr.input{
 		</div>
 		<hr>
 		<table class="table">
-			<tr><th>쿠폰</th><td><label for="type">카테고리</label></td><td><select id="type" name="type">
-				<option value="HO">숙소상품</option>
-				<option value="PR">지역명물</option>
+			<tr><th><label for="type">쿠폰</label></th><td colspan="2"><select id="type" name="type">
+				<option value="none" data-amt="0">쿠폰 사용 안함</option>
+				<c:forEach var="i" items="${coupons }">
+					<option value="${i.cpId }" data-amt="${i.cpDiscount }">${i.cpName } (${i.cpDiscount }원 할인)</option>
+				</c:forEach>
 			</select></td></tr>
-			<tr><th colspan="2"></th></tr>
-			<tr><td>사용가능 금액 : </td><td><input type="text" name=""></td></tr>
+			<tr><th colspan="2">출발페이 및 적립금</th></tr>
+			<tr><td>사용가능한 포인트 :</td><td>${point }</td><td><input type="text" name="usedPoint" id="usedPoint" value="0">
+			<button id="useBtn" name="useBtn">사용</button></td></tr>
 		</table>
 			<hr>
-			<h5>최종 결제액</h5>
+			<h5>최종 결제액 : <input type="text" id="total" name="total" value="<fmt:formatNumber pattern="###,###,###" value="${total }" />원" style="border:none;" readonly></h5>
 			<hr>
 			<p>결제방법</p>
-			<input type="radio" name="paymethod" value="" style="width:20px;"><label>무통장 입금</label>
-			<input type="radio" name="paymethod" value="" style="width:20px;"><label>신용카드</label>
+			<input type="radio" name="paymethod" value="cash" style="width:20px;"><label>무통장 입금</label>
+			<input type="radio" name="paymethod" value="card" style="width:20px;"><label>신용카드</label>
 			<div>
 			<button style="margin:20px 0;">결제</button>
 			</div>
@@ -115,4 +127,26 @@ addr.input{
             }
         }).open();
     }
+
+// 선택된 쿠폰 불러오기
+document.getElementById('type').addEventListener('onchange', function(e){
+	var value_str = document.getElementById('type');
+	let coupon = value_str.options[value_str.selectedIndex].getAttribute('data-amt');
+	console.log(coupon)
+})
+
+
+// 적립금 사용액 불러오기
+document.getElementById('useBtn').addEventListener('click', function(e){
+	let used = document.getElementById('usedPoint').value;
+	console.log(used)
+
+
+})
+    
+    
+    
+    
+let total = ${total}
+    
 </script>

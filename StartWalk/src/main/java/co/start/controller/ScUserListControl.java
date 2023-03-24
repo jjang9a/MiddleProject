@@ -21,7 +21,7 @@ public class ScUserListControl implements Control {
 //		String id = request.getParameter("userId");
 		request.setAttribute("list", list);
 		
-		return "managerService/ScUserList.tiles";
+		return "mypage/scUserList.tiles";
 	}
 
 }
