@@ -7,9 +7,66 @@
 <div style="float: left; margin-bottom: 50px;">
 	
 	<div style="margin: 40px 30px; width:700px;">
-		<h3>주문 내역</h3>
+		<h3>주문 내역</h3>		
 	</div>
-	<div style="margin-left:30px; margin-top:0;"></div>
+		<c:choose>
+			<c:when test="${loginUser.getUserId()!= null}">
+				<div>
+                <div class="row g-3 pb-4" style="margin-left: 30px;">
+                    <div style="width: 150px;" data-wow-delay="0.1s">
+                        <div class="border rounded p-1">
+                            <div class="border rounded text-center p-4">
+                                <img src="" alt="" style="width: 40%; height: 40%;">
+                                <h2 class="mb-1" data-toggle="counter-up">1234</h2>
+                                <p class="mb-0">결제대기</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="width: 150px;" data-wow-delay="0.3s">
+                        <div class="border rounded p-1">
+                            <div class="border rounded text-center p-4">
+                                <img src="" alt="" style="width: 40%; height: 40%;">
+                                    <h2 class="mb-1" data-toggle="counter-up">1234</h2>
+                                    <p class="mb-0">결제완료</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="width: 150px;" data-wow-delay="0.5s">
+                        <div class="border rounded p-1">
+                            <div class="border rounded text-center p-4">
+                                <img src="" alt="" style="width: 40%; height: 40%;">
+                                <h2 class="mb-1" data-toggle="counter-up">1234</h2>
+                                <p class="mb-0">배송전</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="width: 150px;" data-wow-delay="0.5s">
+                        <div class="border rounded p-1">
+                            <div class="border rounded text-center p-4">
+                                <img src="" alt="" style="width: 40%; height: 40%;">
+                                <h2 class="mb-1" data-toggle="counter-up">1234</h2>
+                                <p class="mb-0">배송중</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="width: 150px;" data-wow-delay="0.5s">
+                        <div class="border rounded p-1">
+                            <div class="border rounded text-center p-4">
+                                <img src="" alt="" style="width: 40%; height: 40%;">
+                                <h2 class="mb-1" data-toggle="counter-up">1234</h2>
+                                <p class="mb-0">배송완료</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>	
+			</div>
+			</c:when>
+			</c:choose>
+			
+			<div style="margin-left: 40px;">
+				<hr>
+			</div>
+	<div style="margin-left:30px; margin-top:0; padding:10px;"></div>
 	<table style="margin-left:40px;">
 		
 		<c:choose>
@@ -25,7 +82,15 @@
 							<input type="hidden" name="pdId" value="${order.pdId }">
 							<p>&#91; ${order.pdType } ${order.pdId } &#93; ${order.pdName }</p>						
 							<p>${order.orderDate }</p>
-							<p>${order.pdPrice } ${order.pdSale }</p>
+							<c:choose>
+								<c:when test="${order.pdSale !=null}">
+								<p>${order.pdSale }</p>
+								</c:when>
+								<c:otherwise>
+								<p>${order.pdPrice }</p>
+								</c:otherwise>
+							</c:choose>
+							
 							<p>${order.orderStatus }</p>
 						</td>
 						<td>
@@ -34,13 +99,17 @@
 					</tr>
 					</c:when>
 					<c:otherwise>
-						<p style="margin-left:40px;">구매하신 상품이 없습니다.</p>
+						<div style="background-color: rgb(208, 207, 207); margin-left:50px; padding: 70px 0;">
+							<p style="margin: 0; text-align: center; font-size: 20px; font-weight: 700;">구매하신 상품이 없습니다.</p>
+						</div>
 					</c:otherwise>
 					</c:choose>
 				</c:forEach>				
 			</c:when>
 			<c:otherwise>
-				<p>구매목록은 로그인 후 확인 가능합니다.</p>
+				<div style="background-color: rgb(208, 207, 207); margin-left:50px; padding: 70px 0;">
+					<p style="margin: 0; text-align: center; font-size: 20px; font-weight: 700;">구매목록은 로그인 후 확인 가능합니다.</p>
+				</div>	
 			</c:otherwise>
 		</c:choose>
 
@@ -77,4 +146,5 @@
 
 <div style="clear: both; margin: 20px auto;">
 	
+</div>
 </div>

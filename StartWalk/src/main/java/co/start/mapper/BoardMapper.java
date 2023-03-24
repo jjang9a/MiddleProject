@@ -55,9 +55,9 @@ public interface BoardMapper {
 	// 공지사항 글쓰기
 	public int insertnotice(BoardVO vo);
 	// 공지사항 수정
-	
+	public int updateNotice(BoardVO vo);
 	// 공지사항 삭제
-	
+	public boolean deleteNotice(int bId);
 	
 	
 	

@@ -18,7 +18,7 @@ public class NoticeInfoControl implements Control {
 		BoardVO vo = service.noticeInfo(code);
 		System.out.println(vo);
 		
-		request.setAttribute("info", vo);
+		request.getSession().setAttribute("info", vo);
 		
 		return "client/noticeInfo.tiles";
 	}
