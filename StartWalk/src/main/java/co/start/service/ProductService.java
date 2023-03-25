@@ -3,6 +3,7 @@ package co.start.service;
 import java.util.List;
 
 import co.start.vo.ImagesVO;
+import co.start.vo.OrderVO;
 import co.start.vo.PdreviewVO;
 import co.start.vo.ProductVO;
 import co.start.vo.SearchVO;
@@ -47,6 +48,8 @@ public interface ProductService {
 	// 구매 목록
 	public List<ProductVO> orderList(int page);
 	public List<ProductVO> orderListdo();
+	// 주문상태
+	public List<OrderVO> countOrderStatus(String id);
 	// 리뷰 작성
 	public boolean addPdreview(PdreviewVO vo);
 }

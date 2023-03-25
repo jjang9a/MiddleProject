@@ -8,8 +8,10 @@ import javax.servlet.http.HttpServletResponse;
 import co.start.common.Control;
 import co.start.service.ProductService;
 import co.start.service.ProductServiceMybatis;
+import co.start.vo.OrderVO;
 import co.start.vo.PageDTO;
 import co.start.vo.ProductVO;
+import co.start.vo.UserVO;
 
 public class orderListControl implements Control {
 public static PageDTO pageInfo = null;
@@ -21,6 +23,16 @@ public static PageDTO pageInfo = null;
 		if(page==null) {
 			page = "1";
 		}
+		
+		// 주문상태
+		UserVO user = (UserVO) request.getSession().getAttribute("loginUser");
+		
+		ProductService serviceStatus = new ProductServiceMybatis();		
+		List<OrderVO> status = serviceStatus.countOrderStatus(user.getUserId());
+		System.out.println("status" + status);
+		
+		request.setAttribute("status", status);
+		
 		
 		// 주문목록
 		ProductService service = new ProductServiceMybatis();

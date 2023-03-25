@@ -8,6 +8,7 @@ import co.start.common.DataSource;
 import co.start.mapper.ProductMapper;
 import co.start.vo.BoardVO;
 import co.start.vo.ImagesVO;
+import co.start.vo.OrderVO;
 import co.start.vo.PdreviewVO;
 import co.start.vo.ProductVO;
 import co.start.vo.SearchVO;
@@ -76,6 +77,10 @@ public class ProductServiceMybatis implements ProductService{
 		return mapper.orderListdo();
 	}
 	@Override
+	public List<OrderVO> countOrderStatus(String id) {		// 주문 상태.
+		return mapper.countOrderStatus(id);
+	}
+	@Override
 	public boolean addPdreview(PdreviewVO vo) {		// 리뷰 작성.
 		int r = mapper.insertPdreview(vo);
 		return r ==1;
@@ -112,6 +117,7 @@ public class ProductServiceMybatis implements ProductService{
 		// TODO Auto-generated method stub
 		return mapper.getTotalCount();
 	}
+	
 	
 	
 

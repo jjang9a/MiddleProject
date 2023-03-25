@@ -3,6 +3,7 @@ package co.start.mapper;
 import java.util.List;
 
 import co.start.vo.ImagesVO;
+import co.start.vo.OrderVO;
 import co.start.vo.PdreviewVO;
 import co.start.vo.ProductVO;
 import co.start.vo.SearchVO;
@@ -52,6 +53,8 @@ public interface ProductMapper {
 	// 주문 목록 
 	public List<ProductVO> orderList(int page);
 	public List<ProductVO> orderListdo();
+	// 주문상태 
+	public List<OrderVO> countOrderStatus(String id);
 	// 리뷰 등록
 	public int insertPdreview(PdreviewVO vo);
 	

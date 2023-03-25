@@ -27,7 +27,7 @@
 	</where>
 </select>
 
-<select id="1" resultType="co.start.vo.ProductVO" parameterType="co.start.vo.SearchVO">
+<select id="packageListWithPaging" resultType="co.start.vo.ProductVO" parameterType="co.start.vo.SearchVO">
 	<![CDATA[
 	  select pd_id, pd_name, pd_price, pd_type,  nvl(pd_sale, pd_price) pd_sale, pd_start, pd_end, pd_location, pr_img
 	  from (select  rownum rn, pd_id, pd_name, pd_price, pd_type, pd_sale, pd_start , pd_end, pd_location, pr_img
@@ -98,7 +98,15 @@
 		                                        join orders o on(pa.order_id = o.order_id)) a
 		        where rownum <= (#{page} * 10) ) b
 		where b.rn > (#{page} - 1) * 10
+		order by order_date
 	]]>
+</select>
+
+<select id="countOrderStatus" parameterType="String" resultType="co.start.vo.OrderVO">
+	select  order_status, count(order_status) as status_count
+	from orders
+	where user_id=#{userId}
+	group by order_status
 </select>
 
 <select id="orderListdo" resultType="co.start.vo.ProductVO">
@@ -110,6 +118,13 @@
 	insert into pdreview (user_id, pd_id, pr_body, pr_star, pr_date)
 	values(#{userId}, #{pdId}, #{prBody}, #{prStar}, sysdate)
 </insert>
+
+<select id="mainPackageList" resultType="co.start.vo.ProductVO">
+	select pd.pd_id, pd_price, pd_sale, pr_img, pr_star
+	from product pd join pdreview re on(pd.pd_id = re.pd_id)
+	where pd_type='PK'
+	order by pr_star desc
+</select>
 
 
 

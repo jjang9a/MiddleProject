@@ -2,11 +2,6 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-
-
-       
-
-
         <!-- Carousel Start -->
         <div class="container-fluid p-0 mb-5">
             <div id="header-carousel" class="carousel slide" data-bs-ride="carousel">
@@ -178,85 +173,75 @@
             </div>
         </div>
         <!-- Room End -->
-
-        <!-- Service Start -->
+        
+        <!-- Room Start -->
         <div class="container-xxl py-5">
             <div class="container">
                 <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-                    <h6 class="section-title text-center text-primary text-uppercase">우수</h6>
-                    <h1 class="mb-5"> <span class="text-primary text-uppercase"></span>상품</h1>
+                    <h6 class="section-title text-center text-primary text-uppercase">Spring Season</h6>
+                    <h1 class="mb-5"><span class="text-primary text-uppercase">BEST</span> 여행 패키지 상품</h1>
                 </div>
                 <div class="row g-4">
-                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                        <a class="service-item rounded" href="">
-                            <div class="service-icon bg-transparent border rounded p-1">
-                                <div class="w-100 h-100 border rounded d-flex align-items-center justify-content-center">
-                                    <i class="fa fa-hotel fa-2x text-primary"></i>
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s" >
+                        <div class="room-item shadow rounded overflow-hidden">
+                            <div class="position-relative">
+                                <img class="img-fluid" src="img/경포대.jpg" alt="경포대" style="width: 360px; height: 240px;">
+                                <small class="position-absolute start-0 top-100 translate-middle-y bg-primary text-white rounded py-1 px-3 ms-4">패키지 가격</small>
+                            </div>
+                            <div class="p-4 mt-2" >
+                                <div class="d-flex justify-content-between mb-3">
+                                    <h5 class="mb-0">경포대 명소(벚꽃), 소돌아들바위공원, 중앙시장 당일여행</h5>
+                                    
+                                </div>
+                                <div class="d-flex justify-content-between">
+                                    <a class="btn btn-sm btn-primary rounded py-2 px-4" href="">상세 설명</a>
+                                    <a class="btn btn-sm btn-dark rounded py-2 px-4" href="">예약 및 결제</a>
                                 </div>
                             </div>
-                            <h5 class="mb-3">숙소</h5>
-                            <p class="text-body mb-0">사진</p>
-                        </a>
-                    </div>
-                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
-                        <a class="service-item rounded" href="">
-                            <div class="service-icon bg-transparent border rounded p-1">
-                                <div class="w-100 h-100 border rounded d-flex align-items-center justify-content-center">
-                                    <i class="fa fa-utensils fa-2x text-primary"></i>
-                                </div>
-                            </div>
-                            <h5 class="mb-3">음식</h5>
-                            <p class="text-body mb-0">사진</p>
-                        </a>
+                        </div>
                     </div>
                     <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                        <a class="service-item rounded" href="">
-                            <div class="service-icon bg-transparent border rounded p-1">
-                                <div class="w-100 h-100 border rounded d-flex align-items-center justify-content-center">
-                                    <i class="fa fa-spa fa-2x text-primary"></i>
+                        <div class="room-item shadow rounded overflow-hidden">
+                            <div class="position-relative">
+                                <img class="img-fluid" src="img/동해바다 (당일).jpg" alt="경포대 " style="width: 360px; height: 240px;">
+                                <small class="position-absolute start-0 top-100 translate-middle-y bg-primary text-white rounded py-1 px-3 ms-4">패키지 가격</small>
+                            </div>
+                            <div class="p-4 mt-2">
+                                <div class="d-flex justify-content-between mb-3">
+                                    <h5 class="mb-0">동해바다 한섬 감성 바닷길 / 도째비골 스카이밸리 + 논골담길 / 해안선열차(당일)</h5>
+                                    
+                                </div>
+                                <div class="d-flex justify-content-between">
+                                    <a class="btn btn-sm btn-primary rounded py-2 px-4" href="">상세 설명</a>
+                                    <a class="btn btn-sm btn-dark rounded py-2 px-4" href="">예약 및 결제</a>
                                 </div>
                             </div>
-                            <h5 class="mb-3">음식</h5>
-                            <p class="text-body mb-0">사진</p>
-                        </a>
-                    </div>
-                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.4s">
-                        <a class="service-item rounded" href="">
-                            <div class="service-icon bg-transparent border rounded p-1">
-                                <div class="w-100 h-100 border rounded d-flex align-items-center justify-content-center">
-                                    <i class="fa fa-swimmer fa-2x text-primary"></i>
-                                </div>
-                            </div>
-                            <h5 class="mb-3">숙소</h5>
-                            <p class="text-body mb-0">사진</p>
-                        </a>
-                    </div>
-                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                        <a class="service-item rounded" href="">
-                            <div class="service-icon bg-transparent border rounded p-1">
-                                <div class="w-100 h-100 border rounded d-flex align-items-center justify-content-center">
-                                    <i class="fa fa-glass-cheers fa-2x text-primary"></i>
-                                </div>
-                            </div>
-                            <h5 class="mb-3">명물</h5>
-                            <p class="text-body mb-0">사진</p>
-                        </a>
+                        </div>
                     </div>
                     <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.6s">
-                        <a class="service-item rounded" href="">
-                            <div class="service-icon bg-transparent border rounded p-1">
-                                <div class="w-100 h-100 border rounded d-flex align-items-center justify-content-center">
-                                    <i class="fa fa-dumbbell fa-2x text-primary"></i>
+                        <div class="room-item shadow rounded overflow-hidden">
+                            <div class="position-relative">
+                                <img class="img-fluid" src="img/구례.jpg" alt="경포대" style="width: 360px; height: 240px;">
+                                <small class="position-absolute start-0 top-100 translate-middle-y bg-primary text-white rounded py-1 px-3 ms-4">패키지 가격</small>
+                            </div>
+                            <div class="p-4 mt-2">
+                                <div class="d-flex justify-content-between mb-3">
+                                    <h5 class="mb-0"> 3/18 구례 홍매화 + 산수유 당일여행</h5>
+                                    
+                                </div>
+                                <div class="d-flex justify-content-between">
+                                    <a class="btn btn-sm btn-primary rounded py-2 px-4" href="">상세 설명</a>
+                                    <a class="btn btn-sm btn-dark rounded py-2 px-4" href="">예약 및 결제</a>
                                 </div>
                             </div>
-                            <h5 class="mb-3">숙소	</h5>
-                            <p class="text-body mb-0">사진</p>
-                        </a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Service End -->
+        <!-- Room End -->
+
+        
 
 
         <!-- Testimonial Start -->
