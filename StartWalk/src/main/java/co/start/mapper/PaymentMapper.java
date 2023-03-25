@@ -25,10 +25,10 @@ public interface PaymentMapper {
 	public StartpayVO pointSum(String id); // 현재 보유한 출발페이, 포인트 계산
 	
 	public int createOrder(OrderVO vo); // 주문정보 등록
-	public int searchOrderId(); // 주문번호 조회 ----------------<<이까지만 매퍼에 있음>>
+	public int searchOrderId(); // 주문번호 조회
 	public int insertOrderDetail(PaydetailVO vo); // 주문 상세 상품 등록
 	public int updateCoupon(int cpId); // 쿠폰 상태 사용완료로 변경
-	public int insertPoint(StartpayVO vo); // 적립금 등록
+	public int insertPoint(StartpayVO vo); // 적립금 등록  ----------------<<얘는 구현해야함>>
 	public int CartOrderDel(CartVO vo); // 결제 된 상품 카트에서 삭제
 	
 

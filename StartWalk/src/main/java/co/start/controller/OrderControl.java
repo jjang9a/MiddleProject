@@ -8,8 +8,13 @@ import javax.servlet.http.HttpServletResponse;
 import co.start.common.Control;
 import co.start.service.PaymentService;
 import co.start.service.PaymentServiceMybatis;
+import co.start.service.UserService;
+import co.start.service.UserServiceMybatis;
+import co.start.vo.CartVO;
 import co.start.vo.OrderVO;
+import co.start.vo.PaydetailVO;
 import co.start.vo.ProductVO;
+import co.start.vo.StartpayVO;
 import co.start.vo.UserVO;
 
 public class OrderControl implements Control {
@@ -29,21 +34,31 @@ public class OrderControl implements Control {
 		
 		List<ProductVO> detail = (List<ProductVO>) req.getSession().getAttribute("detail");
 		UserVO user = (UserVO) req.getSession().getAttribute("loginUser");
+		String userId = user.getUserId();
 		OrderVO order = new OrderVO();
+		PaymentService service = new PaymentServiceMybatis();
 		
-		int usedCp = Integer.parseInt(req.getParameter("type"));
 		int usedPoint = Integer.parseInt(req.getParameter("usedPoint"));
 		String method = req.getParameter("paymethod");
 		String addr = req.getParameter("sample6_address")+" "+(req.getParameter("sample6_detailAddress"));
-		
-		order.setUserId(user.getUserId());
-		order.setCpId(usedCp);
+		int orderTotal = Integer.parseInt(req.getParameter("orderTotal"));
+		int realTotal = Integer.parseInt(req.getParameter("realTotal"));
+		int usedCp = 0;
+		if(!req.getParameter("type").equals("none")) {
+			usedCp = Integer.parseInt(req.getParameter("type"));
+			order.setCpId(usedCp);
+			
+			// 쿠폰 상태 사용불가로 업데이트
+			service.useCoupon(usedCp);
+			System.out.println("========쿠폰까지 완료=======");
+		}
+		order.setUserId(userId);
 		order.setDeliReceiver(req.getParameter("reciver"));
 		order.setDeliAddr(addr);
 		order.setDeliPhone(req.getParameter("orderphone"));
 		order.setOrderMethod(method);
-		order.setOrderTotal(Integer.parseInt(req.getParameter("orderTotal")));
-		order.setRealTotal(Integer.parseInt(req.getParameter("realTotal")));
+		order.setOrderTotal(orderTotal);
+		order.setRealTotal(realTotal);
 		order.setUesdPoint(usedPoint);
 		if(method.equals("cash")) {
 			order.setOrderStatus("결제대기");
@@ -51,13 +66,94 @@ public class OrderControl implements Control {
 			order.setOrderStatus("결제완료");
 		}
 		
-		PaymentService service = new PaymentServiceMybatis();
+		// 주문정보 생성
+		System.out.println("order : " + order);
+		service.order(order);
 		
+		// 상세물품 기입 & 카트에서 삭제
+		int orderId = service.getOrderNum();
+		System.out.println("orderId : " + orderId);
+		req.setAttribute("orderId", orderId);
+		req.setAttribute("realTotal", realTotal);
 		
+		CartVO cart = new CartVO();
+		PaydetailVO prod = new PaydetailVO();
+		cart.setUserId(userId);
+		prod.setOrderId(orderId);
+		for(int i=0; i<detail.size(); i++) {
+			prod.setPdId(detail.get(i).getPdId());
+			prod.setPdCount(detail.get(i).getPdCount());
+			service.addDetail(prod);
+			
+			cart.setPdId(detail.get(i).getPdId());
+			CartVO ct = service.getCartInfo(cart);
+			if(ct != null) {
+				service.autoDelCart(cart);	
+			}
+		}
+		System.out.println("장바구니 추가삭제 완료");
 		
-
+		// 출발페이 차감
+		StartpayVO oldpay = service.myPointNow(userId);
+		StartpayVO newpay = new StartpayVO();
+		newpay.setUserId(userId);
 		
-		return null;
+		if(usedPoint > 0) {			
+		int mypoint = oldpay.getPayPoint();
+		int mypay = oldpay.getPayStart();
+		
+			if(usedPoint<=mypoint) {
+				newpay.setPayStart(0);
+				newpay.setPayPoint(-usedPoint);
+			}else{
+				newpay.setPayStart(-(usedPoint-mypoint));
+				newpay.setPayPoint(-mypoint);			
+			}
+				newpay.setPayWhy("["+orderId+"]"+" 구매사용");
+				service.insertPay(newpay);
+		}
+		
+		System.out.println("포인트 사용 완료");
+		
+		// 포인트 적립
+		newpay.setPayStart(0);
+		newpay.setPayWhy("["+orderId+"]"+" 구매적립");
+		
+		String grade = user.getUserGrade();
+		double rate = 0;
+		if(grade.equals("normal")) {
+			rate = 0.01;
+		}else if(grade.equals("silver")){
+			rate = 0.05;
+		}else if(grade.equals("gold")) {
+			rate = 0.1;
+		}else {
+			rate = 0.2;
+		}
+		
+		int save = (int)(orderTotal * rate);
+		newpay.setPayPoint(save);
+		service.insertPay(newpay);
+		
+		System.out.println("포인트 적립 완료");
+		
+		// 주소 저장
+		String isSave = req.getParameter("saveAddr");
+		if(isSave != null && isSave.equals("yes")) {
+			user.setUserAddr(addr);
+			user.setUserPhone(req.getParameter("orderphone"));
+			UserService us = new UserServiceMybatis();
+			us.modifyAddr(user);
+			System.out.println("주소 수정 완료");
+		}
+		
+		//결제페이지로 이동
+		
+		if(method.equals("cash")) {
+			return "pay/payByCash.tiles";
+		}else{
+			return "pay/payByCard.tiles";
+		}
 	}
 
 }

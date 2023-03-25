@@ -56,6 +56,20 @@
 	where order_id = ( select max(order_id) from orders)
 </select>
 
+<insert id="insertOrderDetail" parameterType="PaydetailVO">
+	insert into paydetail values(#{orderId}, #{pdCount}, #{pdId})
+</insert>
+
+<update id="updateCoupon" parameterType="int">
+	update coupon set cp_status = '사용완료' where cp_id = #{cpId}
+</update>
+
+<delete id="CartOrderDel" parameterType="CartVO">
+	delete from cart where user_id=#{userId} and pd_id=#{pdId}
+</delete>
+
+
+
 <!-- 순덕 -->
 
 

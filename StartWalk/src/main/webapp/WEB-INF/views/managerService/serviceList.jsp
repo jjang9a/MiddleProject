@@ -4,7 +4,11 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ include file="../managerService/sidebarManager.jsp" %>
-    
+
+
+<div style="margin: 100px auto 100px auto; width: 1000px; ">
+           
+
 <!-- 목록시작 -->            
 	<div style="float: left; margin-bottom: 50px; padding: 5px 40px;">
 		<h3>고객 문의 게시판</h3>
@@ -51,3 +55,5 @@
 	<%
 	}
 	%>
+	</div>
+	<!-- 목록시작 -->  

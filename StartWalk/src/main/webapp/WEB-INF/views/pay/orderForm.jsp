@@ -43,17 +43,18 @@ h5.input{
 	</table>
 	<hr>
 	<form action="order.do" type="post">
-	<div style="width:600px; margin:auto">
-		<label for="reciver"><b>배송받는 분 </b></label><input type="text" id="reciver" name="reciver" required size="200" style="margin:5px;">
-		<p style="font-size:12px">(패키지 상품의 경우 예약자 이름)</p>
-		<label for="addr"><b>배송지 주소 </b></label> <input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기">
-		<div id="addr" style="margin-legt:50px">
-			<input type="text" id="sample6_postcode" placeholder="우편번호" style="width: 100px; margin:5px;"><br>
-			<input type="text" id="sample6_address" placeholder="주소" style="width: 500px; margin:5px;"><br>
-			<input type="text" id="sample6_detailAddress"  placeholder="상세주소" style="width: 400px; margin:5px;">
-			<input type="hidden" id="sample6_extraAddress" placeholder="참고항목">
-		</div>
-		<label for="orderphone"><b>연락처 </b></label><input type="tell" name="orderphone" style="margin:5px;">
+		<div style="width:600px; margin:auto">
+			<label for="reciver"><b>배송받는 분 </b></label><input type="text" id="reciver" name="reciver" value="${loginUser.userName }" required size="200" style="margin:5px;">
+			<p style="font-size:12px">(패키지 상품의 경우 예약자 이름)</p>
+			<label for="addr"><b>배송지 주소 </b></label> <input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기">
+			<div id="addr" style="margin-legt:50px">
+				<input type="hidden" id="sample6_postcode" placeholder="우편번호" style="width: 100px; margin:5px;"><br>
+				<input type="text" id="sample6_address" name="sample6_address" placeholder="주소" style="width: 500px; margin:5px;"><br>
+				<input type="text" id="sample6_detailAddress" name="sample6_detailAddress" placeholder="상세주소" style="width: 400px; margin:5px;">
+				<input type="hidden" id="sample6_extraAddress" placeholder="참고항목">
+			</div>
+			<label for="orderphone"><b>연락처 </b></label><input type="tell" name="orderphone" value="${loginUser.userPhone }" required style="margin:5px;">
+			<br><Br><label for="saveAddr" style="width : 500px; font-size:14px"><input type="checkbox" id="svaeAddr" name="saveAddr" value="yes" style="width:40px"> 이 주소 내 정보에 저장하기</label>
 		</div>
 		<hr>
 		<table class="table">
@@ -65,7 +66,7 @@ h5.input{
 			</select></td></tr>
 			<tr><th colspan="2">출발페이 및 적립금</th></tr>
 			<tr><td>사용가능한 포인트 :</td><td>${point }</td><td><input type="text" name="usedPoint" id="usedPoint" value="0">
-			<button id="useBtn" name="useBtn">사용</button></td></tr>
+			<button id="useBtn" name="useBtn" type="button">사용</button></td></tr>
 		</table>
 			<hr>
 			<h5>최종 결제액 : <input type="text" id="total" name="total" value="<fmt:formatNumber pattern="###,###,###" value="${total }" />원" style="border:none;" readonly>
@@ -76,7 +77,7 @@ h5.input{
 			<input type="radio" name="paymethod" value="cash" style="width:20px;"><label>무통장 입금</label>
 			<input type="radio" name="paymethod" value="card" style="width:20px;"><label>신용카드</label>
 			<div>
-			<button style="margin:20px 0;">결제</button>
+			<button style="margin:20px 0;" type="submit">결제</button>
 			</div>
 	</form>
 </div>

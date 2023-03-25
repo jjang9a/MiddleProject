@@ -71,7 +71,7 @@ public class AddProductControl implements Control {
 			e.printStackTrace();
 		}
 
-		return "main.do";
+		return "addProductForm.do";
 	}
 
 }
