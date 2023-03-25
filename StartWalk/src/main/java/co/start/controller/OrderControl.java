@@ -42,6 +42,7 @@ public class OrderControl implements Control {
 		String method = req.getParameter("paymethod");
 		String addr = req.getParameter("sample6_address")+" "+(req.getParameter("sample6_detailAddress"));
 		int orderTotal = Integer.parseInt(req.getParameter("orderTotal"));
+		int realTotal = Integer.parseInt(req.getParameter("realTotal"));
 		int usedCp = 0;
 		if(!req.getParameter("type").equals("none")) {
 			usedCp = Integer.parseInt(req.getParameter("type"));
@@ -57,7 +58,7 @@ public class OrderControl implements Control {
 		order.setDeliPhone(req.getParameter("orderphone"));
 		order.setOrderMethod(method);
 		order.setOrderTotal(orderTotal);
-		order.setRealTotal(Integer.parseInt(req.getParameter("realTotal")));
+		order.setRealTotal(realTotal);
 		order.setUesdPoint(usedPoint);
 		if(method.equals("cash")) {
 			order.setOrderStatus("결제대기");
@@ -73,6 +74,7 @@ public class OrderControl implements Control {
 		int orderId = service.getOrderNum();
 		System.out.println("orderId : " + orderId);
 		req.setAttribute("orderId", orderId);
+		req.setAttribute("realTotal", realTotal);
 		
 		CartVO cart = new CartVO();
 		PaydetailVO prod = new PaydetailVO();
@@ -84,7 +86,10 @@ public class OrderControl implements Control {
 			service.addDetail(prod);
 			
 			cart.setPdId(detail.get(i).getPdId());
-			service.autoDelCart(cart);			
+			CartVO ct = service.getCartInfo(cart);
+			if(ct != null) {
+				service.autoDelCart(cart);	
+			}
 		}
 		System.out.println("장바구니 추가삭제 완료");
 		
@@ -134,7 +139,7 @@ public class OrderControl implements Control {
 		
 		// 주소 저장
 		String isSave = req.getParameter("saveAddr");
-		if(isSave.equals("yes")) {
+		if(isSave != null && isSave.equals("yes")) {
 			user.setUserAddr(addr);
 			user.setUserPhone(req.getParameter("orderphone"));
 			UserService us = new UserServiceMybatis();

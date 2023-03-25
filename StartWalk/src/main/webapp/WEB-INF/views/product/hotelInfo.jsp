@@ -46,7 +46,7 @@
 			<div class="col-lg-6">
 				<h4>${hotel.pdName }</h4>
 				<div class="wow fadeInUp" data-wow-delay="0.2s">
-					<form>
+					<form action="orderDirect.do" type="post">
 						<div class="row g-3">
 							<div class="col-12" style="text-align:right; padding-top:10px">
 								<input type="hidden" name="pdid" id="pdid" value="${hotel.pdId }"/>

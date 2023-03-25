@@ -151,9 +151,7 @@ span.price {
           </div>
 
         </div>
-        <label>
-          <input type="checkbox" checked="checked" name="sameadr"> Shipping address same as billing
-        </label>
+		<input type="hidden" name="orderId" value="${orderId }">
         <input type="submit" value="결제하기" class="btnn">
       </form>
     </div>

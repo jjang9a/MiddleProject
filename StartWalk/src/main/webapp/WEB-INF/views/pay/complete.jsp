@@ -1,9 +1,28 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%-- <h4>주문번호 : [${orderId }] <br> 주문 완료되었습니다</h4> --%>
-<a href="main.do">메인으로</a>
-<a href="orderList.do">내 주문목록</a>
-<form action="test2.do" type="get">
-<input type="checkbox" value="yes" name="check">
-<button>보내기</button>
-</form>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+
+<style>
+h4, h5, p{
+text-align : center;
+}
+hr{
+margin-top : 30px;
+}
+p{
+font-size : smaller;
+}
+.link{
+margin : 50px;
+}
+</style>
+
+<div style="margin: 300px auto 300px auto; width: 1000px; align:center;">
+<h4>주문번호 [${orderId }]</h4>
+<h5 style="color:orange">주문 완료되었습니다</h5>
+<br>
+<div class="link" align="center">
+<a href ="main.do"><input class="btn btn-primary" type="submit" value="메인으로" style="font-size:12px"></a>
+<a href ="orderList.do"><input class="btn btn-primary" type="submit" value="내구매목록" style="font-size:12px"></a>
+</div>
