@@ -9,16 +9,20 @@ import co.start.common.Control;
 import co.start.service.BoardService;
 import co.start.service.BoardServiceMybatis;
 import co.start.vo.BoardVO;
+import co.start.vo.UserVO;
 
 public class ScUserListControl implements Control {
 
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
 		
-		BoardService service = new BoardServiceMybatis();
-		List<BoardVO> list = service.scUserList();
+		UserVO user = (UserVO)request.getSession().getAttribute("loginUser");
+		String Id = user.getUserId();
 		
-//		String id = request.getParameter("userId");
+		BoardService service = new BoardServiceMybatis();
+		List<BoardVO> list = service.scUserList(Id);
+		
+
 		request.setAttribute("list", list);
 		
 		return "mypage/scUserList.tiles";

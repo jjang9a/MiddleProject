@@ -49,36 +49,22 @@ public class UserServiceMybatis implements UserService{
 		int r = mapper.addUser(vo);
 		return r == 1;
 	}
-	// 쪽지 목록 관리자(전체리스트).
+	// 보낸쪽지함 목록 관리자(전체리스트).
 	@Override
-	public List<MessageVO> senderList() {
-		return mapper.senderList();
+	public List<MessageVO> senderList(String Id) {
+		return mapper.senderList(Id);
 	}
-	// 관리자 조회 (쪽지 고유번호 상세조회).
+	// 보낸쪽지 조회 (쪽지 고유번호 상세조회).
 	@Override
-	public MessageVO senderSearch(int dmId) {
-		return mapper.senderSearch(dmId);
+	public MessageVO dmSearch(int dmId) {
+		return mapper.dmSearch(dmId);
 	}
-	// 관리자 쪽지 보내기(등록).
+	// 받은 쪽지함 목록 (전체리스트).
 	@Override
-	public boolean senderWrite(MessageVO vo) {
-		return mapper.senderWrite(vo)==1;
+	public List<MessageVO> receiverList(String Id) {
+		return mapper.receiverList(Id);
 	}
-	// 삭제.
-	@Override
-	public boolean senderRemove(int dmId) {
-		return mapper.senderRemove(dmId);
-	}
-	// 목록 회원(전체리스트).
-	@Override
-	public List<MessageVO> receiverList() {
-		return mapper.receiverList();
-	}
-	// 회원 쪽지 보내기(등록).
-	@Override
-	public boolean receiverWrite(MessageVO vo) {
-		return mapper.receiverWrite(vo)==1;
-	}
+	
 
 	
 		

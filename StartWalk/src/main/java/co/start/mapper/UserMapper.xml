@@ -34,4 +34,17 @@
   </insert>
 
 
+<select id="senderList" resultType="MessageVO" parameterType="String">
+	select * from message where Dm_sender=#{Id}
+</select>
+
+<select id="receiverList" resultType="MessageVO" parameterType="String">
+	select * from message where Dm_receiver=#{Id}
+</select>
+
+<select id="dmSearch" resultType="MessageVO" parameterType ="int">
+   select * from message where Dm_Id=#{dmId}
+</select> 
+
+
 </mapper>
