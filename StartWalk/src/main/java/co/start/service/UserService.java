@@ -14,14 +14,11 @@ public interface UserService {
 	public boolean addUser(UserVO vo);
 	
 	// 쪽지 dm (sender)
-		public List<MessageVO> senderList(); // 목록 보내는사람(전체리스트).
-		public MessageVO senderSearch(int dmId); // 조회 (쪽지 고유번호 상세조회).
-		public boolean senderWrite(MessageVO vo); // 관리자 쪽지 보내기(등록).
-		public boolean senderRemove(int dmId); // 삭제
+	public List<MessageVO> senderList(String Id); // 목록 보내는사람(전체리스트).
+	public MessageVO dmSearch(int dmId); // 조회 (쪽지 고유번호 상세조회).
 		
-		// 쪽지 dm (receiver)
-		public List<MessageVO> receiverList(); // // 목록 회원(전체리스트).
-		public boolean receiverWrite(MessageVO vo); // // 회원 쪽지 보내기(등록).
+	// 쪽지 dm (receiver)
+	public List<MessageVO> receiverList(String Id); // // 목록 받는사람(전체리스트).
 		
 	
 	// 가애
@@ -29,9 +26,11 @@ public interface UserService {
 	public boolean modifyUser(UserVO vo); // 회원 정보 업데이트
 	public boolean modifyAddr(UserVO vo); // 주소&연락처 업데이트 
 	
+
 	
 	// 메인화면 전체회원 수
 	public UserVO mainCountUser();
 	
+
 		
 }
