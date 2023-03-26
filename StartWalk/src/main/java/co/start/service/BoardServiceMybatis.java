@@ -52,6 +52,11 @@ public class BoardServiceMybatis implements BoardService{
 	public boolean countUp(int bid) {
 		return mapper.updateBHit(bid) == 1;
 	}
+	@Override
+	public boolean likeUp(int bid) {
+		return mapper.updateReco(bid) == 1;
+	}
+	
 	
 	
 	// 순덕
@@ -144,10 +149,9 @@ public class BoardServiceMybatis implements BoardService{
 	}
 	// 회원 문의작성.
 	@Override
-	public boolean UserWrite(BoardVO vo) {
-		return mapper.UserWrite(vo)==1;
+	public boolean scUserWrite(BoardVO vo) {
+		return mapper.scUserWrite(vo)==1;
 	}
-	
-	
+
 	
 }

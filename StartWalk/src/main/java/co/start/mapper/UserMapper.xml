@@ -15,6 +15,9 @@
 	update users set user_addr=#{userAddr}, user_phone=#{userPhone}
 	where user_id = #{userId}
 </update>
+<insert id="addMsg" parameterType="MessageVO">
+	insert into message values(post_seq.nextval, #{dmReceiver}, #{dmSender}, #{dmBody}, sysdate)
+</insert>
 
 <!-- 순덕 -->
 <select id="mainCountUser" parameterType="UserVO">

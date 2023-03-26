@@ -7,7 +7,9 @@
 
 
 <div style="margin: 100px auto 100px auto; width: 1000px; ">
-           
+
+<!-- 사이드바 -->
+<!-- 사이드바 종료 -->            
 
 <!-- 목록시작 -->            
 	<div style="float: left; margin-bottom: 50px; padding: 5px 40px;">

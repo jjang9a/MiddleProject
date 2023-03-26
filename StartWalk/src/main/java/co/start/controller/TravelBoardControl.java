@@ -8,7 +8,10 @@ import javax.servlet.http.HttpServletResponse;
 import co.start.common.Control;
 import co.start.service.BoardService;
 import co.start.service.BoardServiceMybatis;
+import co.start.service.CommentsService;
+import co.start.service.CommentsServiceMybatis;
 import co.start.vo.BoardVO;
+import co.start.vo.CommentsVO;
 import co.start.vo.ImagesVO;
 
 public class TravelBoardControl implements Control {
@@ -23,8 +26,14 @@ public class TravelBoardControl implements Control {
 		
 		service.countUp(bid);
 		
+		CommentsService cs = new CommentsServiceMybatis();
+		List<CommentsVO> comm = cs.CommentsList(bid);
+		System.out.println("코멘트"+comm);
+		
+		request.getSession().setAttribute("mo", vo);
 		request.setAttribute("info", vo);
 		request.setAttribute("list", list);
+		request.setAttribute("comment", comm);
 		
 		return "board/travelRead.tiles";
 	}

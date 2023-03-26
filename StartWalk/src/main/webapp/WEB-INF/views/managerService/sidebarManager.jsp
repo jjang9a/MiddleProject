@@ -9,9 +9,9 @@
 		  <div style="width: 200px; float: left;  ">
                 <p style="color:rgb(255, 255, 255); font-weight: 700; font-size: 25px;  background-color: #0f172b; text-align: center; padding: 20px; margin-bottom: 0; border-bottom: 5px solid #fea116;">관리자 모드</p>
                  <div style="border: 2px solid rgb(230, 226, 226);  padding: 45px 20px; margin-top: 0 auto;"> 
-                     <a href="faq.do" style="color:black;">자주 묻는 질문(FAQ)</a>
+                     <a href="" style="color:black;">회원/결제 관리</a>
                     <hr>
-                     <a href="scManagerList.do" style="color:black;">1:1 문의하기(Q&#38;A)</a>
+                     <a href="scManagerList.do" style="color:black;">고객 문의답변(1:1)</a>
                      <hr>
                      <p style="margin-bottom:0;">상품등록</p>
                      <p style="margin-bottom:0;"><a href="packageAddForm.do" style="color:black; font-size: 13px;">&nbsp;&nbsp;패키지 상품등록</a></p>

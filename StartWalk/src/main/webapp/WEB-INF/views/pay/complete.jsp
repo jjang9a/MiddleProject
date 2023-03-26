@@ -18,11 +18,12 @@ margin : 50px;
 }
 </style>
 
-<div style="margin: 300px auto 300px auto; width: 1000px; align:center;">
+<div style="margin: 200px auto 200px auto; width: 1000px; align:center;">
 <h4>주문번호 [${orderId }]</h4>
 <h5 style="color:orange">주문 완료되었습니다</h5>
 <br>
 <div class="link" align="center">
 <a href ="main.do"><input class="btn btn-primary" type="submit" value="메인으로" style="font-size:12px"></a>
 <a href ="orderList.do"><input class="btn btn-primary" type="submit" value="내구매목록" style="font-size:12px"></a>
+</div>
 </div>
