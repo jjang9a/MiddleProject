@@ -9,7 +9,7 @@
 
 <!-- 목록시작 -->            
 	<div style="float: left; margin-bottom: 50px; padding: 5px 40px;">
-		<h3> 쪽지 함 </h3>
+		<h3 style=""> 쪽지함 </h3>
 		<hr>
 		<div align="right"><a href =""><input class="btn btn-primary" type="submit" value="글쓰기"></a></div>
 		<h5>보낸쪽지함</h5>      
@@ -65,4 +65,4 @@
 </div>
 <div style="clear: both;">		
 </div>
-	
+</div>

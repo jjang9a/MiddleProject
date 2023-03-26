@@ -4,15 +4,15 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
-        <!-- Carousel Start -->
+<!-- Carousel Start -->
         <div class="container-fluid p-0 mb-5">
-            <div id="header-carousel" class="carousel slide" data-bs-ride="carousel">                  
-                    <c:forEach var="bestPackage" items="${bestPackage }" varStatus="status">
+            <div id="header-carousel" class="carousel slide" data-bs-ride="carousel">
+<c:forEach var="bestPackage" items="${bestPackage }" varStatus="status">
 
                     <c:choose>
                     <c:when test="${status.first }">
 						<div class="carousel-inner">
-							<div class="carousel-item active">
+							<div class="carousel-item active">  
 								<img class="w-100" src="./upload/${bestPackage.prImg }" alt="Image" style="height: 700px;">
 								<div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
 									<div class="p-3" style="max-width: 750px;">
@@ -64,11 +64,9 @@
                     <span class="visually-hidden">Next</span>
                 </button>
                     </c:forEach>
-          
             </div>
         </div>
         <!-- Carousel End -->
-
 
         <!-- About Start -->
         <div class="container-xxl py-5">
