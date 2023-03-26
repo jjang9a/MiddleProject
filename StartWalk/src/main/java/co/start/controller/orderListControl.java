@@ -5,6 +5,8 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.jasper.tagplugins.jstl.core.ForEach;
+
 import co.start.common.Control;
 import co.start.service.ProductService;
 import co.start.service.ProductServiceMybatis;
@@ -32,6 +34,37 @@ public static PageDTO pageInfo = null;
 		
 		request.setAttribute("status", status);
 		
+		int statusA = 0;
+		int statusB = 0;
+		int statusC = 0;
+		int statusD = 0;
+		int statusE = 0;
+		
+		for(OrderVO i: status) {
+			if(i.getOrderStatus().equals("결제대기")) {
+				statusA ++;
+			}else if(i.getOrderStatus().equals("결제완료")){
+				statusB ++;
+			}else if(i.getOrderStatus().equals("배송전")){
+				statusC ++;
+			}else if(i.getOrderStatus().equals("배송중")){
+				statusD ++;
+			}else if(i.getOrderStatus().equals("배송완료")){
+				statusE ++;
+			}
+			
+		}
+		
+		request.setAttribute("statusA", statusA);
+		request.setAttribute("statusB", statusB);
+		request.setAttribute("statusC", statusC);
+		request.setAttribute("statusD", statusD);
+		request.setAttribute("statusE", statusE);
+		System.out.println(statusA);
+		System.out.println(statusB);
+		System.out.println(statusC);
+		System.out.println(statusD);
+		System.out.println(statusE);
 		
 		// 주문목록
 		ProductService service = new ProductServiceMybatis();

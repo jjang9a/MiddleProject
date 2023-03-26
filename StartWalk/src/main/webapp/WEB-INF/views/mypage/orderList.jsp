@@ -12,39 +12,10 @@
 	<div style="margin: 40px 30px; width:700px;">
 		<h3>주문 내역</h3>		
 	</div>
-
-	<c:set var="statusA" value="0"/>
-	<c:set var="statusB" value="0"/>
-	<c:set var="statusC" value="0"/>
-	<c:set var="statusD" value="0"/>
-	<c:set var="statusE" value="0"/>						
-							
-							
+				
 	<c:choose>
 		<c:when test="${loginUser.getUserId()!= null}">
-			<c:forEach var="status" items="${status}">
-				<c:choose>
-				<c:when test="${status.userId == loginUser.getUserId()}">
-					<c:choose>
-						<c:when test="${status.orderStatus == '결제대기'}">
-							<c:set var="statusA" value="${statusA+1}"/>
-						</c:when>
-						<c:when test="${status.orderStatus == '결제완료'}">
-							<c:set var="statusB" value="${statusB+1}"/>
-						</c:when>
-						<c:when test="${status.orderStatus == '배송전'}">
-							<c:set var="statusC" value="${statusC+1}"/>
-						</c:when>
-						<c:when test="${status.orderStatus == '배송중'}">
-							<c:set var="statusD" value="${statusD+1}"/>
-						</c:when>
-						<c:when test="${status.orderStatus == '배송완료'}">
-							<c:set var="statusE" value="${statusE+1}"/>
-						</c:when>				
-					</c:choose>
-				</c:when>				
-				</c:choose>
-			</c:forEach>
+		
 					<!-- 주문상태 현황 start -->	
 						<div>
 							<div class="row g-3 pb-4" style="margin-left: 30px;">
@@ -95,7 +66,9 @@
 		                		</div>	
 							</div>	
 						</div>	
-				<!-- 주문상태 현황 end -->			
+				<!-- 주문상태 현황 end -->				
+			
+			
 				</c:when>
 				<c:otherwise>
 					<!-- 주문상태 현황 start -->	
