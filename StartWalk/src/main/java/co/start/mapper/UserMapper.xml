@@ -11,6 +11,10 @@
 	update users set user_mail=#{userMail}, user_passwd=#{userPasswd}, user_addr=#{userAddr}, user_phone=#{userPhone}
 	where user_id = #{userId}
 </update>
+<update id="updateAddr" parameterType="UserVO">
+	update users set user_addr=#{userAddr}, user_phone=#{userPhone}
+	where user_id = #{userId}
+</update>
 
 <!-- 순덕 -->
 

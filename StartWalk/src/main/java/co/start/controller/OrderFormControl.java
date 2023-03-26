@@ -50,6 +50,7 @@ public class OrderFormControl implements Control {
 		req.setAttribute("coupons", coupons);
 
 		StartpayVO point = service.myPointNow(userId);
+		System.out.println("my point : "+point);
 		int sum = point.getPayStart() + point.getPayPoint();
 		req.setAttribute("point", sum);
 

@@ -25,9 +25,8 @@ public interface UserService {
 		
 	
 	// 가애
-	// 특정 회원 조회
-	public UserVO getUserInfo(String id);	
-	// 회원 정보 업데이트
-	public boolean modifyUser(UserVO vo);
+	public UserVO getUserInfo(String id); // 특정 회원 조회
+	public boolean modifyUser(UserVO vo); // 회원 정보 업데이트
+	public boolean modifyAddr(UserVO vo); // 주소&연락처 업데이트 
 		
 }

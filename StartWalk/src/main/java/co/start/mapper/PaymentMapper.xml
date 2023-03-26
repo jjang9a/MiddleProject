@@ -57,7 +57,7 @@
 </select>
 
 <insert id="insertOrderDetail" parameterType="PaydetailVO">
-	insert into paydetail values(detail_seq.nextval, #{pdCount}, #{pdId})
+	insert into paydetail values(#{orderId}, #{pdCount}, #{pdId})
 </insert>
 
 <update id="updateCoupon" parameterType="int">

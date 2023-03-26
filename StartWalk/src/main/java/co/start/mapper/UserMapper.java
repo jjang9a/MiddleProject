@@ -28,5 +28,7 @@ public interface UserMapper {
 	public UserVO userInfo(String id);
 	// 회원 정보 수정
 	public int updateUser(UserVO vo);
+	// 주소 연락처 업데이트
+	public int updateAddr(UserVO vo);
 	
 }
