@@ -146,4 +146,9 @@
 	select * from board where b_category='CU' and user_Id=#{Id}
 </select>
 
+<insert id="scUserWrite" parameterType = "BoardVO">
+  	insert into board(b_id, user_id, b_title, b_contents, b_category, b_writeDate)
+  	values(board_seq.nextval, #{userId}, #{bTitle}, #{bContents}, 'CU', sysdate )
+</insert>
+
 </mapper>
