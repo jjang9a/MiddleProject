@@ -59,7 +59,7 @@
 										<p>
 											<strong style="color: red;">
 												<fmt:setLocale value="ko_kr" />
-												<fmt:formatNumber value="${o.pdSale }" type="currency"  /></strong>
+												<fmt:formatNumber value="${o.pdSale }" type="currency" /></strong>
 										</p>
 									</c:when>
 									<c:otherwise>

@@ -27,5 +27,11 @@ public interface UserService {
 	public boolean modifyAddr(UserVO vo); // 주소&연락처 업데이트 
 	public boolean writeMsg(MessageVO vo); // 쪽지보내기
 	
+
+	
+	// 메인화면 전체회원 수
+	public UserVO mainCountUser();
+	
+
 		
 }

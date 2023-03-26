@@ -20,6 +20,7 @@ public class OrderVO {
 		private String orderStatus; // 현재 주문 상태 (결제대기중, 결제완료, 배송준비중, 배송중, 배송완료)
 		private int realTotal; // 실 결제금액
 		private int uesdPoint; // 포인트 사용액
+		private int statusCount; // 주문상태 누적 합
 
 		
 }

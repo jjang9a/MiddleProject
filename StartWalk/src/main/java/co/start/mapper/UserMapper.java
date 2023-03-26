@@ -30,4 +30,9 @@ public interface UserMapper {
 	public int addMsg(MessageVO vo); // 쪽지 보내기
 	
 	
+	// 메인화면 전체회원 수
+	public UserVO mainCountUser();
+	
+	
+
 }

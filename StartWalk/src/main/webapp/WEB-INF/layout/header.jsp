@@ -69,7 +69,7 @@
                                 <a href="orderList.do" class="nav-item nav-link">마이페이지</a>
                                 <a href="noticeList.do" class="nav-item nav-link">고객센터</a>
                                 <c:if test="${loginUser.userGrade.equals('admin') }">								
-                                <a href="scManagerList.do" class="nav-item nav-link">관리모드</a>
+                                <a href="faq.do" class="nav-item nav-link">관리모드</a>
 								</c:if>
                             </div>
                             <a href="cart.do?${loginUser.userId }" class="btn btn-primary rounded-0 py-4 px-md-5 d-none d-lg-block" style="width: 200px; padding: 0;"> <img src="img/cart.png" alt="장바구니" style="width: 25%; height: 25%;">&nbsp; 장바구니</a>
