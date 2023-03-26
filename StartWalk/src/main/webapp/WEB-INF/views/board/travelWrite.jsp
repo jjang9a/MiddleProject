@@ -3,34 +3,52 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
-<table class='table'>
-	<form action='travelBoardWrite.do' method='post' enctype="multipart/form-data">
-		<tr>
-			<td>제목</td><td><input type="text" name="title"></td>
-		</tr>
-		<tr>
-			<td><label for="head">말머리</label></td><td><select id="head" name="head">
-				<option value="pk">패키지여행</option>
-				<option value="free">자유여행</option>
-			</select>
-		</tr>
-		<tr>
-			<td>내용</td><td><textarea cols="50" rows="10" name="body"></textarea></td>
-		</tr>
-		<tr>
-			<td>사진 첨부</td><td><input type="file" name="img1" id="img1"></td>
-		</tr>
-		<tr>
-			<td>사진 첨부</td><td><input type="file" name="img2" id="img2"></td>
-		</tr>
-		<tr>
-			<td>사진 첨부</td><td><input type="file" name="img3" id="img3"></td>
-		</tr>
-		<tr>
-			<td colspan="2" align="center"><input type="submit" value="저장"></td>
-		</tr>
-	</form>
-</table>
+<style>
+table{
+	width : 600px;
+	border : none;
+	margin : auto;
+}
+tr{
+	margin : 10px;
+}
+th, td{
+	padding : 5px;
+}
+</style>
+
+<div style="margin: 100px auto 100px auto; width: 1000px; ">
+	<h3 style="padding-left : 180px">새 글 쓰기</h3>
+	<hr>
+	<table>
+		<form action='travelBoardWrite.do' method='post' enctype="multipart/form-data">
+			<tr>
+				<td>제목</td><td><input type="text" name="title" style="width : 420px"></td>
+			</tr>
+			<tr>
+				<td><label for="head">말머리</label></td><td><select id="head" name="head">
+					<option value="pk">패키지여행</option>
+					<option value="free">자유여행</option>
+				</select>
+			</tr>
+			<tr>
+				<td>내용</td><td><textarea cols="50" rows="10" name="body"></textarea></td>
+			</tr>
+			<tr>
+				<td>사진 첨부</td><td><input type="file" name="img1" id="img1"></td>
+			</tr>
+			<tr>
+				<td>사진 첨부</td><td><input type="file" name="img2" id="img2"></td>
+			</tr>
+			<tr>
+				<td>사진 첨부</td><td><input type="file" name="img3" id="img3"></td>
+			</tr>
+			<tr>
+				<td colspan="2" align="center" style="padding : 15px"><input type="submit" class="btn btn-primary" value="저장"></td>
+			</tr>
+		</form>
+	</table>
+</div>
 
 <script>
 	document.querySelector('form').addEventListener('submit', function(e){

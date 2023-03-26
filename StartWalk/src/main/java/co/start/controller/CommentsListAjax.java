@@ -21,7 +21,7 @@ public class CommentsListAjax implements Control{
 		CommentsService service = new CommentsServiceMybatis();
 		BoardVO vo  = (BoardVO) request.getSession().getAttribute("mo");
 		List<CommentsVO> list = service.CommentsList(vo.getBId());
-		
+		System.out.println(list);
 		Gson gson = new GsonBuilder().create();
 		String json = gson.toJson(list);
 		return json + ".ajax";

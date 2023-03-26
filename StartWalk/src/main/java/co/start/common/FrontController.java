@@ -84,6 +84,8 @@ import co.start.controller.UserUpdateCheckControl;
 import co.start.controller.UserUpdateControl;
 import co.start.controller.UserUpdateFormControl;
 import co.start.controller.orderListControl;
+import co.start.controller.writeMsgControl;
+import co.start.controller.writeMsgFormControl;
 import co.start.controller.NoticeListControl;
 import co.start.controller.LogoutControl;
 import co.start.controller.StartpayListControl;
@@ -128,6 +130,8 @@ public class FrontController extends HttpServlet {
 		map.put("/faq.do", new FAQControl()); // 자주묻는 질문 페이지
 		map.put("/addProductForm.do", new AddProductFormControl()); // 판매상품 추가 페이지
 		map.put("/addProduct.do", new AddProductControl()); // 판매상품 추가 처리
+		map.put("/writeMsgForm.do", new writeMsgFormControl()); // 쪽지보내기 창
+		map.put("/writeMsg.do", new writeMsgControl()); // 쪽지 보내기 처리
 
 		// 순덕
 		// 지역별 여행 패키지 목록
