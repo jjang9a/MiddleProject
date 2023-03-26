@@ -13,7 +13,7 @@
 
 <!-- 목록시작 -->            
 	<div style="float: left; margin-bottom: 50px; padding: 5px 40px;">
-		<h3>고객 문의 게시판</h3>
+		<h3>고객 문의 게시판(관리자용)</h3>
 		<hr>
 		<div align="right"><a href ="scWriteForm.do"><input class="btn btn-primary" type="submit" value="글쓰기"></a></div>      
 		<table class="table" style="width: 720px; margin:auto">

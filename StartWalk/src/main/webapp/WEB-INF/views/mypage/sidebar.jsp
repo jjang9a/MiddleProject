@@ -16,7 +16,7 @@
                     <hr>
                     <a href="senderList.do" style="color:black;">쪽지함</a>
                     <hr>
-                     <a href="scWriteForm.do" style="color:black;">1:1 문의하기(Q&#38;A)</a>
+                     <a href="scUserList.do" style="color:black;">1:1 문의하기(Q&#38;A)</a>
                     <hr>
                      <a href="userUpdateCheck.do" style="color:black;">회원정보 수정</a>
                     

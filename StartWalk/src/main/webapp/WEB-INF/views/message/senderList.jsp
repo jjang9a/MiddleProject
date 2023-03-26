@@ -6,6 +6,8 @@
 <%@ include file="../mypage/sidebar.jsp" %>
 
 <!-- 목록시작 -->            
+	<div style="float: left; margin-bottom: 50px; padding: 5px 40px;">
+		<h3 style=""> 쪽지함 </h3>
 	<div style="float: left; margin-bottom: 50px; margin-top: 40px; padding: 5px 40px;">
 		<h3> 쪽지함 </h3>
 		<hr>
@@ -56,6 +58,9 @@
 <div style="clear: both; height:80px;">		
 </div>
 </div>
+<<<<<<< HEAD
+</div>
+=======
 	
 <script>
 function openPopUp() {
@@ -66,3 +71,4 @@ function openPopUp() {
 	 window.open("writeMsgForm.do", "Message", "width=400, height=360, top=150, left=200");
 }
 </script>
+>>>>>>> branch 'master' of https://github.com/jjang9a/StartWalk.git
