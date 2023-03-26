@@ -32,7 +32,10 @@ public class UserServiceMybatis implements UserService{
 		
 
 	// 순덕
-	
+	@Override
+	public UserVO mainCountUser() {
+		return mapper.mainCountUser();
+	}
 	
 	// 용억
 	
@@ -65,6 +68,8 @@ public class UserServiceMybatis implements UserService{
 		return mapper.receiverList(Id);
 	}
 	
+
+
 
 	
 		

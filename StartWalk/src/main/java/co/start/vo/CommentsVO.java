@@ -15,4 +15,8 @@ public class CommentsVO {
 	private String coBody; // 댓글 내용
 	private Date coDate; // 댓글 작성일 - 디폴트:sysdate
 	
+	// 메인화면에서 사용할  user 등급
+	private String userGrade; // normal, silver, gold, vip, admin - 디폴트로 normal 지정되어있으므로 입력안해도 상관없음
+ 
+	
 }

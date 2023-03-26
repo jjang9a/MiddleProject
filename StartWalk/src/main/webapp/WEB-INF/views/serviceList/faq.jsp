@@ -2,6 +2,8 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ include file="../managerService/sidebarManager.jsp" %>
+
 <style>
   .answer {
     display: none;
@@ -31,7 +33,8 @@
   }
 </style>
 
-<span id="faq-title">자주 묻는 질문(FAQ)</span>
+<div style="width: 750px; float:left; margin-left: 30px; padding:30px;">
+<span id="faq-title" style="font-weight:700; color:rgb(1, 148, 8);">자주 묻는 질문(FAQ)</span>
 <div class="faq-content">
   <button class="question" id="que-1"><span id="que-1-toggle">+</span><span>'HTML'이란 무엇인가요?</span></button>
   <div class="answer" id="ans-1">하이퍼텍스트 마크업 언어(HyperText Markup Language)입니다.</div>
@@ -62,3 +65,11 @@
 
   items.forEach(item => item.addEventListener('click', openCloseAnswer));
 </script>
+
+</div>
+
+<div style="clear: both;">
+</div>
+
+<!-- body end -->
+</div>

@@ -26,5 +26,11 @@ public interface UserService {
 	public boolean modifyUser(UserVO vo); // 회원 정보 업데이트
 	public boolean modifyAddr(UserVO vo); // 주소&연락처 업데이트 
 	
+
+	
+	// 메인화면 전체회원 수
+	public UserVO mainCountUser();
+	
+
 		
 }

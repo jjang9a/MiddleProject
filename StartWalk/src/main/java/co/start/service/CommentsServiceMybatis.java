@@ -29,4 +29,11 @@ public class CommentsServiceMybatis implements CommentsService{
 		
 		return mapper.deleteComments(coId)==1;
 	}
+
+	
+	
+	@Override
+	public List<CommentsVO> mainommentsList() {
+		return mapper.mainommentsList();
+	}
 }
