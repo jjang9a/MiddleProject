@@ -138,8 +138,8 @@
 </delete>
  
  
- <select id="scUserList" resultType="BoardVO">
-	select * from board where b_category='CU' 
+ <select id="scUserList" resultType="BoardVO" parameterType="String">
+	select * from board where b_category='CU' and user_Id=#{Id}
 </select>
 
 </mapper>

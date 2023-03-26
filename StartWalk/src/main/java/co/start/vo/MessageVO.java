@@ -13,6 +13,6 @@ public class MessageVO {
 	private String dmReceiver; // 받는사람
 	private String dmSender; // 보낸사람
 	private String dmBody; // 쪽지 내용
-	private Date dm_date; // 보낸 날짜 - 디폴트:sysdate
+	private Date dmDate; // 보낸 날짜 - 디폴트:sysdate
 	
 }

@@ -46,7 +46,7 @@ public interface BoardService {
 	public boolean scWrite(BoardVO vo); // 문의 작성 (등록)
 	public boolean scRemove(int bId); // 삭제
 	
-	public List<BoardVO> scUserList(); // 회원 전체리스트 조회.
+	public List<BoardVO> scUserList(String Id); // 회원 전체리스트 조회.
 	public boolean UserWrite(BoardVO vo); // 회원 문의작성.
 		
 	// 순덕
