@@ -20,7 +20,7 @@ public class MateAddControl implements Control {
 
 		// int bid = Integer.parseInt(request.getParameter("bid"));
 		String userId = request.getParameter("id");
-		String head = request.getParameter("ca");
+		String head = request.getParameter("type");
 		String title = request.getParameter("title");
 		String contents = request.getParameter("text");
 		// String category = request.getParameter("cate");
