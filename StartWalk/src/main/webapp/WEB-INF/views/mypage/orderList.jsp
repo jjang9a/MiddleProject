@@ -12,149 +12,154 @@
 	<div style="margin: 40px 30px; width:700px;">
 		<h3>주문 내역</h3>		
 	</div>
-		<c:if test="${status.contains('결제대기')==true}">
-			<c:forEach var="status" items="${status }">
-				<p>${status.statusCount }</p>
-			</c:forEach>
-		</c:if>
-		
-		<c:choose>
-			<c:when test="${loginUser.getUserId()!= null}">
-				<div>
-                <div class="row g-3 pb-4" style="margin-left: 30px;">
-                
-                	<c:forEach var="status" items="${status }">
-                		<c:choose>
-                			<c:when test="${status.orderStatus eq '결제대기' }">
-		                		<div style="width: 150px;" data-wow-delay="0.1s">
-		                			<div class="border rounded p-1">
-		                				<div class="border rounded text-center p-4">
-		                					<img src="" alt="" style="width: 40%; height: 40%;">
-		                					<h2 class="mb-1" data-toggle="counter-up">${status.statusCount }</h2>
-		                					<p class="mb-0">결제대기</p>
-		                				</div>
-		                			</div>
-		                		</div>			                		
-                			</c:when>
-                			<c:when test="${status.orderStatus == null }">
-		                		<div style="width: 150px;" data-wow-delay="0.1s">
-		                			<div class="border rounded p-1">
-		                				<div class="border rounded text-center p-4">
-		                					<img src="" alt="" style="width: 40%; height: 40%;">
-		                					<h2 class="mb-1" data-toggle="counter-up">0</h2>
-		                					<p class="mb-0">결제대기</p>
-		                				</div>
-		                			</div>
-		                		</div>			                		
-                			</c:when>
-                			                			
-                			<c:when test="${status.orderStatus eq '결제완료' }">
-		                		<div style="width: 150px;" data-wow-delay="0.1s">
-		                			<div class="border rounded p-1">
-		                				<div class="border rounded text-center p-4">
-		                					<img src="" alt="" style="width: 40%; height: 40%;">
-		                					<h2 class="mb-1" data-toggle="counter-up">${status.statusCount }</h2>
-		                					<p class="mb-0">결제완료</p>
-		                				</div>
-		                			</div>
-		                		</div>			                		
-                			</c:when>
-                			<c:when test="${status.orderStatus == null }">
-		                		<div style="width: 150px;" data-wow-delay="0.1s">
-		                			<div class="border rounded p-1">
-		                				<div class="border rounded text-center p-4">
-		                					<img src="" alt="" style="width: 40%; height: 40%;">
-		                					<h2 class="mb-1" data-toggle="counter-up">0</h2>
-		                					<p class="mb-0">결제완료</p>
-		                				</div>
-		                			</div>
-		                		</div>			                		
-                			</c:when>
-                		
-                			<c:when test="${status.orderStatus eq '배송전' }">
-		                		<div style="width: 150px;" data-wow-delay="0.1s">
-		                			<div class="border rounded p-1">
-		                				<div class="border rounded text-center p-4">
-		                					<img src="" alt="" style="width: 40%; height: 40%;">
-		                					<h2 class="mb-1" data-toggle="counter-up">${status.statusCount }</h2>
-		                					<p class="mb-0">배송전</p>
-		                				</div>
-		                			</div>
-		                		</div>			                		
-                			</c:when>
-                			<c:when test="${status.orderStatus == null }">
-		                		<div style="width: 150px;" data-wow-delay="0.1s">
-		                			<div class="border rounded p-1">
-		                				<div class="border rounded text-center p-4">
-		                					<img src="" alt="" style="width: 40%; height: 40%;">
-		                					<h2 class="mb-1" data-toggle="counter-up">0</h2>
-		                					<p class="mb-0">배송전</p>
-		                				</div>
-		                			</div>
-		                		</div>			                		
-                			</c:when>
-                		
-                			<c:when test="${status.orderStatus eq '배송중' }">
-		                		<div style="width: 150px;" data-wow-delay="0.1s">
-		                			<div class="border rounded p-1">
-		                				<div class="border rounded text-center p-4">
-		                					<img src="" alt="" style="width: 40%; height: 40%;">
-		                					<h2 class="mb-1" data-toggle="counter-up">${status.statusCount }</h2>
-		                					<p class="mb-0">배송중</p>
-		                				</div>
-		                			</div>
-		                		</div>			                		
-                			</c:when>
-                			<c:when test="${status.orderStatus == null }">
-		                		<div style="width: 150px;" data-wow-delay="0.1s">
-		                			<div class="border rounded p-1">
-		                				<div class="border rounded text-center p-4">
-		                					<img src="" alt="" style="width: 40%; height: 40%;">
-		                					<h2 class="mb-1" data-toggle="counter-up">0</h2>
-		                					<p class="mb-0">배송중</p>
-		                				</div>
-		                			</div>
-		                		</div>			                		
-                			</c:when>
-                		
-                			<c:when test="${status.orderStatus eq '배송완료' }">
-		                		<div style="width: 150px;" data-wow-delay="0.1s">
-		                			<div class="border rounded p-1">
-		                				<div class="border rounded text-center p-4">
-		                					<img src="" alt="" style="width: 40%; height: 40%;">
-		                					<h2 class="mb-1" data-toggle="counter-up">${status.statusCount }</h2>
-		                					<p class="mb-0">배송완료</p>
-		                				</div>
-		                			</div>
-		                		</div>			                		
-                			</c:when>
-                			<c:when test="${status.orderStatus == null }">
-		                		<div style="width: 150px;" data-wow-delay="0.1s">
-		                			<div class="border rounded p-1">
-		                				<div class="border rounded text-center p-4">
-		                					<img src="" alt="" style="width: 40%; height: 40%;">
-		                					<h2 class="mb-1" data-toggle="counter-up">0</h2>
-		                					<p class="mb-0">배송완료</p>
-		                				</div>
-		                			</div>
-		                		</div>			                		
-                			</c:when>                			                			                			                			
-                		</c:choose>
-                	</c:forEach>
-                	
 
-                </div>	
-			</div>
-			</c:when>
-			</c:choose>
-								
+	<c:set var="statusA" value="0"/>
+	<c:set var="statusB" value="0"/>
+	<c:set var="statusC" value="0"/>
+	<c:set var="statusD" value="0"/>
+	<c:set var="statusE" value="0"/>						
+							
+							
+	<c:choose>
+		<c:when test="${loginUser.getUserId()!= null}">
+			<c:forEach var="status" items="${status}">
+				<c:choose>
+				<c:when test="${status.userId == loginUser.getUserId()}">
+					<c:choose>
+						<c:when test="${status.orderStatus == '결제대기'}">
+							<c:set var="statusA" value="${statusA+1}"/>
+						</c:when>
+						<c:when test="${status.orderStatus == '결제완료'}">
+							<c:set var="statusB" value="${statusB+1}"/>
+						</c:when>
+						<c:when test="${status.orderStatus == '배송전'}">
+							<c:set var="statusC" value="${statusC+1}"/>
+						</c:when>
+						<c:when test="${status.orderStatus == '배송중'}">
+							<c:set var="statusD" value="${statusD+1}"/>
+						</c:when>
+						<c:when test="${status.orderStatus == '배송완료'}">
+							<c:set var="statusE" value="${statusE+1}"/>
+						</c:when>				
+					</c:choose>
+				</c:when>				
+				</c:choose>
+			</c:forEach>
+					<!-- 주문상태 현황 start -->	
+						<div>
+							<div class="row g-3 pb-4" style="margin-left: 30px;">
+		                		<div style="width: 150px;" data-wow-delay="0.1s">
+		                			<div class="border rounded p-1">
+		                				<div class="border rounded text-center p-4">
+		                					<img src="img/결제대기.png" alt="결제대기" style="width: 40%; height: 40%;">
+		                					<h2 class="mb-1" data-toggle="counter-up"><c:out value="${statusA}"/></h2>
+		                					<p class="mb-0">결제대기</p>
+		                				</div>
+		                			</div>
+		                		</div>
+		                		<div style="width: 150px;" data-wow-delay="0.1s">
+		                			<div class="border rounded p-1">
+		                				<div class="border rounded text-center p-4">
+		                					<img src="img/결제완료.png" alt="결제완료" style="width: 40%; height: 40%;">
+		                					<h2 class="mb-1" data-toggle="counter-up"><c:out value="${statusB}"/></h2>
+		                					<p class="mb-0">결제완료</p>
+		                				</div>
+		                			</div>
+		                		</div>
+		                		<div style="width: 150px;" data-wow-delay="0.1s">
+		                			<div class="border rounded p-1">
+		                				<div class="border rounded text-center p-4">
+		                					<img src="img/배송전.png" alt=""배송전 style="width: 40%; height: 40%;">
+		                					<h2 class="mb-1" data-toggle="counter-up"><c:out value="${statusC}"/></h2>
+		                					<p class="mb-0">배송전</p>
+		                				</div>
+		                			</div>
+		                		</div>
+		                		<div style="width: 150px;" data-wow-delay="0.1s">
+		                			<div class="border rounded p-1">
+		                				<div class="border rounded text-center p-4">
+		                					<img src="img/배송중.png" alt="배송중" style="width: 40%; height: 40%;">
+		                					<h2 class="mb-1" data-toggle="counter-up"><c:out value="${statusD}"/></h2>
+		                					<p class="mb-0">배송중</p>
+		                				</div>
+		                			</div>
+		                		</div>
+		                		<div style="width: 150px;" data-wow-delay="0.1s">
+		                			<div class="border rounded p-1">
+		                				<div class="border rounded text-center p-4">
+		                					<img src="img/배송완료.png" alt="배송완료" style="width: 40%; height: 40%;">
+		                					<h2 class="mb-1" data-toggle="counter-up"><c:out value="${statusE}"/></h2>
+		                					<p class="mb-0">배송완료</p>
+		                				</div>
+		                			</div>
+		                		</div>	
+							</div>	
+						</div>	
+				<!-- 주문상태 현황 end -->			
+				</c:when>
+				<c:otherwise>
+					<!-- 주문상태 현황 start -->	
+						<div>
+							<div class="row g-3 pb-4" style="margin-left: 30px;">
+		                		<div style="width: 150px;" data-wow-delay="0.1s">
+		                			<div class="border rounded p-1">
+		                				<div class="border rounded text-center p-4">
+		                					<img src="img/결제대기.png" alt="결제대기" style="width: 40%; height: 40%;">
+		                					<h2 class="mb-1" data-toggle="counter-up">0</h2>
+		                					<p class="mb-0">결제대기</p>
+		                				</div>
+		                			</div>
+		                		</div>
+		                		<div style="width: 150px;" data-wow-delay="0.1s">
+		                			<div class="border rounded p-1">
+		                				<div class="border rounded text-center p-4">
+		                					<img src="img/결제완료.png" alt="결제완료" style="width: 40%; height: 40%;">
+		                					<h2 class="mb-1" data-toggle="counter-up">0</h2>
+		                					<p class="mb-0">결제완료</p>
+		                				</div>
+		                			</div>
+		                		</div>
+		                		<div style="width: 150px;" data-wow-delay="0.1s">
+		                			<div class="border rounded p-1">
+		                				<div class="border rounded text-center p-4">
+		                					<img src="img/배송전.png" alt="배송전" style="width: 40%; height: 40%;">
+		                					<h2 class="mb-1" data-toggle="counter-up">0</h2>
+		                					<p class="mb-0">배송전</p>
+		                				</div>
+		                			</div>
+		                		</div>
+		                		<div style="width: 150px;" data-wow-delay="0.1s">
+		                			<div class="border rounded p-1">
+		                				<div class="border rounded text-center p-4">
+		                					<img src="img/배송중.png" alt="배송중" style="width: 40%; height: 40%;">
+		                					<h2 class="mb-1" data-toggle="counter-up">0</h2>
+		                					<p class="mb-0">배송중</p>
+		                				</div>
+		                			</div>
+		                		</div>
+		                		<div style="width: 150px;" data-wow-delay="0.1s">
+		                			<div class="border rounded p-1">
+		                				<div class="border rounded text-center p-4">
+		                					<img src="img/배송완료.png" alt="배송완료" style="width: 40%; height: 40%;">
+		                					<h2 class="mb-1" data-toggle="counter-up">0</h2>
+		                					<p class="mb-0">배송완료</p>
+		                				</div>
+		                			</div>
+		                		</div>	
+							</div>	
+						</div>	
+				<!-- 주문상태 현황 end -->	
+	</c:otherwise>
+</c:choose>
+
+				
 			
 			<div style="margin-left: 40px;">
 				<hr>
 			</div>
 	<div style="margin-left:30px; margin-top:0; padding:10px;"></div>
 	<table style="margin-left:40px;">
-		
+	
 		<c:choose>
 			<c:when test="${loginUser.getUserId()!= null}">
 				<c:forEach var="order" items="${list }">
@@ -167,7 +172,7 @@
 					<c:when test="${loginUser.getUserId()== order.getUserId()}">													
 					<tr id="packDetail" style="padding: 5px; margin: 10px; border-bottom: 1px solid rgb(208, 208, 208);">
 						<td style="width: 180px; height: 110px; padding: 10px;">
-							이미지 style="width: 180px; height: 110px; "
+							<img alt="img" src="./upload/${order.prImg }" style="width: 160px; height: 110px;">
 						</td>
 						<td style="width: 440px; height: 150px; padding: 10px;">
 							<input type="hidden" name="pdId" value="${order.pdId }">
@@ -203,6 +208,9 @@
 
 	</table>
 	
+	<c:choose>
+		<c:when test="${loginUser.getUserId()!= null}">
+		
 	<div style="clear: both; margin: 10px auto;">
 		<div style="width: 700px; margin: 0 auto; text-align: center;">
 			<c:if test="${page.prev }">
@@ -228,7 +236,8 @@
 			</c:if>
 		</div>
 	</div>
-	
+	</c:when>
+		</c:choose>
 </div>
 
 <div style="clear: both; margin: 20px auto;">

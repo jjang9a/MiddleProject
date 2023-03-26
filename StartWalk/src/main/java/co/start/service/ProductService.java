@@ -25,8 +25,6 @@ public interface ProductService {
 	   // 전체 건수
 	     public int getTotalCount();
 	       
-
-
 	
 	// 순덕
 	// 패키지 목록
@@ -49,7 +47,22 @@ public interface ProductService {
 	public List<ProductVO> orderList(int page);
 	public List<ProductVO> orderListdo();
 	// 주문상태
-	public List<OrderVO> countOrderStatus(String id);
+	public List<OrderVO> countOrderStatus();
 	// 리뷰 작성
 	public boolean addPdreview(PdreviewVO vo);
+	
+	// 메인화면
+	// Best 여행 패키지
+	public List<ProductVO> mainPackageList();
+	// Best 숙소
+	public List<ProductVO> mainHotelList();
+	// Best 명물
+	public List<ProductVO> mainProductList();
+	// 메인 댓글 리뷰 리스트
+	public List<PdreviewVO> mainReviewList();
+	// 메인 여행 패키지 상품 수
+	public ProductVO mainCountPackage();
+	// 메인 숙수 및 지역명물 상품 수
+	public ProductVO mainCountProduct();
+	
 }

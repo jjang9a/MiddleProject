@@ -31,4 +31,9 @@ public interface UserMapper {
 	// 주소 연락처 업데이트
 	public int updateAddr(UserVO vo);
 	
+	
+	// 메인화면 전체회원 수
+	public UserVO mainCountUser();
+	
+	
 }

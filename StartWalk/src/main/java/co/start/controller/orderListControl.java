@@ -25,10 +25,9 @@ public static PageDTO pageInfo = null;
 		}
 		
 		// 주문상태
-		UserVO user = (UserVO) request.getSession().getAttribute("loginUser");
 		
 		ProductService serviceStatus = new ProductServiceMybatis();		
-		List<OrderVO> status = serviceStatus.countOrderStatus(user.getUserId());
+		List<OrderVO> status = serviceStatus.countOrderStatus();
 		System.out.println("status" + status);
 		
 		request.setAttribute("status", status);

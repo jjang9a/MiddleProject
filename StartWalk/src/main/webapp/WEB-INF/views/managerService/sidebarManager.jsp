@@ -13,9 +13,9 @@
                     <hr>
                      <a href="scManagerList.do" style="color:black;">1:1 문의하기(Q&#38;A)</a>
                      <hr>
-                     <p style="margin-bottom:0;"><a href="" style="color:black;">상품등록</a></p>
-                     <p style="margin-bottom:0;"><a href="" style="color:black; font-size: 13px;">&nbsp;&nbsp;패키지 상품등록</a></p>
-                     <p><a href="" style="color:black; font-size: 13px;">&nbsp;&nbsp;기타 상품등록</a></p>
+                     <p style="margin-bottom:0;">상품등록</p>
+                     <p style="margin-bottom:0;"><a href="packageAddForm.do" style="color:black; font-size: 13px;">&nbsp;&nbsp;패키지 상품등록</a></p>
+                     <p><a href="addProduct.do" style="color:black; font-size: 13px;">&nbsp;&nbsp;기타 상품등록</a></p>
 					<hr>
                      <a href="" style="color:black;">연락처 &#183; 위치 안내</a>                    
                  </div>

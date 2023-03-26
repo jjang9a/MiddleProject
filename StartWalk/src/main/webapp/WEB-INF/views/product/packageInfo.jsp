@@ -47,9 +47,22 @@
 	
 	
 	<br>
-	<div>
-		<img alt="여행 패키지 상품 이미지" src="./upload/${info.prImg}" style="width: 300px; height:200px;">
-	</div>
+                <!-- img Start -->                 
+                        <div class="owl-carousel testimonial-carousel py-5">
+                            <div>
+                                <img src="./upload/${info.prImg}" style="width: 400px; height: 280px; margin-right: 10px;">
+                            </div>
+                            <div>
+                                <img src="./upload/${img.get(1).imgFile }" style="width: 400px; height: 280px; margin-right: 10px;">
+                            </div>
+                            <div>
+                                <img src="./upload/${img.get(2).imgFile }" style="width: 400px; height: 280px; margin-right: 10px;">
+                            </div>
+                            <div>
+                                <img src="./upload/${img.get(3).imgFile }" style="width: 400px; height: 280px; margin-right: 10px;">
+                            </div>							
+                        </div>
+                <!-- img End -->
 	
 	<h5 style="margin: 20px;">여행일정</h5>
 	<div style="background-color: rgb(242, 242, 242); padding: 20px; margin: 20px 0;">

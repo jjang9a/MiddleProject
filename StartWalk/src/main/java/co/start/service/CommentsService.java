@@ -13,4 +13,11 @@ public interface CommentsService {
 			public boolean addComments(CommentsVO vo);
 		//댓글 삭제
 			public boolean removeComments(int coId);
+	
+			
+	// 순덕
+	// 메인화면 댓글 리스트
+	public List<CommentsVO> mainommentsList();
+			
+			
 }
