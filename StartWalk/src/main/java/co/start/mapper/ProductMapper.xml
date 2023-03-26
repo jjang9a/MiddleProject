@@ -27,7 +27,7 @@
 	</where>
 </select>
 
-<select id="1" resultType="co.start.vo.ProductVO" parameterType="co.start.vo.SearchVO">
+<select id="packageListWithPaging" resultType="co.start.vo.ProductVO" parameterType="co.start.vo.SearchVO">
 	<![CDATA[
 	  select pd_id, pd_name, pd_price, pd_type,  nvl(pd_sale, pd_price) pd_sale, pd_start, pd_end, pd_location, pr_img
 	  from (select  rownum rn, pd_id, pd_name, pd_price, pd_type, pd_sale, pd_start , pd_end, pd_location, pr_img
@@ -98,7 +98,14 @@
 		                                        join orders o on(pa.order_id = o.order_id)) a
 		        where rownum <= (#{page} * 10) ) b
 		where b.rn > (#{page} - 1) * 10
+		order by order_date
 	]]>
+</select>
+
+<select id="countOrderStatus" resultType="co.start.vo.OrderVO">
+	select  order_status, count(order_status) as status_count, user_id
+	from orders
+	group by order_status, user_id
 </select>
 
 <select id="orderListdo" resultType="co.start.vo.ProductVO">
@@ -110,6 +117,70 @@
 	insert into pdreview (user_id, pd_id, pr_body, pr_star, pr_date)
 	values(#{userId}, #{pdId}, #{prBody}, #{prStar}, sysdate)
 </insert>
+
+<select id="mainPackageList" resultType="co.start.vo.ProductVO">
+	<![CDATA[
+	select a.*
+	from (
+	        select  avg(pr_star) as avg, pdreview.pd_id, pd_name, pd_price, pd_sale, pr_img
+	        from pdreview join product on pdreview.pd_id = product.pd_id
+	        where product.pd_type='PK'
+	        group by pdreview.pd_id, pd_name,  pd_price, pd_sale, pr_img
+	        order by avg desc
+	        ) a
+	where rownum <= 3
+	]]>
+</select>
+
+<select id="mainHotelList" resultType="co.start.vo.ProductVO">
+	<![CDATA[
+	select a.*
+	from (
+	        select  avg(pr_star) as avg, pdreview.pd_id, pd_name, pd_price, pd_sale, pr_img
+	        from pdreview join product on pdreview.pd_id = product.pd_id
+	        where product.pd_type='HO'
+	        group by pdreview.pd_id, pd_name,  pd_price, pd_sale, pr_img
+	        order by avg desc
+	        ) a
+	where rownum <= 3
+	]]>
+</select>
+
+<select id="mainProductList" resultType="co.start.vo.ProductVO">
+	<![CDATA[
+	select a.*
+	from (
+	        select  avg(pr_star) as avg, pdreview.pd_id, pd_name, pd_price, pd_sale, pr_img
+	        from pdreview join product on pdreview.pd_id = product.pd_id
+	        where product.pd_type='PR'
+	        group by pdreview.pd_id, pd_name,  pd_price, pd_sale, pr_img
+	        order by avg desc
+	        ) a
+	where rownum <= 3
+	]]>
+</select>
+
+<select id="mainReviewList" resultType="co.start.vo.PdreviewVO">
+	<![CDATA[
+	select a.*
+	from (
+	        select pd_id, pr_body, pr_star, pr_date, pr.user_id, user_grade
+	        from pdreview pr join users u on(pr.user_id = u.user_id)
+	        order by pr_date desc
+	        ) a
+	where rownum <=2
+	]]>
+</select>
+
+<select id="mainCountPackage" resultType="co.start.vo.ProductVO">
+	select count(pd_id) as count_pk from product
+	where pd_type='PK'
+</select>
+
+<select id="mainCountProduct" resultType="co.start.vo.ProductVO">
+	select count(pd_id) as count_pd from product
+	where pd_type!='PK'
+</select>
 
 
 

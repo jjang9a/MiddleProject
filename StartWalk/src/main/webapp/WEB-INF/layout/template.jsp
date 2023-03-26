@@ -50,6 +50,12 @@
   border-radius: 50%;
   display: inline-block;
 }
+.bi-star-fill {
+  color:rgb(73, 112, 253);
+}
+.bi-star {
+  color:rgb(73, 112, 253);
+}
 </style>
 
 </head>

@@ -13,4 +13,8 @@ public class PdreviewVO {
 	private String prBody; // 리뷰 내용
 	private double prStar; // 평점, 소수 첫째자리까지 입력 가능
 	private Date prDate; // 리뷰 작성일
+	
+	// 메인화면에서 사용할  user 등급
+	private String userGrade; // normal, silver, gold, vip, admin
+	
 }

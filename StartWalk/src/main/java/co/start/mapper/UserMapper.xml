@@ -17,7 +17,9 @@
 </update>
 
 <!-- 순덕 -->
-
+<select id="mainCountUser" parameterType="UserVO">
+	select count(user_id) as count_user from users
+</select>
 
 <!-- 용억 -->
 

@@ -8,6 +8,7 @@ import co.start.common.DataSource;
 import co.start.mapper.ProductMapper;
 import co.start.vo.BoardVO;
 import co.start.vo.ImagesVO;
+import co.start.vo.OrderVO;
 import co.start.vo.PdreviewVO;
 import co.start.vo.ProductVO;
 import co.start.vo.SearchVO;
@@ -76,6 +77,10 @@ public class ProductServiceMybatis implements ProductService{
 		return mapper.orderListdo();
 	}
 	@Override
+	public List<OrderVO> countOrderStatus() {		// 주문 상태.
+		return mapper.countOrderStatus();
+	}
+	@Override
 	public boolean addPdreview(PdreviewVO vo) {		// 리뷰 작성.
 		int r = mapper.insertPdreview(vo);
 		return r ==1;
@@ -83,6 +88,30 @@ public class ProductServiceMybatis implements ProductService{
 	@Override
 	public List<PdreviewVO> reviewList(int pdId) {		// 리뷰 리스트
 		return mapper.reviewList(pdId);
+	}
+	@Override
+	public List<ProductVO> mainPackageList() {
+		return mapper.mainPackageList();
+	}
+	@Override
+	public List<ProductVO> mainHotelList() {
+		return mapper.mainHotelList();
+	}
+	@Override
+	public List<ProductVO> mainProductList() {
+		return mapper.mainProductList();
+	}
+	@Override
+	public List<PdreviewVO> mainReviewList() {
+		return mapper.mainReviewList();
+	}
+	@Override
+	public ProductVO mainCountPackage() {
+		return mapper.mainCountPackage();
+	}
+	@Override
+	public ProductVO mainCountProduct() {
+		return mapper.mainCountProduct();
 	}
 	
 	
@@ -114,6 +143,7 @@ public class ProductServiceMybatis implements ProductService{
 	}
 	
 	
+
 
 
 	
