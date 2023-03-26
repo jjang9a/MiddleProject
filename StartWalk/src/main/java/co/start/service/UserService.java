@@ -28,5 +28,13 @@ public interface UserService {
 	public UserVO getUserInfo(String id); // 특정 회원 조회
 	public boolean modifyUser(UserVO vo); // 회원 정보 업데이트
 	public boolean modifyAddr(UserVO vo); // 주소&연락처 업데이트 
-		
+	
+	//용억
+	    //등급리스트
+		public List<UserVO> gradeList();
+		//등급 수정
+		public boolean ModifyGrade(UserVO vo);
+		//등급 상세
+		public UserVO getGradeInfo(String userId);
+	
 }

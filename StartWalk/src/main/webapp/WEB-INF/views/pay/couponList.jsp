@@ -22,4 +22,4 @@
 	</c:if>
 	</c:forEach>	
 		
-		<
+		</table>

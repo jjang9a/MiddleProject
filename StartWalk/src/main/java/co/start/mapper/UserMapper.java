@@ -31,4 +31,11 @@ public interface UserMapper {
 	// 주소 연락처 업데이트
 	public int updateAddr(UserVO vo);
 	
-}
+	//용억
+		//회원등급 목록
+			public List<UserVO> gradeList();
+		//회원등급 수정
+			public int updateGrade(UserVO vo);
+		//회원 등급 상세
+			public UserVO selectGrade(String userId);
+}	
