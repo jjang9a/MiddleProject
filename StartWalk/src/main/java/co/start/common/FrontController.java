@@ -45,7 +45,9 @@ import co.start.controller.NoticeInfoControl;
 import co.start.controller.NoticeListControl;
 import co.start.controller.NoticeModifyControl;
 import co.start.controller.NoticeModifyFormControl;
+import co.start.controller.OrderCompleteControl;
 import co.start.controller.OrderControl;
+import co.start.controller.OrderDirectControl;
 import co.start.controller.OrderFormControl;
 import co.start.controller.OrderListNoControl;
 import co.start.controller.PackageAddControl;
@@ -99,8 +101,9 @@ public class FrontController extends HttpServlet {
 		map.put("/main.do", new MainControl());
 		// 가애
 		map.put("/orderForm.do", new OrderFormControl()); // 결제요청 페이지
-
+		map.put("/orderDirect.do", new OrderDirectControl()); // 상품에서 바로 결제로
 		map.put("/order.do", new OrderControl()); // 결제 처리 페이지
+		map.put("orderComplete.do", new OrderCompleteControl()); // 결제 완료
 		map.put("/cart.do", new CartControl()); // 장바구니
 		map.put("/cartUpdate.do", new CartUpdateAjax()); // 장바구니 물건 수량 변경
 		map.put("/cartDelete.do", new CartDeleteAjax()); // 장바구니 물건 삭제
