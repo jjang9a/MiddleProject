@@ -38,6 +38,7 @@ public interface BoardMapper {
 	public int imgAttach(ImagesVO vo);
 	public List<ImagesVO> images(int bid);
 	public int updateBHit (int bid);
+	public int updateReco(int bid); // 추천수 증가
 	
 	// 대준
 	public List<BoardVO> scManagerList(); // 1:1문의 목록 (관리자용)

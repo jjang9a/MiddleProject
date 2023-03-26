@@ -50,6 +50,10 @@
   	update board set b_count = b_count + 1 
   	where b_id = #{bid}
 </update>
+<update id="updateReco" parameterType="int">
+  	update board set b_good = b_good + 1 
+  	where b_id = #{bid}
+</update>
 
 <!-- 순덕 -->
 <select id="noitceList" resultType="co.start.vo.BoardVO">

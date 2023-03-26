@@ -74,6 +74,7 @@ import co.start.controller.SenderListControl;
 import co.start.controller.SenderSearchControl;
 import co.start.controller.TravelBoardControl;
 import co.start.controller.TravelBoardListControl;
+import co.start.controller.TravelBoardRecoControl;
 import co.start.controller.TravelBoardWriteControl;
 import co.start.controller.TravelBoardWriteFormControl;
 import co.start.controller.UserUpdateCheckControl;
@@ -105,7 +106,7 @@ public class FrontController extends HttpServlet {
 		map.put("/orderForm.do", new OrderFormControl()); // 결제요청 페이지
 		map.put("/orderDirect.do", new OrderDirectControl()); // 상품에서 바로 결제로
 		map.put("/order.do", new OrderControl()); // 결제 처리 페이지
-		map.put("orderComplete.do", new OrderCompleteControl()); // 결제 완료
+		map.put("/orderComplete.do", new OrderCompleteControl()); // 결제 완료
 		map.put("/cart.do", new CartControl()); // 장바구니
 		map.put("/cartUpdate.do", new CartUpdateAjax()); // 장바구니 물건 수량 변경
 		map.put("/cartDelete.do", new CartDeleteAjax()); // 장바구니 물건 삭제
@@ -115,7 +116,8 @@ public class FrontController extends HttpServlet {
 		map.put("/travelBoard.do", new TravelBoardControl()); // 여행 후기 게시판 글읽기
 		map.put("/travelBoardWriteForm.do", new TravelBoardWriteFormControl()); // 여행 후기 게시판 글쓰기
 		map.put("/travelBoardWrite.do", new TravelBoardWriteControl()); // 여행 후기 게시판 글쓰기 처리
-
+		map.put("/travelBoardReco.do", new TravelBoardRecoControl()); // 여행후기 게시판 추천기능
+		
 		map.put("/userUpdateCheck.do", new UserUpdateCheckControl()); // 회원정보 수정 진입 비밀번호
 		map.put("/userUpdateForm.do", new UserUpdateFormControl()); // 회원 정보 수정
 		map.put("/userUpdate.do", new UserUpdateControl()); // 회원정보 수정 처리

@@ -9,7 +9,7 @@ public class writeMsgFormControl implements Control {
 
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
-		return "message/test.tiles";
+		return "message/addPopup.jsp";
 	}
 
 }

@@ -6,8 +6,8 @@
 	<div class="row px-xl-5">
 		<div class="col-lg-8 table-responsive mb-5" style="margin: auto;">
 			<h4>장바구니</h4>
-			<a href="" class="btn btn-sm btn-dark rounded py-2 px-4" style="float: right; margin: 0 10px">선택 삭제</a>
-			<a href="javascript:orderall();" class="btn btn-sm btn-dark rounded py-2 px-4" style="float: right;">선택
+			<a href="javascript:orderall();" class="btn btn-sm btn-dark rounded py-2 px-4" style="float: right; margin: 0 10px">전체 주문</a>
+			<a href="javascript:orderSelected();" class="btn btn-sm btn-dark rounded py-2 px-4" style="float: right;">선택
 				주문</a><br>
 			<br>
 			<table class="table table-bordered text-center mb-0">
@@ -53,7 +53,7 @@
 								<button type="submit" name="updateBtn" style="font-size: 10px; border:none; color:grey;" onclick="updateBtn(${i.cartId })">적용</button>
 							</td>
 							<td class="align-middle" id="tAmount" name="tAmount">
-								<fmt:formatNumber pattern="#,###,###" value="${(i.pdPrice*i.pdCount) }" />원</td>
+								<fmt:formatNumber pattern="#,###,###" value="${(i.pdPrice*i.pdCount) }" />원
 							<td class="align-middle"><button class="btn btn-sm btn-primary" id="delBtn"
 									onclick="delBtn(${i.cartId })">
 									<i class="fa fa-times"></i>
@@ -87,7 +87,7 @@
 		cnt--;
 		cartTr.querySelector('input#tCount').value = cnt;
 		cartTr.querySelector('#tAmount').innerText = cnt * price;
-
+		
 		amountSum();
 	}
 
@@ -100,7 +100,7 @@
 		cnt++;
 		cartTr.querySelector('input#tCount').value = cnt;
 		cartTr.querySelector('#tAmount').innerText = (cnt * price);
-
+		
 		amountSum();
 	}
 
@@ -165,7 +165,7 @@
 			.catch(reject => console.log(reject));
 	} */
 	
-	function orderall(){
+	function orderSelected(){
 		let checkbox = document.querySelectorAll('input[name="check"]');
 		let String = "";
 		checkbox.forEach(element => {
@@ -173,6 +173,23 @@
 				let id = element.id;
 				String += id.substring(5)+",";
 			}
+		})
+		let str = String.substring(0,String.length-1);
+		let form = document.querySelector('#selectOrder');
+		let input = document.createElement('input');
+		input.type='text';
+		input.value=str;
+		input.name='selectOrder';
+		form.append(input);
+		form.submit();
+	}
+	
+	function orderall(){
+		let checkbox = document.querySelectorAll('input[name="check"]');
+		let String = "";
+		checkbox.forEach(element => {
+			let id = element.id;
+			String += id.substring(5)+",";
 		})
 		let str = String.substring(0,String.length-1);
 		let form = document.querySelector('#selectOrder');

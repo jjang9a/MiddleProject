@@ -29,6 +29,11 @@ public class UserServiceMybatis implements UserService{
 	public boolean modifyAddr(UserVO vo) {
 		return mapper.updateAddr(vo) == 1;
 	}
+
+	@Override
+	public boolean writeMsg(MessageVO vo) {
+		return mapper.addMsg(vo) == 1;
+	}
 		
 
 	// 순덕
@@ -64,7 +69,7 @@ public class UserServiceMybatis implements UserService{
 	public List<MessageVO> receiverList(String Id) {
 		return mapper.receiverList(Id);
 	}
-	
+
 
 	
 		

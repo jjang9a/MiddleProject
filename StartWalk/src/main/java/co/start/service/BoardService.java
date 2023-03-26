@@ -38,6 +38,7 @@ public interface BoardService {
 	public boolean imgAttach(ImagesVO vo);
 	public List<ImagesVO> getImgs(int bid);
 	public boolean countUp(int bid);
+	public boolean likeUp(int bid);
 	
 	
 	// 대준

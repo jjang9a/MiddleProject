@@ -14,7 +14,7 @@ button{
 <div style="margin: 100px auto 100px auto; width: 1000px; ">
 
 	<a href="" class="btn btn-sm btn-dark rounded py-2 px-4" style="float: right; margin: 0 10px">삭제</a>
-	<a href="" class="btn btn-sm btn-dark rounded py-2 px-4" style="float: right;">수정</a>
+	<a href="travelBoardList.do" class="btn btn-sm btn-dark rounded py-2 px-4" style="float: right;">목록</a>
 	
 	<h3>${info.getBHead() } ${info.getBTitle() }</h3>
 	<hr>
@@ -28,9 +28,12 @@ button{
 		<p>${info.getBContents() }</p>
 	</div>
 	
-	<div style="padding: 10px;">
-		<p><strong style="background-color: blanchedalmond; padding: 0 10px; color: black;">Comment</strong></p>
-		<p style="color: rgb(57, 57, 57); font-size: 14px;">&#10003 댓글 쓰기</p>
+	<div style="padding: 10px; overflow: hidden;">
+		<a href="javascript:recoBtn(${info.getBId() });"><p style="float:right"><strong style="background-color: blanchedalmond; padding: 0 10px; color: black;">추천</strong></p></a>
+		<p><strong style="background-color: blanchedalmond; padding: 0 10px; color: black; float:left">Comment</strong></p>
+		<div style="clear:both;">
+			<p style="color: rgb(57, 57, 57); font-size: 14px;">&#10003 댓글 쓰기</p>
+		</div>
 		<form>
 				<input type="hidden" id="bid" value="${info.getBId() }">
 				<input type="hidden" id="id" value="${loginUser.userId }">
@@ -102,6 +105,7 @@ fetch('commentsAdd.do',{
 	if(result.retCode=='Success'){
 		alert('댓글이 등록되었습니다');
 /* 		makeTr(result.member); */
+		window.location.reload()
 		initField();
 	} else if (result.retCode=='Fail'){
 		alert('댓글작성중 에러가 발생하였습니다.');
@@ -110,82 +114,28 @@ fetch('commentsAdd.do',{
 .catch(reject=>console.error(reject));
 }); 
 
-// 댓글 만들기
-// function makeComm(member={}) {
-// 	let div = document.createElement('div');
-// 	div.appendChild(document.createElement('hr'));
-
-// 	var x = document.createElement("P");
-//     var t = document.createTextNode("<strong>"+this.userId+"</strong> &nbsp &nbsp &nbsp &nbsp <small style=\"font-size: 7px;\">댓글 작성 날짜 및 시간</small>)");
-//     x.appendChild(t);
-//     div.appendChild(x);
-
-// 	let delBtn = document.createElement('button');
-// 	delBtn.innerText ='삭제';
-// 	delBtn.classList.add('commDel');
-
-// 	delBtn.addEventListener('click', function(){
-// 	let delId = this.parentElement.parentElement.children[0].innerText;
-// 	fetch('commentsRemoveAjax.do',{
-// 		method : 'post',
-// 		headers : {'Content-Type' : 'applicaton/x-www-form-urlencoded'},
-// 		body : 'coid='+delId
-// 	})
-// 	.then(resolve=>resolve.json())
-// 	.then(result=> {
-// 		console.log(result);
-// 		if(result.retCode == 'Success'){
-// 			alert('성공!');
-// 			this.parentElement.parentElement.remove();
-
-// 		} else if(result.retCode =='Fail'){
-// 			alert('실패');
-// 		}
-// 	})
-// 	.catch(reject=>console.log(reject));
-// });
-
-// 	div.appendChild(delBtn);
-// 	document.body.appendChild(div);
-// }
+// 추천
+function recoBtn(bId){
+	fetch('travelBoardReco.do', {
+		method : 'post',
+		headers : {'Content-Type' : 'application/x-www-form-urlencoded'},
+		body: 'bid=' + bId
+	})
+		.then(resolve => resolve.json()) // {"retCode": "Success"} -> {retCode: "Success"}
+		.then(result => {
+			console.log(result)
+			if (result.retCode == 'Success') {
+				alert('이 게시물을 추천하였습니다')
+				
+			} else if (result.retCode == 'Fail') {
+				alert('error....')
+			}
+		})
+		.catch(reject => console.error(reject))
 	
-/* //tr 생성
-function makeTr(member={}) {
-let tr = document.createElement('tr');
-for(let prop in member){
-	let td = document.createElement('td');
-	td.innerText = member[prop];
-	tr.append(td);
 }
 
-let delBtn = document.createElement('button');
-delBtn.innerText ='삭제';
- 
-delBtn.addEventListener('click', function(){
-	let delId = this.parentElement.parentElement.children[0].innerText;
-	fetch('commentsRemoveAjax.do',{
-		method : 'post',
-		headers : {'Content-Type' : 'applicaton/x-www-form-urlencoded'},
-		body : 'coid='+delId
-	})
-	.then(resolve=>resolve.json())
-	.then(result=> {
-		console.log(result);
-		if(result.retCode == 'Success'){
-			alert('성공!');
-			this.parentElement.parentElement.remove();
 
-		} else if(result.retCode =='Fail'){
-			alert('실패');
-		}
-	})
-	.catch(reject=>console.log(reject));
-});
-	let td = document.createElement('td');
-	td.append(delBtn);
-	tr.append(td); 
-document.getElementById('list').append(tr);
-}	*/
 		
 function initField(){
 document.getElementById('text').value='';
