@@ -5,11 +5,9 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ include file="../mypage/sidebar.jsp" %>
 
-<div style="margin: 100px auto 100px auto; width: 1000px; ">
-
 <!-- 목록시작 -->            
-	<div style="float: left; margin-bottom: 50px; padding: 5px 40px;">
-		<h3> 쪽지 함 </h3>
+	<div style="float: left; margin-bottom: 50px; margin-top: 40px; padding: 5px 40px;">
+		<h3> 쪽지함 </h3>
 		<hr>
 		<div align="right"><input class="btn btn-primary" type="submit" value="쪽지 보내기" onclick="openPopUp()"></div>
 		<h5 style="margin-bottom : 30px; margin-top : 40px">보낸쪽지함</h5>      
@@ -55,7 +53,7 @@
 		</table>
 		</div>
 </div>
-<div style="clear: both;">		
+<div style="clear: both; height:80px;">		
 </div>
 </div>
 	

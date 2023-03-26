@@ -13,16 +13,21 @@
 			</c:if>
             
             
-            <div style="width: 200px; float: left;  ">
-                <p style="color:rgb(255, 255, 255); font-weight: 700; font-size: 25px;  background-color: #0f172b; text-align: center; padding: 20px; margin-bottom: 0; border-bottom: 5px solid #fea116;">고객센터</p>
-                 <div style="border: 2px solid rgb(230, 226, 226);  padding: 45px 20px; margin-top: 0 auto;">
-                    <hr>
-                     <a href="faq.do" style="color:black;">자주 묻는 질문(FAQ)</a>
-                    <hr>
-                     <a href="scUserList.do" style="color:black;">1:1 문의하기(Q&#38;A)</a>
-                    <hr>
-                 </div>
-            </div>
+	<div style="width: 200px; float: left;">
+		<p
+			style="color: rgb(255, 255, 255); font-weight: 700; font-size: 25px; background-color: #0f172b; text-align: center; padding: 20px; margin-bottom: 0; border-bottom: 5px solid #fea116;">고객센터</p>
+		<div
+			style="border: 2px solid rgb(230, 226, 226); padding: 45px 20px; margin-top: 0 auto;">
+			<a href="noticeList.do" style="color: black;">공지사항</a>
+			<hr>
+			<a href="faq.do" style="color: black;">자주 묻는 질문(FAQ)</a>
+			<hr>
+			<a href="scUserList.do" style="color: black;">1:1 문의하기(Q&#38;A)</a>
+			<hr>
+			<a href="" style="color: black;">연락처 &#183; 위치 안내</a>
+
+		</div>
+	</div>
             <div style="float: left; margin-bottom: 50px; padding: 5px 40px;">
                 <h5 style="font-size: 23px;">1:1 문의 작성</h5>
                 <div style="margin-top: 20px;">
