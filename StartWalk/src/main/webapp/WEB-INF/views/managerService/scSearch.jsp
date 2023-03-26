@@ -15,7 +15,7 @@
             <div style="width: 200px; float: left;  ">
                 <p style="color:rgb(255, 255, 255); font-weight: 700; font-size: 25px;  background-color: #0f172b; text-align: center; padding: 20px; margin-bottom: 0; border-bottom: 5px solid #fea116;">관리자 모드</p>
                  <div style="border: 2px solid rgb(230, 226, 226);  padding: 45px 20px; margin-top: 0 auto;">
-                     <a href="" style="color:black;">공지사항</a>
+                     <a href="noticeList.do" style="color:black;">공지사항</a>
                     <hr>
                      <a href="scWriteForm.do" style="color:black;">1:1 문의하기(Q&#38;A)</a>
                     <hr>
@@ -23,7 +23,6 @@
             </div>
             	
             <div style="float: left; margin-bottom: 0 auto 50px atuo; padding: 5px 40px; width:800px;">
-                <%-- <c:if test="${loginUser.getUserId() ==admin || loginUser.getUserId() == sc.getUserId "> --%>
                 <h5 style="font-size: 23px;">1:1문의(Q&#38;A)</h5>
                 <div style="margin-top:50px;">
                 	<h5> &#91; ${sc.getBTitle()} &#93;</h5>
@@ -31,7 +30,6 @@
                 	<hr>
                 	<p>${sc.getBContents() }</p>			
             	</div>
-				<%-- </c:if>       --%>      
             </div>
 
             <div style="clear: both; ">

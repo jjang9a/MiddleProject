@@ -144,8 +144,8 @@ public class BoardServiceMybatis implements BoardService{
 	}
 	// 회원 문의작성.
 	@Override
-	public boolean UserWrite(BoardVO vo) {
-		return mapper.UserWrite(vo)==1;
+	public boolean scUserWrite(BoardVO vo) {
+		return mapper.scUserWrite(vo)==1;
 	}
 	
 	

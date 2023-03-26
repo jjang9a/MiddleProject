@@ -13,7 +13,7 @@ public class ScUserWriteControl implements Control {
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
 		
-		String userId = "admin";
+		String userId = "user";
 		String title = request.getParameter("title") ;
 		String contents = request.getParameter("text");
 		
@@ -25,7 +25,7 @@ public class ScUserWriteControl implements Control {
 		System.out.println(vo);
 		
 		BoardService service = new BoardServiceMybatis();
-		service.UserWrite(vo);
+		service.scUserWrite(vo);
 		
 		return "scUserList.do";
 	}
