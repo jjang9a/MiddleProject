@@ -31,11 +31,14 @@ public class StartpayListControl implements Control {
 		StartpayVO mo = vo.myPointNow(uo.getUserId());
 		
 		int al = mo.getPayStart();
+		int ak = mo.getPayPoint();
+		
 		UserVO ui = new UserVO();
 		
 		System.out.println(list);
 		request.setAttribute("pay", list);
-		request.setAttribute("total", al);
+		request.setAttribute("to", al);
+		request.setAttribute("tal", ak);
 		return "pay/payList.tiles";
 	}
 
