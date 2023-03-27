@@ -26,6 +26,9 @@ import co.start.controller.CommentsListAjax;
 import co.start.controller.CommentsRemoveAjax;
 import co.start.controller.CouponListControl;
 import co.start.controller.FAQControl;
+import co.start.controller.GradeListControl;
+import co.start.controller.GradeModifyControl;
+import co.start.controller.GradeModifyFormControl;
 import co.start.controller.HotelInfoControl;
 import co.start.controller.HotelListControl;
 import co.start.controller.LoginControl;
@@ -77,6 +80,7 @@ import co.start.controller.TravelBoardListControl;
 import co.start.controller.TravelBoardRecoControl;
 import co.start.controller.TravelBoardWriteControl;
 import co.start.controller.TravelBoardWriteFormControl;
+import co.start.controller.UserInfoControl;
 import co.start.controller.UserUpdateCheckControl;
 import co.start.controller.UserUpdateControl;
 import co.start.controller.UserUpdateFormControl;
@@ -207,8 +211,14 @@ public class FrontController extends HttpServlet {
 		map.put("/payAddForm.do", new StartpayAddFormControl());
 		// 쿠폰
 		map.put("/couponList.do", new CouponListControl());
-		// 매칭 후기 게시판 목록
-
+		// 회원 등급 리스트
+		map.put("/gradeList.do", new GradeListControl());
+		// 회원 등급 변경
+		map.put("/gradeModify.do", new GradeModifyControl());
+		// 회원 등급 변경 화면
+		map.put("/gradeModifyForm.do", new GradeModifyFormControl());
+		// 회원 상세 조회
+		map.put("/userInfo.do", new UserInfoControl());
 
 		// 대준
 			// 로그인

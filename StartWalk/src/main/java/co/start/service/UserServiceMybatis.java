@@ -43,8 +43,22 @@ public class UserServiceMybatis implements UserService{
 	}
 	
 	// 용억
+	@Override
+	public List<UserVO> gradeList() {
+		
+		return mapper.gradeList();
+	}
+	@Override
+	public boolean ModifyGrade(UserVO vo) {
+		int r = mapper.updateGrade(vo);
+		return r ==1;
+	}
 	
-	
+	@Override
+	public UserVO getGradeInfo(String userId) {
+		// TODO Auto-generated method stub
+		return mapper.selectGrade(userId);
+	}
 	// 대준
 	// 로그인
 	@Override
@@ -74,6 +88,10 @@ public class UserServiceMybatis implements UserService{
 	}
 
 
+
+
+
+	
 
 
 	
