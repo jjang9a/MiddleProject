@@ -141,7 +141,7 @@ public class ProductServiceMybatis implements ProductService{
 		// TODO Auto-generated method stub
 		return mapper.getTotalCount();
 	}
-	
+
 	
 
 

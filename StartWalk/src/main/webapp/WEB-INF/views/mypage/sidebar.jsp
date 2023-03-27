@@ -10,9 +10,6 @@
                  <div style="border: 2px solid rgb(230, 226, 226);  padding: 45px 20px; margin-top: 0 auto;">
                      <a href="orderList.do" style="color:black;">내 구매목록</a>
                     <hr>
-
-                     <a href="payList.do" style="color:black;">출발페이 및 적립금</a>
-
                      <a href="payList.do" style="color:black;">출발페이 및 포인트</a>
 
                     <hr>

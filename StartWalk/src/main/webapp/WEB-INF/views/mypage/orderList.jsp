@@ -142,7 +142,7 @@
 							<p style="margin: 0; text-align: center; font-size: 20px; font-weight: 700;">구매하신 상품이 없습니다.</p>
 						</div>
 					</c:when>					
-					<c:when test="${loginUser.getUserId()== order.getUserId()}">													
+					<c:when test="${order.pdId != nulll && loginUser.getUserId() == order.getUserId()}">													
 					<tr id="packDetail" style="padding: 5px; margin: 10px; border-bottom: 1px solid rgb(208, 208, 208);">
 						<td style="width: 180px; height: 110px; padding: 10px;">
 							<img alt="img" src="./upload/${order.prImg }" style="width: 160px; height: 110px;">

@@ -73,7 +73,7 @@ public static PageDTO pageInfo = null;
 		
 		// 주문목록
 		ProductService service = new ProductServiceMybatis();
-		List<ProductVO> list = service.orderList(Integer.parseInt(page));
+		List<ProductVO> list = service.orderListdo();
 		int total = service.getTotalCount();
 		
 		System.out.println(list);

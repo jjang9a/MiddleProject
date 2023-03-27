@@ -3,7 +3,9 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+
 <%@ include file="../client/sidebar.jsp"%>
+<div style="margin: 30px auto 100px auto; width: 1500px; ">
 
 <!-- 목록시작 -->            
 	<div style="float: left; margin-bottom: 50px; padding: 5px 40px;">

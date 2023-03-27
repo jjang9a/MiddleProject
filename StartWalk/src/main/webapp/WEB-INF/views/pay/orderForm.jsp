@@ -76,7 +76,7 @@ h5.input{
 			<p>결제방법</p>
 			<input type="radio" name="paymethod" value="cash" style="width:20px;"><label>무통장 입금</label>
 			<input type="radio" name="paymethod" value="card" style="width:20px;"><label>신용카드</label>
-			<div>
+			<div align="center">
 			<button style="margin:20px 0;" type="submit">결제</button>
 			</div>
 	</form>

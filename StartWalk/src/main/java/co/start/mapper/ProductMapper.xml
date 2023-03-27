@@ -90,7 +90,7 @@
 </insert>
 
 <select id="orderList" parameterType="int" resultType="co.start.vo.ProductVO">
-	<![CDATA[
+ 	<![CDATA[
 		select pd_id, pd_name,  pd_price, pd_sale, pr_img, order_id, user_id, order_date, pd_count, order_status
 		from (select  rownum rn,  pd_id, pd_name, pd_price, pd_sale, pr_img, order_id, user_id, order_date, pd_count,order_status
 		        from (select pd.pd_id, pd.pd_name, pd.pd_price, pd.pd_sale, pd.pr_img, o.order_id, o.user_id,o.order_date, pd_count,o.order_status
@@ -99,7 +99,7 @@
 		        where rownum <= (#{page} * 10) ) b
 		where b.rn > (#{page} - 1) * 10
 		order by order_date
-	]]>
+	]]> 		                                        
 </select>
 
 <select id="countOrderStatus" parameterType="String" resultType="co.start.vo.OrderVO">

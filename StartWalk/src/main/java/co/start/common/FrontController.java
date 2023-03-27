@@ -235,14 +235,14 @@ public class FrontController extends HttpServlet {
 			map.put("/scSearch.do", new ScSearchControl()); // 글 읽기(단건조회).			
 			map.put("/scWrite.do", new ScWriteControl()); // 1:1문의 글쓰기(등록).
 			map.put("/scWriteForm.do", new ScWriteFormControl()); // 1:1문의 글쓰기(등록).
-			map.put("/scRemove.do", new ScRemoveControl()); // 글 삭제(글읽기 scSearch에 버튼으로 구현). 
+			map.put("/scRemove.do", new ScRemoveControl()); // 글 삭제(글읽기 scSearch에 버튼으로 구현). x
 			// 회원 sc(1:1문의)
-			map.put("/scUserList.do", new ScUserListControl()); // 목록 회원용(전체리스트-아이디 조건) 미완-list 조건 줘야함.
+			map.put("/scUserList.do", new ScUserListControl()); // 목록 회원용(전체리스트-아이디 조건) .
 			map.put("/scUserWrite.do", new ScUserWriteControl()); // 1:1문의 글쓰기(등록).
 			map.put("/scUserWriteForm.do", new ScUserWriteFormControl()); // 1:1문의 글쓰기(등록).		
 		
 
-			// 쪽지 dm (sender)
+			// 쪽지 dm (message)
 			map.put("/senderList.do", new SenderListControl()); // 보낸쪽지함 목록(전체리스트).
 			map.put("/senderSearch.do", new SenderSearchControl()); // 쪽지 상세조회. 
 		

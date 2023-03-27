@@ -56,11 +56,12 @@
 				<div class="wow fadeInUp" data-wow-delay="0.2s">
 					<form action="orderDirect.do" type="post">
 						<div class="row g-3">
-							<div class="col-12" style="text-align:right; padding-top:10px">
-								<input type="hidden" name="pdid" id="pdid" value="${info.pdId }"/>
-									판매가 : <fmt:formatNumber pattern="#,###,###" value="${info.pdPrice }" />원
-								<div class="form-floating" >
-								</div>
+							<div class="col-12" style="text-align: right; padding-top: 10px">
+								<input type="hidden" name="pdid" id="pdid" value="${info.pdId }" />
+								판매가 :
+								<fmt:formatNumber pattern="#,###,###" value="${info.pdPrice }" />
+								원
+								<div class="form-floating"></div>
 							</div>
 							<div class="col-12">
 								<div class="form-floating">
@@ -69,11 +70,14 @@
 									<label for="message">${info.pdInfo }</label>
 								</div>
 							</div>
-							<div class="col-12" style="font-size:10px; color:#808080; padding-left:15px">
-							</div>							
+							<div class="col-12"
+								style="font-size: 10px; color: #808080; padding-left: 15px">
+							</div>
 							<div class="col-12">
-								<button style="background-color:#0f172b; border:none;" class="btn btn-primary w-100 py-3" type="submit">구매하기</button>
-								<button class="btn btn-primary w-100 py-3" type="button" id="submitBtn">장바구니</button>
+								<button style="background-color: #0f172b; border: none;"
+									class="btn btn-primary w-100 py-3" type="submit">구매하기</button>
+								<button class="btn btn-primary w-100 py-3" type="button"
+									id="submitBtn">장바구니</button>
 							</div>
 						</div>
 					</form>
@@ -91,7 +95,6 @@ fetch('cartAdd.do', {
 	method : 'post',
 	headers : {'Content-Type' : 'application/x-www-form-urlencoded'},
 	body: 'pdid='+pdid
-
 })
 .then(resolve => resolve.json()) // {"id":"user1", "name":"hong" ...}
 .then(result => {
@@ -106,5 +109,4 @@ fetch('cartAdd.do', {
 .catch(reject => console.error(reject));
 });
 </script>
-
 

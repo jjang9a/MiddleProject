@@ -229,8 +229,7 @@ body {
       <input type="password" placeholder="Password" class="input" name="userPasswd" required="required"/>
       <input type="text" placeholder="Name" class="input" name="userName" required="required"/>
       <input type="text" placeholder="gender" class="input" name="userGender" required="required"/>
-      <input type="text" placeholder="Phone" class="input" name="userPhone" required="required"/>
-      <input type="text" placeholder="Adreess" class="input" name="userAddr" required="required"/>
+      <input type="text" placeholder="Phone" class="input" name="userPhone" required="required"/> <input type="text" placeholder="Adreess" class="input" name="userAddr" required="required"/>
       <input type="email" placeholder="Email" class="input" name="userMail" required="required"/>
       
        
