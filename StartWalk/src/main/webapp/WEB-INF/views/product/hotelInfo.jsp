@@ -56,9 +56,9 @@
 							</div>
 							<div class="col-12">
 								<div class="form-floating">
-									<textarea class="form-control" placeholder="Special Request"
-										id="message" style="height: 100px"></textarea>
-									<label for="message">${hotel.pdInfo }</label>
+									<textarea class="form-control" cols="72" rows="20" placeholder="Special Request"
+										id="message" style="height: 230px">${hotel.pdInfo }</textarea>
+									<label for="message"></label>
 								</div>
 							</div>
 							<div class="col-12" style="font-size:10px; color:#808080; padding-left:15px">
