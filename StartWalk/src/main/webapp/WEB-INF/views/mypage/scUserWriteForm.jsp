@@ -9,7 +9,7 @@
             <hr style="margin-top: 120px; margin-bottom: 0;">
             
             <c:if test="${loginUser.userGrade.equals('user') }">
-				<a href="scUserWrite.do" class="btn btn-sm btn-dark rounded py-2 px-4" style="float: right; margin:10px 0;">글쓰기	</a>
+				<a href="scUserWriteForm.do" class="btn btn-sm btn-dark rounded py-2 px-4" style="float: right; margin:10px 0;">글쓰기	</a>
 			</c:if>
             
             

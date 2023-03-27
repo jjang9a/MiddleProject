@@ -9,7 +9,7 @@
 		<div style="margin: 100px auto 100px auto; width: 1000px; ">
             <hr style="margin-top: 120px; margin-bottom: 0;">
             <c:if test="${loginUser.getUserId().equals('admin') }">
-				<a href="scRemove.do" class="btn btn-sm btn-dark rounded py-2 px-4" style="float: right; margin: 10 10px; padding:10px;">삭제</a>
+				<a href="scRemove.do?sc=${sc.getBId() }" class="btn btn-sm btn-dark rounded py-2 px-4" style="float: right; margin: 10 10px; padding:10px;">삭제</a>
 			</c:if>
             
             <div style="width: 200px; float: left;  ">

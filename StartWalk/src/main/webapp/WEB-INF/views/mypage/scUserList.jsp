@@ -3,13 +3,9 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
-<<<<<<< HEAD
 <%@ include file="../mypage/sidebar.jsp" %>
-=======
-<%@ include file="../client/sidebar.jsp"%>
->>>>>>> branch 'master' of https://github.com/jjang9a/StartWalk.git
 
-<div style="margin: 30px auto 100px auto; width: 1000px; ">
+<div style="margin: 30px auto 100px auto; width: 1500px; ">
 <!-- 목록시작 -->            
 	<div style="float: left; margin-bottom: 50px; padding: 20px 40px;">
 		<h3>고객 문의 게시판</h3>
