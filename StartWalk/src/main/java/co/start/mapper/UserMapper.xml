@@ -25,8 +25,17 @@
 </select>
 
 <!-- 용억 -->
+<select id="gradeList" resultType="co.start.vo.UserVO">
+	select * from users
+</select>
 
+<update id="updateGrade" parameterType="co.start.vo.UserVO">
+	update users set user_grade = #{userGrade} where user_id = #{userId}
+</update>
 
+<select id="selectGrade" resultType="co.start.vo.UserVO" parameterType="co.start.vo.UserVO">
+	select * from users where user_id = #{userId}
+</select>
 <!-- 대준 -->
   
   <select id="login" parameterType="co.start.vo.UserVO" resultType="UserVO">

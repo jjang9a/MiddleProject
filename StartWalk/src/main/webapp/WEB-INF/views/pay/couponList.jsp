@@ -29,9 +29,15 @@ tr, th{
 			<td>${cp.cpStatus }</td>
 		</tr>
 	</c:if>
-	</c:forEach>
-	</table>	
+
+	</c:forEach>	
+		
+		</table>
+
+	
+		
 	</div>
 <div style="clear: both;"></div>
+
 
 
