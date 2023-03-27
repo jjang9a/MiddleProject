@@ -3,21 +3,13 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
-<<<<<<< HEAD
-<%@ include file="../mypage/sidebar.jsp" %>
-=======
 <%@ include file="../client/sidebar.jsp"%>
->>>>>>> branch 'master' of https://github.com/jjang9a/StartWalk.git
 
-<div style="margin: 30px auto 100px auto; width: 1000px; ">
 <!-- 목록시작 -->            
-	<div style="float: left; margin-bottom: 50px; padding: 20px 40px;">
-		<h3>고객 문의 게시판</h3>
-		<hr>
 	<div style="float: left; margin-bottom: 50px; padding: 5px 40px;">
-		<h3>1:1 문의 (Q&#38;A)</h3>
+		<h3 style="margin-top:20px">1:1 문의 (Q&#38;A)</h3>
 		<div align="right"><a href ="scUserWriteForm.do"><input class="btn btn-primary" type="submit" value="글쓰기"></a></div>      
-		<table class="table" style="width: 720px; margin:auto">
+		<table class="table" style="width: 600px; margin:auto">
 			<thead>
 				<tr>
 					<th>No.</th> 
@@ -43,6 +35,6 @@
 		</table>
 		</div>
 </div>
+	</div>
 <div style="clear: both;">		
 </div>
-	</div>

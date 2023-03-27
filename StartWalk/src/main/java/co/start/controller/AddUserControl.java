@@ -11,6 +11,7 @@ import co.start.service.PaymentService;
 import co.start.service.PaymentServiceMybatis;
 import co.start.service.UserService;
 import co.start.service.UserServiceMybatis;
+import co.start.vo.CouponVO;
 import co.start.vo.StartpayVO;
 import co.start.vo.UserVO;
 
@@ -51,16 +52,15 @@ public class AddUserControl implements Control {
 
 			
 			  StartpayVO pay = new StartpayVO();
-			  
 			  pay.setUserId(userId); 
 			  pay.setPayStart(0); 
 			  pay.setPayWhy("회원가입");
 			  pay.setPayPoint(0);
-			  
-			  System.out.println(pay);
-			  
+			  System.out.println(pay); 
 			  PaymentService ps = new PaymentServiceMybatis(); 
 			  ps.insertPay(pay);
+			  
+			  ps.giveCoupon(userId);
 			 
 		} else {
 			System.out.println("예외");

@@ -94,6 +94,11 @@ public class PaymentServiceMybatis implements PaymentService {
 		return mapper.searchOrderId();
 	}
 
+	@Override
+	public boolean giveCoupon(String id) {
+		return mapper.createCoupon(id) == 1;
+	}
+
 	
 
 //	@Override
@@ -126,6 +131,7 @@ public class PaymentServiceMybatis implements PaymentService {
 		int r = mapper.insertPay(vo);
 		return r==1;
 	}
+
 
 
 

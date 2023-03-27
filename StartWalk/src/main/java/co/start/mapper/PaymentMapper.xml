@@ -68,6 +68,9 @@
 	delete from cart where user_id=#{userId} and pd_id=#{pdId}
 </delete>
 
+<insert id="createCoupon" parameterType="string">
+	insert into coupon values(coupon_seq.nextval, #{userId}, 10000, '회원가입 축하 쿠폰', sysdate, null, '사용가능')
+</insert>
 
 
 <!-- 순덕 -->

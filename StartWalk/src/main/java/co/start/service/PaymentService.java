@@ -28,6 +28,7 @@ public interface PaymentService {
 	public boolean useCoupon(int id); // 쿠폰 상태 변경
 	public boolean addPoint(StartpayVO vo); // 적립금 부가
 	public boolean autoDelCart(CartVO vo); // 결제된 상품 카트에서 삭제
+	public boolean giveCoupon(String id); // 회원가입 축하 쿠폰 발급
 	
 	
 	// 순덕

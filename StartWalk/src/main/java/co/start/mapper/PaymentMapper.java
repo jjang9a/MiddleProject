@@ -30,6 +30,7 @@ public interface PaymentMapper {
 	public int updateCoupon(int cpId); // 쿠폰 상태 사용완료로 변경
 	public int insertPoint(StartpayVO vo); // 적립금 등록  ----------------<<얘는 구현해야함>>
 	public int CartOrderDel(CartVO vo); // 결제 된 상품 카트에서 삭제
+	public int createCoupon(String userId); // 쿠폰 발급 
 	
 
 	
