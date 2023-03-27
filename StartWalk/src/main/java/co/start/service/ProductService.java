@@ -47,7 +47,7 @@ public interface ProductService {
 	public List<ProductVO> orderList(int page);
 	public List<ProductVO> orderListdo();
 	// 주문상태
-	public List<OrderVO> countOrderStatus();
+	public List<OrderVO> countOrderStatus(String id);
 	// 리뷰 작성
 	public boolean addPdreview(PdreviewVO vo);
 	

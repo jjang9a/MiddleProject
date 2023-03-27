@@ -55,7 +55,7 @@ public interface ProductMapper {
 	public List<ProductVO> orderList(int page);
 	public List<ProductVO> orderListdo();
 	// 주문상태 
-	public List<OrderVO> countOrderStatus();
+	public List<OrderVO> countOrderStatus(String id);
 	// 리뷰 등록
 	public int insertPdreview(PdreviewVO vo);
 	

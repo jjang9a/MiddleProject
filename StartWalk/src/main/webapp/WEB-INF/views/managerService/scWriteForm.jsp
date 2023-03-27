@@ -6,7 +6,6 @@
 
 	 
 		<div style="margin: 100px auto 100px auto; width: 1000px; ">
-<<<<<<< HEAD
             <hr style="margin-top: 120px; margin-bottom: 0;">
             
             <c:if test="${loginUser.userGrade.equals('admin') }">
@@ -14,33 +13,24 @@
 			</c:if>
             
             
-            <div style="width: 200px; float: left;  ">
-                <p style="color:rgb(255, 255, 255); font-weight: 700; font-size: 25px;  background-color: #0f172b; text-align: center; padding: 20px; margin-bottom: 0; border-bottom: 5px solid #fea116;">고객센터</p>
-=======
+      
 <!-- 사이드바 -->
 		  <div style="width: 200px; float: left;  ">
                 <p style="color:rgb(255, 255, 255); font-weight: 700; font-size: 25px;  background-color: #0f172b; text-align: center; padding: 20px; margin-bottom: 0; border-bottom: 5px solid #fea116;">관리자 모드</p>
->>>>>>> branch 'master' of https://github.com/jjang9a/StartWalk.git
                  <div style="border: 2px solid rgb(230, 226, 226);  padding: 45px 20px; margin-top: 0 auto;">
                      <a href="" style="color:black;">공지사항</a>
                     <hr>
-<<<<<<< HEAD
-=======
 
->>>>>>> branch 'master' of https://github.com/jjang9a/StartWalk.git
                      <a href="faq.do" style="color:black;">자주 묻는 질문(FAQ)</a>
                     <hr>
                      <a href="scManagerList.do" style="color:black;">1:1 문의하기(Q&#38;A)</a>
-<<<<<<< HEAD
                     <hr>
-=======
                      <hr>
                      <p style="margin-bottom:0;"><a href="" style="color:black;">상품등록</a></p>
                      <p style="margin-bottom:0;"><a href="" style="color:black; font-size: 13px;">&nbsp;&nbsp;패키지 상품등록</a></p>
                      <p><a href="" style="color:black; font-size: 13px;">&nbsp;&nbsp;기타 상품등록</a></p>
 					<hr>
                      <a href="" style="color:black;">연락처 &#183; 위치 안내</a>                    
->>>>>>> branch 'master' of https://github.com/jjang9a/StartWalk.git
                  </div>
             </div>
 <!-- 사이드바 종료 -->   

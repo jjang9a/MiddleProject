@@ -5,7 +5,9 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ include file="../mypage/sidebar.jsp" %>
 
-<!-- 목록시작 -->            
+<!-- 목록시작 -->  
+	<div style="margin: 100px auto 100px auto; width: 1500px; ">
+          
 	<div style="float: left; margin-bottom: 50px; padding: 5px 40px;">
 		<h3 style=""> 쪽지함 </h3>
 	<div style="float: left; margin-bottom: 50px; margin-top: 40px; padding: 5px 40px;">
@@ -33,7 +35,7 @@
 			
 			
 			<h5 style="margin-bottom : 30px; margin-top : 60px">받은 쪽지함</h5>	
-			<table class="table" style="width: 720px; margin:auto;">	
+			<table class="table" style="width: 600px; margin:auto;">	
 			<thead>
 				<tr style="text-align : center;">
 					<th>보낸 사람</th>
@@ -58,9 +60,9 @@
 <div style="clear: both; height:80px;">		
 </div>
 </div>
-<<<<<<< HEAD
 </div>
-=======
+</div>
+
 	
 <script>
 function openPopUp() {
@@ -71,4 +73,4 @@ function openPopUp() {
 	 window.open("writeMsgForm.do", "Message", "width=400, height=360, top=150, left=200");
 }
 </script>
->>>>>>> branch 'master' of https://github.com/jjang9a/StartWalk.git
+
