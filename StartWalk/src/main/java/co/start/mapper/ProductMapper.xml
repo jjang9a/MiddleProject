@@ -202,7 +202,7 @@
 	  select pd_id, pd_name, pd_price, pd_type ,pr_img
 	  from (select  rownum rn, pd_id, pd_name, pd_price, pd_type,pr_img
 	      from (select pd_id, pd_name, pd_price, pd_type,pr_img
-	            from product
+	            from product where pd_type='PR'
 	            order by pd_id) a
 	      where rownum <= (#{page} * 10) ) b
 	  where b.rn > (#{page} - 1) * 10
