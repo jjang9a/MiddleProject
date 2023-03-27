@@ -1,39 +1,58 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
-
-
-       
-
-
-        <!-- Carousel Start -->
+<!-- Carousel Start -->
         <div class="container-fluid p-0 mb-5">
             <div id="header-carousel" class="carousel slide" data-bs-ride="carousel">
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img class="w-100" src="img/carousel-1.jpg" alt="Image">
-                        <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
-                            <div class="p-3" style="max-width: 700px;">
-                                <h6 class="section-title text-white text-uppercase mb-3 animated slideInDown">이달의 패키지 상품</h6>
-                                <h1 class="display-3 text-white mb-4 animated slideInDown">제주도 2박3일 럭셔리 패키지 신축 4성급호텔</h1>
-                                <a href="" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">상세 설명</a>
-                                <a href="" class="btn btn-light py-md-3 px-md-5 animated slideInRight">다른 상품 더보기</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <img class="w-100" src="img/carousel-2.jpg" alt="Image">
-                        <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
-                            <div class="p-3" style="max-width: 700px;">
-                                <h6 class="section-title text-white text-uppercase mb-3 animated slideInDown">이달의 BEST 패키지</h6>
-                                <h1 class="display-3 text-white mb-4 animated slideInDown">낭만BIG3 대관령양떼목장 , 정동진, 안목항 커피거리 여행</h1>
-                                <a href="" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">상세 설명</a>
-                                <a href="" class="btn btn-light py-md-3 px-md-5 animated slideInRight">다른 상품 더보기</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+<c:forEach var="bestPackage" items="${bestPackage }" varStatus="status">
+
+                    <c:choose>
+                    <c:when test="${status.first }">
+						<div class="carousel-inner">
+							<div class="carousel-item active">  
+								<img class="w-100" src="./upload/${bestPackage.prImg }" alt="Image" style="height: 700px;">
+								<div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+									<div class="p-3" style="max-width: 750px;">
+										<h6 class="section-title text-white text-uppercase mb-3 animated slideInDown">BEST 여행 패키지 상품</h6>
+										<h1 class="display-3 text-white mb-4 animated slideInDown">${bestPackage.pdName}</h1>
+										<a href="packageInfo.do?pdId=${bestPackage.pdId}" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">상세 설명</a>
+										<a href="packageList.do" class="btn btn-light py-md-3 px-md-5 animated slideInRight">다른 상품 더보기</a>
+									</div>
+								</div>
+							</div> 
+						 </div>					
+                    </c:when>
+                    <c:when test="${status.index eq 2 }">
+	                    <div class="carousel-item">
+	                        <img class="w-100" src="./upload/${bestPackage.prImg }" alt="Image" style="height: 700px;">
+	                        <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+	                            <div class="p-3" style="max-width: 750px;">
+	                                <h6 class="section-title text-white text-uppercase mb-3 animated slideInDown">BEST 여행 패키지 상품</h6>
+	                                <h1 class="display-3 text-white mb-4 animated slideInDown">${bestPackage.pdName}</h1>
+	                                <a href="packageInfo.do?pdId=${bestPackage.pdId}" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">상세 설명</a>
+	                                <a href="" class="btn btn-light py-md-3 px-md-5 animated slideInRight">다른 상품 더보기</a>
+	                            </div>
+	                        </div>
+	                    </div>                    
+                    </c:when>
+					<c:otherwise>
+						<div class="carousel-item">
+	                        <img class="w-100" src="./upload/${bestPackage.prImg }" alt="Image" style="height: 700px;">
+	                        <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+	                            <div class="p-3" style="max-width: 750px;">
+	                                <h6 class="section-title text-white text-uppercase mb-3 animated slideInDown">BEST 여행 패키지 상품</h6>
+	                                <h1 class="display-3 text-white mb-4 animated slideInDown">${bestPackage.pdName}</h1>
+	                                <a href="packageInfo.do?pdId=${bestPackage.pdId}" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">상세 설명</a>
+	                                <a href="" class="btn btn-light py-md-3 px-md-5 animated slideInRight">다른 상품 더보기</a>
+	                            </div>
+	                        </div>
+	                    </div>					
+					</c:otherwise>
+                    </c:choose>	
+
                 <button class="carousel-control-prev" type="button" data-bs-target="#header-carousel"
                     data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -44,10 +63,10 @@
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Next</span>
                 </button>
+                    </c:forEach>
             </div>
         </div>
         <!-- Carousel End -->
-
 
         <!-- About Start -->
         <div class="container-xxl py-5">
@@ -64,8 +83,8 @@
                                 <div class="border rounded p-1">
                                     <div class="border rounded text-center p-4">
                                         <img src="img/luggage2.png" alt="여행상품" style="width: 40%; height: 40%;">
-                                        <h2 class="mb-1" data-toggle="counter-up">1234</h2>
-                                        <p class="mb-0">여행상품</p>
+                                        <h2 class="mb-1" data-toggle="counter-up">${mainCountPackage.countPk }</h2>
+                                        <p class="mb-0">여행패키지 상품</p>
                                     </div>
                                 </div>
                             </div>
@@ -73,8 +92,8 @@
                                 <div class="border rounded p-1">
                                     <div class="border rounded text-center p-4">
                                         <img src="img/shopping-basket.png" alt="판매상품" style="width: 40%; height: 40%;">
-                                        <h2 class="mb-1" data-toggle="counter-up">1234</h2>
-                                        <p class="mb-0">판매상품</p>
+                                        <h2 class="mb-1" data-toggle="counter-up">${mainCountProduct.countPd }</h2>
+                                        <p class="mb-0">숙소 및 지역명물</p>
                                     </div>
                                 </div>
                             </div>
@@ -82,7 +101,7 @@
                                 <div class="border rounded p-1">
                                     <div class="border rounded text-center p-4">
                                         <img src="img/client.png" alt="회원" style="width: 40%; height: 40%;">
-                                        <h2 class="mb-1" data-toggle="counter-up">1234</h2>
+                                        <h2 class="mb-1" data-toggle="counter-up">${mainCountUser.countUser }</h2>
                                         <p class="mb-0">회원</p>
                                     </div>
                                 </div>
@@ -112,195 +131,224 @@
         <!-- About End -->
 
 
-        <!-- Room Start -->
+        <!-- Best 숙소 Start -->
         <div class="container-xxl py-5">
             <div class="container">
                 <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
                     <h6 class="section-title text-center text-primary text-uppercase">Spring Season</h6>
-                    <h1 class="mb-5"><span class="text-primary text-uppercase">BEST</span> 여행 패키지 상품</h1>
+                    <h1 class="mb-5"><span class="text-primary text-uppercase">BEST</span> 숙소</h1>
                 </div>
                 <div class="row g-4">
+            	<c:forEach var="bestHotel" items="${bestHotel }">
                     <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s" >
                         <div class="room-item shadow rounded overflow-hidden">
                             <div class="position-relative">
-                                <img class="img-fluid" src="img/경포대.jpg" alt="경포대" style="width: 360px; height: 240px;">
-                                <small class="position-absolute start-0 top-100 translate-middle-y bg-primary text-white rounded py-1 px-3 ms-4">패키지 가격</small>
+                                <img class="img-fluid" src="./upload/${bestHotel.prImg }" alt="image" style="width: 410px; height: 240px;">
+                                <small class="position-absolute start-0 top-100 translate-middle-y bg-primary text-white rounded py-1 px-3 ms-4">
+                                <fmt:setLocale value="ko_kr" /><fmt:formatNumber value="${bestHotel.pdPrice }" type="currency" />
+                                </small>
                             </div>
                             <div class="p-4 mt-2" >
                                 <div class="d-flex justify-content-between mb-3">
-                                    <h5 class="mb-0">경포대 명소(벚꽃), 소돌아들바위공원, 중앙시장 당일여행</h5>
+                                    <h5 class="mb-0">${bestHotel.pdName}</h5>
                                     
                                 </div>
                                 <div class="d-flex justify-content-between">
-                                    <a class="btn btn-sm btn-primary rounded py-2 px-4" href="">상세 설명</a>
-                                    <a class="btn btn-sm btn-dark rounded py-2 px-4" href="">예약 및 결제</a>
+									<div style="overflow:hidden;">
+										<c:if test="${bestHotel.avg <=1.49}">
+											<div class="bi-star-fill" style="float: left;"></div>
+											<div class="bi-star" style="float: left;"></div>
+											<div class="bi-star" style="float: left;"></div>
+											<div class="bi-star" style="float: left;"></div>
+											<div class="bi-star" style="float: left;"></div>
+											&nbsp;<fmt:formatNumber value="${bestHotel.avg }" pattern=".00"/>
+										</c:if>
+										<c:if test="${1.49< bestHotel.avg and bestHotel.avg <=2.49}">
+											<div class="bi-star-fill" style="float: left;"></div>
+											<div class="bi-star-fill" style="float: left;"></div>
+											<div class="bi-star" style="float: left;"></div>
+											<div class="bi-star" style="float: left;"></div>
+											<div class="bi-star" style="float: left;"></div>
+											&nbsp;<fmt:formatNumber value="${bestHotel.avg }" pattern=".00"/>
+										</c:if>
+										<c:if test="${2.49< bestHotel.avg and bestHotel.avg <=3.49}">
+											<div class="bi-star-fill" style="float: left;"></div>
+											<div class="bi-star-fill" style="float: left;"></div>
+											<div class="bi-star-fill" style="float: left;"></div>
+											<div class="bi-star" style="float: left;"></div>
+											<div class="bi-star" style="float: left;"></div>
+											&nbsp;<fmt:formatNumber value="${bestHotel.avg }" pattern=".00"/>
+										</c:if>
+										<c:if test="${3.49< bestHotel.avg and bestHotel.avg <=4.49}">
+											<div class="bi-star-fill" style="float: left;"></div>
+											<div class="bi-star-fill" style="float: left;"></div>
+											<div class="bi-star-fill" style="float: left;"></div>
+											<div class="bi-star-fill" style="float: left;"></div>
+											<div class="bi-star" style="float: left;"></div>
+											&nbsp;<fmt:formatNumber value="${bestHotel.avg }" pattern=".00"/>
+										</c:if>
+										<c:if test="${4.49< bestHotel.avg and bestHotel.avg <=5.00}">
+											<div class="bi-star-fill" style="float: left;"></div>
+											<div class="bi-star-fill" style="float: left;"></div>
+											<div class="bi-star-fill" style="float: left;"></div>
+											<div class="bi-star-fill" style="float: left;"></div>
+											<div class="bi-star-fill" style="float: left;"></div>
+											&nbsp;<fmt:formatNumber value="${bestHotel.avg }" pattern=".00"/>
+										</c:if>					
+									</div>                               
+                                    <a class="btn btn-sm btn-dark rounded py-2 px-4" href="hotelInfo.do?key=${bestHotel.pdId }">상세 설명</a>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                        <div class="room-item shadow rounded overflow-hidden">
-                            <div class="position-relative">
-                                <img class="img-fluid" src="img/동해바다 (당일).jpg" alt="경포대 " style="width: 360px; height: 240px;">
-                                <small class="position-absolute start-0 top-100 translate-middle-y bg-primary text-white rounded py-1 px-3 ms-4">패키지 가격</small>
-                            </div>
-                            <div class="p-4 mt-2">
-                                <div class="d-flex justify-content-between mb-3">
-                                    <h5 class="mb-0">동해바다 한섬 감성 바닷길 / 도째비골 스카이밸리 + 논골담길 / 해안선열차(당일)</h5>
-                                    
-                                </div>
-                                <div class="d-flex justify-content-between">
-                                    <a class="btn btn-sm btn-primary rounded py-2 px-4" href="">상세 설명</a>
-                                    <a class="btn btn-sm btn-dark rounded py-2 px-4" href="">예약 및 결제</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.6s">
-                        <div class="room-item shadow rounded overflow-hidden">
-                            <div class="position-relative">
-                                <img class="img-fluid" src="img/구례.jpg" alt="경포대" style="width: 360px; height: 240px;">
-                                <small class="position-absolute start-0 top-100 translate-middle-y bg-primary text-white rounded py-1 px-3 ms-4">패키지 가격</small>
-                            </div>
-                            <div class="p-4 mt-2">
-                                <div class="d-flex justify-content-between mb-3">
-                                    <h5 class="mb-0"> 3/18 구례 홍매화 + 산수유 당일여행</h5>
-                                    
-                                </div>
-                                <div class="d-flex justify-content-between">
-                                    <a class="btn btn-sm btn-primary rounded py-2 px-4" href="">상세 설명</a>
-                                    <a class="btn btn-sm btn-dark rounded py-2 px-4" href="">예약 및 결제</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+            	</c:forEach>
                 </div>
             </div>
         </div>
-        <!-- Room End -->
-
-        <!-- Service Start -->
+        <!-- Best 숙소 End -->
+        
+        <!-- Best 명물 Start -->
         <div class="container-xxl py-5">
             <div class="container">
                 <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-                    <h6 class="section-title text-center text-primary text-uppercase">우수</h6>
-                    <h1 class="mb-5"> <span class="text-primary text-uppercase"></span>상품</h1>
+                    <h6 class="section-title text-center text-primary text-uppercase">Spring Season</h6>
+                    <h1 class="mb-5"><span class="text-primary text-uppercase">BEST</span> 지역 명물</h1>
                 </div>
                 <div class="row g-4">
-                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                        <a class="service-item rounded" href="">
-                            <div class="service-icon bg-transparent border rounded p-1">
-                                <div class="w-100 h-100 border rounded d-flex align-items-center justify-content-center">
-                                    <i class="fa fa-hotel fa-2x text-primary"></i>
+            	<c:forEach var="bestProduct" items="${bestProduct }">
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s" >
+                        <div class="room-item shadow rounded overflow-hidden">
+                            <div class="position-relative" style="text-align: center;">
+                                <img class="img-fluid" src="./upload/${bestProduct.prImg }" alt="image" style="width: 410px; height: 240px;">
+                                <small class="position-absolute start-0 top-100 translate-middle-y bg-primary text-white rounded py-1 px-3 ms-4">
+                                <fmt:setLocale value="ko_kr" /><fmt:formatNumber value="${bestProduct.pdPrice }" type="currency" />
+                                </small>
+                            </div>
+                            <div class="p-4 mt-2" >
+                                <div class="d-flex justify-content-between mb-3">
+                                    <h5 class="mb-0">${bestProduct.pdName}</h5>
+                                    
+                                </div>
+                                <div class="d-flex justify-content-between">
+                                    									<div style="overflow:hidden;">
+										<c:if test="${bestProduct.avg <=1.49}">
+											<div class="bi-star-fill" style="float: left;"></div>
+											<div class="bi-star" style="float: left;"></div>
+											<div class="bi-star" style="float: left;"></div>
+											<div class="bi-star" style="float: left;"></div>
+											<div class="bi-star" style="float: left;"></div>
+											&nbsp;<fmt:formatNumber value="${bestProduct.avg }" pattern=".00"/>
+										</c:if>
+										<c:if test="${1.49< bestProduct.avg and bestProduct.avg <=2.49}">
+											<div class="bi-star-fill" style="float: left;"></div>
+											<div class="bi-star-fill" style="float: left;"></div>
+											<div class="bi-star" style="float: left;"></div>
+											<div class="bi-star" style="float: left;"></div>
+											<div class="bi-star" style="float: left;"></div>
+											&nbsp;<fmt:formatNumber value="${bestProduct.avg }" pattern=".00"/>
+										</c:if>
+										<c:if test="${2.49< bestProduct.avg and bestProduct.avg <=3.49}">
+											<div class="bi-star-fill" style="float: left;"></div>
+											<div class="bi-star-fill" style="float: left;"></div>
+											<div class="bi-star-fill" style="float: left;"></div>
+											<div class="bi-star" style="float: left;"></div>
+											<div class="bi-star" style="float: left;"></div>
+											&nbsp;<fmt:formatNumber value="${bestProduct.avg }" pattern=".00"/>
+										</c:if>
+										<c:if test="${3.49< bestProduct.avg and bestProduct.avg <=4.49}">
+											<div class="bi-star-fill" style="float: left;"></div>
+											<div class="bi-star-fill" style="float: left;"></div>
+											<div class="bi-star-fill" style="float: left;"></div>
+											<div class="bi-star-fill" style="float: left;"></div>
+											<div class="bi-star" style="float: left;"></div>
+											&nbsp;<fmt:formatNumber value="${bestProduct.avg }" pattern=".00"/>
+										</c:if>
+										<c:if test="${4.49< bestProduct.avg and bestProduct.avg <=5.00}">
+											<div class="bi-star-fill" style="float: left;"></div>
+											<div class="bi-star-fill" style="float: left;"></div>
+											<div class="bi-star-fill" style="float: left;"></div>
+											<div class="bi-star-fill" style="float: left;"></div>
+											<div class="bi-star-fill" style="float: left;"></div>
+											&nbsp;<fmt:formatNumber value="${bestProduct.avg }" pattern=".00"/>
+										</c:if>					
+									</div>
+                                    <a class="btn btn-sm btn-dark rounded py-2 px-4" href="productInfo.do?pdId=${bestProduct.pdId }">상세 설명</a>
                                 </div>
                             </div>
-                            <h5 class="mb-3">숙소</h5>
-                            <p class="text-body mb-0">사진</p>
-                        </a>
+                        </div>
                     </div>
-                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
-                        <a class="service-item rounded" href="">
-                            <div class="service-icon bg-transparent border rounded p-1">
-                                <div class="w-100 h-100 border rounded d-flex align-items-center justify-content-center">
-                                    <i class="fa fa-utensils fa-2x text-primary"></i>
-                                </div>
-                            </div>
-                            <h5 class="mb-3">음식</h5>
-                            <p class="text-body mb-0">사진</p>
-                        </a>
-                    </div>
-                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                        <a class="service-item rounded" href="">
-                            <div class="service-icon bg-transparent border rounded p-1">
-                                <div class="w-100 h-100 border rounded d-flex align-items-center justify-content-center">
-                                    <i class="fa fa-spa fa-2x text-primary"></i>
-                                </div>
-                            </div>
-                            <h5 class="mb-3">음식</h5>
-                            <p class="text-body mb-0">사진</p>
-                        </a>
-                    </div>
-                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.4s">
-                        <a class="service-item rounded" href="">
-                            <div class="service-icon bg-transparent border rounded p-1">
-                                <div class="w-100 h-100 border rounded d-flex align-items-center justify-content-center">
-                                    <i class="fa fa-swimmer fa-2x text-primary"></i>
-                                </div>
-                            </div>
-                            <h5 class="mb-3">숙소</h5>
-                            <p class="text-body mb-0">사진</p>
-                        </a>
-                    </div>
-                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                        <a class="service-item rounded" href="">
-                            <div class="service-icon bg-transparent border rounded p-1">
-                                <div class="w-100 h-100 border rounded d-flex align-items-center justify-content-center">
-                                    <i class="fa fa-glass-cheers fa-2x text-primary"></i>
-                                </div>
-                            </div>
-                            <h5 class="mb-3">명물</h5>
-                            <p class="text-body mb-0">사진</p>
-                        </a>
-                    </div>
-                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.6s">
-                        <a class="service-item rounded" href="">
-                            <div class="service-icon bg-transparent border rounded p-1">
-                                <div class="w-100 h-100 border rounded d-flex align-items-center justify-content-center">
-                                    <i class="fa fa-dumbbell fa-2x text-primary"></i>
-                                </div>
-                            </div>
-                            <h5 class="mb-3">숙소	</h5>
-                            <p class="text-body mb-0">사진</p>
-                        </a>
-                    </div>
+            	</c:forEach>
                 </div>
             </div>
-        </div>
-        <!-- Service End -->
+        </div>        
+        <!-- Best 명물 End -->
+
+        
 
 
-        <!-- Testimonial Start -->
+        <!-- 최신 리뷰, 댓글 Start -->
         <div class="container-xxl testimonial my-5 py-5 bg-dark wow zoomIn" data-wow-delay="0.1s">
             <div class="container">
                 <div class="owl-carousel testimonial-carousel py-5">
-                    <div class="testimonial-item position-relative bg-white rounded overflow-hidden">
-                        <p>재밌었어요!!!!!</p>
+                
+                <c:forEach var="mainReviewList" items="${mainReviewList }">
+                    <div class="testimonial-item position-relative bg-white rounded overflow-hidden" style="height: 200px;">
+                        <p style="color:black;">${mainReviewList.prBody }</p>
                         <div class="d-flex align-items-center">
-                            <img class="img-fluid flex-shrink-0 rounded" src="img/testimonial-1.jpg" style="width: 45px; height: 45px;">
+                           <c:choose>
+                           		<c:when test="${mainReviewList.userGrade == 'vip' }">
+                           		<img class="img-fluid flex-shrink-0 rounded" src="img/vipGrade.png" style="width: 45px; height: 45px;">
+                           		</c:when>
+                           		<c:when test="${mainReviewList.userGrade == 'gold' }">
+                           		<img class="img-fluid flex-shrink-0 rounded" src="img/goldGrade.png" style="width: 45px; height: 45px;">
+                           		</c:when>
+                           		<c:when test="${mainReviewList.userGrade == 'silver' }">
+                           		<img class="img-fluid flex-shrink-0 rounded" src="img/silverGrade.png" style="width: 45px; height: 45px;">
+                           		</c:when>
+                           		<c:when test="${mainReviewList.userGrade == 'normal' }">
+                           		<img class="img-fluid flex-shrink-0 rounded" src="img/normalGrade.png" style="width: 45px; height: 45px;">
+                           		</c:when>                           		                           		                           		
+                           </c:choose>
                             <div class="ps-3">
-                                <h6 class="fw-bold mb-1">김또치</h6>
-                                <small>패키지명</small>
+                                <h6 class="fw-bold mb-1">${mainReviewList.userId }</h6>
+                                <small>${mainReviewList.userGrade }</small>
                             </div>
                         </div>
                         <i class="fa fa-quote-right fa-3x text-primary position-absolute end-0 bottom-0 me-4 mb-n1"></i>
                     </div>
-                    <div class="testimonial-item position-relative bg-white rounded overflow-hidden">
-                        <p>졸잼 꿀잼 허니잼!!!!!!</p>
+                </c:forEach>
+                
+                <c:forEach var="mainCommentsList" items="${mainCommentsList }">
+                    <div class="testimonial-item position-relative bg-white rounded overflow-hidden" style="height: 200px;">
+                        <p style="color:black;">${mainCommentsList.coBody }</p>
                         <div class="d-flex align-items-center">
-                            <img class="img-fluid flex-shrink-0 rounded" src="img/testimonial-2.jpg" style="width: 45px; height: 45px;">
+                           <c:choose>
+                           		<c:when test="${mainCommentsList.userGrade == 'vip' }">
+                           		<img class="img-fluid flex-shrink-0 rounded" src="img/vipGrade.png" style="width: 45px; height: 45px;">
+                           		</c:when>
+                           		<c:when test="${mainCommentsList.userGrade == 'gold' }">
+                           		<img class="img-fluid flex-shrink-0 rounded" src="img/goldGrade.png" style="width: 45px; height: 45px;">
+                           		</c:when>
+                           		<c:when test="${mainCommentsList.userGrade == 'silver' }">
+                           		<img class="img-fluid flex-shrink-0 rounded" src="img/silverGrade.png" style="width: 45px; height: 45px;">
+                           		</c:when>
+                           		<c:when test="${mainCommentsList.userGrade == 'normal' }">
+                           		<img class="img-fluid flex-shrink-0 rounded" src="img/normalGrade.png" style="width: 45px; height: 45px;">
+                           		</c:when>                           		                           		                           		
+                           </c:choose>                            
                             <div class="ps-3">
-                                <h6 class="fw-bold mb-1">고길동</h6>
-                                <small>패키지명</small>
+                                <h6 class="fw-bold mb-1">${mainCommentsList.userId }</h6>
+                                <small>${mainCommentsList.userGrade }</small>
                             </div>
                         </div>
                         <i class="fa fa-quote-right fa-3x text-primary position-absolute end-0 bottom-0 me-4 mb-n1"></i>
-                    </div>
-                    <div class="testimonial-item position-relative bg-white rounded overflow-hidden">
-                        <p>다시 꼭 가고 싶네여</p>
-                        <div class="d-flex align-items-center">
-                            <img class="img-fluid flex-shrink-0 rounded" src="img/testimonial-3.jpg" style="width: 45px; height: 45px;">
-                            <div class="ps-3">
-                                <h6 class="fw-bold mb-1">둘리</h6>
-                                <small>패키지명</small>
-                            </div>
-                        </div>
-                        <i class="fa fa-quote-right fa-3x text-primary position-absolute end-0 bottom-0 me-4 mb-n1"></i>
-                    </div>
+                    </div>                
+                </c:forEach>
+ 
                 </div>
             </div>
         </div>
-        <!-- Testimonial End -->
-
+        <!-- 최신 리뷰, 댓글 End -->            
 
         <!-- Team Start -->
         <div class="container-xxl py-5">

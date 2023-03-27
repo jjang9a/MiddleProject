@@ -39,17 +39,34 @@
 		</c:otherwise>
 	</c:choose>	
 	</div>
-	
 	<h3>&#91; ${info.pdType}${info.pdId}&#93; ${info.pdName}</h3>
+	<input type="hidden" name="pdid" id="pdid" value="${info.pdId }"/>
 	<hr>
-	<p>| &nbsp; 출발:<fmt:formatDate value="${info.pdStart }" type="both" pattern="yyyy-MM-dd E요일" /> &nbsp; | &nbsp; 도착:<fmt:formatDate value="${info.pdEnd }" type="both" pattern="yyyy-MM-dd E요일" />&nbsp; |</p>
+	<button class="btn btn-sm btn-primary rounded py-2 px-4" type="button" id="submitBtn" style="float: right; margin: 0 5px 18px 5px;">장바구니</button>
 	
+	<a class="btn btn-sm btn-dark rounded py-2 px-4" href="orderDirect.do?pdid=${info.pdId }" style="float: right; margin: 0 5px 18px 5px;">결제</a>
+	<div style="width:600px;">
+	<p>| &nbsp; 출발:<fmt:formatDate value="${info.pdStart }" type="both" pattern="yyyy-MM-dd E요일" /> &nbsp; | &nbsp; 도착:<fmt:formatDate value="${info.pdEnd }" type="both" pattern="yyyy-MM-dd E요일" />&nbsp; |</p>
+	</div>
 	
 	
 	<br>
-	<div>
-		<img alt="여행 패키지 상품 이미지" src="./upload/${info.prImg}" style="width: 300px; height:200px;">
-	</div>
+                <!-- img Start -->                 
+                        <div class="owl-carousel testimonial-carousel py-5">
+                            <div>
+                                <img src="./upload/${info.prImg}" style="width: 400px; height: 280px; margin-right: 10px;">
+                            </div>
+                            <div>
+                                <img src="./upload/${img.get(1).imgFile }" style="width: 400px; height: 280px; margin-right: 10px;">
+                            </div>
+                            <div>
+                                <img src="./upload/${img.get(2).imgFile }" style="width: 400px; height: 280px; margin-right: 10px;">
+                            </div>
+                            <div>
+                                <img src="./upload/${img.get(3).imgFile }" style="width: 400px; height: 280px; margin-right: 10px;">
+                            </div>							
+                        </div>
+                <!-- img End -->
 	
 	<h5 style="margin: 20px;">여행일정</h5>
 	<div style="background-color: rgb(242, 242, 242); padding: 20px; margin: 20px 0;">
@@ -121,3 +138,27 @@
 	
 
 </div>
+
+<script>
+let pdid = document.querySelector('#pdid').value;
+console.log('pdid');
+document.querySelector('#submitBtn').addEventListener('click', function(){
+fetch('cartAdd.do', {
+	method : 'post',
+	headers : {'Content-Type' : 'application/x-www-form-urlencoded'},
+	body: 'pdid='+pdid
+
+})
+.then(resolve => resolve.json()) // {"id":"user1", "name":"hong" ...}
+.then(result => {
+	console.log(result);
+	if(result.retCode == 'Success'){
+		alert('장바구니 추가 완료!');
+		
+	} else if(result.retCode == 'Fail'){
+		alert('실패!');
+	}
+})
+.catch(reject => console.error(reject));
+});
+</script>

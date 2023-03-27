@@ -15,9 +15,14 @@
 	update users set user_addr=#{userAddr}, user_phone=#{userPhone}
 	where user_id = #{userId}
 </update>
+<insert id="addMsg" parameterType="MessageVO">
+	insert into message values(post_seq.nextval, #{dmReceiver}, #{dmSender}, #{dmBody}, sysdate)
+</insert>
 
 <!-- 순덕 -->
-
+<select id="mainCountUser" parameterType="UserVO">
+	select count(user_id) as count_user from users
+</select>
 
 <!-- 용억 -->
 <select id="gradeList" resultType="co.start.vo.UserVO">
@@ -41,6 +46,19 @@
 		insert into users  
 		values (#{userId}, #{userPasswd}, #{userName}, sysdate, #{userGender}, #{userPhone}, #{userAddr}, #{userMail}, 'normal')
   </insert>
+
+
+<select id="senderList" resultType="MessageVO" parameterType="String">
+	select * from message where Dm_sender=#{Id}
+</select>
+
+<select id="receiverList" resultType="MessageVO" parameterType="String">
+	select * from message where Dm_receiver=#{Id}
+</select>
+
+<select id="dmSearch" resultType="MessageVO" parameterType ="int">
+   select * from message where Dm_Id=#{dmId}
+</select> 
 
 
 </mapper>

@@ -50,6 +50,10 @@
   	update board set b_count = b_count + 1 
   	where b_id = #{bid}
 </update>
+<update id="updateReco" parameterType="int">
+  	update board set b_good = b_good + 1 
+  	where b_id = #{bid}
+</update>
 
 <!-- 순덕 -->
 <select id="noitceList" resultType="co.start.vo.BoardVO">
@@ -138,8 +142,13 @@
 </delete>
  
  
- <select id="scUserList" resultType="BoardVO">
-	select * from board where b_category='CU' 
+ <select id="scUserList" resultType="BoardVO" parameterType="String">
+	select * from board where b_category='CU' and user_Id=#{Id}
 </select>
+
+<insert id="scUserWrite" parameterType = "BoardVO">
+  	insert into board(b_id, user_id, b_title, b_contents, b_category, b_writeDate)
+  	values(board_seq.nextval, #{userId}, #{bTitle}, #{bContents}, 'CU', sysdate )
+</insert>
 
 </mapper>

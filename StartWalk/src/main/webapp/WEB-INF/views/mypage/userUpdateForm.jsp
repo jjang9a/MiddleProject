@@ -29,6 +29,7 @@ button{
 			<tr><td colspan="2" align="center"><button type="submit">수정</button>	<button type="reset">취소</button></td></tr>
 		</table>
 </form>
+</div>
 
 <script>
 // 비밀번호와 비밀번호 확인 일치하는지 체크

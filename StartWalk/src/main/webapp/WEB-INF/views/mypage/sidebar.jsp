@@ -10,16 +10,25 @@
                  <div style="border: 2px solid rgb(230, 226, 226);  padding: 45px 20px; margin-top: 0 auto;">
                      <a href="orderList.do" style="color:black;">내 구매목록</a>
                     <hr>
+
                      <a href="payList.do" style="color:black;">출발페이 및 적립금</a>
+
+                     <a href="payList.do" style="color:black;">출발페이 및 포인트</a>
+
                     <hr>
+
                     <a href="couponList.do" style="color:black;">쿠폰함</a>
+
+                    <a href="couponList.do" style="color:black;">내 쿠폰</a>
+
                     <hr>
-                    <a href="" style="color:black;">쪽지함</a>
+                    <a href="senderList.do" style="color:black;">쪽지함</a>
                     <hr>
-                     <a href="scWriteForm.do" style="color:black;">1:1 문의하기(Q&#38;A)</a>
+                     <a href="scUserList.do" style="color:black;">1:1 문의하기(Q&#38;A)</a>
                     <hr>
                      <a href="userUpdateCheck.do" style="color:black;">회원정보 수정</a>
                     
                  </div>
             </div>
+
 

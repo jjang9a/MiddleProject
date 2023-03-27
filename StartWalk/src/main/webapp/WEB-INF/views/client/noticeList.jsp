@@ -18,9 +18,9 @@
                  <div style="border: 2px solid rgb(230, 226, 226);  padding: 45px 20px; margin-top: 0 auto;">
                      <a href="noticeList.do" style="color:black;">공지사항</a>
                     <hr>
-                     <a href="" style="color:black;">자주 묻는 질문(FAQ)</a>
+                     <a href="faq.do" style="color:black;">자주 묻는 질문(FAQ)</a>
                     <hr>
-                     <a href="" style="color:black;">1:1 문의하기(Q&#38;A)</a>
+                     <a href="scUserList.do" style="color:black;">1:1 문의하기(Q&#38;A)</a>
                     <hr>
                      <a href="" style="color:black;">연락처 &#183; 위치 안내</a>
                     

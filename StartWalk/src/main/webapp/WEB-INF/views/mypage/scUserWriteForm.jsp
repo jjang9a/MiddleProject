@@ -8,31 +8,36 @@
 		<div style="margin: 100px auto 100px auto; width: 1000px; ">
             <hr style="margin-top: 120px; margin-bottom: 0;">
             
-            <c:if test="${loginUser.userGrade.equals('admin') }">
-				<a href="" class="btn btn-sm btn-dark rounded py-2 px-4" style="float: right; margin:10px 0;">글쓰기	</a>
+            <c:if test="${loginUser.userGrade.equals('user') }">
+				<a href="scUserWrite.do" class="btn btn-sm btn-dark rounded py-2 px-4" style="float: right; margin:10px 0;">글쓰기	</a>
 			</c:if>
             
             
-            <div style="width: 200px; float: left;  ">
-                <p style="color:rgb(255, 255, 255); font-weight: 700; font-size: 25px;  background-color: #0f172b; text-align: center; padding: 20px; margin-bottom: 0; border-bottom: 5px solid #fea116;">고객센터</p>
-                 <div style="border: 2px solid rgb(230, 226, 226);  padding: 45px 20px; margin-top: 0 auto;">
-                    <hr>
-                     <a href="" style="color:black;">자주 묻는 질문(FAQ)</a>
-                    <hr>
-                     <a href="" style="color:black;">1:1 문의하기(Q&#38;A)</a>
-                    <hr>
-                 </div>
-            </div>
+	<div style="width: 200px; float: left;">
+		<p
+			style="color: rgb(255, 255, 255); font-weight: 700; font-size: 25px; background-color: #0f172b; text-align: center; padding: 20px; margin-bottom: 0; border-bottom: 5px solid #fea116;">고객센터</p>
+		<div
+			style="border: 2px solid rgb(230, 226, 226); padding: 45px 20px; margin-top: 0 auto;">
+			<a href="noticeList.do" style="color: black;">공지사항</a>
+			<hr>
+			<a href="faq.do" style="color: black;">자주 묻는 질문(FAQ)</a>
+			<hr>
+			<a href="scUserList.do" style="color: black;">1:1 문의하기(Q&#38;A)</a>
+			<hr>
+			<a href="" style="color: black;">연락처 &#183; 위치 안내</a>
+
+		</div>
+	</div>
             <div style="float: left; margin-bottom: 50px; padding: 5px 40px;">
                 <h5 style="font-size: 23px;">1:1 문의 작성</h5>
                 <div style="margin-top: 20px;">
                 	<table style="border-top: 3px solid black; border-bottom: 1px solid black; padding: 5px; width: 720px;" class="topspace">
-                		<form action="scWrite.do" type="post">
+                		<form action="scUserWrite.do" type="post">
                 		<tbody>
 							<tr>
 								<td align="center" colspan="2">
 								<td>작성자</td>
-								<td><input style="width: 500px" type="text" name="id" value="관리자" readonly></td>
+								<td><input style="width: 500px" type="text" name="id"  ></td>
 							</tr>
 							<tr>
 								<td align="center" colspan="2">

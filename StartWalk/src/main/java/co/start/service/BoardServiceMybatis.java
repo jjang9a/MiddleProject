@@ -52,6 +52,11 @@ public class BoardServiceMybatis implements BoardService{
 	public boolean countUp(int bid) {
 		return mapper.updateBHit(bid) == 1;
 	}
+	@Override
+	public boolean likeUp(int bid) {
+		return mapper.updateReco(bid) == 1;
+	}
+	
 	
 	
 	// 순덕
@@ -139,15 +144,14 @@ public class BoardServiceMybatis implements BoardService{
 	}
 	// 일반 회원용 조회 메소드 하나 더 만들기. // where user_id = #{id} <<mapper.xml 에 넣고 로 조회하기 session.id Control에서 service 조회할때 변수로 사용 
 	@Override
-	public List<BoardVO> scUserList() {
-		return mapper.scUserList();
+	public List<BoardVO> scUserList(String Id) {
+		return mapper.scUserList(Id);
 	}
 	// 회원 문의작성.
 	@Override
-	public boolean UserWrite(BoardVO vo) {
-		return mapper.UserWrite(vo)==1;
+	public boolean scUserWrite(BoardVO vo) {
+		return mapper.scUserWrite(vo)==1;
 	}
-	
-	
+
 	
 }

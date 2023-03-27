@@ -54,20 +54,6 @@
 								<div class="form-floating" >
 								</div>
 							</div>
-
-<%-- 							<div class="col-md-6">
-								<div class="form-floating date" id="date3"
-									data-target-input="nearest">
-									<input type="text" class="form-control datetimepicker-input"
-										id="checkin" placeholder="Check In" data-target="#date3"
-										data-toggle="datetimepicker" /> <label for="checkin">${info.pdPrice}</label>
-								</div>
-							</div>
-							<div class="col-md-6">
-								<div class="form-floating date" id="date4"
-									data-target-input="nearest">${info.pdType}</div>
-							</div> --%>
-
 							<div class="col-12">
 								<div class="form-floating">
 									<textarea class="form-control" placeholder="Special Request"

@@ -3,57 +3,50 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ include file="../mypage/sidebar.jsp" %>
 
-<div style="margin: 100px auto 100px auto; width: 1000px; ">
-<!-- 사이드바 -->
-		  <div style="width: 200px; float: left;  ">
-                <p style="color:rgb(255, 255, 255); font-weight: 700; font-size: 25px;  background-color: #0f172b; text-align: center; padding: 20px; margin-bottom: 0; border-bottom: 5px solid #fea116;">관리자 모드</p>
-                 <div style="border: 2px solid rgb(230, 226, 226);  padding: 45px 20px; margin-top: 0 auto;">
-                     <a href="" style="color:black;">공지사항</a>
-                    <hr>
-                     <a href="scWriteForm.do" style="color:black;">1:1 문의하기(Q&#38;A)</a>
-                    <hr>
-                 </div>
-            </div>
-<!-- 사이드바 종료 -->            
-
-
-      
 <!-- 목록시작 -->            
 	<div style="float: left; margin-bottom: 50px; padding: 5px 40px;">
-		<h3> 쪽지 보내기 </h3>
+		<h3 style=""> 쪽지함 </h3>
+	<div style="float: left; margin-bottom: 50px; margin-top: 40px; padding: 5px 40px;">
+		<h3> 쪽지함 </h3>
 		<hr>
-		<div align="right"><a href ="scWriteForm.do"><input class="btn btn-primary" type="submit" value="글쓰기"></a></div>      
-		<table class="table" style="width: 720px; margin:auto">
+		<div align="right"><input class="btn btn-primary" type="submit" value="쪽지 보내기" onclick="openPopUp()"></div>
+		<h5 style="margin-bottom : 30px; margin-top : 40px">보낸쪽지함</h5>      
+		<table class="table" style="width: 720px; margin:auto; margin-bottom:20px;">
 			<thead>
-				<tr>
-					<th>글번호</th> 
-					<th>작성자</th>
-					<th>제목</th>
-					<th>내용</th>
-					<th>작성일</th>
+				<tr style="text-align : center;">
+					<th>받는 사람</th>
+					<th>내 용</th>
+					<th>보낸 날짜</th>
 				<tr>
 			</thead>
 			<tbody>
-				<c:forEach var="board" items="${list }">
+				<c:forEach var="message" items="${list }">
 					<tr>
-						<td>${board.getBId() }</td> 
-						<td>${board.getUserId() }</td>
-						<td><a href='scSearch.do?bId=${board.getBId() }'>${board.getBTitle() }</a></td>
-						<td>${board.getBContents() }</td>
-						<td><fmt:formatDate pattern="yyyy-MM-dd hh:mm:ss"
-								value="${board.getBWriteDate() }" /></td>
+						<td style="padding-left:25px">${message.getDmReceiver() }</td>
+						<td style="padding-left:25px"><a href='senderSearch.do?dmId=${message.getDmId() }'>${message.getDmBody() }</a></td>
+						<td style="text-align : center;"><fmt:formatDate pattern="yyyy-MM-dd hh:mm:ss" value="${message.getDmDate() }" /></td>
 					</tr>
 				</c:forEach>
-				
-				<c:forEach var="board" items="${list }">
+				</table>
+			
+			
+			<h5 style="margin-bottom : 30px; margin-top : 60px">받은 쪽지함</h5>	
+			<table class="table" style="width: 720px; margin:auto;">	
+			<thead>
+				<tr style="text-align : center;">
+					<th>보낸 사람</th>
+					<th>내 용</th>
+					<th>보낸 날짜</th>
+				<tr>
+			</thead>
+			
+				<c:forEach var="msg" items="${list2 }">
 					<tr>
-						<td>${board.getBId() }</td> 
-						<td>${board.getUserId() }</td>
-						<td><a href='scSearch.do?bId=${board.getBId() }'>${board.getBTitle() }</a></td>
-						<td>${board.getBContents() }</td>
-						<td><fmt:formatDate pattern="yyyy-MM-dd hh:mm:ss"
-								value="${board.getBWriteDate() }" /></td>
+						<td style="padding-left:25px">${msg.getDmSender() }</td>
+						<td style="padding-left:25px"><a href='senderSearch.do?dmId=${msg.getDmId() }'>${msg.getDmBody() }</a></td>
+						<td style="text-align : center;"><fmt:formatDate pattern="yyyy-MM-dd hh:mm:ss" value="${msg.getDmDate() }" /></td>
 					</tr>
 				</c:forEach>
 				
@@ -62,18 +55,20 @@
 		</table>
 		</div>
 </div>
-<div style="clear: both;">		
+<div style="clear: both; height:80px;">		
 </div>
+</div>
+<<<<<<< HEAD
+</div>
+=======
 	
-	<c:if test="${result !=null }">
-		<p>등록 결과 : ${result }</p>
-	</c:if>
-	<%
-	if (request.getAttribute("result") != null) {
-	%>
-	<p>
-		등록 결과 :
-		<%=request.getAttribute("result")%></p>
-	<%
-	}
-	%>
+<script>
+function openPopUp() {
+	// 함수 동작 테스트 
+	//alert("팝업 테스트");
+	
+	//window.open("[팝업을 띄울 파일명 path]", "[별칭]", "[팝업 옵션]")
+	 window.open("writeMsgForm.do", "Message", "width=400, height=360, top=150, left=200");
+}
+</script>
+>>>>>>> branch 'master' of https://github.com/jjang9a/StartWalk.git

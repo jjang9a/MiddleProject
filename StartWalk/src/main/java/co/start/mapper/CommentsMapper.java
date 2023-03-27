@@ -15,4 +15,7 @@ public interface CommentsMapper {
 	//댓글 삭제
 	public int deleteComments(int coId);
 	
+	// 메인화면 댓글 리스트
+	public List<CommentsVO> mainommentsList();
+	
 }

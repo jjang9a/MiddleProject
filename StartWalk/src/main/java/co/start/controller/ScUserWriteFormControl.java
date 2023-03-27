@@ -10,7 +10,7 @@ public class ScUserWriteFormControl implements Control {
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
 
-		return "mypage/ScUserWriteForm.tiles";
+		return "mypage/scUserWriteForm.tiles";
 	}
 
 }
