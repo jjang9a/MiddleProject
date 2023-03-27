@@ -6,8 +6,6 @@
 <%@ include file="../mypage/sidebar.jsp" %>
 
 <!-- 목록시작 -->            
-	<div style="float: left; margin-bottom: 50px; padding: 5px 40px;">
-		<h3 style=""> 쪽지함 </h3>
 	<div style="float: left; margin-bottom: 50px; margin-top: 40px; padding: 5px 40px;">
 		<h3> 쪽지함 </h3>
 		<hr>
