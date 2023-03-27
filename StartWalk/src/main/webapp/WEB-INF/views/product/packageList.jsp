@@ -98,12 +98,12 @@
 			<c:forEach begin="${page.startPage }" end="${page.endPage }" var="i">
 				<c:choose>
 					<c:when test="${i == page.page }">
-						<a class="active" href="packageList.do?page=${i }"style="color: black; background-color: blanchedalmond; padding: 2px; border-radius: 20%; text-align: center; margin:5px;">
+						<a class="active" href="packageList.do?page=${i }"style="color: rgb(255, 255, 255); background-color: #FEA116; padding: 2px; border-radius: 20%; text-align: center; margin:5px;">
 						&nbsp; ${i } &nbsp;</a>
 					</c:when>
 					<c:otherwise>
 						<a href="packageList.do?page=${i }"
-							style="color: black; background-color: blanchedalmond; padding: 2px; border-radius: 20%; text-align: center; margin:5px;">
+							style="color: rgb(255, 255, 255); background-color: #FEA116; padding: 2px; border-radius: 20%; text-align: center; margin:5px;">
 							&nbsp; ${i } &nbsp;</a>
 					</c:otherwise>
 				</c:choose>

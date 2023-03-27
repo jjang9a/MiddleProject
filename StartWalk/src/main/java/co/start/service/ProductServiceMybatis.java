@@ -77,8 +77,8 @@ public class ProductServiceMybatis implements ProductService{
 		return mapper.orderListdo();
 	}
 	@Override
-	public List<OrderVO> countOrderStatus() {		// 주문 상태.
-		return mapper.countOrderStatus();
+	public List<OrderVO> countOrderStatus(String id) {		// 주문 상태.
+		return mapper.countOrderStatus(id);
 	}
 	@Override
 	public boolean addPdreview(PdreviewVO vo) {		// 리뷰 작성.

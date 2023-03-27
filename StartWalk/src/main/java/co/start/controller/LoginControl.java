@@ -39,7 +39,7 @@ public class LoginControl implements Control {
 
 		// session 객체는 웹브라우저별로 계속 유지되는 정보를 담아놓기 좋은 객체.
 		
-		return "main/main.tiles";
+		return "main.do";
 
 	
 	 

@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.apache.jasper.tagplugins.jstl.core.ForEach;
 
@@ -27,9 +28,13 @@ public static PageDTO pageInfo = null;
 		}
 		
 		// 주문상태
+		HttpSession session = request.getSession();
+		UserVO login = (UserVO) session.getAttribute("loginUser");
+		
 		
 		ProductService serviceStatus = new ProductServiceMybatis();		
-		List<OrderVO> status = serviceStatus.countOrderStatus();
+		List<OrderVO> status = serviceStatus.countOrderStatus(login.getUserId());
+		System.out.println(login.getUserId());
 		System.out.println("status" + status);
 		
 		request.setAttribute("status", status);

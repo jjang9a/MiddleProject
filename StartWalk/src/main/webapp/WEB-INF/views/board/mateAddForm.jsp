@@ -10,8 +10,10 @@
 		</tr>
 		 <tr>
 		<td align="center" colspan="2">
-			<td>카테고리</td>
-			<td><input type="text" name="ca" value="WI=매칭게시판 WR=매칭후기게시판"></td>
+			<td><label for="type">카테고리</label></td><td><select id="type" name="type">
+				<option value="WI">동행</option>
+				<option value="WR">매칭후기</option>
+			</select>
 		</tr>	 
 		<tr>
 		<td align="center" colspan="2">

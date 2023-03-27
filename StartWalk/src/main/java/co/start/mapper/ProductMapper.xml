@@ -102,10 +102,10 @@
 	]]>
 </select>
 
-<select id="countOrderStatus" resultType="co.start.vo.OrderVO">
-	select  order_status, count(order_status) as status_count, user_id
+<select id="countOrderStatus" parameterType="String" resultType="co.start.vo.OrderVO">
+	select  order_status
 	from orders
-	group by order_status, user_id
+	where user_id = #{userId}
 </select>
 
 <select id="orderListdo" resultType="co.start.vo.ProductVO">
@@ -202,7 +202,7 @@
 	  select pd_id, pd_name, pd_price, pd_type ,pr_img
 	  from (select  rownum rn, pd_id, pd_name, pd_price, pd_type,pr_img
 	      from (select pd_id, pd_name, pd_price, pd_type,pr_img
-	            from product
+	            from product where pd_type='PR'
 	            order by pd_id) a
 	      where rownum <= (#{page} * 10) ) b
 	  where b.rn > (#{page} - 1) * 10
