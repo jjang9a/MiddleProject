@@ -13,7 +13,7 @@ button{
 
 <div style="margin: 100px auto 100px auto; width: 1000px; ">
 
-	<a href="" class="btn btn-sm btn-dark rounded py-2 px-4" style="float: right; margin: 0 10px">삭제</a>
+	<a href="travelBoardDel.do?bId=${info.getBId() }" class="btn btn-sm btn-dark rounded py-2 px-4" style="float: right; margin: 0 10px">삭제</a>
 	<a href="travelBoardList.do" class="btn btn-sm btn-dark rounded py-2 px-4" style="float: right;">목록</a>
 	
 	<h3>${info.getBHead() } ${info.getBTitle() }</h3>
