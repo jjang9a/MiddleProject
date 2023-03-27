@@ -75,7 +75,7 @@
                     <div class="col-lg-6">
                         <h6 class="section-title text-start text-primary text-uppercase">About Us</h6>
                         <h1 class="mb-4">일상의 <span class="text-primary text-uppercase">출</span>구가 되는<span class="text-primary text-uppercase">발</span>걸음</h1>
-                        <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet</p>
+                        <p class="mb-4">저희로 말할 것 같으면 4차 산업시대에 이끌어갈 예담직업학교에서 (디지텅컨버전스)클라우드 기반 Java 개발자 양성과정을 수강중인 차세대 인재들입니다! 현재 예담직업학교 5강의실에서 수련중에 있으며 현재까지 배운 것을 바탕으로 중간프로젝트를 진행했습니다.</p>
                         <br>
                         <br> 
                         <div class="row g-3 pb-4">
